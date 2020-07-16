@@ -6,7 +6,7 @@ Trabajo Práctico número 2 de la materia Algoritmos y Programación III de FIUB
 
 * AndresJalife - [104342](https://github.com/AndresJalife)
 * **Maximiliano Levi** - [104288](https://github.com/maxilevi)
-* **Integrante 3** - [integrante3](https://github.com/integrante3)
+* Damian Ganopolsky - [101168](https://github.com/DamianGanopolsky)
 * **Integrante 4** - [integrante4](https://github.com/integrante4)
 
 Corrector: **{Corrector}**
