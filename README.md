@@ -5,7 +5,7 @@ Trabajo Práctico número 2 de la materia Algoritmos y Programación III de FIUB
 ## Grupo {N}
 
 * AndresJalife - [104342](https://github.com/AndresJalife)
-* **Integrante 2** - [integrante2](https://github.com/integrante2)
+* **Maximiliano Levi** - [104288](https://github.com/maxilevi)
 * **Integrante 3** - [integrante3](https://github.com/integrante3)
 * **Integrante 4** - [integrante4](https://github.com/integrante4)
 
