@@ -4,11 +4,11 @@ Trabajo Práctico número 2 de la materia Algoritmos y Programación III de FIUB
 
 ## Grupo {N}
 
-* **AndresJalife** - [104342](https://github.com/AndresJalife)
-* **Maximiliano Levi** - [104288](https://github.com/maxilevi)
-* **Damian Ganopolsky** - [101168](https://github.com/DamianGanopolsky)
-* **Agustin Brasburg** - [104733](https://github.com/AgustinBrasburg)
-* **Nombre** - [Padron](https://github.com/MathiWelz)
+* **AndresJalife** - [104342][https://github.com/AndresJalife]
+* **Maximiliano Levi** - [104288][https://github.com/maxilevi]
+* **Damian Ganopolsky** - [101168][https://github.com/DamianGanopolsky]
+* **Agustin Brasburg** - [104733][https://github.com/AgustinBrasburg]
+* **Nombre** - [Padron][https://github.com/MathiWelz]
 
 Corrector: **{Corrector}**
 
