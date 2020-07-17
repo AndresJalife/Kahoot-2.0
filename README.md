@@ -8,7 +8,7 @@ Trabajo Práctico número 2 de la materia Algoritmos y Programación III de FIUB
 * **Maximiliano Levi** - [104288][https://github.com/maxilevi]
 * **Damian Ganopolsky** - [101168][https://github.com/DamianGanopolsky]
 * **Agustin Brasburg** - [104733][https://github.com/AgustinBrasburg]
-* **Nombre** - [Padron][https://github.com/MathiWelz]
+* **Mathias Welz** - [101552][https://github.com/MathiWelz]
 
 Corrector: **{Corrector}**
 
