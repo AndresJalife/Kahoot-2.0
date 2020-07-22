@@ -2,7 +2,7 @@
 
 Trabajo Práctico número 2 de la materia Algoritmos y Programación III de FIUBA
 
-## Grupo {N}
+## Grupo {07}
 
 * **AndresJalife** - [104342][https://github.com/AndresJalife]
 * **Maximiliano Levi** - [104288][https://github.com/maxilevi]
@@ -10,7 +10,7 @@ Trabajo Práctico número 2 de la materia Algoritmos y Programación III de FIUB
 * **Agustin Brasburg** - [104733][https://github.com/AgustinBrasburg]
 * **Mathias Welz** - [101552][https://github.com/MathiWelz]
 
-Corrector: **{Corrector}**
+Corrector: **{Sebastián Blázquez}**
 
 ### Pre-requisitos
 
