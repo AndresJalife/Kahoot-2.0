@@ -6,10 +6,10 @@ public class Pregunta {
     String pregunta;
     List<String> opciones;
     List<String> respuestas;
-    Tipo tipo;
-    Modo modo;
+    ITipoDePregunta tipo;
+    IModoDePregunta modo;
 
-    public Pregunta(String pregunta, List<String> opciones, List<String> respuestas,Tipo tipo,Modo modo) {
+    public Pregunta(String pregunta, List<String> opciones, List<String> respuestas,ITipoDePregunta tipo,IModoDePregunta modo) {
         this.pregunta = pregunta;
         this.opciones = opciones;
         this.respuestas = respuestas;
@@ -20,7 +20,7 @@ public class Pregunta {
         return respuestas;
     }
 
-    public double calcularPuntaje(List<String> respuestasJugador){
+    public int calcularPuntaje(List<String> respuestasJugador){
         if(respuestas.equals(respuestasJugador)){
             return 1;
         }
