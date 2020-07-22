@@ -16,7 +16,7 @@ public class MessageTest {
     }
 
     @Test
-    public void ingresarRespuestaVerdaderoFalsoClasico() {
+    public void ingresarRespuestaVerdaderoFalsoClasico(){
         List<String> opciones = new ArrayList<>();
         List<String> respuestas = new ArrayList<>();
 
@@ -24,16 +24,16 @@ public class MessageTest {
         opciones.add("Falso");
         respuestas.add("Verdadero");
 
-        Pregunta pregunta = new Pregunta("2 + 2 = 4", opciones, respuestas, ITipoDePregunta.VerdaderoFalso, IModoDePregunta.Clasico);
+        Pregunta pregunta = new Pregunta("2 + 2 = 4", opciones, respuestas, Tipo.VerdaderoFalso, Modo.Clasico);
 
-        assertEquals(respuestas, pregunta.getRespuesta());
+        assertEquals(respuestas,pregunta.getRespuesta());
     }
 
 
     //Una Pregunta de Verdadero/Falso clásico recibe una lista de respuestas y asigna
     //correctamente puntos a los jugadores que respondieron correctamente
     @Test
-    public void ingresarListaRespuestasYAsignarPuntosAJugador() {
+    public void ingresarListaRespuestasYAsignarPuntosAJugador(){
         List<String> opciones = new ArrayList<>();
         List<String> respuestas = new ArrayList<>();
         List<String> respuestasJugador = new ArrayList<>();
@@ -44,7 +44,7 @@ public class MessageTest {
         respuestas.add("Verdadero");
         respuestasJugador.add("Falso");
 
-        Pregunta pregunta = new Pregunta("2 + 2 = 4", opciones, respuestas, ITipoDePregunta.VerdaderoFalso, IModoDePregunta.Clasico);
+        Pregunta pregunta = new Pregunta("2 + 2 = 4", opciones, respuestas, Tipo.VerdaderoFalso, Modo.Clasico);
 
         jugador.agregarRespuestas(respuestasJugador);
         jugador.agregarPuntaje(pregunta.calcularPuntaje(jugador.getRespuestas()));
