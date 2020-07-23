@@ -7,13 +7,7 @@ import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-public class MessageTest {
-    @Test
-    public void messageGreeting() {
-        Message message = new Message("Hello world!");
-
-        assertEquals("Hello world!", message.greet());
-    }
+public class VerdaderoFalsoClasicoTest {
 
     @Test
     public void ingresarRespuestaVerdaderoFalsoClasico() {
@@ -30,8 +24,6 @@ public class MessageTest {
     }
 
 
-    //Una Pregunta de Verdadero/Falso clásico recibe una lista de respuestas y asigna
-    //correctamente puntos a los jugadores que respondieron correctamente
     @Test
     public void ingresarListaRespuestasYAsignarPuntosAJugador() {
         List<String> opciones = new ArrayList<>();

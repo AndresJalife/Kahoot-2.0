@@ -1,5 +1,7 @@
 # TP2 Algoritmos 3: {nombre}
 
+[![Build Status](https://travis-ci.org/AndresJalife/TP2-Algo3.svg?branch=master)](https://travis-ci.org/AndresJalife/TP2-Algo3)
+
 Trabajo Práctico número 2 de la materia Algoritmos y Programación III de FIUBA
 
 ## Grupo {07}
