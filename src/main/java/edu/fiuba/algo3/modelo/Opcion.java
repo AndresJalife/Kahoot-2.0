@@ -1,15 +1,15 @@
 package edu.fiuba.algo3.modelo;
 
 public class Opcion {
-    private String textoamostrar;
+    private String textoAMostrar;
     private Boolean estabien = false;
 
     public Opcion(String texto)
     {
-        this.textoamostrar = texto;
+        this.textoAMostrar = texto;
     }
 
-    public Opcion_Correcta()
+    public void Opcion_Correcta()
     {
         this.estabien = true;
     }
