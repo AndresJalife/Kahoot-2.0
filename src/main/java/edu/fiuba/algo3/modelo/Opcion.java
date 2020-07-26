@@ -7,4 +7,6 @@ public class Opcion {
     public Opcion(String texto){ this.textoamostrar = texto; }
 
     public void Opcion_Correcta(){ this.estabien = true; }
+
+    public Boolean Respuesta(){ return estabien; }
 }
