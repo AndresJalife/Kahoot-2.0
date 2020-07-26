@@ -38,6 +38,7 @@ public class VerdaderoFalsoClasicoTest {
 
         opciones.add(Verdadero);
         opciones.add(Falso);
+        respuestasJugador.add(Verdadero);
 
         Pregunta pregunta = new Pregunta("2 + 2 = 4", opciones, ITipoDePregunta.VerdaderoFalso, IModoDePregunta.Clasico);
 
