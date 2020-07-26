@@ -4,7 +4,7 @@ import java.util.List;
 
 public class Jugador {
 
-    private List<String> respuestas;
+    private List<Opcion> respuestas;
     private int puntaje;
     private String nombre;
 
@@ -13,7 +13,7 @@ public class Jugador {
         this.nombre = nombre;
     }
 
-    public void agregarRespuestas(List<String> respuestas)
+    public void agregarRespuestas(List<Opcion> respuestas)
     {
         this.respuestas = respuestas;
     }
@@ -23,7 +23,7 @@ public class Jugador {
         return this.puntaje;
     }
 
-    public List<String> getRespuestas()
+    public List<Opcion> getRespuestas()
     {
         return this.respuestas;
     }

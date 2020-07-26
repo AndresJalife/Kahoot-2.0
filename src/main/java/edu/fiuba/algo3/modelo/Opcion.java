@@ -4,13 +4,7 @@ public class Opcion {
     private String textoamostrar;
     private Boolean estabien = false;
 
-    public Opcion(String texto)
-    {
-        this.textoamostrar = texto;
-    }
+    public Opcion(String texto){ this.textoamostrar = texto; }
 
-    public Opcion_Correcta()
-    {
-        this.estabien = true;
-    }
+    public void Opcion_Correcta(){ this.estabien = true; }
 }

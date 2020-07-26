@@ -11,12 +11,15 @@ public class VerdaderoFalsoClasicoTest {
 
     @Test
     public void ingresarRespuestaVerdaderoFalsoClasico() {
-        List<String> opciones = new ArrayList<>();
-        List<String> respuestas = new ArrayList<>();
+        List<Opcion> opciones = new ArrayList<>();
+        List<Opcion> respuestas = new ArrayList<>();
+        Opcion Verdadero = new Opcion("Verdadero");
+        Opcion Falso = new Opcion("Falso");
+        Verdadero.Opcion_Correcta();
+        respuestas.add(Verdadero);
 
-        opciones.add("Verdadero");
-        opciones.add("Falso");
-        respuestas.add("Verdadero");
+        opciones.add(Verdadero);
+        opciones.add(Falso);
 
         Pregunta pregunta = new Pregunta("2 + 2 = 4", opciones, respuestas, ITipoDePregunta.VerdaderoFalso, IModoDePregunta.Clasico);
 
@@ -26,15 +29,17 @@ public class VerdaderoFalsoClasicoTest {
 
     @Test
     public void ingresarListaRespuestasYAsignarPuntosAJugador() {
-        List<String> opciones = new ArrayList<>();
-        List<String> respuestas = new ArrayList<>();
-        List<String> respuestasJugador = new ArrayList<>();
+        List<Opcion> opciones = new ArrayList<>();
+        List<Opcion> respuestas = new ArrayList<>();
+        List<Opcion> respuestasJugador = new ArrayList<>();
         Jugador jugador = new Jugador("Mathias");
+        Opcion Verdadero = new Opcion("Verdadero");
+        Opcion Falso = new Opcion("Falso");
+        Verdadero.Opcion_Correcta();
 
-        opciones.add("Verdadero");
-        opciones.add("Falso");
-        respuestas.add("Verdadero");
-        respuestasJugador.add("Falso");
+        respuestas.add(Verdadero);
+        opciones.add(Verdadero);
+        opciones.add(Falso);
 
         Pregunta pregunta = new Pregunta("2 + 2 = 4", opciones, respuestas, ITipoDePregunta.VerdaderoFalso, IModoDePregunta.Clasico);
 

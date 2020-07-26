@@ -4,23 +4,23 @@ import java.util.List;
 
 public class Pregunta {
     String pregunta;
-    List<String> opciones;
-    List<String> respuestas;
+    List<Opcion> opciones;
+    List<Opcion> respuestas;
     ITipoDePregunta tipo;
     IModoDePregunta modo;
 
-    public Pregunta(String pregunta, List<String> opciones, List<String> respuestas,ITipoDePregunta tipo,IModoDePregunta modo) {
+    public Pregunta(String pregunta, List<Opcion> opciones, List<Opcion> respuestas,ITipoDePregunta tipo,IModoDePregunta modo) {
         this.pregunta = pregunta;
         this.opciones = opciones;
         this.respuestas = respuestas;
         this.tipo = tipo;
         this.modo = modo;
     }
-    public List<String> getRespuesta() {
+    public List<Opcion> getRespuesta() {
         return respuestas;
     }
 
-    public int calcularPuntaje(List<String> respuestasJugador){
+    public int calcularPuntaje(List<Opcion> respuestasJugador){
         if(respuestas.equals(respuestasJugador)){
             return 1;
         }
