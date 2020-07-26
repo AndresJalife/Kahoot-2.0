@@ -45,7 +45,7 @@ public class VerdaderoFalsoClasicoTest {
         jugador.agregarRespuestas(respuestasJugador);
         jugador.agregarPuntaje(pregunta.calcularPuntaje(jugador.getRespuestas()));
 
-        assertEquals(0, jugador.obtenerPuntaje());
+        assertEquals(1, jugador.obtenerPuntaje());
     }
 
 
