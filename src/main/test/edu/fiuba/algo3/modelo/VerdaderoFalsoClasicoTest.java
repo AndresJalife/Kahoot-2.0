@@ -21,7 +21,7 @@ public class VerdaderoFalsoClasicoTest {
         opciones.add(Verdadero);
         opciones.add(Falso);
 
-        Pregunta pregunta = new Pregunta("2 + 2 = 4", opciones, respuestas, ITipoDePregunta.VerdaderoFalso, IModoDePregunta.Clasico);
+        Pregunta pregunta = new Pregunta("2 + 2 = 4", opciones, ITipoDePregunta.VerdaderoFalso, IModoDePregunta.Clasico);
 
         assertEquals(respuestas, pregunta.getRespuesta());
     }
@@ -30,18 +30,16 @@ public class VerdaderoFalsoClasicoTest {
     @Test
     public void ingresarListaRespuestasYAsignarPuntosAJugador() {
         List<Opcion> opciones = new ArrayList<>();
-        List<Opcion> respuestas = new ArrayList<>();
         List<Opcion> respuestasJugador = new ArrayList<>();
         Jugador jugador = new Jugador("Mathias");
         Opcion Verdadero = new Opcion("Verdadero");
         Opcion Falso = new Opcion("Falso");
         Verdadero.Opcion_Correcta();
 
-        respuestas.add(Verdadero);
         opciones.add(Verdadero);
         opciones.add(Falso);
 
-        Pregunta pregunta = new Pregunta("2 + 2 = 4", opciones, respuestas, ITipoDePregunta.VerdaderoFalso, IModoDePregunta.Clasico);
+        Pregunta pregunta = new Pregunta("2 + 2 = 4", opciones, ITipoDePregunta.VerdaderoFalso, IModoDePregunta.Clasico);
 
         jugador.agregarRespuestas(respuestasJugador);
         jugador.agregarPuntaje(pregunta.calcularPuntaje(jugador.getRespuestas()));
