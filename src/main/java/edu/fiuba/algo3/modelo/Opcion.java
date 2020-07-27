@@ -9,4 +9,8 @@ public class Opcion {
     public void Opcion_Correcta(){ this.estabien = true; }
 
     public Boolean Respuesta(){ return estabien; }
+
+    public String obtenerTextoamostrar() {
+        return textoamostrar;
+    }
 }

@@ -7,9 +7,10 @@ public class RondaExclusividad implements IRonda {
     private Pregunta preguntaActual;
     private List<IModificador> exclusividades;
 
-    public void RondaExclusividad(Pregunta pregunta){
+    public RondaExclusividad(Pregunta pregunta, List<Jugador> jugadores){
         preguntaActual = pregunta;
         exclusividades = new ArrayList<>();
+
     }
 
     @Override
@@ -25,7 +26,13 @@ public class RondaExclusividad implements IRonda {
         List<Opcion> respuestas = jugador.getRespuestas();
 
         int puntaje = this.preguntaActual.calcularPuntaje(respuestas);
-
         jugador.agregarPuntaje(puntaje);
+    }
+
+    public void comenzar(){
+        this.mostrarPregunta();
+        this.mostrarModificadores();
+        this.pedirRespuesta();
+        this.mostrarRespuesta();
     }
 }

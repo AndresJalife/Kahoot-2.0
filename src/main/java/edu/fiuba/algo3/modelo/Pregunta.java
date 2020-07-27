@@ -15,7 +15,12 @@ public class Pregunta {
         this.tipo = tipo;
         this.modo = modo;
     }
-    public List<Opcion> getRespuesta() {
+
+    public List<Opcion> obtenerOpciones() {
+        return opciones;
+    }
+
+    public List<Opcion> obtenerRespuestasCorrecta() {
         List<Opcion> respuestas = new ArrayList<>();
         for(Opcion opcion:opciones){
             if(opcion.Respuesta())
