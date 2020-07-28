@@ -7,4 +7,9 @@ public class ModoConPenalidad implements IModoDePregunta {
         /* Suma puntos por correctas y resta por incorrectas */
         return respuestasCorrectasJugador - respuestasIncorrectasJugador;
     }
+
+    @Override
+    public boolean tienePenalidad() {
+        return true;
+    }
 }

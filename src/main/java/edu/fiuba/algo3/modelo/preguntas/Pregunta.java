@@ -5,7 +5,7 @@ import java.util.List;
 
 public class Pregunta {
     private String textoPregunta;
-    private Opcion[] respuestasPosibles;
+    private List<Opcion> respuestasPosibles;
     private ITipoDePregunta tipo;
     private IModoDePregunta modo;
     private int tiempo;
@@ -14,11 +14,16 @@ public class Pregunta {
 
     public Pregunta(String textoPregunta, List<Opcion> opcionesPosibles, int tiempo, int puntajePorRespuesta, ITipoDePregunta tipo, IModoDePregunta modo) {
         this.textoPregunta = textoPregunta;
-        this.respuestasPosibles = opcionesPosibles.toArray(Opcion[]::new);
+        this.respuestasPosibles = opcionesPosibles;
         this.puntajePorRespuesta = puntajePorRespuesta;
         this.tiempo = tiempo;
         this.tipo = tipo;
         this.modo = modo;
+    }
+
+    public boolean tienePenalidad()
+    {
+        return modo.tienePenalidad();
     }
 
     public String obtenerTexto()
@@ -30,27 +35,27 @@ public class Pregunta {
         return tiempo;
     }
 
-    public Opcion[] obtenerOpciones() {
+    public List<Opcion> obtenerOpciones() {
         return respuestasPosibles;
     }
 
-    public Opcion[] obtenerRespuestasCorrectas() {
+    public List<Opcion> obtenerRespuestasCorrectas() {
         List<Opcion> respuestas = new ArrayList<>();
-        for(var opcion : respuestasPosibles) {
+        for(Opcion opcion : respuestasPosibles) {
             if(opcion.esCorrecta())
                 respuestas.add(opcion);
         }
-        return respuestas.toArray(Opcion[]::new);
+        return respuestas;
     }
 
-    public int calcularPuntaje(int[] respuestasJugador) {
+    public int calcularPuntaje(List<Opcion> respuestasJugador) {
         var respuestasCorrectas = obtenerRespuestasCorrectas();
-        var totalCorrectas = respuestasCorrectas.length;
+        var totalCorrectas = respuestasCorrectas.size();
         var correctas = 0;
         var incorrectas = 0;
 
-        for (int value : respuestasJugador) {
-            if(respuestasPosibles[value].esCorrecta())
+        for (Opcion opcion : respuestasJugador) {
+            if(opcion.esCorrecta())
                 correctas++;
             else
                 incorrectas++;

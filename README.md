@@ -1,4 +1,4 @@
-# TP2 Algoritmos 3: {nombre}
+# TP2 Algoritmos 3:
 
 [![Build Status](https://travis-ci.org/AndresJalife/TP2-Algo3.svg?branch=master)](https://travis-ci.org/AndresJalife/TP2-Algo3)
 

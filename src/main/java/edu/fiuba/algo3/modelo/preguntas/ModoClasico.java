@@ -7,4 +7,9 @@ public class ModoClasico implements IModoDePregunta {
         /* Solo suma si tiene todas correctas */
         return respuestasCorrectasTotales == respuestasCorrectasJugador ? respuestasCorrectasJugador : 0;
     }
+
+    @Override
+    public boolean tienePenalidad() {
+        return false;
+    }
 }

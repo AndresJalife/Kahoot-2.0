@@ -1,4 +1,4 @@
-package edu.fiuba.algo3.modelo;
+package edu.fiuba.algo3.modelo.general;
 
 import edu.fiuba.algo3.modelo.preguntas.Opcion;
 import edu.fiuba.algo3.modelo.preguntas.Pregunta;
@@ -9,24 +9,16 @@ import java.util.List;
 public class RondaNormal implements IRonda {
 
 
-    private Pregunta preguntaActual;
+    protected Pregunta preguntaActual;
     private HashMap<Jugador, Multiplicador> multiplicadores;
-    private List<Jugador> jugadores;
-    private HashMap<Jugador, int[]> respuestasDeJugadores;
+    protected List<Jugador> jugadores;
+    protected HashMap<Jugador, List<Opcion>> respuestasDeJugadores;
 
     public RondaNormal(Pregunta pregunta, List<Jugador> nuevosJugadores) {
         preguntaActual = pregunta;
         jugadores = nuevosJugadores;
         respuestasDeJugadores = new HashMap<>();
     }
-
-    //    @Override
-    //    public void agregarExclusividad(IModificador exclusividad) throws MultiplicadorEnRondaExclusivaError {
-    //        throw new MultiplicadorEnRondaExclusivaError();
-    //    }
-    //
-    //    @Override
-    //    public void agregarMultiplicador(IModificador multiplicador){multiplicadores.add(multiplicador);}
 
     @Override
     public void mostrarPregunta() {
@@ -36,8 +28,8 @@ public class RondaNormal implements IRonda {
 
     @Override
     public void mostrarModificadores(Jugador jugador) {
-        MultiplicadorX2 x2 = jugador.obtenerMultiplicadorX2();
-        MultiplicadorX3 x3 = jugador.obtenerMultiplicadorX3();
+        Multiplicadorx2 x2 = jugador.obtenerMultiplicadorX2();
+        Multiplicadorx3 x3 = jugador.obtenerMultiplicadorX3();
         if (x2.quedanUsos()){
             System.out.println("X2");
         }
@@ -79,8 +71,8 @@ public class RondaNormal implements IRonda {
     }
 
     @Override
-    public void comenzar(){
-        for(Jugador jugador:jugadores) {
+    public void comenzar() {
+        for (Jugador jugador:jugadores) {
             this.mostrarPregunta();
             this.mostrarModificadores(jugador);
             this.mostrarPosiblesRespuestas();
