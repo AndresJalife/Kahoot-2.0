@@ -13,4 +13,10 @@ public class TestUnitarioMultix3 {
         assertTrue(x3.quedanUsos());
     }
 
+    @Test
+    public void CrearMultiplicadorx3YVerificarQueElFactorEs3(){
+        Multiplicadorx3 x3= new Multiplicadorx3();
+        assertTrue(x3.obtenerFactor()==3);
+    }
+
 }
