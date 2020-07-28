@@ -4,11 +4,13 @@ public class Exclusividad implements IModificador {
     private int Cantidad = 2;
 
     public int obtenerCantidad(){
+
         return Cantidad;
     }
 
     @Override
     public void utilizar(){
+
         Cantidad--;
     }
 }
