@@ -1,8 +1,7 @@
-package edu.fiuba.algo3.modelo;
+package edu.fiuba.algo3.modelo.preguntas;
 
 public interface IModoDePregunta {
 
-     IModoDePregunta Clasico = null;
+    int calcularPuntaje(int respuestasCorrectasTotales, int respuestasIncorrectasJugador, int respuestasCorrectasJugador);
 
-     IModoDePregunta Penalidad = null;
 }
