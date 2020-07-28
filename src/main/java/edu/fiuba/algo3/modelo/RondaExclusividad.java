@@ -14,13 +14,4 @@ public class RondaExclusividad extends RondaNormal {
         super(pregunta, jugadores);
     }
 
-    @Override
-    public void agregarExclusividad(Jugador jugador, Exclusividad modificador) throws MultiplicadorEnRondaExclusivaError {
-        exclusividades.put(jugador, modificador);
-    }
-
-    @Override
-    public void agregarMultiplicador(Jugador jugador, Multiplicador modificador) throws ExclusividadEnRondaNormalError {
-        throw new ExclusividadEnRondaNormalError();
-    }
 }

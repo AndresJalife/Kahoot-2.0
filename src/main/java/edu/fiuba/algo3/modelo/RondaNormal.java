@@ -21,16 +21,6 @@ public class RondaNormal implements IRonda {
     }
 
     @Override
-    public void agregarExclusividad(Jugador jugador, Exclusividad exclusividad) throws MultiplicadorEnRondaExclusivaError {
-        throw new MultiplicadorEnRondaExclusivaError();
-    }
-
-    @Override
-    public void agregarMultiplicador(Jugador jugador, Multiplicador multiplicador) throws ExclusividadEnRondaNormalError {
-        multiplicadores.put(jugador, multiplicador);
-    }
-
-    @Override
     public void mostrarPregunta() {
 
         System.out.println(preguntaActual.obtenerTexto());
