@@ -12,7 +12,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 public class MultipleChoiceConParcialTest {
 
     @Test
-    public void ingresarRespuestaVerdaderoFalsoClasico() {
+    public void ingresarRespuestaMultipleChoiceConParcial() {
         List<Opcion> opciones = new ArrayList<>();
         List<Opcion> respuestas = new ArrayList<>();
         var Opcion1 = new Opcion("Si", true);
@@ -31,7 +31,7 @@ public class MultipleChoiceConParcialTest {
     }
 
     @Test
-    public void ingresarRespuestaVerdaderoFalsoClasicoYContestaBien() {
+    public void ingresarRespuestaMultipleChoiceConParcialYContestaBien() {
         List<Opcion> opciones = new ArrayList<>();
         List<Opcion> respuestas = new ArrayList<>();
         Jugador jugador = new Jugador("Jorge");
@@ -53,7 +53,7 @@ public class MultipleChoiceConParcialTest {
     }
 
     @Test
-    public void ingresarRespuestaVerdaderoFalsoClasicoYContestaParcialmenteBien() {
+    public void ingresarRespuestaMultipleChoiceYContestaParcialmenteBien() {
         List<Opcion> opciones = new ArrayList<>();
         List<Opcion> respuestas = new ArrayList<>();
         Jugador jugador = new Jugador("Jorge");
@@ -74,7 +74,7 @@ public class MultipleChoiceConParcialTest {
     }
 
     @Test
-    public void ingresarRespuestaVerdaderoFalsoClasicoYContestaMal() {
+    public void ingresarRespuestaMultipleChoiceClasicoYContestaMal() {
         List<Opcion> opciones = new ArrayList<>();
         List<Opcion> respuestas = new ArrayList<>();
         Jugador jugador = new Jugador("Jorge");
