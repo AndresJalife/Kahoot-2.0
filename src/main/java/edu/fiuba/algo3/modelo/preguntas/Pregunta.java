@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Pregunta {
-    private String pregunta;
+    private String textoPregunta;
     private Opcion[] respuestasPosibles;
     private ITipoDePregunta tipo;
     private IModoDePregunta modo;
@@ -12,13 +12,18 @@ public class Pregunta {
     private int puntajePorRespuesta;
 
 
-    public Pregunta(String pregunta, List<Opcion> opcionesPosibles, int tiempo, int puntajePorRespuesta, ITipoDePregunta tipo, IModoDePregunta modo) {
-        this.pregunta = pregunta;
+    public Pregunta(String textoPregunta, List<Opcion> opcionesPosibles, int tiempo, int puntajePorRespuesta, ITipoDePregunta tipo, IModoDePregunta modo) {
+        this.textoPregunta = textoPregunta;
         this.respuestasPosibles = opcionesPosibles.toArray(Opcion[]::new);
         this.puntajePorRespuesta = puntajePorRespuesta;
         this.tiempo = tiempo;
         this.tipo = tipo;
         this.modo = modo;
+    }
+
+    public String obtenerTexto()
+    {
+        return textoPregunta;
     }
 
     public int obtenerTiempo() {
