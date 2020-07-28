@@ -31,7 +31,6 @@ public class TestUnitarioMultix3 {
     public void UtilizoElMultiplicadorYNoLeQuedanUsos(){
         Multiplicadorx3 x3= new Multiplicadorx3();
         x3.utilizar();
-        x3.utilizar();
         assertFalse(x3.quedanUsos());
     }
 }
