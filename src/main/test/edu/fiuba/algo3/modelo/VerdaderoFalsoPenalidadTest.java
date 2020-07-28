@@ -26,7 +26,7 @@ public class VerdaderoFalsoPenalidadTest {
 
         Pregunta pregunta = new Pregunta("2 + 2 = 4", opciones, ITipoDePregunta.VerdaderoFalso, IModoDePregunta.Penalidad);
 
-        assertEquals(respuestas, pregunta.obtenerRespuestasCorrecta());
+        assertEquals(respuestas, pregunta.obtenerRespuestasCorrectas());
     }
 
 
