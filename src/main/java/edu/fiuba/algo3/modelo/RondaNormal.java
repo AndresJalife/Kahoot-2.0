@@ -1,5 +1,8 @@
 package edu.fiuba.algo3.modelo;
 
+import edu.fiuba.algo3.modelo.preguntas.Opcion;
+import edu.fiuba.algo3.modelo.preguntas.Pregunta;
+
 import java.util.HashMap;
 import java.util.List;
 
@@ -9,11 +12,12 @@ public class RondaNormal implements IRonda {
     private Pregunta preguntaActual;
     private HashMap<Jugador, Multiplicador> multiplicadores;
     private List<Jugador> jugadores;
-    private HashMap<Jugador, List<Opcion>> respuestasDeJugadores;
+    private HashMap<Jugador, int[]> respuestasDeJugadores;
 
-    public RondaNormal(Pregunta pregunta, List<Jugador> nuevosJugadores){
+    public RondaNormal(Pregunta pregunta, List<Jugador> nuevosJugadores) {
         preguntaActual = pregunta;
         jugadores = nuevosJugadores;
+        respuestasDeJugadores = new HashMap<>();
     }
 
     //    @Override
@@ -25,12 +29,13 @@ public class RondaNormal implements IRonda {
     //    public void agregarMultiplicador(IModificador multiplicador){multiplicadores.add(multiplicador);}
 
     @Override
-    public void mostrarPregunta(){
-        System.out.println(preguntaActual.getPregunta());
+    public void mostrarPregunta() {
+
+        System.out.println(preguntaActual.obtenerTexto());
     }
 
     @Override
-    public void mostrarModificadores(Jugador jugador){
+    public void mostrarModificadores(Jugador jugador) {
         MultiplicadorX2 x2 = jugador.obtenerMultiplicadorX2();
         MultiplicadorX3 x3 = jugador.obtenerMultiplicadorX3();
         if (x2.quedanUsos()){
@@ -44,32 +49,32 @@ public class RondaNormal implements IRonda {
     }
 
     @Override
-    public void mostrarPosiblesRespuestas(){
+    public void mostrarPosiblesRespuestas() {
         for(Opcion opcion: preguntaActual.obtenerOpciones()) {
-            System.out.println(opcion.obtenerTextoamostrar());
+            System.out.println(opcion.obtenerTexto());
         }
 //        VER COMO SE PUEDEN MOSTRAR TODAS JUNTAS
     }
 
     @Override
-    public void pedirRespuesta(Jugador jugador){
-        respuestasDeJugadores.put(jugador, input(Opcion opcion));
+    public void pedirRespuesta(Jugador jugador) {
+        //respuestasDeJugadores.put(jugador, input(Opcion opcion));
 //        CORREGIR EL INPUT
     }
 
     @Override
     public void mostrarRespuestaCorrecta(){
-        for(Opcion opcion: preguntaActual.obtenerRespuestasCorrecta()) {
-            System.out.println(opcion.obtenerTextoamostrar());
+        for(Opcion opcion: preguntaActual.obtenerRespuestasCorrectas()) {
+            System.out.println(opcion.obtenerTexto());
         }
     }
 
     @Override
     public void actualizar(Jugador jugador) {
-        List<Opcion> respuestas = jugador.getRespuestas();
+        var respuestas = respuestasDeJugadores.get(jugador);
 
-        int puntajeBase = this.preguntaActual.calcularPuntaje(respuestas);
-        puntajeBase = (multiplicadores.get(jugador)).modificarPuntaje(puntajeBase);
+        int puntaje = this.preguntaActual.calcularPuntaje(respuestas);
+        puntaje = (multiplicadores.get(jugador)).modificarPuntaje(puntaje);
         jugador.agregarPuntaje(puntaje);
     }
 
