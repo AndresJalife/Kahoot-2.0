@@ -1,10 +1,8 @@
 package edu.fiuba.algo3.modelo.TestUnitarios;
 import edu.fiuba.algo3.modelo.general.Multiplicadorx2;
-import edu.fiuba.algo3.modelo.general.Multiplicadorx3;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.assertFalse;
-import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.*;
 
 public class TestUnitarioMultix2 {
 
@@ -19,14 +17,14 @@ public class TestUnitarioMultix2 {
     public void CrearMultiplicadorx2YVerificarQueModificaCorrectamenteUnPuntaje(){
         Multiplicadorx2 x2= new Multiplicadorx2();
         int puntaje = 3;
-        assertTrue(x2.modificarPuntaje(puntaje)==6);
+        assertEquals(x2.modificarPuntaje(puntaje), 6);
     }
 
     @Test
     public void CrearMultiplicadorx2YVerificarQueModificaCorrectamenteUnPuntajeNegativo(){
-        Multiplicadorx3 x3= new Multiplicadorx3();
+        Multiplicadorx2 x2= new Multiplicadorx2();
         int puntaje = -4;
-        assertTrue(x3.modificarPuntaje(puntaje) == -8);
+        assertEquals(x2.modificarPuntaje(puntaje), -8);
     }
 
     @Test
