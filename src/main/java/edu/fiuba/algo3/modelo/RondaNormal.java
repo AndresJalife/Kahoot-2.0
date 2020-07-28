@@ -38,8 +38,8 @@ public class RondaNormal implements IRonda {
 
     @Override
     public void mostrarModificadores(Jugador jugador) {
-        MultiplicadorX2 x2 = jugador.obtenerMultiplicadorX2();
-        MultiplicadorX3 x3 = jugador.obtenerMultiplicadorX3();
+        Multiplicadorx2 x2 = jugador.obtenerMultiplicadorX2();
+        Multiplicadorx3 x3 = jugador.obtenerMultiplicadorX3();
         if (x2.quedanUsos()){
             System.out.println("X2");
         }
