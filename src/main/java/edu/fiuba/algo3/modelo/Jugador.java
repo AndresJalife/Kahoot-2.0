@@ -1,6 +1,7 @@
 package edu.fiuba.algo3.modelo;
 
-import java.util.Dictionary;
+import edu.fiuba.algo3.modelo.preguntas.Opcion;
+
 import java.util.HashMap;
 import java.util.List;
 

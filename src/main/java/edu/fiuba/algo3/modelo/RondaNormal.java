@@ -1,5 +1,6 @@
 package edu.fiuba.algo3.modelo;
 
+import edu.fiuba.algo3.modelo.preguntas.Opcion;
 import edu.fiuba.algo3.modelo.preguntas.Pregunta;
 
 import java.util.HashMap;
@@ -61,7 +62,7 @@ public class RondaNormal implements IRonda {
 
     @Override
     public void mostrarRespuestaCorrecta(){
-        for(Opcion opcion: preguntaActual.obtenerRespuestasCorrecta()) {
+        for(Opcion opcion: preguntaActual.obtenerRespuestasCorrectas()) {
             System.out.println(opcion.obtenerTextoamostrar());
         }
     }
