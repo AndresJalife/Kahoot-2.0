@@ -13,9 +13,12 @@ public class Exclusividad implements IModificador {
         return (cantUsos!=0);
     }
 
-
     @Override
     public void utilizar(){
         cantUsos--;
+    }
+
+    public int modificarPuntaje(int puntaje){
+        return puntaje * 2;
     }
 }
