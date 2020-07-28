@@ -6,12 +6,7 @@ public class Exclusividad implements IModificador {
 
     public int getCantidad(){ return Cantidad; }
 
-    @Override
-    public boolean UsarModificador(){
-        if(Cantidad > 0){
-            Cantidad --;
-            return true;
-        }
-        return false;
+    public void utilizar(){
+        Cantidad--;
     }
 }

@@ -5,6 +5,7 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class TestUnitarioMultix2 {
 
@@ -19,21 +20,21 @@ public class TestUnitarioMultix2 {
     public void CrearMultiplicadorx2YVerificarQueModificaCorrectamenteUnPuntaje(){
         Multiplicadorx2 x2= new Multiplicadorx2();
         int puntaje = 3;
-        assertTrue(x2.modificarPuntaje(puntaje)==6);
+        assertEquals(-6, x2.modificarPuntaje(puntaje));
     }
 
     @Test
     public void CrearMultiplicadorx2YVerificarQueModificaCorrectamenteUnPuntajeNegativo(){
-        Multiplicadorx3 x3= new Multiplicadorx3();
+        Multiplicadorx2 x2= new Multiplicadorx2();
         int puntaje = -4;
-        assertTrue(x3.modificarPuntaje(puntaje) == -8);
+        assertEquals(-8, x2.modificarPuntaje(puntaje));
     }
 
     @Test
     public void UtilizoElMultiplicadorYNoLeQuedanUsos(){
         Multiplicadorx2 x2= new Multiplicadorx2();
         x2.utilizar();
-        assertFalse(!x2.quedanUsos());
+        assertFalse(x2.quedanUsos());
     }
 
 }
