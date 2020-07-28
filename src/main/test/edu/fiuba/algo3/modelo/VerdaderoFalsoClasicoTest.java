@@ -48,6 +48,26 @@ public class VerdaderoFalsoClasicoTest {
         assertEquals(0, jugador.obtenerPuntaje());
     }
 
+    @Test
+    public void ingresarListaRespuestasYAsignarPuntosAJugadorYContestaBien() {
+        List<Opcion> opciones = new ArrayList<>();
+        List<Opcion> opcionesContestadas = new ArrayList<>();
+        Jugador jugador = new Jugador("Mathias");
+
+        Opcion Verdadero = new Opcion("Verdadero", true);
+        Opcion Falso = new Opcion("Falso");
+
+        opciones.add(Verdadero);
+        opciones.add(Falso);
+        opcionesContestadas.add(Verdadero);
+
+        Pregunta pregunta = new Pregunta("2 + 2 = 4", opciones, 1, 1, new TipoVerdaderoYFalso(), new ModoClasico());
+
+        jugador.agregarPuntaje(pregunta.calcularPuntaje(opcionesContestadas));
+
+        assertEquals(1, jugador.obtenerPuntaje());
+    }
+
 
 
 }
