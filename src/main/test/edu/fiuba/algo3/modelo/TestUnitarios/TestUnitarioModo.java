@@ -1,6 +1,14 @@
 package edu.fiuba.algo3.modelo.TestUnitarios;
 
+import edu.fiuba.algo3.modelo.preguntas.ModoClasico;
+import edu.fiuba.algo3.modelo.preguntas.ModoConPenalidad;
+import edu.fiuba.algo3.modelo.preguntas.ModoPuntajeParcial;
+import org.junit.jupiter.api.Test;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
 public class TestUnitarioModo {
+
     @Test
     public void TestModoClasicoNoDaPuntajeSiNoTieneTodas() {
         var modo = new ModoClasico();
