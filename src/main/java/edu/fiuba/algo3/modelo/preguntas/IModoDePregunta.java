@@ -4,4 +4,6 @@ public interface IModoDePregunta {
 
     int calcularPuntaje(int respuestasCorrectasTotales, int respuestasIncorrectasJugador, int respuestasCorrectasJugador);
 
+    boolean tienePenalidad();
+
 }

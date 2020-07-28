@@ -32,8 +32,8 @@ public class Kahoot {
     public void comenzar(){
         this.inicializarJugadores();
         this.inicializarPreguntas();
-        for(Pregunta pregunta:preguntas){
-            if (pregunta.conPenalidad()){
+        for(Pregunta pregunta : preguntas) {
+            if (pregunta.tienePenalidad()) {
                 rondaActual = new RondaNormal(pregunta, jugadores);
             }
             else{

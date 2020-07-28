@@ -21,6 +21,11 @@ public class Pregunta {
         this.modo = modo;
     }
 
+    public boolean tienePenalidad()
+    {
+        return modo.tienePenalidad();
+    }
+
     public String obtenerTexto()
     {
         return textoPregunta;
