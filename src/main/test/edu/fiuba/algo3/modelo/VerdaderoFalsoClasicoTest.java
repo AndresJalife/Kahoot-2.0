@@ -24,7 +24,7 @@ public class VerdaderoFalsoClasicoTest {
 
         Pregunta pregunta = new Pregunta("2 + 2 = 4", opciones, 1, 1, ITipoDePregunta.VerdaderoFalso, IModoDePregunta.Clasico);
 
-        assertEquals(respuestas, pregunta.obtenerRespuestasCorrecta());
+        assertEquals(respuestas, pregunta.obtenerRespuestasCorrectas());
     }
 
 
