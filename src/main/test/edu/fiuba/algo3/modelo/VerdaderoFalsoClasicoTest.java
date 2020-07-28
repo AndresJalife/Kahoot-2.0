@@ -59,10 +59,9 @@ public class VerdaderoFalsoClasicoTest {
 
         opciones.add(Verdadero);
         opciones.add(Falso);
-        opcionesContestadas.add(Falso);
+        opcionesContestadas.add(Verdadero);
 
-        var respuestasJugador = new int[]{1};
-        var pregunta = new Pregunta("2 + 2 = 4", opciones, 1, 1, new TipoVerdaderoYFalso(), new ModoClasico());
+        Pregunta pregunta = new Pregunta("2 + 2 = 4", opciones, 1, 1, new TipoVerdaderoYFalso(), new ModoClasico());
 
         jugador.agregarPuntaje(pregunta.calcularPuntaje(opcionesContestadas));
 
