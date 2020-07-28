@@ -14,17 +14,17 @@ public class VerdaderoFalsoClasicoTest {
     @Test
     public void ingresarRespuestaVerdaderoFalsoClasico() {
         List<Opcion> opciones = new ArrayList<>();
-        var Verdadero = new Opcion("Verdadero", true);
-        var Falso = new Opcion("Falso");
+        List<Opcion> respuestas = new ArrayList<>();
+        Opcion Verdadero = new Opcion("Verdadero", true);
+        Opcion Falso = new Opcion("Falso");
 
         opciones.add(Verdadero);
         opciones.add(Falso);
+        respuestas.add(Verdadero);
 
-        var pregunta = new Pregunta("2 + 2 = 4", opciones, 1, 1, new TipoVerdaderoYFalso(), new ModoClasico());
-        /* Selecciona la primer respuesta */
-        var respuestaJugador = 0;
+        Pregunta pregunta = new Pregunta("2 + 2 = 4", opciones, 1, 1, new TipoVerdaderoYFalso(), new ModoClasico());
 
-        assertEquals(new Opcion[]{ opciones.get(respuestaJugador) }, pregunta.obtenerRespuestasCorrectas());
+        assertEquals(respuestas, pregunta.obtenerRespuestasCorrectas());
     }
 
 // CORREGIR EL TEMA DE LAS RESPUESTAS

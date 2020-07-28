@@ -20,7 +20,7 @@ public class TestUnitarioMultix2 {
     public void CrearMultiplicadorx2YVerificarQueModificaCorrectamenteUnPuntaje(){
         Multiplicadorx2 x2= new Multiplicadorx2();
         int puntaje = 3;
-        assertEquals(-6, x2.modificarPuntaje(puntaje));
+        assertEquals(6, x2.modificarPuntaje(puntaje));
     }
 
     @Test

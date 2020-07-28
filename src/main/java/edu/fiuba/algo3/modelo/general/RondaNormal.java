@@ -12,7 +12,7 @@ public class RondaNormal implements IRonda {
     private Pregunta preguntaActual;
     private HashMap<Jugador, Multiplicador> multiplicadores;
     private List<Jugador> jugadores;
-    private HashMap<Jugador, int[]> respuestasDeJugadores;
+    private HashMap<Jugador, List<Opcion>> respuestasDeJugadores;
 
     public RondaNormal(Pregunta pregunta, List<Jugador> nuevosJugadores) {
         preguntaActual = pregunta;
