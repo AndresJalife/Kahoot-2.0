@@ -2,19 +2,17 @@ package edu.fiuba.algo3.modelo;
 
 public class Multiplicadorx2 extends Multiplicador {
 
+    private final static int factor = 2;
 
-    private int Cantidad; //Hardcodeado test jugador
-
-    public static int CondicionesIniciales = 2; //Hardcodeado test jugador
-
-    public int getCantidad(){ return Cantidad; } //Hardcodeado test jugador
-
-
-    private static int factor=2;
-
-    public int obtenerFactor(){
-        return factor;
+    @Override
+    public int modificarPuntaje(int puntaje) {
+        return (puntaje * factor);
     }
 
 
+    private int Cantidad; //Hardcodeado test jugador
+    public static int CondicionesIniciales = 2; //Hardcodeado test jugador
+    public int getCantidad(){ return Cantidad; } //Hardcodeado test jugador
+
 }
+
