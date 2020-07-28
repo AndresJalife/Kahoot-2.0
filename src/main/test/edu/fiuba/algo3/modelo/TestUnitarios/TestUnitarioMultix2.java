@@ -13,7 +13,7 @@ public class TestUnitarioMultix2 {
     @Test
     public void CrearMultiplicadorx2YVerificarQueQuedenUsos(){
         Multiplicadorx2 x2= new Multiplicadorx2();
-        assertFalse(x2.quedanUsos());
+        assertTrue(x2.quedanUsos());
     }
 
     @Test
@@ -33,6 +33,7 @@ public class TestUnitarioMultix2 {
     @Test
     public void UtilizoElMultiplicadorYNoLeQuedanUsos(){
         Multiplicadorx2 x2= new Multiplicadorx2();
+        x2.utilizar();
         x2.utilizar();
         assertFalse(x2.quedanUsos());
     }
