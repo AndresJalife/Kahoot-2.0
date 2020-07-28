@@ -1,6 +1,7 @@
 package edu.fiuba.algo3.modelo;
 
-import java.lang.reflect.Array;
+import edu.fiuba.algo3.modelo.preguntas.Pregunta;
+
 import java.util.ArrayList;
 import java.util.List;
 

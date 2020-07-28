@@ -1,5 +1,7 @@
 package edu.fiuba.algo3.modelo;
 
+import edu.fiuba.algo3.modelo.preguntas.Pregunta;
+
 import java.util.HashMap;
 import java.util.List;
 
@@ -44,7 +46,7 @@ public class RondaNormal implements IRonda {
     }
 
     @Override
-    public void mostrarPosiblesRespuestas(){
+    public void mostrarPosiblesRespuestas() {
         for(Opcion opcion: preguntaActual.obtenerOpciones()) {
             System.out.println(opcion.obtenerTextoamostrar());
         }
@@ -52,8 +54,8 @@ public class RondaNormal implements IRonda {
     }
 
     @Override
-    public void pedirRespuesta(Jugador jugador){
-        respuestasDeJugadores.put(jugador, input(Opcion opcion));
+    public void pedirRespuesta(Jugador jugador) {
+        //respuestasDeJugadores.put(jugador, input(Opcion opcion));
 //        CORREGIR EL INPUT
     }
 
