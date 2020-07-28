@@ -1,5 +1,6 @@
 package edu.fiuba.algo3.modelo;
 
+import edu.fiuba.algo3.modelo.preguntas.Pregunta;
 import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
@@ -21,7 +22,7 @@ public class VerdaderoFalsoClasicoTest {
         opciones.add(Verdadero);
         opciones.add(Falso);
 
-        Pregunta pregunta = new Pregunta("2 + 2 = 4", opciones, ITipoDePregunta.VerdaderoFalso, IModoDePregunta.Clasico);
+        Pregunta pregunta = new Pregunta("2 + 2 = 4", opciones, 1, 1, ITipoDePregunta.VerdaderoFalso, IModoDePregunta.Clasico);
 
         assertEquals(respuestas, pregunta.obtenerRespuestasCorrecta());
     }
@@ -40,7 +41,7 @@ public class VerdaderoFalsoClasicoTest {
         opciones.add(Falso);
         respuestasJugador.add(Verdadero);
 
-        Pregunta pregunta = new Pregunta("2 + 2 = 4", opciones, ITipoDePregunta.VerdaderoFalso, IModoDePregunta.Clasico);
+        Pregunta pregunta = new Pregunta("2 + 2 = 4", opciones, 1, 1, ITipoDePregunta.VerdaderoFalso, IModoDePregunta.Clasico);
 
         jugador.agregarRespuestas(respuestasJugador);
         jugador.agregarPuntaje(pregunta.calcularPuntaje(jugador.getRespuestas()));
