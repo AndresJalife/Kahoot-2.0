@@ -50,9 +50,10 @@ public class VerdaderoFalsoPenalidadTest {
         assertEquals(1, jugador.obtenerPuntaje());
     }
 
-    /*@Test
+    @Test
     public void ingresarListaRespuestasYAsignarPuntosAJugadorYContestaMal() {
         List<Opcion> opciones = new ArrayList<>();
+        List<Opcion> opcionesContestadas = new ArrayList<>();
         Jugador jugador = new Jugador("Mathias");
 
         Opcion Verdadero = new Opcion("Verdadero", true);
@@ -60,13 +61,14 @@ public class VerdaderoFalsoPenalidadTest {
 
         opciones.add(Verdadero);
         opciones.add(Falso);
+        opcionesContestadas.add(Falso);
 
         var respuestasJugador = new int[]{1};
         var pregunta = new Pregunta("2 + 2 = 4", opciones, 1, 1, new TipoVerdaderoYFalso(), new ModoConPenalidad());
 
-        jugador.agregarPuntaje(pregunta.calcularPuntaje(respuestasJugador));
+        jugador.agregarPuntaje(pregunta.calcularPuntaje(opcionesContestadas));
 
         assertEquals(-1, jugador.obtenerPuntaje());
-    }*/
+    }
 
 }
