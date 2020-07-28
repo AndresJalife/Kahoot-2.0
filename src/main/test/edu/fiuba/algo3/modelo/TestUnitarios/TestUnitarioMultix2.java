@@ -13,7 +13,7 @@ public class TestUnitarioMultix2 {
     @Test
     public void CrearMultiplicadorx2YVerificarQueQuedenUsos(){
         Multiplicadorx2 x2= new Multiplicadorx2();
-        assertTrue(x2.quedanUsos());
+        assertFalse(x2.quedanUsos());
     }
 
     @Test
