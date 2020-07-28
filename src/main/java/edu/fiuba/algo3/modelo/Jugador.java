@@ -16,7 +16,6 @@ public class Jugador {
     public Jugador(String nombre)
     {
         this.nombre = nombre;
-        modificadores = new HashMap<>();
         exclusividades = new Exclusividad();
         x3 = new Multiplicadorx3();
         x2 = new Multiplicadorx2();
