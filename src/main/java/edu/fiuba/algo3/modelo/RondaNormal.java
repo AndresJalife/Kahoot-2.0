@@ -20,13 +20,15 @@ public class RondaNormal implements IRonda {
         respuestasDeJugadores = new HashMap<>();
     }
 
-    //    @Override
-    //    public void agregarExclusividad(IModificador exclusividad) throws MultiplicadorEnRondaExclusivaError {
-    //        throw new MultiplicadorEnRondaExclusivaError();
-    //    }
-    //
-    //    @Override
-    //    public void agregarMultiplicador(IModificador multiplicador){multiplicadores.add(multiplicador);}
+    @Override
+    public void agregarExclusividad(Jugador jugador, Exclusividad exclusividad) throws MultiplicadorEnRondaExclusivaError {
+        throw new MultiplicadorEnRondaExclusivaError();
+    }
+
+    @Override
+    public void agregarMultiplicador(Jugador jugador, Multiplicador multiplicador) throws ExclusividadEnRondaNormalError {
+        multiplicadores.put(jugador, multiplicador);
+    }
 
     @Override
     public void mostrarPregunta() {
@@ -79,8 +81,8 @@ public class RondaNormal implements IRonda {
     }
 
     @Override
-    public void comenzar(){
-        for(Jugador jugador:jugadores) {
+    public void comenzar() {
+        for (Jugador jugador:jugadores) {
             this.mostrarPregunta();
             this.mostrarModificadores(jugador);
             this.mostrarPosiblesRespuestas();

@@ -4,38 +4,23 @@ import edu.fiuba.algo3.modelo.preguntas.Opcion;
 import edu.fiuba.algo3.modelo.preguntas.Pregunta;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
-public class RondaExclusividad implements IRonda {
-    private Pregunta preguntaActual;
-    private List<IModificador> exclusividades;
+public class RondaExclusividad extends RondaNormal {
+    private HashMap<Jugador, Exclusividad> exclusividades;
 
-    public RondaExclusividad(Pregunta pregunta, List<Jugador> jugadores){
-        preguntaActual = pregunta;
-        exclusividades = new ArrayList<>();
-
+    public RondaExclusividad(Pregunta pregunta, List<Jugador> jugadores) {
+        super(pregunta, jugadores);
     }
 
     @Override
-    public void agregarExclusividad(IModificador modificador){exclusividades.add(modificador);}
+    public void agregarExclusividad(Jugador jugador, Exclusividad modificador) throws MultiplicadorEnRondaExclusivaError {
+        exclusividades.put(jugador, modificador);
+    }
 
     @Override
-    public void agregarMultiplicador(IModificador modificador) throws ExclusividadEnRondaNormalError {
+    public void agregarMultiplicador(Jugador jugador, Multiplicador modificador) throws ExclusividadEnRondaNormalError {
         throw new ExclusividadEnRondaNormalError();
-    }
-
-    @Override
-    public void actualizar(Jugador jugador){
-        List<Opcion> respuestas = jugador.getRespuestas();
-
-        int puntaje = this.preguntaActual.calcularPuntaje(respuestas);
-        jugador.agregarPuntaje(puntaje);
-    }
-
-    public void comenzar(){
-        this.mostrarPregunta();
-        this.mostrarModificadores();
-        this.pedirRespuesta();
-        this.mostrarRespuesta();
     }
 }
