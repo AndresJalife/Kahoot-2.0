@@ -38,11 +38,21 @@ public class Pregunta {
         return respuestas.toArray(Opcion[]::new);
     }
 
-    public int calcularPuntaje(Opcion[] respuestasJugador) {
-        for (Opcion opcion : opciones) {
-            if(opcion.Respuesta())
-                return 1;
+    public int calcularPuntaje(int[] respuestasJugador) {
+        var respuestasCorrectas = obtenerRespuestasCorrectas();
+        var totalCorrectas = respuestasCorrectas.length;
+        var correctas = 0;
+        var incorrectas = 0;
+
+        for (int value : respuestasJugador) {
+            if(respuestasPosibles[value].esCorrecta())
+                correctas++;
+            else
+                incorrectas++;
         }
-        return 0;
+
+        var puntaje = modo.calcularPuntaje(totalCorrectas, incorrectas, correctas);
+        /* Hay que multiplicar por lo que vale la pregunta */
+        return puntaje;
     }
 }
