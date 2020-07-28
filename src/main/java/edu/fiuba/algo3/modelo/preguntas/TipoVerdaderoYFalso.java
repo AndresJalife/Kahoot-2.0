@@ -1,4 +1,4 @@
 package edu.fiuba.algo3.modelo.preguntas;
 
-public class TipoVerdaderoYFalso {
+public class TipoVerdaderoYFalso implements ITipoDePregunta {
 }

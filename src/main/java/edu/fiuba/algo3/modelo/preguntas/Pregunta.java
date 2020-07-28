@@ -9,13 +9,13 @@ public class Pregunta {
     private ITipoDePregunta tipo;
     private IModoDePregunta modo;
     private int tiempo;
-    private int puntaje;
+    private int puntajePorRespuesta;
 
 
-    public Pregunta(String pregunta, Opcion[] opcionesPosibles, int tiempo, int puntaje, ITipoDePregunta tipo, IModoDePregunta modo) {
+    public Pregunta(String pregunta, List<Opcion> opcionesPosibles, int tiempo, int puntajePorRespuesta, ITipoDePregunta tipo, IModoDePregunta modo) {
         this.pregunta = pregunta;
-        this.respuestasPosibles = opcionesPosibles;
-        this.puntaje = puntaje;
+        this.respuestasPosibles = opcionesPosibles.toArray(Opcion[]::new);
+        this.puntajePorRespuesta = puntajePorRespuesta;
         this.tiempo = tiempo;
         this.tipo = tipo;
         this.modo = modo;
@@ -52,7 +52,7 @@ public class Pregunta {
         }
 
         var puntaje = modo.calcularPuntaje(totalCorrectas, incorrectas, correctas);
-        /* Hay que multiplicar por lo que vale la pregunta */
+        puntaje *= this.puntajePorRespuesta;
         return puntaje;
     }
 }
