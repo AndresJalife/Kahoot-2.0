@@ -1,5 +1,8 @@
 package edu.fiuba.algo3.modelo;
 
+import edu.fiuba.algo3.modelo.preguntas.IModoDePregunta;
+import edu.fiuba.algo3.modelo.preguntas.ITipoDePregunta;
+import edu.fiuba.algo3.modelo.preguntas.Opcion;
 import edu.fiuba.algo3.modelo.preguntas.Pregunta;
 import org.junit.jupiter.api.Test;
 
