@@ -1,6 +1,6 @@
 package edu.fiuba.algo3.modelo.TestUnitarios;
 
-import edu.fiuba.algo3.modelo.Opcion;
+import edu.fiuba.algo3.modelo.preguntas.Opcion;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertFalse;
