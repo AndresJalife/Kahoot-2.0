@@ -13,34 +13,30 @@ public class TestUnitarioOpcion {
     @Test
     public void CrearOpcionyEsFalso(){
         Opcion opcion = new Opcion("");
-        assertFalse(opcion.Respuesta());
+        assertFalse(opcion.esCorrecta());
     }
 
     @Test
     public void CrearOpcionyAlDecirleQueEsLaRespuestaDaTrue(){
-        Opcion opcion = new Opcion("");
-        opcion.Opcion_Correcta();
-        assertTrue(opcion.Respuesta());
+        Opcion opcion = new Opcion("", true);
+        assertTrue(opcion.esCorrecta());
     }
 
     @Test
     public void MostrarTextoEscrito(){
-        Opcion opcion = new Opcion("Hola");
-        opcion.Opcion_Correcta();
-        assertEquals("Hola", opcion.obtenerTextoamostrar());
+        Opcion opcion = new Opcion("Hola", true);
+        assertEquals("Hola", opcion.obtenerTexto());
     }
 
     @Test
     public void MostrarTextoEscritoPeroNoHayTexto(){
-        Opcion opcion = new Opcion("");
-        opcion.Opcion_Correcta();
-        assertEquals("", opcion.obtenerTextoamostrar());
+        Opcion opcion = new Opcion("", true);
+        assertEquals("", opcion.obtenerTexto());
     }
 
     @Test
     public void MostrarTextoEscritoPeroEsNUll(){
-        Opcion opcion = new Opcion(null);
-        opcion.Opcion_Correcta();
-        assertNull(null, opcion.obtenerTextoamostrar());
+        Opcion opcion = new Opcion(null, true);
+        assertNull(null, opcion.obtenerTexto());
     }
 }
