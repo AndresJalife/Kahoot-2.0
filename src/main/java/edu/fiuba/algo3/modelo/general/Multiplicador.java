@@ -2,7 +2,7 @@ package edu.fiuba.algo3.modelo.general;
 
 public abstract class Multiplicador implements IModificador {
 
-    private int cantUsos=1;
+    private static int cantUsos = 1;
 
     public Boolean quedanUsos(){
         return (cantUsos!=0);
@@ -12,8 +12,9 @@ public abstract class Multiplicador implements IModificador {
         cantUsos -= 1;
     }
 
+    public static int obtenerCantidad(){
+        return cantUsos;
+    }
+
     public abstract int modificarPuntaje(int puntaje);
-
-
-
 }
