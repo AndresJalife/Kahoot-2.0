@@ -5,7 +5,7 @@ public class ModoClasico implements IModoDePregunta {
     @Override
     public int calcularPuntaje(int respuestasCorrectasTotales, int respuestasIncorrectasJugador, int respuestasCorrectasJugador) {
         /* Solo suma si tiene todas correctas */
-        return respuestasCorrectasTotales == respuestasCorrectasJugador ? respuestasCorrectasJugador : 0;
+        return (respuestasCorrectasTotales == respuestasCorrectasJugador) ? 1 : 0;
     }
 
     @Override
