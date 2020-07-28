@@ -1,6 +1,7 @@
 package edu.fiuba.algo3.modelo.general;
 
 public class Multiplicadorx2 extends Multiplicador {
+    private int Cantidad = Multiplicador.CondicionesIniciales;
 
     private final static int factor = 2;
 
@@ -9,10 +10,16 @@ public class Multiplicadorx2 extends Multiplicador {
         return (puntaje * factor);
     }
 
+    public int getCantidad(){ return Cantidad; }
 
-    private int Cantidad; //Hardcodeado test jugador
-    public static int CondicionesIniciales = 2; //Hardcodeado test jugador
-    public int getCantidad(){ return Cantidad; } //Hardcodeado test jugador
+    @Override
+    public boolean UsarModificador(){
+        if(Cantidad > 0){
+            Cantidad --;
+            return true;
+        }
+        return false;
+    }
 
 }
 
