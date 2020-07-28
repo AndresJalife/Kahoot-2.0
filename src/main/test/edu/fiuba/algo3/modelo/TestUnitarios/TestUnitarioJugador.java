@@ -33,18 +33,21 @@ public class TestUnitarioJugador {
     @Test
     public void CrearJugadorYObtenerMultiplicadorX2(){
         Jugador jugador = new Jugador("Alfredo");
-        assertEquals(Multiplicadorx2.obtenerCantidad(), jugador.obtenerMultiplicadorX2().obtenerCantidad());
+        var multiplicador = new Multiplicadorx2();
+        assertEquals(multiplicador.obtenerCantidad(), jugador.obtenerMultiplicadorX2().obtenerCantidad());
     }
 
     @Test
     public void CrearJugadorYObtenerMultiplicadorX3(){
         Jugador jugador = new Jugador("Alfredo");
-        assertEquals(Multiplicadorx3.obtenerCantidad(), jugador.obtenerMultiplicadorX3().obtenerCantidad());
+        var multiplicador = new Multiplicadorx3();
+        assertEquals(multiplicador.obtenerCantidad(), jugador.obtenerMultiplicadorX3().obtenerCantidad());
     }
 
     @Test
     public void CrearJugadorYObtenerExclusividad(){
         Jugador jugador = new Jugador("Alfredo");
-        assertEquals(Exclusividad.obtenerCantidad(), jugador.obtenerExclusividades().obtenerCantidad());
+        var exclusividad = new Exclusividad();
+        assertEquals(exclusividad.obtenerCantidad(), jugador.obtenerExclusividades().obtenerCantidad());
     }
 }
