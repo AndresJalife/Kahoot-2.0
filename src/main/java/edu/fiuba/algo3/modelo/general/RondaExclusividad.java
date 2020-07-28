@@ -9,6 +9,7 @@ public class RondaExclusividad extends RondaNormal {
     private HashMap<Jugador, Exclusividad> exclusividades;
 
     public RondaExclusividad(Pregunta pregunta, List<Jugador> jugadores) {
+
         super(pregunta, jugadores);
     }
 
