@@ -33,9 +33,8 @@ public class VerdaderoFalsoClasicoTest {
         List<Opcion> opciones = new ArrayList<>();
         List<Opcion> respuestasJugador = new ArrayList<>();
         Jugador jugador = new Jugador("Mathias");
-        Opcion Verdadero = new Opcion("Verdadero");
+        Opcion Verdadero = new Opcion("Verdadero", true);
         Opcion Falso = new Opcion("Falso");
-        Verdadero.Opcion_Correcta();
 
         opciones.add(Verdadero);
         opciones.add(Falso);
