@@ -5,7 +5,6 @@ public class Exclusividad implements IModificador {
 
     @Override
     public int obtenerCantidad(){
-
         return cantUsos;
     }
 
@@ -17,7 +16,6 @@ public class Exclusividad implements IModificador {
 
     @Override
     public void utilizar(){
-
         cantUsos--;
     }
 }

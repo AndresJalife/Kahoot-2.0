@@ -4,5 +4,7 @@ public class Multiplicadorx3 extends Multiplicador {
     private final static int factor = 3;
 
     @Override
-    public int modificarPuntaje(int puntaje){ return (puntaje * factor); }
+    public int modificarPuntaje(int puntaje){
+        return (puntaje * factor);
+    }
 }

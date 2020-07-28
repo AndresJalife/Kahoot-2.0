@@ -8,8 +8,7 @@ public class Jugador {
     private Multiplicadorx3 x3;
     private Exclusividad exclusividades;
 
-    public Jugador(String nombre)
-    {
+    public Jugador(String nombre) {
         this.nombre = nombre;
         exclusividades = new Exclusividad();
         x3 = new Multiplicadorx3();
