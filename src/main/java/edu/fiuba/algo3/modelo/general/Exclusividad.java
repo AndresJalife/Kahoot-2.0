@@ -1,12 +1,14 @@
 package edu.fiuba.algo3.modelo.general;
 
 public class Exclusividad implements IModificador {
-    private int Cantidad;
+    private int Cantidad = 2;
 
-    public static int CondicionesIniciales = 2;
-
-    public int obtenerCantidad(){ return Cantidad; }
+    public int obtenerCantidad(){
+        return Cantidad;
+    }
 
     @Override
-    public void utilizar(){ Cantidad--; }
+    public void utilizar(){
+        Cantidad--;
+    }
 }
