@@ -8,12 +8,16 @@ public abstract class Multiplicador implements IModificador {
         return (cantUsos!=0);
     }
 
+    @Override
     public void utilizar(){
         cantUsos -= 1;
     }
 
     public abstract int modificarPuntaje(int puntaje);
 
-    public int obtenerCantidad(){ return cantUsos; }
+    @Override
+    public int obtenerCantidad(){
+        return cantUsos;
+    }
 
 }
