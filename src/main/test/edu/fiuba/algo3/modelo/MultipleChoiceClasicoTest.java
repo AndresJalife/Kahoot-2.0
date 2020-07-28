@@ -27,6 +27,6 @@ public class MultipleChoiceClasicoTest {
         respuestas.add(Opcion1);
         respuestas.add(Opcion3);
 
-        assertEquals(respuestas.toArray(Opcion[]::new), pregunta.obtenerRespuestasCorrectas());
+        assertEquals(respuestas, pregunta.obtenerRespuestasCorrectas());
     }
 }
