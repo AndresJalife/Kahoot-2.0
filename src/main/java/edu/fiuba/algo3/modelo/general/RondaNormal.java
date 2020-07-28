@@ -9,10 +9,10 @@ import java.util.List;
 public class RondaNormal implements IRonda {
 
 
-    private Pregunta preguntaActual;
+    protected Pregunta preguntaActual;
     private HashMap<Jugador, Multiplicador> multiplicadores;
-    private List<Jugador> jugadores;
-    private HashMap<Jugador, List<Opcion>> respuestasDeJugadores;
+    protected List<Jugador> jugadores;
+    protected HashMap<Jugador, List<Opcion>> respuestasDeJugadores;
 
     public RondaNormal(Pregunta pregunta, List<Jugador> nuevosJugadores) {
         preguntaActual = pregunta;
