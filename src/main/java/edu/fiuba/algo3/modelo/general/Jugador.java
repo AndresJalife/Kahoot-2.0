@@ -1,9 +1,4 @@
-package edu.fiuba.algo3.modelo;
-
-import edu.fiuba.algo3.modelo.preguntas.Opcion;
-
-import java.util.HashMap;
-import java.util.List;
+package edu.fiuba.algo3.modelo.general;
 
 public class Jugador {
 

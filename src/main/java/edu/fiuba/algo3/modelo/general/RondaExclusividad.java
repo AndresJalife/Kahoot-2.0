@@ -1,9 +1,7 @@
-package edu.fiuba.algo3.modelo;
+package edu.fiuba.algo3.modelo.general;
 
-import edu.fiuba.algo3.modelo.preguntas.Opcion;
 import edu.fiuba.algo3.modelo.preguntas.Pregunta;
 
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
