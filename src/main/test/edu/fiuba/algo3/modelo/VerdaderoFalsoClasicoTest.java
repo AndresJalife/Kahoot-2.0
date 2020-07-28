@@ -27,28 +27,26 @@ public class VerdaderoFalsoClasicoTest {
         assertEquals(respuestas, pregunta.obtenerRespuestasCorrectas());
     }
 
-// CORREGIR EL TEMA DE LAS RESPUESTAS
-//    @Test
-//    public void ingresarListaRespuestasYAsignarPuntosAJugador() {
-//        List<Opcion> opciones = new ArrayList<>();
-//        var jugador = new Jugador("Mathias");
-//        var Verdadero = new Opcion("Verdadero", true);
-//        var Falso = new Opcion("Falso");
-//
-//        opciones.add(Verdadero);
-//        opciones.add(Falso);
-//
-//        var pregunta = new Pregunta("2 + 2 = 4", opciones, 1, 1, new TipoVerdaderoYFalso(), new ModoClasico());
-//        /* Selecciona la primer respuesta */
-//        var respuestasJugador = new int[]{0};
-//
-//        jugador.agregarRespuestas(respuestasJugador);
-//        jugador.agregarPuntaje(
-//                pregunta.calcularPuntaje(jugador.getRespuestas())
-//        );
-//
-//        assertEquals(1, jugador.obtenerPuntaje());
-//    }
+    @Test
+    public void ingresarListaRespuestasYAsignarPuntosAJugadorYContestaMal() {
+        List<Opcion> opciones = new ArrayList<>();
+        List<Opcion> opcionesContestadas = new ArrayList<>();
+        Jugador jugador = new Jugador("Mathias");
+
+        Opcion Verdadero = new Opcion("Verdadero", true);
+        Opcion Falso = new Opcion("Falso");
+
+        opciones.add(Verdadero);
+        opciones.add(Falso);
+        opcionesContestadas.add(Falso);
+
+        var respuestasJugador = new int[]{1};
+        var pregunta = new Pregunta("2 + 2 = 4", opciones, 1, 1, new TipoVerdaderoYFalso(), new ModoClasico());
+
+        jugador.agregarPuntaje(pregunta.calcularPuntaje(opcionesContestadas));
+
+        assertEquals(0, jugador.obtenerPuntaje());
+    }
 
 
 
