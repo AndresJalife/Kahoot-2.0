@@ -1,9 +1,6 @@
 package edu.fiuba.algo3.modelo;
 
-import edu.fiuba.algo3.modelo.preguntas.IModoDePregunta;
-import edu.fiuba.algo3.modelo.preguntas.ITipoDePregunta;
-import edu.fiuba.algo3.modelo.preguntas.Opcion;
-import edu.fiuba.algo3.modelo.preguntas.Pregunta;
+import edu.fiuba.algo3.modelo.preguntas.*;
 import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
@@ -16,37 +13,38 @@ public class VerdaderoFalsoClasicoTest {
     @Test
     public void ingresarRespuestaVerdaderoFalsoClasico() {
         List<Opcion> opciones = new ArrayList<>();
-        List<Opcion> respuestas = new ArrayList<>();
-        Opcion Verdadero = new Opcion("Verdadero");
-        Opcion Falso = new Opcion("Falso");
-        Verdadero.Opcion_Correcta();
-        respuestas.add(Verdadero);
+        var Verdadero = new Opcion("Verdadero", true);
+        var Falso = new Opcion("Falso");
 
         opciones.add(Verdadero);
         opciones.add(Falso);
 
-        Pregunta pregunta = new Pregunta("2 + 2 = 4", opciones, 1, 1, ITipoDePregunta.VerdaderoFalso, IModoDePregunta.Clasico);
+        var pregunta = new Pregunta("2 + 2 = 4", opciones, 1, 1, new TipoVerdaderoYFalso(), new ModoClasico());
+        /* Selecciona la primer respuesta */
+        var respuestaJugador = 0;
 
-        assertEquals(respuestas, pregunta.obtenerRespuestasCorrectas());
+        assertEquals(new Opcion[]{ opciones.get(respuestaJugador) }, pregunta.obtenerRespuestasCorrectas());
     }
 
 
     @Test
     public void ingresarListaRespuestasYAsignarPuntosAJugador() {
         List<Opcion> opciones = new ArrayList<>();
-        List<Opcion> respuestasJugador = new ArrayList<>();
-        Jugador jugador = new Jugador("Mathias");
-        Opcion Verdadero = new Opcion("Verdadero", true);
-        Opcion Falso = new Opcion("Falso");
+        var jugador = new Jugador("Mathias");
+        var Verdadero = new Opcion("Verdadero", true);
+        var Falso = new Opcion("Falso");
 
         opciones.add(Verdadero);
         opciones.add(Falso);
-        respuestasJugador.add(Verdadero);
 
-        Pregunta pregunta = new Pregunta("2 + 2 = 4", opciones, 1, 1, ITipoDePregunta.VerdaderoFalso, IModoDePregunta.Clasico);
+        var pregunta = new Pregunta("2 + 2 = 4", opciones, 1, 1, new TipoVerdaderoYFalso(), new ModoClasico());
+        /* Selecciona la primer respuesta */
+        var respuestasJugador = new int[]{0};
 
         jugador.agregarRespuestas(respuestasJugador);
-        jugador.agregarPuntaje(pregunta.calcularPuntaje(jugador.getRespuestas()));
+        jugador.agregarPuntaje(
+                pregunta.calcularPuntaje(jugador.getRespuestas())
+        );
 
         assertEquals(1, jugador.obtenerPuntaje());
     }
