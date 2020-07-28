@@ -5,5 +5,8 @@ public class Exclusividad implements IModificador {
 
     public static int CondicionesIniciales = 2;
 
-    public int getCantidad(){ return Cantidad; }
+    public int obtenerCantidad(){ return Cantidad; }
+
+    @Override
+    public void utilizar(){ Cantidad--; }
 }

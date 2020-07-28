@@ -14,6 +14,6 @@ public abstract class Multiplicador implements IModificador {
 
     public abstract int modificarPuntaje(int puntaje);
 
-    public int getCantidad(){ return cantUsos; }
+    public int obtenerCantidad(){ return cantUsos; }
 
 }
