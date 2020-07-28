@@ -16,7 +16,6 @@ public class Jugador {
         x2 = new Multiplicadorx2();
     }
     public Multiplicadorx2 obtenerMultiplicadorX2() {
-
         return x2;
     }
 
@@ -25,17 +24,14 @@ public class Jugador {
     }
 
     public Exclusividad obtenerExclusividades() {
-
         return exclusividades;
     }
 
     public int obtenerPuntaje() {
-
         return this.puntaje;
     }
 
     public void agregarPuntaje(int puntaje) {
-
         this.puntaje = puntaje;
     }
 
