@@ -18,7 +18,7 @@ public class TestUnitarioModo {
     @Test
     public void TestModoClasicoDaPuntaConTodas() {
         var modo = new ModoClasico();
-        assertEquals(5, modo.calcularPuntaje(5, 0, 5));
+        assertEquals(1, modo.calcularPuntaje(5, 0, 5));
     }
 
     @Test

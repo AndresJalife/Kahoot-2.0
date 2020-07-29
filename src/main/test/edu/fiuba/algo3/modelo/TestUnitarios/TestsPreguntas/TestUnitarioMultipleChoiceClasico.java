@@ -10,10 +10,10 @@ import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-public class TestUnitarioMultipleChoiceConParcialTest {
+public class TestUnitarioMultipleChoiceClasico {
 
     @Test
-    public void ingresarRespuestaMultipleChoiceConParcial() {
+    public void ingresarRespuestaMultipleChoiceClasico() {
         List<Opcion> opciones = new ArrayList<>();
         List<Opcion> respuestas = new ArrayList<>();
         var Opcion1 = new Opcion("Si", true);
@@ -24,7 +24,7 @@ public class TestUnitarioMultipleChoiceConParcialTest {
         opciones.add(Opcion2);
         opciones.add(Opcion3);
 
-        var pregunta = new Pregunta("Francia es un pais", opciones, 1, 1, new TipoMultipleChoice(), new ModoPuntajeParcial());
+        var pregunta = new Pregunta("Francia es un pais", opciones, 1, 1, new TipoMultipleChoice(), new ModoClasico());
         respuestas.add(Opcion1);
         respuestas.add(Opcion3);
 
@@ -32,7 +32,7 @@ public class TestUnitarioMultipleChoiceConParcialTest {
     }
 
     @Test
-    public void ingresarRespuestaMultipleChoiceConParcialYContestaBien() {
+    public void ingresarRespuestaMultipleChoiceClasicoYContestaBien() {
         List<Opcion> opciones = new ArrayList<>();
         List<Opcion> respuestas = new ArrayList<>();
         Jugador jugador = new Jugador("Jorge");
@@ -44,13 +44,13 @@ public class TestUnitarioMultipleChoiceConParcialTest {
         opciones.add(Opcion2);
         opciones.add(Opcion3);
 
-        var pregunta = new Pregunta("Francia es un pais", opciones, 1, 1, new TipoMultipleChoice(), new ModoPuntajeParcial());
+        var pregunta = new Pregunta("Francia es un pais", opciones, 1, 1, new TipoMultipleChoice(), new ModoClasico());
         respuestas.add(Opcion1);
         respuestas.add(Opcion3);
 
         jugador.agregarPuntaje(pregunta.calcularPuntaje(respuestas));
 
-        assertEquals(2, jugador.obtenerPuntaje());
+        assertEquals(1, jugador.obtenerPuntaje());
     }
 
     @Test
@@ -66,12 +66,12 @@ public class TestUnitarioMultipleChoiceConParcialTest {
         opciones.add(Opcion2);
         opciones.add(Opcion3);
 
-        var pregunta = new Pregunta("Francia es un pais", opciones, 1, 1, new TipoMultipleChoice(), new ModoPuntajeParcial());
+        var pregunta = new Pregunta("Francia es un pais", opciones, 1, 1, new TipoMultipleChoice(), new ModoClasico());
         respuestas.add(Opcion1);
 
         jugador.agregarPuntaje(pregunta.calcularPuntaje(respuestas));
 
-        assertEquals(1, jugador.obtenerPuntaje());
+        assertEquals(0, jugador.obtenerPuntaje());
     }
 
     @Test
@@ -87,7 +87,8 @@ public class TestUnitarioMultipleChoiceConParcialTest {
         opciones.add(Opcion2);
         opciones.add(Opcion3);
 
-        var pregunta = new Pregunta("Francia es un pais", opciones, 1, 1, new TipoMultipleChoice(), new ModoPuntajeParcial());
+        var pregunta = new Pregunta("Francia es un pais", opciones, 1, 1, new TipoMultipleChoice(), new ModoClasico());
+        respuestas.add(Opcion2);
 
         jugador.agregarPuntaje(pregunta.calcularPuntaje(respuestas));
 
