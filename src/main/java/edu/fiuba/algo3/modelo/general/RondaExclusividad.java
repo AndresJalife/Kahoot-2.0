@@ -2,7 +2,6 @@ package edu.fiuba.algo3.modelo.general;
 
 import edu.fiuba.algo3.modelo.preguntas.Pregunta;
 
-import java.util.HashMap;
 import java.util.List;
 
 public class RondaExclusividad extends RondaNormal {
@@ -24,7 +23,7 @@ public class RondaExclusividad extends RondaNormal {
     }
     
     
-    public void actualizarPuntajes() {
+    public void actualizarConExclusividad() {
         int cantidadDeGanadores = 0;
         Jugador ganador = null;
         int puntajeRespuesta = 0;
@@ -56,7 +55,7 @@ public class RondaExclusividad extends RondaNormal {
             this.mostrarPosiblesRespuestas();
             this.pedirRespuesta(jugador);
         }
-        this.actualizarPuntajes();
+        this.actualizarConExclusividad();
         this.mostrarRespuestaCorrecta();
     }
 

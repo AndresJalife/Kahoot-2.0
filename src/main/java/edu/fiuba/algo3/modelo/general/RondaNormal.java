@@ -61,8 +61,7 @@ public class RondaNormal implements IRonda {
         }
     }
 
-    @Override
-    public void actualizar(Jugador jugador) {
+    public void actualizarConMultiplicadores(Jugador jugador) {
         var respuestas = respuestasDeJugadores.get(jugador);
 
         int puntaje = this.preguntaActual.calcularPuntaje(respuestas);
@@ -77,7 +76,7 @@ public class RondaNormal implements IRonda {
             this.mostrarModificadores(jugador);
             this.mostrarPosiblesRespuestas();
             this.pedirRespuesta(jugador);
-            this.actualizar(jugador);
+            this.actualizarConMultiplicadores(jugador);
         }
         this.mostrarRespuestaCorrecta();
     }

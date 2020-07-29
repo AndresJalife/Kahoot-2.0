@@ -1,7 +1,6 @@
 package edu.fiuba.algo3.modelo.general;
 
 public interface IRonda {
-    void actualizar(Jugador jugador);
     void comenzar();
     void mostrarPregunta();
     void pedirRespuesta(Jugador jugador);
