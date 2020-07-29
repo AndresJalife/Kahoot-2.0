@@ -1,29 +1,16 @@
 package edu.fiuba.algo3.modelo.general;
 
-import edu.fiuba.algo3.modelo.preguntas.Opcion;
 import edu.fiuba.algo3.modelo.preguntas.Pregunta;
 
 import java.util.HashMap;
 import java.util.List;
 
-public class RondaNormal implements IRonda {
+public class RondaNormal extends RondaBase {
 
-
-    protected Pregunta preguntaActual;
     private HashMap<Jugador, Multiplicador> multiplicadores;
-    protected List<Jugador> jugadores;
-    protected HashMap<Jugador, List<Opcion>> respuestasDeJugadores;
 
     public RondaNormal(Pregunta pregunta, List<Jugador> nuevosJugadores) {
-        preguntaActual = pregunta;
-        jugadores = nuevosJugadores;
-        respuestasDeJugadores = new HashMap<>();
-    }
-
-    @Override
-    public void mostrarPregunta() {
-
-        System.out.println(preguntaActual.obtenerTexto());
+        super(pregunta, nuevosJugadores);
     }
 
     @Override
@@ -37,31 +24,10 @@ public class RondaNormal implements IRonda {
             System.out.println("X3");
         }
     //        MOSTRAR POR PANTALLA BOTONES MULTIPLICADORES Y QUE APRIETE SOLO 1
-    //        HAY QUE AGREGARLOS A LA LISTA
+    //        HAY QUE AGREGARLOS AL DICCIONARIO DE MULTIPLICADORES ACTUALES
     }
 
-    @Override
-    public void mostrarPosiblesRespuestas() {
-        for(Opcion opcion: preguntaActual.obtenerOpciones()) {
-            System.out.println(opcion.obtenerTexto());
-        }
-//        VER COMO SE PUEDEN MOSTRAR TODAS JUNTAS
-    }
-
-    @Override
-    public void pedirRespuesta(Jugador jugador) {
-        //respuestasDeJugadores.put(jugador, input(Opcion opcion));
-//        CORREGIR EL INPUT
-    }
-
-    @Override
-    public void mostrarRespuestaCorrecta(){
-        for(Opcion opcion: preguntaActual.obtenerRespuestasCorrectas()) {
-            System.out.println(opcion.obtenerTexto());
-        }
-    }
-
-    public void actualizarConMultiplicadores(Jugador jugador) {
+    public void actualizar(Jugador jugador) {
         var respuestas = respuestasDeJugadores.get(jugador);
 
         int puntaje = this.preguntaActual.calcularPuntaje(respuestas);
@@ -76,8 +42,9 @@ public class RondaNormal implements IRonda {
             this.mostrarModificadores(jugador);
             this.mostrarPosiblesRespuestas();
             this.pedirRespuesta(jugador);
-            this.actualizarConMultiplicadores(jugador);
+            this.actualizar(jugador);
         }
         this.mostrarRespuestaCorrecta();
     }
+
 }
