@@ -22,6 +22,14 @@ public class TestUnitarioModo {
     }
 
     @Test
+    public void modoClasicoResponderTodasBienYAdemas1MalDevuelve0() {
+        var modo = new ModoClasico();
+        assertEquals(0, modo.calcularPuntaje(2, 1, 2));
+    }
+
+
+
+    @Test
     public void TestModoConPenalidadRestaLasErroneas() {
         var modo = new ModoConPenalidad();
         assertEquals(1, modo.calcularPuntaje(5, 3, 4));
