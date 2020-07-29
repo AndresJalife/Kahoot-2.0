@@ -10,7 +10,7 @@ import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-public class TestUnitarioMultipleChoiceClasico {
+public class TestUnitariosMultipleChoiceClasico {
 
     @Test
     public void ingresarRespuestaMultipleChoiceClasico() {
