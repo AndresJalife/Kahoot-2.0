@@ -9,7 +9,7 @@ import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-public class TestUnitarioMultipleChoiceConParcialConPenalidadTest {
+public class TestsUnitariosMultipleChoiceConParcialConPenalidadTest {
     @Test
     public void ingresarRespuestaMultipleChoiceConPuntajeParcialYPenalidad() {
         List<Opcion> opciones = new ArrayList<>();
