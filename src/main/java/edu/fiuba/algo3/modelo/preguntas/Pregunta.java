@@ -14,7 +14,7 @@ public class Pregunta {
 
     public Pregunta(String textoPregunta, List<Opcion> opcionesPosibles, int tiempo, int puntajePorRespuesta, ITipoDePregunta tipo, IModoDePregunta modo) {
         this.textoPregunta = textoPregunta;
-        this.respuestasPosibles = opcionesPosibles;
+        this.respuestasPosibles = List.copyOf(opcionesPosibles);
         this.puntajePorRespuesta = puntajePorRespuesta;
         this.tiempo = tiempo;
         this.tipo = tipo;
