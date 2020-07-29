@@ -31,7 +31,7 @@ public class TestsUnitariosVerdaderoFalsoClasico {
     }
 
     @Test
-    public void ingresarRespuestaVerdaderoFalsolasicoYContestaBien() {
+    public void ingresarRespuestaVerdaderoFalsoClasicoYContestaBien() {
         List<Opcion> opciones = new ArrayList<>();
         List<Opcion> respuestas = new ArrayList<>();
         Jugador jugador = new Jugador("Jorge");
@@ -50,7 +50,7 @@ public class TestsUnitariosVerdaderoFalsoClasico {
     }
 
     @Test
-    public void ingresarRespuestaVerdaderoFalsolasicoYContestaMal() {
+    public void ingresarRespuestaVerdaderoFalsoClasicoYContestaMal() {
         List<Opcion> opciones = new ArrayList<>();
         List<Opcion> respuestas = new ArrayList<>();
         Jugador jugador = new Jugador("Jorge");
