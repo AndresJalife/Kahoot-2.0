@@ -58,8 +58,6 @@ public class TestUnitarioFabricaPreguntas {
         assertNotNull(pregunta);
     }
 
-
-
     @Test
     public void crearPreguntaConNombreDelTipoIncorrectoDevuelveNull(){
         opciones.add(opcion1);
