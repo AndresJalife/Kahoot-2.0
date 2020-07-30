@@ -92,4 +92,28 @@ public class TestsUnitariosMultipleChoiceConParcialConPenalidadTest {
 
         assertEquals(-1, jugador.obtenerPuntaje());
     }
+
+    @Test
+    public void ingresarRespuestaMultipleChoiceConPuntajeParcialYPenalidadYContestaDosMal() {
+        List<Opcion> opciones = new ArrayList<>();
+        List<Opcion> respuestas = new ArrayList<>();
+        Jugador jugador = new Jugador("Jorge");
+        Opcion Opcion1 = new Opcion("Si", true);
+        Opcion Opcion2 = new Opcion("No");
+        Opcion Opcion3 = new Opcion("Si, es correcta", true);
+        Opcion Opcion4 = new Opcion("No, es falso");
+
+        opciones.add(Opcion1);
+        opciones.add(Opcion2);
+        opciones.add(Opcion3);
+        opciones.add(Opcion4);
+        respuestas.add(Opcion2);
+        respuestas.add(Opcion4);
+
+        Pregunta pregunta = new Pregunta("Francia es un pais", opciones, 1, 1, new TipoMultipleChoice(), new ModoPuntajeParcialConPenalidad());
+
+        jugador.agregarPuntaje(pregunta.calcularPuntaje(respuestas));
+
+        assertEquals(-2, jugador.obtenerPuntaje());
+    }
 }
