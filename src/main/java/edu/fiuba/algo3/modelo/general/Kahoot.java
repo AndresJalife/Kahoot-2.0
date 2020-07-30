@@ -8,7 +8,7 @@ import java.util.List;
 public class Kahoot {
     private List<Jugador> jugadores;
     private List<Pregunta> preguntas;
-    private IRonda rondaActual;
+    private RondaBase rondaActual;
 
     public Kahoot() {
         jugadores = new ArrayList<>();

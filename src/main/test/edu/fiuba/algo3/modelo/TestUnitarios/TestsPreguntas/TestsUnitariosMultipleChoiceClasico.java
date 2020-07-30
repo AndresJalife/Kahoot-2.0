@@ -1,4 +1,5 @@
-package edu.fiuba.algo3.modelo;
+package edu.fiuba.algo3.modelo.TestUnitarios.TestsPreguntas;
+
 
 import edu.fiuba.algo3.modelo.general.Jugador;
 import edu.fiuba.algo3.modelo.preguntas.*;
@@ -9,21 +10,21 @@ import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-public class MultipleChoiceClasicoTest {
+public class TestsUnitariosMultipleChoiceClasico {
 
     @Test
-    public void ingresarRespuestaVerdaderoFalsoClasico() {
+    public void ingresarRespuestaMultipleChoiceClasico() {
         List<Opcion> opciones = new ArrayList<>();
         List<Opcion> respuestas = new ArrayList<>();
-        var Opcion1 = new Opcion("Si", true);
-        var Opcion2 = new Opcion("No");
-        var Opcion3 = new Opcion("Si, es correcta", true);
+        Opcion Opcion1 = new Opcion("Si", true);
+        Opcion Opcion2 = new Opcion("No");
+        Opcion Opcion3 = new Opcion("Si, es correcta", true);
 
         opciones.add(Opcion1);
         opciones.add(Opcion2);
         opciones.add(Opcion3);
 
-        var pregunta = new Pregunta("Francia es un pais", opciones, 1, 1, new TipoMultipleChoice(), new ModoClasico());
+        Pregunta pregunta = new Pregunta("Francia es un pais", opciones, 1, 1, new TipoMultipleChoice(), new ModoClasico());
         respuestas.add(Opcion1);
         respuestas.add(Opcion3);
 
@@ -31,7 +32,7 @@ public class MultipleChoiceClasicoTest {
     }
 
     @Test
-    public void ingresarRespuestaVerdaderoFalsoClasicoYContestaBien() {
+    public void ingresarRespuestaMultipleChoiceClasicoYContestaBien() {
         List<Opcion> opciones = new ArrayList<>();
         List<Opcion> respuestas = new ArrayList<>();
         Jugador jugador = new Jugador("Jorge");
@@ -43,7 +44,7 @@ public class MultipleChoiceClasicoTest {
         opciones.add(Opcion2);
         opciones.add(Opcion3);
 
-        var pregunta = new Pregunta("Francia es un pais", opciones, 1, 1, new TipoMultipleChoice(), new ModoClasico());
+        Pregunta pregunta = new Pregunta("Francia es un pais", opciones, 1, 1, new TipoMultipleChoice(), new ModoClasico());
         respuestas.add(Opcion1);
         respuestas.add(Opcion3);
 
@@ -53,7 +54,7 @@ public class MultipleChoiceClasicoTest {
     }
 
     @Test
-    public void ingresarRespuestaVerdaderoFalsoClasicoYContestaParcialmenteBien() {
+    public void ingresarRespuestaMultipleChoiceYContestaParcialmenteBien() {
         List<Opcion> opciones = new ArrayList<>();
         List<Opcion> respuestas = new ArrayList<>();
         Jugador jugador = new Jugador("Jorge");
@@ -65,7 +66,7 @@ public class MultipleChoiceClasicoTest {
         opciones.add(Opcion2);
         opciones.add(Opcion3);
 
-        var pregunta = new Pregunta("Francia es un pais", opciones, 1, 1, new TipoMultipleChoice(), new ModoClasico());
+        Pregunta pregunta = new Pregunta("Francia es un pais", opciones, 1, 1, new TipoMultipleChoice(), new ModoClasico());
         respuestas.add(Opcion1);
 
         jugador.agregarPuntaje(pregunta.calcularPuntaje(respuestas));
@@ -74,7 +75,7 @@ public class MultipleChoiceClasicoTest {
     }
 
     @Test
-    public void ingresarRespuestaVerdaderoFalsoClasicoYContestaMal() {
+    public void ingresarRespuestaMultipleChoiceClasicoYContestaMal() {
         List<Opcion> opciones = new ArrayList<>();
         List<Opcion> respuestas = new ArrayList<>();
         Jugador jugador = new Jugador("Jorge");
@@ -86,7 +87,7 @@ public class MultipleChoiceClasicoTest {
         opciones.add(Opcion2);
         opciones.add(Opcion3);
 
-        var pregunta = new Pregunta("Francia es un pais", opciones, 1, 1, new TipoMultipleChoice(), new ModoClasico());
+        Pregunta pregunta = new Pregunta("Francia es un pais", opciones, 1, 1, new TipoMultipleChoice(), new ModoClasico());
         respuestas.add(Opcion2);
 
         jugador.agregarPuntaje(pregunta.calcularPuntaje(respuestas));

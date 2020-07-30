@@ -1,4 +1,4 @@
-package edu.fiuba.algo3.modelo;
+package edu.fiuba.algo3.modelo.TestUnitarios.TestsPreguntas;
 
 import edu.fiuba.algo3.modelo.general.Jugador;
 import edu.fiuba.algo3.modelo.preguntas.*;
@@ -9,21 +9,20 @@ import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-public class MultipleChoiceConParcialTest {
-
+public class TestsUnitariosMultipleChoiceConParcialConPenalidadTest {
     @Test
-    public void ingresarRespuestaVerdaderoFalsoClasico() {
+    public void ingresarRespuestaMultipleChoiceConPuntajeParcialYPenalidad() {
         List<Opcion> opciones = new ArrayList<>();
         List<Opcion> respuestas = new ArrayList<>();
-        var Opcion1 = new Opcion("Si", true);
-        var Opcion2 = new Opcion("No");
-        var Opcion3 = new Opcion("Si, es correcta", true);
+        Opcion Opcion1 = new Opcion("Si", true);
+        Opcion Opcion2 = new Opcion("No");
+        Opcion Opcion3 = new Opcion("Si, es correcta", true);
 
         opciones.add(Opcion1);
         opciones.add(Opcion2);
         opciones.add(Opcion3);
 
-        var pregunta = new Pregunta("Francia es un pais", opciones, 1, 1, new TipoMultipleChoice(), new ModoPuntajeParcial());
+        Pregunta pregunta = new Pregunta("Francia es un pais", opciones, 1, 1, new TipoMultipleChoice(), new ModoPuntajeParcialConPenalidad());
         respuestas.add(Opcion1);
         respuestas.add(Opcion3);
 
@@ -31,7 +30,7 @@ public class MultipleChoiceConParcialTest {
     }
 
     @Test
-    public void ingresarRespuestaVerdaderoFalsoClasicoYContestaBien() {
+    public void ingresarRespuestaMultipleChoiceConPuntajeParcialYPenalidadYContestaBien() {
         List<Opcion> opciones = new ArrayList<>();
         List<Opcion> respuestas = new ArrayList<>();
         Jugador jugador = new Jugador("Jorge");
@@ -43,7 +42,7 @@ public class MultipleChoiceConParcialTest {
         opciones.add(Opcion2);
         opciones.add(Opcion3);
 
-        var pregunta = new Pregunta("Francia es un pais", opciones, 1, 1, new TipoMultipleChoice(), new ModoPuntajeParcial());
+        Pregunta pregunta = new Pregunta("Francia es un pais", opciones, 1, 1, new TipoMultipleChoice(), new ModoPuntajeParcialConPenalidad());
         respuestas.add(Opcion1);
         respuestas.add(Opcion3);
 
@@ -53,7 +52,7 @@ public class MultipleChoiceConParcialTest {
     }
 
     @Test
-    public void ingresarRespuestaVerdaderoFalsoClasicoYContestaParcialmenteBien() {
+    public void ingresarRespuestaMultipleChoiceConPuntajeParcialYPenalidadYContestaParcialmenteBien() {
         List<Opcion> opciones = new ArrayList<>();
         List<Opcion> respuestas = new ArrayList<>();
         Jugador jugador = new Jugador("Jorge");
@@ -65,7 +64,7 @@ public class MultipleChoiceConParcialTest {
         opciones.add(Opcion2);
         opciones.add(Opcion3);
 
-        var pregunta = new Pregunta("Francia es un pais", opciones, 1, 1, new TipoMultipleChoice(), new ModoPuntajeParcial());
+        Pregunta pregunta = new Pregunta("Francia es un pais", opciones, 1, 1, new TipoMultipleChoice(), new ModoPuntajeParcialConPenalidad());
         respuestas.add(Opcion1);
 
         jugador.agregarPuntaje(pregunta.calcularPuntaje(respuestas));
@@ -74,7 +73,7 @@ public class MultipleChoiceConParcialTest {
     }
 
     @Test
-    public void ingresarRespuestaVerdaderoFalsoClasicoYContestaMal() {
+    public void ingresarRespuestaMultipleChoiceConPuntajeParcialYPenalidadYContestaMal() {
         List<Opcion> opciones = new ArrayList<>();
         List<Opcion> respuestas = new ArrayList<>();
         Jugador jugador = new Jugador("Jorge");
@@ -85,11 +84,36 @@ public class MultipleChoiceConParcialTest {
         opciones.add(Opcion1);
         opciones.add(Opcion2);
         opciones.add(Opcion3);
+        respuestas.add(Opcion2);
 
-        var pregunta = new Pregunta("Francia es un pais", opciones, 1, 1, new TipoMultipleChoice(), new ModoPuntajeParcial());
+        Pregunta pregunta = new Pregunta("Francia es un pais", opciones, 1, 1, new TipoMultipleChoice(), new ModoPuntajeParcialConPenalidad());
 
         jugador.agregarPuntaje(pregunta.calcularPuntaje(respuestas));
 
-        assertEquals(0, jugador.obtenerPuntaje());
+        assertEquals(-1, jugador.obtenerPuntaje());
+    }
+
+    @Test
+    public void ingresarRespuestaMultipleChoiceConPuntajeParcialYPenalidadYContestaDosMal() {
+        List<Opcion> opciones = new ArrayList<>();
+        List<Opcion> respuestas = new ArrayList<>();
+        Jugador jugador = new Jugador("Jorge");
+        Opcion Opcion1 = new Opcion("Si", true);
+        Opcion Opcion2 = new Opcion("No");
+        Opcion Opcion3 = new Opcion("Si, es correcta", true);
+        Opcion Opcion4 = new Opcion("No, es falso");
+
+        opciones.add(Opcion1);
+        opciones.add(Opcion2);
+        opciones.add(Opcion3);
+        opciones.add(Opcion4);
+        respuestas.add(Opcion2);
+        respuestas.add(Opcion4);
+
+        Pregunta pregunta = new Pregunta("Francia es un pais", opciones, 1, 1, new TipoMultipleChoice(), new ModoPuntajeParcialConPenalidad());
+
+        jugador.agregarPuntaje(pregunta.calcularPuntaje(respuestas));
+
+        assertEquals(-2, jugador.obtenerPuntaje());
     }
 }

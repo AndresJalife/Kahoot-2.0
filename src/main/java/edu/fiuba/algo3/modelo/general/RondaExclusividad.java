@@ -2,10 +2,9 @@ package edu.fiuba.algo3.modelo.general;
 
 import edu.fiuba.algo3.modelo.preguntas.Pregunta;
 
-import java.util.HashMap;
 import java.util.List;
 
-public class RondaExclusividad extends RondaNormal {
+public class RondaExclusividad extends RondaBase {
     private List<Exclusividad> exclusividades;
 
     public RondaExclusividad(Pregunta pregunta, List<Jugador> jugadores) {
@@ -19,12 +18,12 @@ public class RondaExclusividad extends RondaNormal {
             System.out.format("Exclusividad. %d restantes", exclusividad.obtenerCantidad());
         }
         //  exclusividades.adds(exclusividad)
-        //        MOSTRAR POR PANTALLA BOTONES MULTIPLICADORES Y QUE APRIETE SOLO 1
-        //        HAY QUE AGREGARLOS A LA LISTA
+        //        MOSTRAR POR PANTALLA BOTON DE EXCLUSIVIDAD SOLO SI LE QUEDAN USOS
+        //        HAY QUE AGREGARLOS A LA LISTA DE EXCLUSIVIDADES
     }
     
     
-    public void actualizarPuntajes() {
+    public void actualizar() {
         int cantidadDeGanadores = 0;
         Jugador ganador = null;
         int puntajeRespuesta = 0;
@@ -56,7 +55,7 @@ public class RondaExclusividad extends RondaNormal {
             this.mostrarPosiblesRespuestas();
             this.pedirRespuesta(jugador);
         }
-        this.actualizarPuntajes();
+        this.actualizar();
         this.mostrarRespuestaCorrecta();
     }
 
