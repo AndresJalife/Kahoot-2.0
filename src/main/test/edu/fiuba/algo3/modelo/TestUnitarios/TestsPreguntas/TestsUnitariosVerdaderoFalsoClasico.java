@@ -18,13 +18,13 @@ public class TestsUnitariosVerdaderoFalsoClasico {
     public void ingresarRespuestaVerdaderoFalsoClasico() {
         List<Opcion> opciones = new ArrayList<>();
         List<Opcion> respuestas = new ArrayList<>();
-        var Opcion1 = new Opcion("Si", true);
-        var Opcion2 = new Opcion("No");
+        Opcion Opcion1 = new Opcion("Si", true);
+        Opcion Opcion2 = new Opcion("No");
 
         opciones.add(Opcion1);
         opciones.add(Opcion2);
 
-        var pregunta = new Pregunta("Francia es un pais", opciones, 1, 1, new TipoMultipleChoice(), new ModoClasico());
+        Pregunta pregunta = new Pregunta("Francia es un pais", opciones, 1, 1, new TipoMultipleChoice(), new ModoClasico());
         respuestas.add(Opcion1);
 
         assertEquals(respuestas, pregunta.obtenerRespuestasCorrectas());
@@ -41,7 +41,7 @@ public class TestsUnitariosVerdaderoFalsoClasico {
         opciones.add(Opcion1);
         opciones.add(Opcion2);
 
-        var pregunta = new Pregunta("Francia es un pais", opciones, 1, 1, new TipoMultipleChoice(), new ModoClasico());
+        Pregunta pregunta = new Pregunta("Francia es un pais", opciones, 1, 1, new TipoMultipleChoice(), new ModoClasico());
         respuestas.add(Opcion1);
 
         jugador.agregarPuntaje(pregunta.calcularPuntaje(respuestas));
@@ -60,7 +60,7 @@ public class TestsUnitariosVerdaderoFalsoClasico {
         opciones.add(Opcion1);
         opciones.add(Opcion2);
 
-        var pregunta = new Pregunta("Francia es un pais", opciones, 1, 1, new TipoMultipleChoice(), new ModoClasico());
+        Pregunta pregunta = new Pregunta("Francia es un pais", opciones, 1, 1, new TipoMultipleChoice(), new ModoClasico());
         respuestas.add(Opcion2);
 
         jugador.agregarPuntaje(pregunta.calcularPuntaje(respuestas));
