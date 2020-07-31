@@ -1,7 +1,6 @@
 package edu.fiuba.algo3.modelo.TestUnitarios;
 
-import edu.fiuba.algo3.modelo.general.Multiplicadorx2;
-import edu.fiuba.algo3.modelo.general.Multiplicadorx3;
+import edu.fiuba.algo3.modelo.general.Multiplicador;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;

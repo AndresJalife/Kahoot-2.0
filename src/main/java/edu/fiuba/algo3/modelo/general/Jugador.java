@@ -4,21 +4,21 @@ public class Jugador {
 
     private int puntaje;
     private String nombre;
-    private Multiplicadorx2 x2;
-    private Multiplicadorx3 x3;
+    private Multiplicador x2;
+    private Multiplicador x3;
     private Exclusividad exclusividades;
 
     public Jugador(String nombre) {
         this.nombre = nombre;
         exclusividades = new Exclusividad();
-        x3 = new Multiplicadorx3();
-        x2 = new Multiplicadorx2();
+        x3 = new Multiplicador(3);
+        x2 = new Multiplicador(2);
     }
-    public Multiplicadorx2 obtenerMultiplicadorX2() {
+    public Multiplicador obtenerMultiplicadorX2() {
         return x2;
     }
 
-    public Multiplicadorx3 obtenerMultiplicadorX3() {
+    public Multiplicador obtenerMultiplicadorX3() {
         return x3;
     }
 

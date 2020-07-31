@@ -17,7 +17,10 @@ public class Multiplicador implements IModificador {
         usosDisponibles -= 1;
     }
 
-    public abstract int modificarPuntaje(int puntaje);
+    public int modificarPuntaje(int puntaje) {
+
+        return (puntaje * factor);
+    }
 
     @Override
     public int obtenerCantidad(){

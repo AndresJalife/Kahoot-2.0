@@ -15,8 +15,8 @@ public class RondaNormal extends RondaBase {
 
     @Override
     public void mostrarModificadores(Jugador jugador) {
-        Multiplicadorx2 x2 = jugador.obtenerMultiplicadorX2();
-        Multiplicadorx3 x3 = jugador.obtenerMultiplicadorX3();
+        Multiplicador x2 = jugador.obtenerMultiplicadorX2();
+        Multiplicador x3 = jugador.obtenerMultiplicadorX3();
         if (x2.quedanUsos()){
             System.out.println("X2");
         }
