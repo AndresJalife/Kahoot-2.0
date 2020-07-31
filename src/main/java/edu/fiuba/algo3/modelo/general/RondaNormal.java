@@ -2,6 +2,7 @@ package edu.fiuba.algo3.modelo.general;
 
 import edu.fiuba.algo3.modelo.preguntas.Pregunta;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
@@ -14,17 +15,18 @@ public class RondaNormal extends RondaBase {
     }
 
     @Override
-    public void mostrarModificadores(Jugador jugador) {
+    public List<String> obtenerModificadores(Jugador jugador) {
         Multiplicadorx2 x2 = jugador.obtenerMultiplicadorX2();
         Multiplicadorx3 x3 = jugador.obtenerMultiplicadorX3();
+
+        List<String> multiplicadoresRestantes = new ArrayList<String>();
         if (x2.quedanUsos()){
-            System.out.println("X2");
+            multiplicadoresRestantes.add("X2");
         }
         if (x3.quedanUsos()){
-            System.out.println("X3");
+            multiplicadoresRestantes.add("X3");
         }
-    //        MOSTRAR POR PANTALLA BOTONES MULTIPLICADORES Y QUE APRIETE SOLO 1
-    //        HAY QUE AGREGARLOS AL DICCIONARIO DE MULTIPLICADORES ACTUALES
+        return multiplicadoresRestantes;
     }
 
     public void actualizar(Jugador jugador) {
@@ -38,13 +40,18 @@ public class RondaNormal extends RondaBase {
     @Override
     public void comenzar() {
         for (Jugador jugador:jugadores) {
-            this.obtenerPreguntaActual();
-            this.mostrarModificadores(jugador);
-            this.obtenerPosiblesRespuestas();
+//            this.obtenerPreguntaActual();
+//            this.obtenerModificadores(jugador);
+//            this.obtenerPosiblesRespuestas();
+//            panel.mostrarPreguntaActual()/
+//            panel.mostrarModificadores(jugador);
+//            panel.mostrarPosiblesRespuestas();
+
             this.pedirRespuesta(jugador);
             this.actualizar(jugador);
         }
-        this.obtenerRespuestasCorrectas();
+//        this.obtenerRespuestasCorrectas();
+//        panel.mostrarRespuestasCorrectas()
     }
 
 }

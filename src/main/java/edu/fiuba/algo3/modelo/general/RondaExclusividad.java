@@ -2,6 +2,7 @@ package edu.fiuba.algo3.modelo.general;
 
 import edu.fiuba.algo3.modelo.preguntas.Pregunta;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class RondaExclusividad extends RondaBase {
@@ -12,18 +13,16 @@ public class RondaExclusividad extends RondaBase {
     }
 
     @Override
-    public void mostrarModificadores(Jugador jugador) {
+    public List<String> obtenerModificadores(Jugador jugador) {
         Exclusividad exclusividad = jugador.obtenerExclusividades();
+        List<String> exclusividadRestante = new ArrayList<String>();
         if (exclusividad.quedanUsos()){
-            System.out.format("Exclusividad. %d restantes", exclusividad.obtenerCantidad());
+            exclusividadRestante.add("Exclusividad");
         }
-        //  exclusividades.adds(exclusividad)
-        //        MOSTRAR POR PANTALLA BOTON DE EXCLUSIVIDAD SOLO SI LE QUEDAN USOS
-        //        HAY QUE AGREGARLOS A LA LISTA DE EXCLUSIVIDADES
+        return exclusividadRestante;
     }
-    
-    
-    public void actualizar() {
+
+    public void actualizarPuntaje() {
         int cantidadDeGanadores = 0;
         Jugador ganador = null;
         int puntajeRespuesta = 0;
@@ -49,14 +48,20 @@ public class RondaExclusividad extends RondaBase {
 
     @Override
     public void comenzar() {
+//      public void comenzar(Panel panel) {
+
         for (Jugador jugador:jugadores) {
-            this.obtenerPreguntaActual();
-            this.mostrarModificadores(jugador);
-            this.obtenerPosiblesRespuestas();
+//            this.obtenerPreguntaActual();
+//            this.obtenerModificadores(jugador);
+//            this.obtenerPosiblesRespuestas();
+//            panel.mostrarPreguntaActual()/
+//            panel.mostrarModificadores(jugador);
+//            panel.mostrarPosiblesRespuestas();
+
             this.pedirRespuesta(jugador);
         }
-        this.actualizar();
-        this.obtenerRespuestasCorrectas();
+        this.actualizarPuntaje();
+//        this.obtenerRespuestasCorrectas();
+//        panel.mostrarRespuestasCorrectas()
     }
-
 }

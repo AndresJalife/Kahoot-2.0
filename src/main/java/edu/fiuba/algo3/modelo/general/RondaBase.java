@@ -34,6 +34,6 @@ public abstract class RondaBase {
         return preguntaActual.obtenerOpciones();
     }
 
-    public abstract void mostrarModificadores(Jugador jugador);
+    public abstract List<String> obtenerModificadores(Jugador jugador);
     public abstract void comenzar();
 }
