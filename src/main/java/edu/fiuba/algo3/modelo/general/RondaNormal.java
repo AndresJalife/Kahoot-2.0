@@ -15,17 +15,11 @@ public class RondaNormal extends RondaBase {
     }
 
     @Override
-<<<<<<< HEAD
     public List<String> obtenerModificadores(Jugador jugador) {
-        Multiplicadorx2 x2 = jugador.obtenerMultiplicadorX2();
-        Multiplicadorx3 x3 = jugador.obtenerMultiplicadorX3();
-
-        List<String> multiplicadoresRestantes = new ArrayList<String>();
-=======
-    public void mostrarModificadores(Jugador jugador) {
         Multiplicador x2 = jugador.obtenerMultiplicadorX2();
         Multiplicador x3 = jugador.obtenerMultiplicadorX3();
->>>>>>> c52eb09b0ce56c72b5894c8430d02a2ae914658b
+        List<String> multiplicadoresRestantes = new ArrayList<String>();
+
         if (x2.quedanUsos()){
             multiplicadoresRestantes.add("X2");
         }
@@ -44,7 +38,7 @@ public class RondaNormal extends RondaBase {
     }
 
     @Override
-    public void comenzar() {
+    public void comenzar(){
         for (Jugador jugador:jugadores) {
 //            this.obtenerPreguntaActual();
 //            this.obtenerModificadores(jugador);
