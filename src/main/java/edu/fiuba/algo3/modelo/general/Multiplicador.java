@@ -1,14 +1,18 @@
 package edu.fiuba.algo3.modelo.general;
 
-public abstract class Multiplicador implements IModificador {
+public class Multiplicador implements IModificador {
 
     private int usosDisponibles = 1;
+    private int factor;
 
     public Boolean quedanUsos(){
         return (usosDisponibles !=0);
     }
 
-    @Override
+    public Multiplicador(int factor) {
+        this.factor = factor;
+    }
+
     public void utilizar(){
         usosDisponibles -= 1;
     }
