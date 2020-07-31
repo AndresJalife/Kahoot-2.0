@@ -50,13 +50,13 @@ public class RondaExclusividad extends RondaBase {
     @Override
     public void comenzar() {
         for (Jugador jugador:jugadores) {
-            this.mostrarPregunta();
+            this.obtenerPreguntaActual();
             this.mostrarModificadores(jugador);
-            this.mostrarPosiblesRespuestas();
+            this.obtenerPosiblesRespuestas();
             this.pedirRespuesta(jugador);
         }
         this.actualizar();
-        this.mostrarRespuestaCorrecta();
+        this.obtenerRespuestasCorrectas();
     }
 
 }

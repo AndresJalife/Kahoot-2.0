@@ -17,8 +17,8 @@ public abstract class RondaBase {
         respuestasDeJugadores = new HashMap<>();
     }
 
-    public void mostrarPregunta() {
-        System.out.println(preguntaActual.obtenerTexto());
+    public Pregunta obtenerPreguntaActual() {
+        return preguntaActual;
     }
 
     public void pedirRespuesta(Jugador jugador) {
@@ -26,17 +26,12 @@ public abstract class RondaBase {
 //        CORREGIR EL INPUT
     }
 
-    public void mostrarRespuestaCorrecta(){
-        for(Opcion opcion: preguntaActual.obtenerRespuestasCorrectas()) {
-            System.out.println(opcion.obtenerTexto());
-        }
+    public List<Opcion> obtenerRespuestasCorrectas(){
+        return preguntaActual.obtenerRespuestasCorrectas();
     }
 
-    public void mostrarPosiblesRespuestas() {
-        for(Opcion opcion: preguntaActual.obtenerOpciones()) {
-            System.out.println(opcion.obtenerTexto());
-        }
-//        VER COMO SE PUEDEN MOSTRAR TODAS JUNTAS
+    public List<Opcion> obtenerPosiblesRespuestas() {
+        return preguntaActual.obtenerOpciones();
     }
 
     public abstract void mostrarModificadores(Jugador jugador);

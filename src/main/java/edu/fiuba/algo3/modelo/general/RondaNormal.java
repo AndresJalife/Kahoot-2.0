@@ -38,13 +38,13 @@ public class RondaNormal extends RondaBase {
     @Override
     public void comenzar() {
         for (Jugador jugador:jugadores) {
-            this.mostrarPregunta();
+            this.obtenerPreguntaActual();
             this.mostrarModificadores(jugador);
-            this.mostrarPosiblesRespuestas();
+            this.obtenerPosiblesRespuestas();
             this.pedirRespuesta(jugador);
             this.actualizar(jugador);
         }
-        this.mostrarRespuestaCorrecta();
+        this.obtenerRespuestasCorrectas();
     }
 
 }
