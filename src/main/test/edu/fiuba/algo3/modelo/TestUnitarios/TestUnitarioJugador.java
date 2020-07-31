@@ -2,8 +2,7 @@ package edu.fiuba.algo3.modelo.TestUnitarios;
 
 import edu.fiuba.algo3.modelo.general.Exclusividad;
 import edu.fiuba.algo3.modelo.general.Jugador;
-import edu.fiuba.algo3.modelo.general.Multiplicadorx2;
-import edu.fiuba.algo3.modelo.general.Multiplicadorx3;
+import edu.fiuba.algo3.modelo.general.Multiplicador;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertTrue;
@@ -33,14 +32,14 @@ public class TestUnitarioJugador {
     @Test
     public void CrearJugadorYObtenerMultiplicadorX2(){
         Jugador jugador = new Jugador("Alfredo");
-        var multiplicador = new Multiplicadorx2();
+        var multiplicador = new Multiplicador(2);
         assertEquals(multiplicador.obtenerCantidad(), jugador.obtenerMultiplicadorX2().obtenerCantidad());
     }
 
     @Test
     public void CrearJugadorYObtenerMultiplicadorX3(){
         Jugador jugador = new Jugador("Alfredo");
-        var multiplicador = new Multiplicadorx3();
+        var multiplicador = new Multiplicador(3);
         assertEquals(multiplicador.obtenerCantidad(), jugador.obtenerMultiplicadorX3().obtenerCantidad());
     }
 
