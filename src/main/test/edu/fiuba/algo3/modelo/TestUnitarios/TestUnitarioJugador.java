@@ -46,7 +46,7 @@ public class TestUnitarioJugador {
     @Test
     public void CrearJugadorYObtenerExclusividad(){
         Jugador jugador = new Jugador("Alfredo");
-        var exclusividad = new Exclusividad();
+        var exclusividad = new Exclusividad(2);
         assertEquals(exclusividad.obtenerCantidad(), jugador.obtenerExclusividades().obtenerCantidad());
     }
 }

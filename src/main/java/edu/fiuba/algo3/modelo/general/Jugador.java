@@ -10,7 +10,7 @@ public class Jugador {
 
     public Jugador(String nombre) {
         this.nombre = nombre;
-        exclusividades = new Exclusividad();
+        exclusividades = new Exclusividad(2);
         x3 = new Multiplicador(3);
         x2 = new Multiplicador(2);
     }
