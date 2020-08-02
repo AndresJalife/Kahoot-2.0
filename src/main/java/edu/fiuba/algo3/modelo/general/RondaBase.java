@@ -21,9 +21,8 @@ public abstract class RondaBase {
         return preguntaActual;
     }
 
-    public void pedirRespuesta(Jugador jugador) {
-        //respuestasDeJugadores.put(jugador, input(Opcion opcion));
-//        CORREGIR EL INPUT
+    public void guardarRespuestas(Jugador jugador, List<Opcion> respuestas) {
+        respuestasDeJugadores.put(jugador, respuestas);
     }
 
     public List<Opcion> obtenerRespuestasCorrectas(){

@@ -51,17 +51,11 @@ public class RondaExclusividad extends RondaBase {
 //      public void comenzar(Panel panel) {
 
         for (Jugador jugador:jugadores) {
-//            this.obtenerPreguntaActual();
-//            this.obtenerModificadores(jugador);
-//            this.obtenerPosiblesRespuestas();
 //            panel.mostrarPreguntaActual()/
 //            panel.mostrarModificadores(jugador);
 //            panel.mostrarPosiblesRespuestas();
-
-            this.pedirRespuesta(jugador);
         }
         this.actualizarPuntaje();
-//        this.obtenerRespuestasCorrectas();
 //        panel.mostrarRespuestasCorrectas()
     }
 }
