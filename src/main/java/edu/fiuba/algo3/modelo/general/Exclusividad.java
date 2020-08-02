@@ -14,11 +14,16 @@ public class Exclusividad implements IModificador {
     }
 
     @Override
-    public void utilizar(){
-        usosDisponibles--;
+    public void utilizar() throws NoQuedanUsosExcepcion {
+        if (usosDisponibles > 0) {
+            usosDisponibles--;
+        }
+        else {
+            throw new NoQuedanUsosExcepcion("No le quedan usos a la exclusividad.");
+        }
     }
-
-    public int modificarPuntaje(int puntaje){
+    public int modificarPuntaje(int puntaje) throws NoQuedanUsosExcepcion {
+        this.utilizar();
         return puntaje * 2;
     }
 }

@@ -13,12 +13,18 @@ public class Multiplicador implements IModificador {
         this.factor = factor;
     }
 
-    public void utilizar(){
-        usosDisponibles -= 1;
+    @Override
+    public void utilizar() throws NoQuedanUsosExcepcion {
+        if (usosDisponibles > 0) {
+            usosDisponibles--;
+        }
+        else {
+            throw new NoQuedanUsosExcepcion("No le quedan usos al multiplicador.");
+        }
     }
 
-    public int modificarPuntaje(int puntaje) {
-
+    public int modificarPuntaje(int puntaje) throws NoQuedanUsosExcepcion {
+        this.utilizar();
         return (puntaje * factor);
     }
 

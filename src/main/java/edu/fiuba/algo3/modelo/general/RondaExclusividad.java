@@ -22,7 +22,7 @@ public class RondaExclusividad extends RondaBase {
         return exclusividadRestante;
     }
 
-    public void actualizarPuntaje() {
+    public void actualizarPuntaje() throws NoQuedanUsosExcepcion {
         int cantidadDeGanadores = 0;
         Jugador ganador = null;
         int puntajeRespuesta = 0;
@@ -40,7 +40,9 @@ public class RondaExclusividad extends RondaBase {
         if (cantidadDeGanadores == 1){
             int puntajeFinal = 0;
             for (Exclusividad exclusividad :exclusividades){
-                puntajeFinal += exclusividad.modificarPuntaje(puntajeRespuesta);
+                if (exclusividad.quedanUsos()) {
+                    puntajeFinal += exclusividad.modificarPuntaje(puntajeRespuesta);
+                }
             }
             ganador.agregarPuntaje(puntajeFinal);
         }
@@ -55,7 +57,12 @@ public class RondaExclusividad extends RondaBase {
 //            panel.mostrarModificadores(jugador);
 //            panel.mostrarPosiblesRespuestas();
         }
-        this.actualizarPuntaje();
+        try {
+            this.actualizarPuntaje();
+        }catch (NoQuedanUsosExcepcion except) {
+//            MANEJAR LA EXCEPCIÓN
+        }
+
 //        panel.mostrarRespuestasCorrectas()
     }
 }
