@@ -1,5 +1,9 @@
 package edu.fiuba.algo3.modelo.general;
 
+import edu.fiuba.algo3.modelo.general.Jugador;
+import edu.fiuba.algo3.modelo.general.RondaBase;
+import edu.fiuba.algo3.modelo.general.RondaExclusividad;
+import edu.fiuba.algo3.modelo.general.RondaNormal;
 import edu.fiuba.algo3.modelo.preguntas.Pregunta;
 
 import java.util.ArrayList;
@@ -14,12 +18,12 @@ public class Kahoot {
         jugadores = new ArrayList<>();
     }
 
-    public void inicializarPreguntas(){
+    private void inicializarPreguntas() {
 //        FALTA VER COMO ENTRAN LAS PREGS
     }
 
 
-    public void inicializarJugadores(){
+    private void inicializarJugadores() {
         boolean seguirAgregando = true;
         while (seguirAgregando){
             String nombre = "martin";
@@ -29,7 +33,7 @@ public class Kahoot {
         }
     }
 
-    public void comenzar(){
+    public void comenzar() {
         this.inicializarJugadores();
         this.inicializarPreguntas();
         for(Pregunta pregunta : preguntas) {

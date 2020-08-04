@@ -1,5 +1,7 @@
 package edu.fiuba.algo3;
 
+import edu.fiuba.algo3.modelo.general.Kahoot;
+import edu.fiuba.algo3.view.VistaMenu;
 import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
@@ -13,12 +15,12 @@ public class App extends Application {
 
     @Override
     public void start(Stage stage) {
-        var javaVersion = SystemInfo.javaVersion();
-        var javafxVersion = SystemInfo.javafxVersion();
-
-        var label = new Label("Hello, JavaFX " + javafxVersion + ", running on Java " + javaVersion + ".");
-        var scene = new Scene(new StackPane(label), 640, 480);
-        stage.setScene(scene);
+        var modelo = new Kahoot();
+        var escenaInicial = new Scene(new VistaMenu(modelo));
+        stage.setWidth(1024);
+        stage.setHeight(768);
+        stage.setTitle("Kahoot");
+        stage.setScene(escenaInicial);
         stage.show();
     }
 
