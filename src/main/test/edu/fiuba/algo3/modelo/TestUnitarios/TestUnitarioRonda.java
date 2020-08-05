@@ -30,6 +30,12 @@ public class TestUnitarioRonda {
         assertEquals(pregunta.obtenerRespuestasCorrectas(), ronda.obtenerRespuestasCorrectas());
     }
 
+    @Test
+    public void TestRondaExclusividadDevuelveOpcionesTotales() {
+        var pregunta = this.crearPregunta();
+        var jugadores = this.crearJugadores();
+        var ronda = new RondaNormal(pregunta, jugadores);
+        assertEquals(pregunta.obtenerOpciones(), ronda.obtenerPosiblesRespuestas());
     }
 
     @Test
