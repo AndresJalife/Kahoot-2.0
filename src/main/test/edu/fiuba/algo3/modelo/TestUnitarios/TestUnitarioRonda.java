@@ -12,6 +12,12 @@ public class TestUnitarioRonda {
     @Test
     public void TestRondaDevuelveOpcionesCorrectas() {
 
+    @Test
+    public void TestRondaDevuelvePreguntaActual() {
+        var pregunta = this.crearPregunta();
+        var jugadores = this.crearJugadores();
+        var ronda = new RondaNormal(pregunta, jugadores);
+        assertEquals(pregunta, ronda.obtenerPreguntaActual());
     }
 
     @Test
