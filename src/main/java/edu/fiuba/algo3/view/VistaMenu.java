@@ -1,9 +1,6 @@
 package edu.fiuba.algo3.view;
 
 import edu.fiuba.algo3.modelo.general.Kahoot;
-import edu.fiuba.algo3.view.preguntas.VistaVerdaderoYFalso;
-import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;

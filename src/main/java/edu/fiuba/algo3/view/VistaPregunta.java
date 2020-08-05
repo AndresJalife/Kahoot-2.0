@@ -11,6 +11,7 @@ import javafx.stage.Stage;
 public class VistaPregunta extends StackPane {
 
     public VistaPregunta(Kahoot modelo) {
+        modelo.comenzar();
         var vistaTipoPregunta = new VistaVerdaderoYFalso();
         this.getChildren().addAll(vistaTipoPregunta);
     }

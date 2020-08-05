@@ -1,8 +1,6 @@
 package edu.fiuba.algo3.view;
 
 import edu.fiuba.algo3.modelo.general.Kahoot;
-import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
@@ -31,6 +29,8 @@ public class VistaIngresarUsuarios extends StackPane {
         Button jugarBoton = new Button("Jugar");
         jugarBoton.setOnAction(actionEvent -> {
             if(VerificarUsuarios(textoParaUsuarioUno, textoParaUsuarioDos)){
+                modelo.agregarJugador(usuarioUno.getText());
+                modelo.agregarJugador(usuarioDos.getText());
                 Scene escenaPregunta = new Scene(new VistaPregunta(modelo));
                 stage.setScene(escenaPregunta);
             }

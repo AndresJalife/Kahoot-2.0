@@ -52,4 +52,6 @@ public class Kahoot {
             rondaActual.comenzar();
         }
     }
+
+    public Pregunta obtenerPreguntaActual(){ return rondaActual.obtenerPreguntaActual(); }
 }
