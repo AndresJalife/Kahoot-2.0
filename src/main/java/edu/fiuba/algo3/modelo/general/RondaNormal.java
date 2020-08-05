@@ -12,6 +12,7 @@ public class RondaNormal extends RondaBase {
 
     public RondaNormal(Pregunta pregunta, List<Jugador> nuevosJugadores) {
         super(pregunta, nuevosJugadores);
+        multiplicadores = new HashMap<>();
     }
 
     @Override
@@ -36,7 +37,7 @@ public class RondaNormal extends RondaBase {
             int puntaje = this.preguntaActual.calcularPuntaje(respuestas);
 
             Multiplicador multActual = (multiplicadores.get(jugador));
-            if (multActual.quedanUsos()) {
+            if (multActual != null && multActual.quedanUsos()) {
                 puntaje = multActual.modificarPuntaje(puntaje);
             }
             jugador.agregarPuntaje(puntaje);
