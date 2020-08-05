@@ -12,7 +12,7 @@ public class VistaPregunta extends StackPane {
 
     public VistaPregunta(Kahoot modelo) {
         modelo.comenzar();
-        var vistaTipoPregunta = new VistaVerdaderoYFalso();
+        var vistaTipoPregunta = new VistaVerdaderoYFalso(modelo.obtenerPreguntaActual());
         this.getChildren().addAll(vistaTipoPregunta);
     }
 }
