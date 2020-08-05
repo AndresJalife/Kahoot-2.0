@@ -11,11 +11,15 @@ import javafx.stage.Stage;
 /**
  * JavaFX App
  */
+
+
 public class App extends Application {
+
+    public final String nombreArchivo = "preguntas.txt";
 
     @Override
     public void start(Stage stage) {
-        var modelo = new Kahoot();
+        var modelo = new Kahoot(nombreArchivo);
         var escenaInicial = new Scene(new VistaMenu(modelo, stage));
         stage.setWidth(1024);
         stage.setHeight(768);
