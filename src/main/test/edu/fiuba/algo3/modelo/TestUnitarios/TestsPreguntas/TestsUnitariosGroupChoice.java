@@ -5,7 +5,7 @@ import edu.fiuba.algo3.modelo.general.Jugador;
 import edu.fiuba.algo3.modelo.preguntas.ModoClasico;
 import edu.fiuba.algo3.modelo.preguntas.Opcion;
 import edu.fiuba.algo3.modelo.preguntas.Pregunta;
-import edu.fiuba.algo3.modelo.preguntas.TipoMultipleChoice;
+import edu.fiuba.algo3.modelo.preguntas.TipoGroupChoice;
 import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
@@ -19,6 +19,9 @@ public class TestsUnitariosGroupChoice {
     public void ingresarRespuestaGroupChoice() {
         List<Opcion> opciones = new ArrayList<>();
         List<Opcion> respuestas = new ArrayList<>();
+        //Se toma a las opciones correctas como "grupo 1" y a las incorrectas como "grupo 2"
+        //Habria que volver a ver el constructor de opcion y la estructura de Pregunta
+        // para poder hacer el codigo mas extensible(e.g: 3 grupos)
         Opcion Opcion1 = new Opcion("Azul", true);
         Opcion Opcion2 = new Opcion("Casa");
         Opcion Opcion3 = new Opcion("Verde", true);
