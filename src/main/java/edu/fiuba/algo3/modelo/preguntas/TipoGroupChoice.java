@@ -8,7 +8,7 @@ public class TipoGroupChoice implements ITipoDePregunta{
     public boolean opcionesValidas(List<Opcion> opciones) {
 
         int contadorRespuestasCorrectas = 0;
-        if(opciones.size() >= 2 && opciones.size()<=5){
+        if(opciones.size() >= 2 && opciones.size()<=6){
             for(Opcion opcion: opciones){
                 if(opcion.esCorrecta()){
                     contadorRespuestasCorrectas++;
