@@ -22,7 +22,7 @@ public class VistaMenu extends StackPane {
 
             @Override
             public void handle(ActionEvent actionEvent) {
-                Scene escenaPregunta = new Scene(new VistaPregunta(modelo));
+                Scene escenaPregunta = new Scene(new VistaIngresarUsuarios(modelo, stage));
                 stage.setScene(escenaPregunta);
             }
         });
