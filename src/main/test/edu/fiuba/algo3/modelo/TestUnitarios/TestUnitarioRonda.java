@@ -9,8 +9,10 @@ public class TestUnitarioRonda {
 
     }
 
-    @Test
-    public void TestRondaDevuelveOpcionesCorrectas() {
+    private ArrayList<Jugador> crearJugadores() {
+        var jugadores = new ArrayList<Jugador>();
+        return jugadores;
+    }
 
     @Test
     public void TestRondaDevuelvePreguntaActual() {
@@ -22,6 +24,11 @@ public class TestUnitarioRonda {
 
     @Test
     public void TestRondaDevuelveOpcionesCorrectas() {
+        var pregunta = this.crearPregunta();
+        var jugadores = this.crearJugadores();
+        var ronda = new RondaNormal(pregunta, jugadores);
+        assertEquals(pregunta.obtenerRespuestasCorrectas(), ronda.obtenerRespuestasCorrectas());
+    }
 
     }
 
