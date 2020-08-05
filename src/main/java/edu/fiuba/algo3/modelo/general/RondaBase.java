@@ -34,5 +34,21 @@ public abstract class RondaBase {
     }
 
     public abstract List<String> obtenerModificadores(Jugador jugador);
-    public abstract void comenzar();
+
+    public  abstract void actualizarPuntaje() throws NoQuedanUsosExcepcion;
+
+    public void comenzar() {
+        for (Jugador jugador:jugadores) {
+//            panel.mostrarPreguntaActual()/
+//            panel.mostrarModificadores(jugador);
+//            panel.mostrarPosiblesRespuestas();
+        }
+        try {
+            this.actualizarPuntaje();
+        }catch (NoQuedanUsosExcepcion except) {
+//            MANEJAR LA EXCEPCIÓN
+        }
+
+//        panel.mostrarRespuestasCorrectas()
+    }
 }

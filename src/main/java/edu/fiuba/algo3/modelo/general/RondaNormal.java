@@ -41,20 +41,4 @@ public class RondaNormal extends RondaBase {
         jugador.agregarPuntaje(puntaje);
     }
 
-    @Override
-    public void comenzar(){
-        for (Jugador jugador:jugadores) {
-//            panel.mostrarPreguntaActual()/
-//            panel.mostrarModificadores(jugador);
-//            panel.mostrarPosiblesRespuestas();
-
-            try {
-                this.actualizarPuntaje(jugador);
-            }catch (NoQuedanUsosExcepcion except) {
-//            MANEJAR LA EXCEPCIÓN
-            }
-        }
-//        panel.mostrarRespuestasCorrectas()
-    }
-
 }

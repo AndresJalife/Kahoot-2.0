@@ -47,22 +47,4 @@ public class RondaExclusividad extends RondaBase {
             ganador.agregarPuntaje(puntajeFinal);
         }
     }
-
-    @Override
-    public void comenzar() {
-//      public void comenzar(Panel panel) {
-
-        for (Jugador jugador:jugadores) {
-//            panel.mostrarPreguntaActual()/
-//            panel.mostrarModificadores(jugador);
-//            panel.mostrarPosiblesRespuestas();
-        }
-        try {
-            this.actualizarPuntaje();
-        }catch (NoQuedanUsosExcepcion except) {
-//            MANEJAR LA EXCEPCIÓN
-        }
-
-//        panel.mostrarRespuestasCorrectas()
-    }
 }
