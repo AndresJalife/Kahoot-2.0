@@ -22,6 +22,7 @@ public class RondaExclusividad extends RondaBase {
         return exclusividadRestante;
     }
 
+    @Override
     public void actualizarPuntaje() throws NoQuedanUsosExcepcion {
         int cantidadDeGanadores = 0;
         Jugador ganador = null;

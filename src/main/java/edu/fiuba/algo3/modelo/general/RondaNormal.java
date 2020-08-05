@@ -29,16 +29,17 @@ public class RondaNormal extends RondaBase {
         return multiplicadoresRestantes;
     }
 
-    public void actualizarPuntaje(Jugador jugador) throws NoQuedanUsosExcepcion {
-        var respuestas = respuestasDeJugadores.get(jugador);
+    @Override
+    public void actualizarPuntaje() throws NoQuedanUsosExcepcion {
+        for (var jugador: jugadores) {
+            var respuestas = respuestasDeJugadores.get(jugador);
+            int puntaje = this.preguntaActual.calcularPuntaje(respuestas);
 
-        int puntaje = this.preguntaActual.calcularPuntaje(respuestas);
-
-        Multiplicador multActual = (multiplicadores.get(jugador));
-        if (multActual.quedanUsos()) {
-            puntaje = multActual.modificarPuntaje(puntaje);
+            Multiplicador multActual = (multiplicadores.get(jugador));
+            if (multActual.quedanUsos()) {
+                puntaje = multActual.modificarPuntaje(puntaje);
+            }
+            jugador.agregarPuntaje(puntaje);
         }
-        jugador.agregarPuntaje(puntaje);
     }
-
 }
