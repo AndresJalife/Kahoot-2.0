@@ -6,37 +6,42 @@ import edu.fiuba.algo3.modelo.general.RondaExclusividad;
 import edu.fiuba.algo3.modelo.general.RondaNormal;
 import edu.fiuba.algo3.modelo.preguntas.Pregunta;
 
+import java.io.File;
+import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Scanner;
 
 public class Kahoot {
     private List<Jugador> jugadores;
     private List<Pregunta> preguntas;
     private RondaBase rondaActual;
 
-    public Kahoot() {
+    public Kahoot(String archivoPreguntas){
         jugadores = new ArrayList<>();
-    }
-
-    private void inicializarPreguntas() {
-//        FALTA VER COMO ENTRAN LAS PREGS
-    }
-
-
-    private void inicializarJugadores() {
-        boolean seguirAgregando = true;
-        while (seguirAgregando){
-            String nombre = "martin";
-            Jugador nuevoJugador = new Jugador(nombre);
-            seguirAgregando = false;
-//            REFACTOR VER COMO SIGUE EL LOOP
+        try {
+            inicializarPreguntas(archivoPreguntas);
+        } catch(FileNotFoundException exp) {
+//        tratar la excepción
         }
     }
 
+    private void inicializarPreguntas(String nombreArchivo) throws FileNotFoundException {
+        File archivoPreguntas = new File("nombreArchivo");
+        Scanner archivo = new Scanner(archivoPreguntas);
+
+        while (archivo.hasNext()){
+
+        }
+    }
+
+    public void agregarJugador(String nombre) {
+        Jugador nuevoJugador = new Jugador(nombre);
+        jugadores.add(nuevoJugador);
+    }
+
     public void comenzar() {
-        this.inicializarJugadores();
-        this.inicializarPreguntas();
-        for(Pregunta pregunta : preguntas) {
+        for(Pregunta pregunta: preguntas) {
             if (pregunta.tienePenalidad()) {
                 rondaActual = new RondaNormal(pregunta, jugadores);
             }
