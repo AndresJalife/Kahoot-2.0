@@ -4,6 +4,7 @@ import edu.fiuba.algo3.modelo.general.Kahoot;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
@@ -28,15 +29,22 @@ public class VistaIngresarUsuarios extends StackPane {
         TextField textoParaUsuarioDos = new TextField();
         grid.add(textoParaUsuarioDos,4,2);
         Button jugarBoton = new Button("Jugar");
-        jugarBoton.setOnAction(new EventHandler<>() {
-
-            @Override
-            public void handle(ActionEvent actionEvent) {
+        jugarBoton.setOnAction(actionEvent -> {
+            if(VerificarUsuarios(textoParaUsuarioUno, textoParaUsuarioDos)){
                 Scene escenaPregunta = new Scene(new VistaPregunta(modelo));
                 stage.setScene(escenaPregunta);
+            }
+            else{
+                Alert fallo = new Alert(Alert.AlertType.ERROR);
+                fallo.setHeaderText("Los nombres de los usuarios deben ser distintos de vacio");
+                fallo.showAndWait();
             }
         });
         grid.add(jugarBoton,4,3);
         this.getChildren().addAll(grid);
+    }
+
+    private boolean VerificarUsuarios(TextField usuarioUno, TextField usuarioDos){
+        return !usuarioDos.getText().trim().isEmpty() && !usuarioUno.getText().trim().isEmpty();
     }
 }
