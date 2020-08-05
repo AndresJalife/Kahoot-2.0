@@ -28,9 +28,10 @@ public class Kahoot {
 
     private void inicializarPreguntas(String nombreArchivo) throws FileNotFoundException {
         File archivoPreguntas = new File("nombreArchivo");
-        Scanner archivo = new Scanner(archivoPreguntas);
+        Scanner sc = new Scanner(archivoPreguntas);
 
-        while (archivo.hasNext()){
+        while (sc.hasNext()){
+            String nuevaPregunta = sc.nextLine();
 
         }
     }
