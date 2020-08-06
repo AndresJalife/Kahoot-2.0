@@ -28,6 +28,11 @@ public class FabricaDePreguntas {
                 return new Pregunta(pregunta, opciones, tiempo, puntajePorRespuesta, new TipoMultipleChoice(), new ModoPuntajeParcial());
             }
         }
+        else if(tipoPregunta.equalsIgnoreCase("GroupChoice")){
+            return new Pregunta(pregunta,opciones,tiempo,puntajePorRespuesta,new TipoGroupChoice(),new ModoClasico());
+        }else if(tipoPregunta.equalsIgnoreCase("OrderedChoice")){
+            return new Pregunta(pregunta,opciones,tiempo,puntajePorRespuesta,new TipoOrderedChoice(),new ModoClasico());
+        }
         return null;
     }
 }
