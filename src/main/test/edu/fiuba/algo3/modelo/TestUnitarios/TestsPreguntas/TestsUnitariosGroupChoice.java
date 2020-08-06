@@ -30,7 +30,7 @@ public class TestsUnitariosGroupChoice {
         opciones.add(Opcion2);
         opciones.add(Opcion3);
 
-        Pregunta pregunta = new Pregunta("Seleccionar los colores y los inmuebles", opciones, 1, 1, new TipoGroupChoice(), new ModoClasico());
+        Pregunta pregunta = new Pregunta("Seleccionar los colores y los inmuebles", opciones, new TipoGroupChoice(), new ModoClasico());
         respuestas.add(Opcion1);
         respuestas.add(Opcion3);
 
@@ -50,7 +50,7 @@ public class TestsUnitariosGroupChoice {
         opciones.add(Opcion2);
         opciones.add(Opcion3);
 
-        Pregunta pregunta = new Pregunta("Seleccionar los colores y los inmuebles", opciones, 1, 1, new TipoGroupChoice(), new ModoClasico());
+        Pregunta pregunta = new Pregunta("Seleccionar los colores y los inmuebles", opciones, new TipoGroupChoice(), new ModoClasico());
         respuestas.add(Opcion1);
         respuestas.add(Opcion3);
 
@@ -73,7 +73,7 @@ public class TestsUnitariosGroupChoice {
         opciones.add(Opcion2);
         opciones.add(Opcion3);
 
-        Pregunta pregunta = new Pregunta("Seleccionar los colores y los inmuebles", opciones, 1, 1, new TipoGroupChoice(), new ModoClasico());
+        Pregunta pregunta = new Pregunta("Seleccionar los colores y los inmuebles", opciones, new TipoGroupChoice(), new ModoClasico());
         respuestas.add(Opcion2);
 
         jugador.agregarPuntaje(pregunta.calcularPuntaje(respuestas));

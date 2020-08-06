@@ -21,7 +21,7 @@ public class TestsUnitariosVerdaderoFalsoConPenalidad {
         opciones.add(Opcion1);
         opciones.add(Opcion2);
 
-        Pregunta pregunta = new Pregunta("Francia es un pais", opciones, 1, 1, new TipoMultipleChoice(), new ModoConPenalidad());
+        Pregunta pregunta = new Pregunta("Francia es un pais", opciones, new TipoMultipleChoice(), new ModoConPenalidad());
         respuestas.add(Opcion1);
 
         assertEquals(respuestas, pregunta.obtenerRespuestasCorrectas());
@@ -38,7 +38,7 @@ public class TestsUnitariosVerdaderoFalsoConPenalidad {
         opciones.add(Opcion1);
         opciones.add(Opcion2);
 
-        Pregunta pregunta = new Pregunta("Francia es un pais", opciones, 1, 1, new TipoMultipleChoice(), new ModoConPenalidad());
+        Pregunta pregunta = new Pregunta("Francia es un pais", opciones, new TipoMultipleChoice(), new ModoConPenalidad());
         respuestas.add(Opcion1);
 
         jugador.agregarPuntaje(pregunta.calcularPuntaje(respuestas));
@@ -57,7 +57,7 @@ public class TestsUnitariosVerdaderoFalsoConPenalidad {
         opciones.add(Opcion1);
         opciones.add(Opcion2);
 
-        Pregunta pregunta = new Pregunta("Francia es un pais", opciones, 1, 1, new TipoMultipleChoice(), new ModoConPenalidad());
+        Pregunta pregunta = new Pregunta("Francia es un pais", opciones, new TipoMultipleChoice(), new ModoConPenalidad());
         respuestas.add(Opcion2);
 
         jugador.agregarPuntaje(pregunta.calcularPuntaje(respuestas));

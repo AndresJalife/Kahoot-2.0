@@ -25,7 +25,7 @@ public class TestUnitarioRonda {
 
         opciones.add(Opcion1);
         opciones.add(Opcion2);
-        return new Pregunta("Francia es un pais", opciones, 1, 1, new TipoMultipleChoice(), new ModoClasico());
+        return new Pregunta("Francia es un pais", opciones, new TipoMultipleChoice(), new ModoClasico());
     }
 
     private ArrayList<Jugador> crearListaJugadores() {

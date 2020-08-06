@@ -24,7 +24,7 @@ public class TestUnitarioPregunta {
         opciones.add(opcion2);
         opcionesCorrectas.add(opcion2);
 
-        var pregunta = new Pregunta("¿Cual es la correcta?", opciones, 1, 1, new TipoVerdaderoYFalso(), new ModoClasico());
+        var pregunta = new Pregunta("¿Cual es la correcta?", opciones, new TipoVerdaderoYFalso(), new ModoClasico());
         assertEquals(opcionesCorrectas, pregunta.obtenerRespuestasCorrectas());
     }
 
@@ -36,7 +36,7 @@ public class TestUnitarioPregunta {
         opciones.add(opcion1);
         opciones.add(opcion2);
 
-        var pregunta = new Pregunta("¿Cual es la correcta?", opciones, 1, 1, new TipoVerdaderoYFalso(), new ModoClasico());
+        var pregunta = new Pregunta("¿Cual es la correcta?", opciones, new TipoVerdaderoYFalso(), new ModoClasico());
         assertEquals(opciones, pregunta.obtenerOpciones());
     }
 
@@ -50,8 +50,8 @@ public class TestUnitarioPregunta {
         opciones.add(opcion2);
         opcionesContestadas.add(opcion2);
 
-        var pregunta = new Pregunta("¿Cual es la correcta?", opciones, 1, 5, new TipoVerdaderoYFalso(), new ModoClasico());
-        assertEquals(5, pregunta.calcularPuntaje(opcionesContestadas));
+        var pregunta = new Pregunta("¿Cual es la correcta?", opciones, new TipoVerdaderoYFalso(), new ModoClasico());
+        assertEquals(1, pregunta.calcularPuntaje(opcionesContestadas));
     }
 
 }

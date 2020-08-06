@@ -22,7 +22,7 @@ public class TestUnitariosOrderedChoice {
         respuestas.add(Opcion2);
         respuestas.add(Opcion3);
 
-        Pregunta pregunta = new Pregunta("Francia es un pais", respuestas, 1, 1, new TipoOrderedChoice(), new ModoClasico());
+        Pregunta pregunta = new Pregunta("Francia es un pais", respuestas, new TipoOrderedChoice(), new ModoClasico());
 
         assertEquals(respuestas, pregunta.obtenerRespuestasCorrectas());
     }

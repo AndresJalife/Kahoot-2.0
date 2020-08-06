@@ -23,7 +23,7 @@ public class TestsUnitariosMultipleChoiceClasico {
         opciones.add(Opcion2);
         opciones.add(Opcion3);
 
-        Pregunta pregunta = new Pregunta("Francia es un pais", opciones, 1, 1, new TipoMultipleChoice(), new ModoClasico());
+        Pregunta pregunta = new Pregunta("Francia es un pais", opciones, new TipoMultipleChoice(), new ModoClasico());
         respuestas.add(Opcion1);
         respuestas.add(Opcion3);
 
@@ -43,7 +43,7 @@ public class TestsUnitariosMultipleChoiceClasico {
         opciones.add(Opcion2);
         opciones.add(Opcion3);
 
-        Pregunta pregunta = new Pregunta("Francia es un pais", opciones, 1, 1, new TipoMultipleChoice(), new ModoClasico());
+        Pregunta pregunta = new Pregunta("Francia es un pais", opciones, new TipoMultipleChoice(), new ModoClasico());
         respuestas.add(Opcion1);
         respuestas.add(Opcion3);
 
@@ -65,7 +65,7 @@ public class TestsUnitariosMultipleChoiceClasico {
         opciones.add(Opcion2);
         opciones.add(Opcion3);
 
-        Pregunta pregunta = new Pregunta("Francia es un pais", opciones, 1, 1, new TipoMultipleChoice(), new ModoClasico());
+        Pregunta pregunta = new Pregunta("Francia es un pais", opciones, new TipoMultipleChoice(), new ModoClasico());
         respuestas.add(Opcion1);
 
         jugador.agregarPuntaje(pregunta.calcularPuntaje(respuestas));
@@ -86,7 +86,7 @@ public class TestsUnitariosMultipleChoiceClasico {
         opciones.add(Opcion2);
         opciones.add(Opcion3);
 
-        Pregunta pregunta = new Pregunta("Francia es un pais", opciones, 1, 1, new TipoMultipleChoice(), new ModoClasico());
+        Pregunta pregunta = new Pregunta("Francia es un pais", opciones, new TipoMultipleChoice(), new ModoClasico());
         respuestas.add(Opcion2);
 
         jugador.agregarPuntaje(pregunta.calcularPuntaje(respuestas));

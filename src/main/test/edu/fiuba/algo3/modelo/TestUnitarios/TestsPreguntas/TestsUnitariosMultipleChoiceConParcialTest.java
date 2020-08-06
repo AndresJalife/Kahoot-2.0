@@ -24,7 +24,7 @@ public class TestsUnitariosMultipleChoiceConParcialTest {
         opciones.add(Opcion2);
         opciones.add(Opcion3);
 
-        var pregunta = new Pregunta("Francia es un pais", opciones, 1, 1, new TipoMultipleChoice(), new ModoPuntajeParcial());
+        var pregunta = new Pregunta("Francia es un pais", opciones, new TipoMultipleChoice(), new ModoPuntajeParcial());
         respuestas.add(Opcion1);
         respuestas.add(Opcion3);
 
@@ -44,7 +44,7 @@ public class TestsUnitariosMultipleChoiceConParcialTest {
         opciones.add(Opcion2);
         opciones.add(Opcion3);
 
-        Pregunta pregunta = new Pregunta("Francia es un pais", opciones, 1, 1, new TipoMultipleChoice(), new ModoPuntajeParcial());
+        Pregunta pregunta = new Pregunta("Francia es un pais", opciones, new TipoMultipleChoice(), new ModoPuntajeParcial());
         respuestas.add(Opcion1);
         respuestas.add(Opcion3);
 
@@ -66,7 +66,7 @@ public class TestsUnitariosMultipleChoiceConParcialTest {
         opciones.add(Opcion2);
         opciones.add(Opcion3);
 
-        Pregunta pregunta = new Pregunta("Francia es un pais", opciones, 1, 1, new TipoMultipleChoice(), new ModoPuntajeParcial());
+        Pregunta pregunta = new Pregunta("Francia es un pais", opciones, new TipoMultipleChoice(), new ModoPuntajeParcial());
         respuestas.add(Opcion1);
 
         jugador.agregarPuntaje(pregunta.calcularPuntaje(respuestas));
@@ -87,7 +87,7 @@ public class TestsUnitariosMultipleChoiceConParcialTest {
         opciones.add(Opcion2);
         opciones.add(Opcion3);
 
-        Pregunta pregunta = new Pregunta("Francia es un pais", opciones, 1, 1, new TipoMultipleChoice(), new ModoPuntajeParcial());
+        Pregunta pregunta = new Pregunta("Francia es un pais", opciones, new TipoMultipleChoice(), new ModoPuntajeParcial());
 
         jugador.agregarPuntaje(pregunta.calcularPuntaje(respuestas));
 
