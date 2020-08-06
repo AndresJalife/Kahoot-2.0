@@ -19,14 +19,12 @@ public class TestUnitarioFabricaPreguntas {
     Opcion opcion2 = new Opcion("opcion2");
     Opcion opcion3 = new Opcion("opcion3");
     List<Opcion> opciones = new ArrayList<>();
-    int tiempo = 1;
-    int puntajePorRespuestas = 1;
 
     @Test
     public void crearPreguntaVerdaderoFalsoClasicoConExito(){
         opciones.add(opcion1);
         opciones.add(opcion2);
-        Pregunta pregunta = fabrica.crearPregunta(textoPregunta,opciones,tiempo,puntajePorRespuestas,"VerdaderoFalso","Clasico");
+        Pregunta pregunta = fabrica.crearPregunta(textoPregunta,opciones,"VerdaderoFalso","Clasico");
 
         assertNotNull(pregunta);
     }
@@ -35,7 +33,7 @@ public class TestUnitarioFabricaPreguntas {
     public void crearPreguntaVerdaderoFalsoConPenalidadConExito(){
         opciones.add(opcion1);
         opciones.add(opcion2);
-        Pregunta pregunta = fabrica.crearPregunta(textoPregunta,opciones,tiempo,puntajePorRespuestas,"VerdaderoFalso","conPenalidad");
+        Pregunta pregunta = fabrica.crearPregunta(textoPregunta,opciones,"VerdaderoFalso","conPenalidad");
 
         assertNotNull(pregunta);
     }
@@ -44,7 +42,7 @@ public class TestUnitarioFabricaPreguntas {
     public void crearPreguntaMultipleChoiceClasicoConExito(){
         opciones.add(opcion1);
         opciones.add(opcion2);
-        Pregunta pregunta = fabrica.crearPregunta(textoPregunta,opciones,tiempo,puntajePorRespuestas,"MultipleChoice","clasico");
+        Pregunta pregunta = fabrica.crearPregunta(textoPregunta,opciones,"MultipleChoice","clasico");
 
         assertNotNull(pregunta);
     }
@@ -53,7 +51,7 @@ public class TestUnitarioFabricaPreguntas {
     public void crearPreguntaMultipleChoiceConPenalidadConExito(){
         opciones.add(opcion1);
         opciones.add(opcion2);
-        Pregunta pregunta = fabrica.crearPregunta(textoPregunta,opciones,tiempo,puntajePorRespuestas,"MultipleChoice","conPenalidad");
+        Pregunta pregunta = fabrica.crearPregunta(textoPregunta,opciones,"MultipleChoice","conPenalidad");
 
         assertNotNull(pregunta);
     }
@@ -62,7 +60,7 @@ public class TestUnitarioFabricaPreguntas {
     public void crearPreguntaConNombreDelTipoIncorrectoDevuelveNull(){
         opciones.add(opcion1);
         opciones.add(opcion2);
-        Pregunta pregunta = fabrica.crearPregunta(textoPregunta,opciones,tiempo,puntajePorRespuestas,"verdadero y falso","conPenalidad");
+        Pregunta pregunta = fabrica.crearPregunta(textoPregunta,opciones,"verdadero y falso","conPenalidad");
 
         assertNull(pregunta);
     }
@@ -71,7 +69,7 @@ public class TestUnitarioFabricaPreguntas {
     public void crearPreguntaConNombreDelModoIncorrectoDevuelveNull(){
         opciones.add(opcion1);
         opciones.add(opcion2);
-        Pregunta pregunta = fabrica.crearPregunta(textoPregunta,opciones,tiempo,puntajePorRespuestas,"VerdaderoFalso","Penalidad");
+        Pregunta pregunta = fabrica.crearPregunta(textoPregunta,opciones,"VerdaderoFalso","Penalidad");
 
         assertNull(pregunta);
     }
