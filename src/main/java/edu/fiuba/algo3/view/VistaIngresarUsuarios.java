@@ -10,7 +10,7 @@ import javafx.scene.layout.GridPane;
 import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
 
-public class VistaIngresarUsuarios extends StackPane {
+public class VistaIngresarUsuarios<Static> extends StackPane {
 
     public VistaIngresarUsuarios(Kahoot modelo, Stage stage){
         this.getChildren().clear();
@@ -31,7 +31,7 @@ public class VistaIngresarUsuarios extends StackPane {
             if(VerificarUsuarios(textoParaUsuarioUno, textoParaUsuarioDos)){
                 modelo.agregarJugador(textoParaUsuarioUno.getText());
                 modelo.agregarJugador(textoParaUsuarioDos.getText());
-                Scene escenaPregunta = new Scene(new VistaPregunta(modelo));
+                Scene escenaPregunta = new Scene(new VistaPregunta(modelo, modelo.obtenerJugadores().get(0)));
                 stage.setScene(escenaPregunta);
             }
             else{

@@ -29,4 +29,8 @@ public abstract class RondaBase {
 
     public abstract void actualizarPuntaje() throws NoQuedanUsosExcepcion;
 
+    public boolean todosContestaron(){
+        return jugadores.size() % respuestasDeJugadores.size() == 0;
+    }
+
 }

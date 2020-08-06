@@ -108,4 +108,8 @@ public class Kahoot {
     public List<Jugador> obtenerJugadores(){
         return jugadores;
     }
+
+    public boolean todosContestaron(){
+        return rondaActual.todosContestaron();
+    }
 }
