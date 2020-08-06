@@ -2,6 +2,7 @@ package edu.fiuba.algo3.modelo.general;
 
 import edu.fiuba.algo3.modelo.preguntas.Opcion;
 import edu.fiuba.algo3.modelo.preguntas.Pregunta;
+import javafx.scene.control.Alert;
 
 import java.util.HashMap;
 import java.util.List;
@@ -32,6 +33,8 @@ public abstract class RondaBase {
     public abstract void actualizarPuntaje() throws NoQuedanUsosExcepcion;
 
     public boolean todosContestaron(){
+        if(respuestasDeJugadores.size() == 1)
+            return false;
         return jugadores.size() % respuestasDeJugadores.size() == 0;
     }
 

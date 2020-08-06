@@ -5,6 +5,7 @@ import edu.fiuba.algo3.modelo.general.Kahoot;
 import edu.fiuba.algo3.modelo.preguntas.Pregunta;
 import edu.fiuba.algo3.view.preguntas.VistaVerdaderoYFalso;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Label;
 import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
@@ -17,7 +18,7 @@ public class VistaPregunta extends StackPane {
 
     public VistaPregunta(Kahoot modelo , Jugador jugador) {
         modelo.comenzar();
-        var vistaTipoPregunta = new VistaVerdaderoYFalso(modelo, jugador);
+        VistaVerdaderoYFalso vistaTipoPregunta = new VistaVerdaderoYFalso(modelo, jugador);
         this.getChildren().addAll(vistaTipoPregunta);
     }
 
@@ -27,11 +28,11 @@ public class VistaPregunta extends StackPane {
         }
         else{
             Jugador siguiente = jugador;
-            for(Jugador jugadores : modelo.obtenerJugadores()){
-                if(jugadores != jugador)
-                    siguiente = jugadores;
+            for(Jugador jugadoraux : modelo.obtenerJugadores()){
+                if(jugadoraux != jugador)
+                    siguiente = jugadoraux;
             }
-            var vistaTipoPregunta = new VistaVerdaderoYFalso(modelo, siguiente);
+            VistaVerdaderoYFalso vistaTipoPregunta = new VistaVerdaderoYFalso(modelo, siguiente);
             this.getChildren().addAll(vistaTipoPregunta);
         }
     }

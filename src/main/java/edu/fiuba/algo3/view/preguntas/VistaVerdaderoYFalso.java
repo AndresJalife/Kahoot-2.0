@@ -6,10 +6,14 @@ import edu.fiuba.algo3.modelo.preguntas.Opcion;
 import edu.fiuba.algo3.modelo.preguntas.Pregunta;
 import edu.fiuba.algo3.view.VistaIngresarUsuarios;
 import edu.fiuba.algo3.view.VistaPregunta;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.StackPane;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class VistaVerdaderoYFalso extends StackPane {
 
@@ -27,7 +31,9 @@ public class VistaVerdaderoYFalso extends StackPane {
         for(Opcion opcion : modelo.obtenerPreguntaActual().obtenerOpciones()){
             Button boton = new Button(opcion.obtenerTexto());
             boton.setOnAction(actionEvent -> {
-                this.getChildren().clear();
+                List<Opcion> respuestas = new ArrayList<>();
+                respuestas.add(opcion);
+                modelo.jugadorResponder(jugador,respuestas);
                 VistaPregunta vistaAux = new VistaPregunta();
                 vistaAux.CambiarPreguntaAOtroJugador(modelo, jugador);
             });
