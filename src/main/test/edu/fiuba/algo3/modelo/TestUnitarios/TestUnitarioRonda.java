@@ -42,22 +42,6 @@ public class TestUnitarioRonda {
     }
 
     @Test
-    public void TestRondaDevuelveOpcionesCorrectas() {
-        var pregunta = this.crearPregunta();
-        var jugadores = this.crearListaJugadores();
-        var ronda = new RondaNormal(pregunta, jugadores);
-        assertEquals(pregunta.obtenerRespuestasCorrectas(), ronda.obtenerRespuestasCorrectas());
-    }
-
-    @Test
-    public void TestRondaNormalDevuelveOpcionesTotales() {
-        var pregunta = this.crearPregunta();
-        var jugadores = this.crearListaJugadores();
-        var ronda = new RondaNormal(pregunta, jugadores);
-        assertEquals(pregunta.obtenerOpciones(), ronda.obtenerPosiblesRespuestas());
-    }
-
-    @Test
     public void TestRondaNormalActualizaElPuntajeSiAcierta() throws NoQuedanUsosExcepcion {
         var pregunta = this.crearPregunta();
         var jugadores = this.crearListaJugadores();
@@ -118,7 +102,74 @@ public class TestUnitarioRonda {
     }
 
     @Test
-    public void TestRondaNormalUtilizaMultiplicadores() {
+    public void TestRondaNormalUtilizaMultiplicadorX2() throws NoQuedanUsosExcepcion {
+        var pregunta = this.crearPregunta();
+        var jugadores = this.crearListaJugadores();
 
+        var jugador = new Jugador("Test");
+        jugadores.add(jugador);
+
+        var ronda = new RondaNormal(pregunta, jugadores);
+        ronda.usarModificador(jugador, jugador.obtenerMultiplicadorX2());
+        ronda.guardarRespuestas(jugador, pregunta.obtenerRespuestasCorrectas());
+        ronda.actualizarPuntaje();
+
+        assertEquals(2, jugador.obtenerPuntaje());
+    }
+
+    @Test
+    public void TestRondaNormalUtilizaMultiplicadorX3() throws NoQuedanUsosExcepcion {
+        var pregunta = this.crearPregunta();
+        var jugadores = this.crearListaJugadores();
+
+        var jugador = new Jugador("Test");
+        jugadores.add(jugador);
+
+        var ronda = new RondaNormal(pregunta, jugadores);
+        ronda.usarModificador(jugador, jugador.obtenerMultiplicadorX3());
+        ronda.guardarRespuestas(jugador, pregunta.obtenerRespuestasCorrectas());
+        ronda.actualizarPuntaje();
+
+        assertEquals(3, jugador.obtenerPuntaje());
+    }
+
+    @Test
+    public void TestRondaExclusividadNoDaNadaSiGananLosDos() throws NoQuedanUsosExcepcion {
+        var pregunta = this.crearPregunta();
+        var jugadores = this.crearListaJugadores();
+
+        var jugador1 = new Jugador("Test1");
+        var jugador2 = new Jugador("Test2");
+        jugadores.add(jugador1);
+        jugadores.add(jugador2);
+
+        var ronda = new RondaExclusividad(pregunta, jugadores);
+        ronda.usarModificador(jugador1, jugador1.obtenerExclusividades());
+        ronda.guardarRespuestas(jugador1, pregunta.obtenerRespuestasCorrectas());
+        ronda.guardarRespuestas(jugador2, pregunta.obtenerRespuestasCorrectas());
+        ronda.actualizarPuntaje();
+
+        assertEquals(0, jugador1.obtenerPuntaje());
+        assertEquals(0, jugador2.obtenerPuntaje());
+    }
+
+    @Test
+    public void TestRondaExclusividadDaDobleSiGanaUno() throws NoQuedanUsosExcepcion {
+        var pregunta = this.crearPregunta();
+        var jugadores = this.crearListaJugadores();
+
+        var jugador1 = new Jugador("Test1");
+        var jugador2 = new Jugador("Test2");
+        jugadores.add(jugador1);
+        jugadores.add(jugador2);
+
+        var ronda = new RondaExclusividad(pregunta, jugadores);
+        ronda.usarModificador(jugador1, jugador1.obtenerExclusividades());
+        ronda.guardarRespuestas(jugador1, pregunta.obtenerRespuestasCorrectas());
+        ronda.guardarRespuestas(jugador2, new ArrayList<>());
+        ronda.actualizarPuntaje();
+
+        assertEquals(2, jugador1.obtenerPuntaje());
+        assertEquals(0, jugador2.obtenerPuntaje());
     }
 }
