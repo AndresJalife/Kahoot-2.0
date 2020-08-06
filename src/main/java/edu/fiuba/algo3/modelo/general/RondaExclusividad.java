@@ -25,6 +25,11 @@ public class RondaExclusividad extends RondaBase {
     }
 
     @Override
+    public void usarModificador(Jugador jugador, IModificador modificador) {
+        exclusividades.add((Exclusividad) modificador);
+    }
+
+    @Override
     public void actualizarPuntaje() throws NoQuedanUsosExcepcion {
         var puntajesPorJugador = new HashMap<Jugador, Integer>();
         var hayExclusividad = exclusividades.size() > 0;
@@ -44,7 +49,7 @@ public class RondaExclusividad extends RondaBase {
                 int puntajeFinal = 0;
                 for (Exclusividad exclusividad : exclusividades) {
                     if (exclusividad.quedanUsos()) {
-                        puntajeFinal += exclusividad.modificarPuntaje(puntajesPorJugador.get(jugadores));
+                        puntajeFinal += exclusividad.modificarPuntaje(puntajesPorJugador.get(ganador));
                     }
                 }
                 ganador.agregarPuntaje(puntajeFinal);
