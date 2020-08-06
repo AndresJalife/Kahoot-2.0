@@ -10,20 +10,52 @@ import java.util.List;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class TestUnitariosOrderedChoice {
+    List<Opcion> respuestas = new ArrayList<>();
+    List<Opcion> opciones = new ArrayList<>();
+    Pregunta pregunta ;
+    Jugador jugador = new Jugador("Jorge");
+    Opcion Opcion1 = new Opcion("Primera", true);
+    Opcion Opcion2 = new Opcion("Segunda", true);
+    Opcion Opcion3 = new Opcion("Tercera", true);
+
 
     @Test
-    public void ingresarRespuestaMultipleChoiceClasico() {
-        List<Opcion> respuestas = new ArrayList<>();
-        Opcion Opcion1 = new Opcion("Primera", true);
-        Opcion Opcion2 = new Opcion("Segunda", true);
-        Opcion Opcion3 = new Opcion("Tercera", true);
+    public void ingresarRespuestasOrdenadasCorrectamente() {
+        opciones.add(Opcion1);
+        opciones.add(Opcion2);
+        opciones.add(Opcion3);
+        pregunta = new Pregunta("Ordenar de forma ascendente", opciones, new TipoOrderedChoice(), new ModoClasico());
+
+        assertEquals(opciones, pregunta.obtenerOpciones());
+    }
+    @Test
+    public void ingresarTodasLasOpcionesEnOrdenCorrectoDevuelve1PuntoYSeLoAsignaAJugador() {
+        opciones.add(Opcion1);
+        opciones.add(Opcion2);
+        opciones.add(Opcion3);
+        pregunta = new Pregunta("Ordenar de forma ascendente", opciones, new TipoOrderedChoice(), new ModoClasico());
 
         respuestas.add(Opcion1);
         respuestas.add(Opcion2);
         respuestas.add(Opcion3);
 
-        Pregunta pregunta = new Pregunta("Francia es un pais", respuestas, new TipoOrderedChoice(), new ModoClasico());
+        jugador.agregarPuntaje(pregunta.calcularPuntaje(respuestas));
 
-        assertEquals(respuestas, pregunta.obtenerRespuestasCorrectas());
+        assertEquals(1, jugador.obtenerPuntaje());
+    }
+    @Test
+    public void ingresar1OpcionEnOrdenCorrectoDevuelve0puntosYalAgregarleAJugadorNoCambiaSuPuntaje() {
+        opciones.add(Opcion1);
+        opciones.add(Opcion2);
+        opciones.add(Opcion3);
+        pregunta = new Pregunta("Ordenar de forma ascendente", opciones, new TipoOrderedChoice(), new ModoClasico());
+
+        respuestas.add(Opcion1);
+        respuestas.add(Opcion3);
+        respuestas.add(Opcion2);
+
+        jugador.agregarPuntaje(pregunta.calcularPuntaje(respuestas));
+
+        assertEquals(0, jugador.obtenerPuntaje());
     }
 }
