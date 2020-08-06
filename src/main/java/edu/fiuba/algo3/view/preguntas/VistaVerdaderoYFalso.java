@@ -21,15 +21,17 @@ public class VistaVerdaderoYFalso extends StackPane {
         grid.setHgap(10);
         grid.setVgap(10);
 
+        Label usuario = new Label(jugador.obtenerNombre());
+        grid.add(usuario,1,1);
         Label pregunta = new Label(preguntaActual.obtenerTexto());
-        grid.add(pregunta,2,1);
+        grid.add(pregunta,2,2);
         int i = 2;
         for(Opcion opcion : preguntaActual.obtenerOpciones()){
             Button boton = new Button(opcion.obtenerTexto());
             boton.setOnAction(actionEvent -> {
 
             });
-            grid.add(boton,i,2);
+            grid.add(boton,i,3);
             i++;
         }
         this.getChildren().addAll(grid);

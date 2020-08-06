@@ -34,4 +34,8 @@ public class Jugador {
         this.puntaje = puntaje;
     }
 
+    public String obtenerNombre() {
+        return this.nombre;
+    }
+
 }

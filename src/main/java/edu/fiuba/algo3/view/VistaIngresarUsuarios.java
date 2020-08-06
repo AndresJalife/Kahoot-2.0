@@ -29,8 +29,8 @@ public class VistaIngresarUsuarios extends StackPane {
         Button jugarBoton = new Button("Jugar");
         jugarBoton.setOnAction(actionEvent -> {
             if(VerificarUsuarios(textoParaUsuarioUno, textoParaUsuarioDos)){
-                modelo.agregarJugador(usuarioUno.getText());
-                modelo.agregarJugador(usuarioDos.getText());
+                modelo.agregarJugador(textoParaUsuarioUno.getText());
+                modelo.agregarJugador(textoParaUsuarioDos.getText());
                 Scene escenaPregunta = new Scene(new VistaPregunta(modelo));
                 stage.setScene(escenaPregunta);
             }
