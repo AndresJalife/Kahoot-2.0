@@ -15,11 +15,11 @@ public class RondaExclusividad extends RondaBase {
     }
 
     @Override
-    public List<String> obtenerModificadores(Jugador jugador) {
+    public List<IModificador> obtenerModificadores(Jugador jugador) {
         Exclusividad exclusividad = jugador.obtenerExclusividades();
-        List<String> exclusividadRestante = new ArrayList<String>();
+        List<IModificador> exclusividadRestante = new ArrayList<IModificador>();
         if (exclusividad.quedanUsos()){
-            exclusividadRestante.add("Exclusividad");
+            exclusividadRestante.add(exclusividad);
         }
         return exclusividadRestante;
     }
