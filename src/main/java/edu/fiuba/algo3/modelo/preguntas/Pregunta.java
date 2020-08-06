@@ -8,15 +8,11 @@ public class Pregunta {
     private List<Opcion> respuestasPosibles;
     private ITipoDePregunta tipo;
     private IModoDePregunta modo;
-    private int tiempo;
-    private int puntajePorRespuesta;
 
 
-    public Pregunta(String textoPregunta, List<Opcion> opcionesPosibles, int tiempo, int puntajePorRespuesta, ITipoDePregunta tipo, IModoDePregunta modo) {
+    public Pregunta(String textoPregunta, List<Opcion> opcionesPosibles, ITipoDePregunta tipo, IModoDePregunta modo) {
         this.textoPregunta = textoPregunta;
         this.respuestasPosibles = List.copyOf(opcionesPosibles);
-        this.puntajePorRespuesta = puntajePorRespuesta;
-        this.tiempo = tiempo;
         this.tipo = tipo;
         this.modo = modo;
     }
@@ -29,10 +25,6 @@ public class Pregunta {
     public String obtenerTexto()
     {
         return textoPregunta;
-    }
-
-    public int obtenerTiempo() {
-        return tiempo;
     }
 
     public List<Opcion> obtenerOpciones() {
@@ -61,8 +53,6 @@ public class Pregunta {
                 incorrectas++;
         }
 
-        var puntaje = modo.calcularPuntaje(totalCorrectas, incorrectas, correctas);
-        puntaje *= this.puntajePorRespuesta;
-        return puntaje;
+        return modo.calcularPuntaje(totalCorrectas, incorrectas, correctas);
     }
 }
