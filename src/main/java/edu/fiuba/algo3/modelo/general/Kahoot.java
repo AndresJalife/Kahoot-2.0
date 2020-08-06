@@ -67,6 +67,22 @@ public class Kahoot {
         jugadores.add(nuevoJugador);
     }
 
+    public void jugadorResponder(Jugador jugador, List<Opcion> respuestas){
+        rondaActual.guardarRespuestas(jugador, respuestas);
+    }
+
+    public void actualizarPuntaje(){
+        try{
+            rondaActual.actualizarPuntaje();
+        } catch (NoQuedanUsosExcepcion excepcion) {
+//            tratarla
+        }
+    }
+
+    public List<String> obtenerModificadores(Jugador jugador){
+        return rondaActual.obtenerModificadores(jugador);
+    }
+
     public void comenzar() {
         // Agrego una pregunta para que poder correr las pruebas de las vistas
         List<Opcion> opciones = new ArrayList<>();
@@ -79,10 +95,9 @@ public class Kahoot {
             if (pregunta.tienePenalidad()) {
                 rondaActual = new RondaNormal(pregunta, jugadores);
             }
-            else{
+            else {
                 rondaActual = new RondaExclusividad(pregunta, jugadores);
             }
-            rondaActual.comenzar();
         }
     }
 
@@ -90,6 +105,8 @@ public class Kahoot {
         return rondaActual.obtenerPreguntaActual();
     }
 
-    public List<Jugador> obtenerJugadores(){return jugadores;}
+    public List<Jugador> obtenerJugadores(){
+        return jugadores;
+    }
 
 }

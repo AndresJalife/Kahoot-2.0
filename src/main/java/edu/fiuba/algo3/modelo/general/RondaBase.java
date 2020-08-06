@@ -25,30 +25,8 @@ public abstract class RondaBase {
         respuestasDeJugadores.put(jugador, respuestas);
     }
 
-    public List<Opcion> obtenerRespuestasCorrectas(){
-        return preguntaActual.obtenerRespuestasCorrectas();
-    }
-
-    public List<Opcion> obtenerPosiblesRespuestas() {
-        return preguntaActual.obtenerOpciones();
-    }
-
     public abstract List<String> obtenerModificadores(Jugador jugador);
 
     public abstract void actualizarPuntaje() throws NoQuedanUsosExcepcion;
 
-    public void comenzar() {
-        /*for (Jugador jugador:jugadores) {
-//            panel.mostrarPreguntaActual()/
-//            panel.mostrarModificadores(jugador);
-//            panel.mostrarPosiblesRespuestas();
-        }
-        try {
-            this.actualizarPuntaje();
-        }catch (NoQuedanUsosExcepcion except) {
-//            MANEJAR LA EXCEPCIÓN
-        }*/
-
-//        panel.mostrarRespuestasCorrectas()
-    }
 }
