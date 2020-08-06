@@ -3,6 +3,7 @@ package edu.fiuba.algo3.modelo.general;
 import edu.fiuba.algo3.modelo.preguntas.Pregunta;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 public class RondaExclusividad extends RondaBase {
@@ -10,6 +11,7 @@ public class RondaExclusividad extends RondaBase {
 
     public RondaExclusividad(Pregunta pregunta, List<Jugador> jugadores) {
         super(pregunta, jugadores);
+        exclusividades = new ArrayList<>();
     }
 
     @Override
@@ -22,47 +24,35 @@ public class RondaExclusividad extends RondaBase {
         return exclusividadRestante;
     }
 
+    @Override
     public void actualizarPuntaje() throws NoQuedanUsosExcepcion {
-        int cantidadDeGanadores = 0;
+        var puntajesPorJugador = new HashMap<Jugador, Integer>();
+        var hayExclusividad = exclusividades.size() > 0;
         Jugador ganador = null;
-        int puntajeRespuesta = 0;
         
         for (Jugador jugador : jugadores){
             var respuestas = respuestasDeJugadores.get(jugador);
             int puntajeActual = this.preguntaActual.calcularPuntaje(respuestas);
             if (puntajeActual > 0){
-                cantidadDeGanadores += 1;
                 ganador = jugador;
-                puntajeRespuesta = puntajeActual;
+                puntajesPorJugador.put(jugador, puntajeActual);
             }
         }
-        
-        if (cantidadDeGanadores == 1){
-            int puntajeFinal = 0;
-            for (Exclusividad exclusividad :exclusividades){
-                if (exclusividad.quedanUsos()) {
-                    puntajeFinal += exclusividad.modificarPuntaje(puntajeRespuesta);
+
+        if (hayExclusividad) {
+            if (puntajesPorJugador.size() == 1) {
+                int puntajeFinal = 0;
+                for (Exclusividad exclusividad : exclusividades) {
+                    if (exclusividad.quedanUsos()) {
+                        puntajeFinal += exclusividad.modificarPuntaje(puntajesPorJugador.get(jugadores));
+                    }
                 }
+                ganador.agregarPuntaje(puntajeFinal);
             }
-            ganador.agregarPuntaje(puntajeFinal);
+        } else {
+            for(var jugador : puntajesPorJugador.keySet()) {
+                jugador.agregarPuntaje(puntajesPorJugador.get(jugador));
+            }
         }
-    }
-
-    @Override
-    public void comenzar() {
-//      public void comenzar(Panel panel) {
-
-        for (Jugador jugador:jugadores) {
-//            panel.mostrarPreguntaActual()/
-//            panel.mostrarModificadores(jugador);
-//            panel.mostrarPosiblesRespuestas();
-        }
-        try {
-            this.actualizarPuntaje();
-        }catch (NoQuedanUsosExcepcion except) {
-//            MANEJAR LA EXCEPCIÓN
-        }
-
-//        panel.mostrarRespuestasCorrectas()
     }
 }
