@@ -1,6 +1,7 @@
 package edu.fiuba.algo3.modelo.general;
 
 import edu.fiuba.algo3.modelo.preguntas.Pregunta;
+import javafx.scene.control.Alert;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -17,7 +18,7 @@ public class RondaExclusividad extends RondaBase {
     @Override
     public List<IModificador> obtenerModificadores(Jugador jugador) {
         Exclusividad exclusividad = jugador.obtenerExclusividades();
-        List<IModificador> exclusividadRestante = new ArrayList<IModificador>();
+        List<IModificador> exclusividadRestante = new ArrayList<>();
         if (exclusividad.quedanUsos()){
             exclusividadRestante.add(exclusividad);
         }

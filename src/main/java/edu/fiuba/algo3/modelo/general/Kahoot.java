@@ -1,6 +1,7 @@
 package edu.fiuba.algo3.modelo.general;
 
 import edu.fiuba.algo3.modelo.preguntas.*;
+import javafx.scene.control.Alert;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -109,7 +110,7 @@ public class Kahoot {
         return jugadores;
     }
 
-    public boolean todosContestaron(){
-        return rondaActual.todosContestaron();
+    public boolean todosContestaronMenosUno(){
+        return rondaActual.todosContestaronMenosUno();
     }
 }

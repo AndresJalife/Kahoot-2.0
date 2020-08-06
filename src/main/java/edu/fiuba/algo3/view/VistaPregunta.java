@@ -2,8 +2,8 @@ package edu.fiuba.algo3.view;
 
 import edu.fiuba.algo3.modelo.general.Jugador;
 import edu.fiuba.algo3.modelo.general.Kahoot;
-import edu.fiuba.algo3.modelo.preguntas.Pregunta;
 import edu.fiuba.algo3.view.preguntas.VistaVerdaderoYFalso;
+import edu.fiuba.algo3.view.VistaRespuestas;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Label;
@@ -23,8 +23,9 @@ public class VistaPregunta extends StackPane {
     }
 
     public void CambiarPreguntaAOtroJugador(Kahoot modelo, Jugador jugador){
-        if(modelo.todosContestaron()){
-
+        if(modelo.todosContestaronMenosUno()){
+            VistaRespuestas vistaRespuesta = new VistaRespuestas(modelo);
+            this.getChildren().addAll(vistaRespuesta);
         }
         else{
             Jugador siguiente = jugador;
