@@ -90,4 +90,6 @@ public class Kahoot {
         return rondaActual.obtenerPreguntaActual();
     }
 
+    public List<Jugador> obtenerJugadores(){return jugadores;}
+
 }
