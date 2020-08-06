@@ -31,6 +31,11 @@ public class RondaNormal extends RondaBase {
     }
 
     @Override
+    public void usarModificador(Jugador jugador, IModificador modificador) {
+        multiplicadores.put(jugador, (Multiplicador) modificador);
+    }
+
+    @Override
     public void actualizarPuntaje() throws NoQuedanUsosExcepcion {
         for (var jugador: jugadores) {
             var respuestas = respuestasDeJugadores.get(jugador);
