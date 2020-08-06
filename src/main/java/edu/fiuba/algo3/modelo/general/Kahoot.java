@@ -1,14 +1,11 @@
 package edu.fiuba.algo3.modelo.general;
 
-import edu.fiuba.algo3.modelo.general.Jugador;
-import edu.fiuba.algo3.modelo.general.RondaBase;
-import edu.fiuba.algo3.modelo.general.RondaExclusividad;
-import edu.fiuba.algo3.modelo.general.RondaNormal;
-import edu.fiuba.algo3.modelo.preguntas.Pregunta;
+import edu.fiuba.algo3.modelo.preguntas.*;
 
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Scanner;
 
@@ -31,9 +28,37 @@ public class Kahoot {
         Scanner sc = new Scanner(archivoPreguntas);
 
         while (sc.hasNext()){
-            String nuevaPregunta = sc.nextLine();
+            String textoPregunta = sc.nextLine();
+            String[] datos = textoPregunta.split("/");
 
+            FabricaDePreguntas fabricaDePreguntas = new FabricaDePreguntas();
+
+            String tipo = datos[1];
+            String modo = datos[0];
+            String pregunta = datos[2];
+            List<Opcion> opcionesPosibles = separarOpciones(datos[3], datos[4]);
+
+            Pregunta nuevaPregunta = fabricaDePreguntas.crearPregunta(pregunta, opcionesPosibles, tipo, modo);
+            preguntas.add(nuevaPregunta);
         }
+    }
+
+    private List<Opcion> separarOpciones(String posibles, String correcta){
+        String[] opcionesSeparadas = posibles.split(",");
+        List<String> listaPosibles = Arrays.asList(opcionesSeparadas);
+        List<Opcion> listaOpciones = new ArrayList<Opcion>();
+
+        for (String opcion:listaPosibles){
+            Opcion nuevaOpcion;
+            if (opcion.equals(correcta)){
+                nuevaOpcion = new Opcion(opcion, true);
+            }
+            else{
+                nuevaOpcion = new Opcion(opcion);
+            }
+            listaOpciones.add(nuevaOpcion);
+        }
+        return listaOpciones;
     }
 
     public void agregarJugador(String nombre) {
@@ -53,5 +78,7 @@ public class Kahoot {
         }
     }
 
-    public Pregunta obtenerPreguntaActual(){ return rondaActual.obtenerPreguntaActual(); }
+    public Pregunta obtenerPreguntaActual(){
+        return rondaActual.obtenerPreguntaActual();
+    }
 }
