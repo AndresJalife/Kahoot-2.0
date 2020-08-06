@@ -1,3 +1,4 @@
+  
 \documentclass[titlepage,a4paper]{article}
 
 \usepackage{a4wide}
@@ -93,16 +94,36 @@ Kahoot es la clase encargada de empezar el juego y guardar el panel que muestra 
 \section{Detalles de implementación}\label{sec:implementacion}
 % Explicaciones sobre la implementación interna de algunas clases que consideren que puedan llegar a resultar interesantes.
 
-\subsection{Aliquam vel eros id magna vestibulum rhoncus}
-Sed lorem diam, imperdiet in suscipit sed, lacinia id est. Duis ac turpis at velit tristique dictum ac in augue. Etiam porttitor purus sed nunc scelerisque aliquam. In hac habitasse platea dictumst. Mauris non mauris id lorem iaculis elementum eget quis mi. Aliquam scelerisque porta arcu sed tempus. Duis eleifend euismod laoreet. Aliquam mattis lectus et massa placerat feugiat. Nam mi nisl, rhoncus vel nibh vitae, ullamcorper blandit nibh. Curabitur purus lorem, sollicitudin ut erat eu, pharetra condimentum ante. Nullam imperdiet et neque et tempus. Sed sollicitudin velit molestie pretium iaculis. Praesent eu tincidunt erat. Nulla non fringilla nisi, vel hendrerit felis. Maecenas eget tempor neque.
+\subsection{Inicializacion de preguntas}
+El archivo con el que inicializamos las preguntas contenia las lineas con el siguiente formato Modo/Tipo/Pregunta/Opciones/OpcionCorrecta .
 
-\begin{verbatim}
-| rango |
-rango := (2 to: 20) asOrderedCollection.
-Transcript show: rango ; cr.
-rango copy do: [ :unNumero | unNumero isPrime ifFalse: [ rango remove: unNumero ] ].
-Transcript show: rango.
-\end{verbatim}
+\vspace{5mm} %5mm vertical space
+
+Siendo el contenido de cada campo el siguiente:
+
+\vspace{5mm} %5mm vertical space
+
+Modo: String
+	- ConPuntajePenalidad
+	- Clasico
+	- Parcial
+
+Tipo: String
+	- MultipleChoice
+	- VerdaderoFalso
+	- OrderedChoice
+	- GroupChoice
+
+Pregunta: String
+
+Opciones: String,String,String
+
+OpcionCorrecta: String
+
+Ejemplo:
+
+Clasico/MultipleChoice/¿Como se llama tu mascota?/Nestor,Chewbacca,Godzilla/Godzilla
+
 
 \subsection{Proin sodales leo dapibus sapien fermentum}
 Quisque tempus, tortor et convallis interdum, ipsum leo tempus ipsum, in molestie tortor arcu sit amet tellus. Praesent fermentum hendrerit nulla. In maximus ornare maximus. Nullam consectetur placerat enim sit amet lacinia. Etiam pellentesque tellus consectetur hendrerit iaculis. Sed non laoreet felis.
