@@ -51,15 +51,8 @@ public class Pregunta {
     public int calcularPuntaje(List<Opcion> respuestasJugador) {
         var respuestasCorrectas = obtenerRespuestasCorrectas();
         var totalCorrectas = respuestasCorrectas.size();
-        var correctas = 0;
-        var incorrectas = 0;
-
-        for (Opcion opcion : respuestasJugador) {
-            if(opcion.esCorrecta())
-                correctas++;
-            else
-                incorrectas++;
-        }
+        var correctas = tipo.cantCorrectas(respuestasPosibles,respuestasJugador);
+        var incorrectas = tipo.cantIncorrectas(respuestasPosibles,respuestasJugador);
 
         var puntaje = modo.calcularPuntaje(totalCorrectas, incorrectas, correctas);
         puntaje *= this.puntajePorRespuesta;
