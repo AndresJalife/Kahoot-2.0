@@ -36,6 +36,8 @@ public class VistaVerdaderoYFalso extends StackPane {
                 modelo.jugadorResponder(jugador,respuestas);
                 VistaPregunta vistaAux = new VistaPregunta();
                 vistaAux.CambiarPreguntaAOtroJugador(modelo, jugador);
+                this.getChildren().clear();
+                this.getChildren().addAll(vistaAux);
             });
             grid.add(boton,i,3);
             i++;
