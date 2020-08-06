@@ -29,9 +29,9 @@ public class FabricaDePreguntas {
             }
         }
         else if(tipoPregunta.equalsIgnoreCase("GroupChoice")){
-            return new Pregunta(pregunta,opciones,tiempo,puntajePorRespuesta,new TipoGroupChoice(),new ModoClasico());
+            return new Pregunta(pregunta,opciones,new TipoGroupChoice(),new ModoClasico());
         }else if(tipoPregunta.equalsIgnoreCase("OrderedChoice")){
-            return new Pregunta(pregunta,opciones,tiempo,puntajePorRespuesta,new TipoOrderedChoice(),new ModoClasico());
+            return new Pregunta(pregunta,opciones,new TipoOrderedChoice(),new ModoClasico());
         }
         return null;
     }
