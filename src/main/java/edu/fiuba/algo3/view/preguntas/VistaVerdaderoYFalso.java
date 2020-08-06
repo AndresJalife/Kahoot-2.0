@@ -19,11 +19,11 @@ public class VistaVerdaderoYFalso extends StackPane {
         grid.setVgap(10);
 
         Label pregunta = new Label(preguntaActual.obtenerTexto());
-        grid.add(pregunta,1,1);
+        grid.add(pregunta,2,1);
         int i = 2;
         for(Opcion opcion : preguntaActual.obtenerOpciones()){
             Button boton = new Button(opcion.obtenerTexto());
-            grid.add(boton,2,i);
+            grid.add(boton,i,2);
             i++;
         }
         this.getChildren().addAll(grid);

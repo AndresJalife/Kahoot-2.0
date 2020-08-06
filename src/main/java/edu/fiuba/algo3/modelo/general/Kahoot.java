@@ -15,6 +15,7 @@ public class Kahoot {
     private RondaBase rondaActual;
 
     public Kahoot(String archivoPreguntas){
+        preguntas = new ArrayList<>();
         jugadores = new ArrayList<>();
         try {
             inicializarPreguntas(archivoPreguntas);
@@ -46,7 +47,7 @@ public class Kahoot {
     private List<Opcion> separarOpciones(String posibles, String correcta){
         String[] opcionesSeparadas = posibles.split(",");
         List<String> listaPosibles = Arrays.asList(opcionesSeparadas);
-        List<Opcion> listaOpciones = new ArrayList<Opcion>();
+        List<Opcion> listaOpciones = new ArrayList<>();
 
         for (String opcion:listaPosibles){
             Opcion nuevaOpcion;
@@ -67,6 +68,13 @@ public class Kahoot {
     }
 
     public void comenzar() {
+        // Agrego una pregunta para que poder correr las pruebas de las vistas
+        List<Opcion> opciones = new ArrayList<>();
+        opciones.add(new Opcion("San Martin"));
+        opciones.add(new Opcion("15", true));
+        Pregunta aux = new Pregunta("7+5", opciones,new TipoVerdaderoYFalso(),new ModoClasico());
+        preguntas.add(aux);
+
         for(Pregunta pregunta: preguntas) {
             if (pregunta.tienePenalidad()) {
                 rondaActual = new RondaNormal(pregunta, jugadores);
@@ -81,4 +89,5 @@ public class Kahoot {
     public Pregunta obtenerPreguntaActual(){
         return rondaActual.obtenerPreguntaActual();
     }
+
 }

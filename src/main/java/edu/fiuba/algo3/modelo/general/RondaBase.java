@@ -38,7 +38,7 @@ public abstract class RondaBase {
     public abstract void actualizarPuntaje() throws NoQuedanUsosExcepcion;
 
     public void comenzar() {
-        for (Jugador jugador:jugadores) {
+        /*for (Jugador jugador:jugadores) {
 //            panel.mostrarPreguntaActual()/
 //            panel.mostrarModificadores(jugador);
 //            panel.mostrarPosiblesRespuestas();
@@ -47,7 +47,7 @@ public abstract class RondaBase {
             this.actualizarPuntaje();
         }catch (NoQuedanUsosExcepcion except) {
 //            MANEJAR LA EXCEPCIÓN
-        }
+        }*/
 
 //        panel.mostrarRespuestasCorrectas()
     }
