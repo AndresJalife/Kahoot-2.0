@@ -25,7 +25,7 @@ public class Kahoot {
     }
 
     private void inicializarPreguntas(String nombreArchivo) throws FileNotFoundException {
-        File archivoPreguntas = new File("nombreArchivo");
+        File archivoPreguntas = new File(nombreArchivo);
         Scanner sc = new Scanner(archivoPreguntas);
 
         while (sc.hasNext()){
@@ -79,7 +79,7 @@ public class Kahoot {
         }
     }
 
-    public List<String> obtenerModificadores(Jugador jugador){
+    public List<IModificador> obtenerModificadores(Jugador jugador){
         return rondaActual.obtenerModificadores(jugador);
     }
 
@@ -108,5 +108,4 @@ public class Kahoot {
     public List<Jugador> obtenerJugadores(){
         return jugadores;
     }
-
 }

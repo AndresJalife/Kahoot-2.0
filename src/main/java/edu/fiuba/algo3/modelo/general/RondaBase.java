@@ -27,7 +27,7 @@ public abstract class RondaBase {
 
     public abstract void usarModificador(Jugador jugador, IModificador modificador);
 
-    public abstract List<String> obtenerModificadores(Jugador jugador);
+    public abstract List<IModificador> obtenerModificadores(Jugador jugador);
 
     public abstract void actualizarPuntaje() throws NoQuedanUsosExcepcion;
 

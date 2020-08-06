@@ -16,16 +16,16 @@ public class RondaNormal extends RondaBase {
     }
 
     @Override
-    public List<String> obtenerModificadores(Jugador jugador) {
+    public List<IModificador> obtenerModificadores(Jugador jugador) {
         var x2 = jugador.obtenerMultiplicadorX2();
         var x3 = jugador.obtenerMultiplicadorX3();
-        List<String> multiplicadoresRestantes = new ArrayList<String>();
+        List<IModificador> multiplicadoresRestantes = new ArrayList<IModificador>();
 
         if (x2.quedanUsos()){
-            multiplicadoresRestantes.add("X2");
+            multiplicadoresRestantes.add(x2);
         }
         if (x3.quedanUsos()){
-            multiplicadoresRestantes.add("X3");
+            multiplicadoresRestantes.add(x3);
         }
         return multiplicadoresRestantes;
     }
