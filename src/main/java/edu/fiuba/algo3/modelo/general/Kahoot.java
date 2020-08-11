@@ -25,10 +25,6 @@ public class Kahoot {
         }
     }
 
-<<<<<<< HEAD
-    private void inicializarPreguntas(String nombreArchivo) throws FileNotFoundException {
-        preguntas = new LectorDeArchivosTxt().crearListaDePreguntas(nombreArchivo);
-=======
     public void inicializarPreguntas(String nombreArchivo) throws FileNotFoundException {
         File archivoPreguntas = new File(nombreArchivo);
         Scanner sc = new Scanner(archivoPreguntas);
@@ -65,7 +61,6 @@ public class Kahoot {
             listaOpciones.add(nuevaOpcion);
         }
         return listaOpciones;
->>>>>>> b7de401aa84c86c502fb95f019dfae7054dffbb1
     }
 
     public void agregarJugador(String nombre) {
