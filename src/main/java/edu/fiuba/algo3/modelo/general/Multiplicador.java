@@ -15,11 +15,12 @@ public class Multiplicador implements IModificador {
 
     @Override
     public void utilizar() throws NoQuedanUsosExcepcion {
-        if (usosDisponibles > 0) {
-            usosDisponibles--;
+        if (usosDisponibles <= 0) {
+            throw new NoQuedanUsosExcepcion("No le quedan usos al multiplicador.");
+
         }
         else {
-            throw new NoQuedanUsosExcepcion("No le quedan usos al multiplicador.");
+            usosDisponibles--;
         }
     }
 
