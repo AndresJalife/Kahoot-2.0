@@ -2,8 +2,10 @@ package edu.fiuba.algo3.view;
 
 import edu.fiuba.algo3.modelo.general.Kahoot;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.StackPane;
 import javafx.scene.text.Font;
@@ -28,6 +30,23 @@ public class VistaMenu extends StackPane {
         });
         grid.add(titulo,1,1);
         grid.add(jugarBoton,1,5);
+
+        TextField textoParaAgregarPreguntas = new TextField();
+        Label textoAgregarPreguntas = new Label("Ingrese la direccion donde se encuentran las preguntas");
+        grid.add(textoAgregarPreguntas,1,7);
+        grid.add(textoParaAgregarPreguntas,1,8);
+        Button preguntasBoton = new Button("AgregarPreguntas");
+        preguntasBoton.setOnAction(actionEvent -> {
+            try{
+                modelo.inicializarPreguntas(textoParaAgregarPreguntas.getText());
+            }
+            catch (Exception e){
+                Alert fallo = new Alert(Alert.AlertType.ERROR);
+                fallo.setHeaderText("La direccion del archivo no es valida");
+                fallo.showAndWait();
+            }
+        });
+        grid.add(preguntasBoton,1,9);
         this.getChildren().addAll(grid);
     }
 

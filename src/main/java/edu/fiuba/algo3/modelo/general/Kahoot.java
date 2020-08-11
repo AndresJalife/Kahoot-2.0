@@ -25,7 +25,7 @@ public class Kahoot {
         }
     }
 
-    private void inicializarPreguntas(String nombreArchivo) throws FileNotFoundException {
+    public void inicializarPreguntas(String nombreArchivo) throws FileNotFoundException {
         File archivoPreguntas = new File(nombreArchivo);
         Scanner sc = new Scanner(archivoPreguntas);
 
