@@ -26,41 +26,7 @@ public class Kahoot {
     }
 
     private void inicializarPreguntas(String nombreArchivo) throws FileNotFoundException {
-        File archivoPreguntas = new File(nombreArchivo);
-        Scanner sc = new Scanner(archivoPreguntas);
-
-        while (sc.hasNext()){
-            String textoPregunta = sc.nextLine();
-            String[] datos = textoPregunta.split("/");
-
-            FabricaDePreguntas fabricaDePreguntas = new FabricaDePreguntas();
-
-            String tipo = datos[1];
-            String modo = datos[0];
-            String pregunta = datos[2];
-            List<Opcion> opcionesPosibles = separarOpciones(datos[3], datos[4]);
-
-            Pregunta nuevaPregunta = fabricaDePreguntas.crearPregunta(pregunta, opcionesPosibles, tipo, modo);
-            preguntas.add(nuevaPregunta);
-        }
-    }
-
-    private List<Opcion> separarOpciones(String posibles, String correcta){
-        String[] opcionesSeparadas = posibles.split(",");
-        List<String> listaPosibles = Arrays.asList(opcionesSeparadas);
-        List<Opcion> listaOpciones = new ArrayList<>();
-
-        for (String opcion:listaPosibles){
-            Opcion nuevaOpcion;
-            if (opcion.equals(correcta)){
-                nuevaOpcion = new Opcion(opcion, true);
-            }
-            else{
-                nuevaOpcion = new Opcion(opcion);
-            }
-            listaOpciones.add(nuevaOpcion);
-        }
-        return listaOpciones;
+        preguntas = new LectorDeArchivosTxt().crearListaDePreguntas(nombreArchivo);
     }
 
     public void agregarJugador(String nombre) {
