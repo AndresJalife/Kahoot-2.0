@@ -32,8 +32,10 @@ public abstract class RondaBase {
 
     public abstract void actualizarPuntaje() throws NoQuedanUsosExcepcion;
 
-    public boolean todosContestaronMenosUno(){
-        return jugadores.size() % (respuestasDeJugadores.size()+1) == 0;
+    public boolean todosContestaron(){
+        if(respuestasDeJugadores.size() == 1)
+            return false;
+        return jugadores.size() % (respuestasDeJugadores.size()) == 0;
     }
 
 }
