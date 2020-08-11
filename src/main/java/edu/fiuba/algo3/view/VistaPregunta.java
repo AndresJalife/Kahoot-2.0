@@ -23,8 +23,8 @@ public class VistaPregunta extends StackPane {
     }
 
     public void CambiarPreguntaAOtroJugador(Kahoot modelo, Jugador jugador){
-        if(modelo.todosContestaronMenosUno()){
-            VistaRespuestas vistaRespuesta = new VistaRespuestas(modelo);
+        if(modelo.todosContestaron()){
+            VistaTerminar vistaRespuesta = new VistaTerminar(modelo);
             this.getChildren().addAll(vistaRespuesta);
         }
         else{
@@ -33,8 +33,8 @@ public class VistaPregunta extends StackPane {
                 if(jugadoraux != jugador)
                     siguiente = jugadoraux;
             }
-            VistaCambiarJugador vistaCambiarJugador = new VistaCambiarJugador(modelo, siguiente);
-            this.getChildren().addAll(vistaCambiarJugador);
+            VistaVerdaderoYFalso vistaTipoPregunta = new VistaVerdaderoYFalso(modelo, siguiente);
+            this.getChildren().addAll(vistaTipoPregunta);
         }
     }
 }

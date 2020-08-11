@@ -110,7 +110,7 @@ public class Kahoot {
         return jugadores;
     }
 
-    public boolean todosContestaronMenosUno(){
-        return rondaActual.todosContestaronMenosUno();
+    public boolean todosContestaron(){
+        return rondaActual.todosContestaron();
     }
 }
