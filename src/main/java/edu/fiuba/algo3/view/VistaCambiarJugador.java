@@ -16,9 +16,11 @@ public class VistaCambiarJugador extends StackPane {
 
         Button boton = new Button("Siguiente jugador");
         boton.setOnAction(actionEvent -> {
+            this.getChildren().clear();
             VistaVerdaderoYFalso vistaVerdaderoYFalso = new VistaVerdaderoYFalso(modelo, jugador);
             this.getChildren().addAll(vistaVerdaderoYFalso);
             });
-
+        grid.add(boton,1,1);
+        this.getChildren().addAll(grid);
     }
 }
