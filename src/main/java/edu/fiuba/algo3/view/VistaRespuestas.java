@@ -16,24 +16,19 @@ public class VistaRespuestas extends StackPane {
         GridPane grid = new GridPane();
         grid.setHgap(10);
         grid.setVgap(10);
-        List<Jugador> jugadores = new ArrayList<>();
-        List<Jugador> jugadoresOrdenados = new ArrayList<>();
 
-        jugadores.addAll(modelo.obtenerJugadores());
+        List<Jugador> jugadores = new ArrayList<>(modelo.obtenerJugadores());
         modelo.actualizarPuntaje();
-        Collections.sort(jugadores, (o1, o2) -> {
-            if(o1.obtenerPuntaje() > o2.obtenerPuntaje()) return -1;
-            if(o1.obtenerPuntaje() < o2.obtenerPuntaje()) return 1;
-            return 0;
-        });
+        jugadores.sort((o1, o2) -> Integer.compare(o2.obtenerPuntaje(), o1.obtenerPuntaje()));
 
         int i = 1;
-        for(Jugador jugador : jugadoresOrdenados){
+        for(Jugador jugador : jugadores){
             Label usuario = new Label(jugador.obtenerNombre());
             grid.add(usuario,i,1);
             Label puntos = new Label(String.valueOf(jugador.obtenerPuntaje()));
-            grid.add(usuario,i,2);
+            grid.add(puntos,i,2);
             i++;
         }
+        this.getChildren().addAll(grid);
     }
 }
