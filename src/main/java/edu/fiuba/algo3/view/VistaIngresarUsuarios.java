@@ -12,12 +12,26 @@ import javafx.stage.Stage;
 
 public class VistaIngresarUsuarios<Static> extends StackPane {
 
+    GridPane grid;
+
     public VistaIngresarUsuarios(Kahoot modelo, Stage stage){
         this.getChildren().clear();
-        GridPane grid = new GridPane();
+        this.crearGrid();
+        this.obtenerIngresarUsuarios(grid, modelo, stage);
+        this.getChildren().addAll(grid);
+    }
+
+    private boolean VerificarUsuarios(TextField usuarioUno, TextField usuarioDos){
+        return !usuarioDos.getText().trim().isEmpty() && !usuarioUno.getText().trim().isEmpty();
+    }
+
+    private void crearGrid(){
+        grid = new GridPane();
         grid.setHgap(10);
         grid.setVgap(10);
+    }
 
+    private void obtenerIngresarUsuarios(GridPane grid, Kahoot modelo, Stage stage){
         Label usuarioUno = new Label("Ingrese el nombre del jugador 1");
         grid.add(usuarioUno,3,1);
         TextField textoParaUsuarioUno = new TextField();
@@ -26,6 +40,7 @@ public class VistaIngresarUsuarios<Static> extends StackPane {
         grid.add(usuarioDos,3,2);
         TextField textoParaUsuarioDos = new TextField();
         grid.add(textoParaUsuarioDos,4,2);
+
         Button jugarBoton = new Button("Jugar");
         jugarBoton.setOnAction(actionEvent -> {
             if(VerificarUsuarios(textoParaUsuarioUno, textoParaUsuarioDos)){
@@ -41,10 +56,5 @@ public class VistaIngresarUsuarios<Static> extends StackPane {
             }
         });
         grid.add(jugarBoton,4,3);
-        this.getChildren().addAll(grid);
-    }
-
-    private boolean VerificarUsuarios(TextField usuarioUno, TextField usuarioDos){
-        return !usuarioDos.getText().trim().isEmpty() && !usuarioUno.getText().trim().isEmpty();
     }
 }

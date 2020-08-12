@@ -44,7 +44,7 @@ public class VistaRespuestas extends StackPane {
                 ganador.showAndWait();
                 /*this.getChildren().clear();
                 VistaMenu vistaMenu = new VistaMenu(modelo, );
-                this.getChildren().addAll(vistaMenu);*/
+                this.getChildren().addAll(vistaMenu);11*/
             }
         });
         grid.add(siguientePregunta,1,4);
