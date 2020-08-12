@@ -8,11 +8,11 @@ import javafx.scene.layout.GridPane;
 import javafx.scene.layout.StackPane;
 
 public class VistaCambiarJugador extends StackPane {
+
+    GridPane grid;
+
     public VistaCambiarJugador(Kahoot modelo, Jugador jugador){
         this.getChildren().clear();
-        GridPane grid = new GridPane();
-        grid.setHgap(10);
-        grid.setVgap(10);
 
         Button boton = new Button("Siguiente jugador");
         boton.setOnAction(actionEvent -> {
@@ -22,5 +22,11 @@ public class VistaCambiarJugador extends StackPane {
             });
         grid.add(boton,1,1);
         this.getChildren().addAll(grid);
+    }
+
+    private void crearGrid(){
+        grid = new GridPane();
+        grid.setHgap(10);
+        grid.setVgap(10);
     }
 }
