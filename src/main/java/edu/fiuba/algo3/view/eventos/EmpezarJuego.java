@@ -6,16 +6,17 @@ import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
+import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
 public class EmpezarJuego implements EventHandler<ActionEvent> {
 
-    String usuario1;
-    String usuario2;
+    TextField usuario1;
+    TextField usuario2;
     Kahoot miModelo;
     Stage miStage;
 
-    public EmpezarJuego(String jugador1, String jugador2, Kahoot modelo, Stage stage){
+    public EmpezarJuego(TextField jugador1, TextField jugador2, Kahoot modelo, Stage stage){
         usuario1 = jugador1;
         usuario2 = jugador2;
         miModelo = modelo;
@@ -25,8 +26,8 @@ public class EmpezarJuego implements EventHandler<ActionEvent> {
     @Override
     public void handle(ActionEvent actionEvent) {
         if(VerificarUsuarios(usuario1, usuario2)){
-            miModelo.agregarJugador(usuario1);
-            miModelo.agregarJugador(usuario2);
+            miModelo.agregarJugador(usuario1.getText());
+            miModelo.agregarJugador(usuario2.getText());
             Scene escenaPregunta = new Scene(new VistaPregunta(miModelo, miModelo.obtenerJugadores().get(0)));
             miStage.setScene(escenaPregunta);
         }
@@ -37,7 +38,7 @@ public class EmpezarJuego implements EventHandler<ActionEvent> {
         }
     }
 
-    private boolean VerificarUsuarios(String usuarioUno, String usuarioDos){
-        return !usuarioDos.isEmpty() && !usuarioUno.isEmpty();
+    private boolean VerificarUsuarios(TextField usuarioUno,TextField usuarioDos){
+        return  !usuarioDos.getText().trim().isEmpty() && !usuarioUno.getText().trim().isEmpty();
     }
 }
