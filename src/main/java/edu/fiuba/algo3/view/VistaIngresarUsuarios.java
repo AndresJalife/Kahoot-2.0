@@ -36,7 +36,7 @@ public class VistaIngresarUsuarios extends StackPane {
         TextField textoParaUsuarioDos = new TextField();
         grid.add(textoParaUsuarioDos,4,2);
         Button jugarBoton = new Button("Jugar");
-        jugarBoton.setOnAction(new EmpezarJuego(textoParaUsuarioUno.getText(), textoParaUsuarioDos.getText(), modelo, stage));
+        jugarBoton.setOnAction(new EmpezarJuego(textoParaUsuarioUno, textoParaUsuarioDos, modelo, stage));
         grid.add(jugarBoton,4,3);
     }
 }
