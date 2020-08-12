@@ -5,17 +5,17 @@ import edu.fiuba.algo3.modelo.preguntas.*;
 
 import java.io.File;
 import java.io.FileNotFoundException;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-import java.util.Scanner;
+import java.util.*;
 
 public class Kahoot {
     private List<Jugador> jugadores;
     private List<Pregunta> preguntas;
+    private List<RondaBase> rondas;
+    private Iterator ronda;
     private RondaBase rondaActual;
 
     public Kahoot(String archivoPreguntas){
+        rondas = new ArrayList<>();
         preguntas = new ArrayList<>();
         jugadores = new ArrayList<>();
         try {
@@ -94,12 +94,16 @@ public class Kahoot {
 
         for(Pregunta pregunta: preguntas) {
             if (pregunta.tienePenalidad()) {
-                rondaActual = new RondaNormal(pregunta, jugadores);
+                RondaNormal rondaNormal = new RondaNormal(pregunta, jugadores);
+                rondas.add(rondaNormal);
             }
             else {
-                rondaActual = new RondaExclusividad(pregunta, jugadores);
+                RondaExclusividad rondaExclusividad = new RondaExclusividad(pregunta, jugadores);
+                rondas.add(rondaExclusividad);
             }
         }
+        ronda = rondas.iterator();
+        rondaActual = (RondaBase) ronda.next();
     }
 
     public Pregunta obtenerPreguntaActual(){
@@ -112,5 +116,13 @@ public class Kahoot {
 
     public boolean todosContestaron(){
         return rondaActual.todosContestaron();
+    }
+
+    public boolean cambiarRonda(){
+        if(ronda.hasNext()){
+            rondaActual = (RondaBase) ronda.next();
+            return true;
+        }
+        return false;
     }
 }
