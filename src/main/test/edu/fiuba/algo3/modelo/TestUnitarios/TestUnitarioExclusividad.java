@@ -4,8 +4,7 @@ import edu.fiuba.algo3.modelo.excepciones.NoQuedanUsosExcepcion;
 import edu.fiuba.algo3.modelo.general.Exclusividad;
 import org.junit.Test;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.junit.jupiter.api.Assertions.*;
 
 public class TestUnitarioExclusividad {
 
@@ -14,6 +13,13 @@ public class TestUnitarioExclusividad {
         var exclusividad = new Exclusividad(1);
         exclusividad.utilizar();
         assertThrows(NoQuedanUsosExcepcion.class, exclusividad::utilizar);
+    }
+
+    @Test
+    public void TestExclusividadNoQuedanUsos() throws NoQuedanUsosExcepcion {
+        var exclusividad = new Exclusividad(1);
+        exclusividad.utilizar();
+        assertFalse(exclusividad.quedanUsos());
     }
 
     @Test
