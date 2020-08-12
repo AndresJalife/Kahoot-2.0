@@ -1,5 +1,6 @@
 package edu.fiuba.algo3.modelo.TestUnitarios;
 
+import edu.fiuba.algo3.modelo.general.Exclusividad;
 import edu.fiuba.algo3.modelo.general.Multiplicador;
 import edu.fiuba.algo3.modelo.excepciones.NoQuedanUsosExcepcion;
 import org.junit.jupiter.api.Test;
@@ -46,5 +47,12 @@ public class TestUnitarioMultiplicador {
         Multiplicador x2= new Multiplicador(2);
         x2.utilizar();
         assertFalse(x2.quedanUsos());
+    }
+
+    @Test
+    public void TestMultiplicadorTiraExcepcionSiNoQuedanUsos() throws NoQuedanUsosExcepcion {
+        var x3 = new Multiplicador(3);
+        x3.utilizar();
+        assertThrows(NoQuedanUsosExcepcion.class, x3::utilizar);
     }
 }
