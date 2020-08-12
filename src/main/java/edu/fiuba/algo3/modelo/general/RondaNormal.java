@@ -1,5 +1,6 @@
 package edu.fiuba.algo3.modelo.general;
 
+import edu.fiuba.algo3.modelo.excepciones.NoQuedanUsosExcepcion;
 import edu.fiuba.algo3.modelo.preguntas.Pregunta;
 
 import java.util.ArrayList;

@@ -1,7 +1,7 @@
 package edu.fiuba.algo3.modelo.TestUnitarios;
 
 import edu.fiuba.algo3.modelo.general.Jugador;
-import edu.fiuba.algo3.modelo.general.NoQuedanUsosExcepcion;
+import edu.fiuba.algo3.modelo.excepciones.NoQuedanUsosExcepcion;
 import edu.fiuba.algo3.modelo.general.RondaExclusividad;
 import edu.fiuba.algo3.modelo.general.RondaNormal;
 import edu.fiuba.algo3.modelo.preguntas.ModoClasico;

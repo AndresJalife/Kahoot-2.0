@@ -1,7 +1,7 @@
 package edu.fiuba.algo3.modelo.general;
 
+import edu.fiuba.algo3.modelo.excepciones.NoQuedanUsosExcepcion;
 import edu.fiuba.algo3.modelo.preguntas.*;
-import javafx.scene.control.Alert;
 
 import java.io.File;
 import java.io.FileNotFoundException;

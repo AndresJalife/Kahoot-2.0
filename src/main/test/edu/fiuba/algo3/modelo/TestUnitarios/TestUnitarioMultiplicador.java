@@ -1,7 +1,7 @@
 package edu.fiuba.algo3.modelo.TestUnitarios;
 
 import edu.fiuba.algo3.modelo.general.Multiplicador;
-import edu.fiuba.algo3.modelo.general.NoQuedanUsosExcepcion;
+import edu.fiuba.algo3.modelo.excepciones.NoQuedanUsosExcepcion;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;

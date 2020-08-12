@@ -1,5 +1,7 @@
 package edu.fiuba.algo3.modelo.general;
 
+import edu.fiuba.algo3.modelo.excepciones.NoQuedanUsosExcepcion;
+
 public class Multiplicador implements IModificador {
 
     private int usosDisponibles = 1;
