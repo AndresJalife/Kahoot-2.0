@@ -8,12 +8,13 @@ import edu.fiuba.algo3.view.VistaPregunta;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.GridPane;
+import javafx.stage.Stage;
 
 import java.util.ArrayList;
 
 public class VistaMultipleChoice extends VistaTipoDePregunta {
 
-    public VistaMultipleChoice(Kahoot modelo, Jugador jugador){
+    public VistaMultipleChoice(Kahoot modelo, Jugador jugador, Stage stage){
         this.getChildren().clear();
         GridPane grid = new GridPane();
         grid.setHgap(10);
@@ -32,7 +33,7 @@ public class VistaMultipleChoice extends VistaTipoDePregunta {
             boton2.setOnAction(actionEvent -> {
                 modelo.jugadorResponder(jugador, respuestas);
                 VistaPregunta vistaAux = new VistaPregunta();
-                vistaAux.CambiarPreguntaAOtroJugador(modelo, jugador);
+                vistaAux.CambiarPreguntaAOtroJugador(modelo, jugador, stage);
                 this.getChildren().clear();
                 this.getChildren().addAll(vistaAux);
             });

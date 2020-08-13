@@ -9,12 +9,13 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.StackPane;
+import javafx.stage.Stage;
 
 import java.util.ArrayList;
 
 public class VistaVerdaderoYFalso extends VistaTipoDePregunta {
 
-    public VistaVerdaderoYFalso(Kahoot modelo, Jugador jugador){
+    public VistaVerdaderoYFalso(Kahoot modelo, Jugador jugador, Stage stage){
         super();
         this.getChildren().clear();
         GridPane grid = new GridPane();
@@ -33,7 +34,7 @@ public class VistaVerdaderoYFalso extends VistaTipoDePregunta {
                 respuestas.add(new RespuestaDeJugador(opcion));
                 modelo.jugadorResponder(jugador, respuestas);
                 VistaPregunta vistaAux = new VistaPregunta();
-                vistaAux.CambiarPreguntaAOtroJugador(modelo, jugador);
+                vistaAux.CambiarPreguntaAOtroJugador(modelo, jugador, stage);
                 this.getChildren().clear();
                 this.getChildren().addAll(vistaAux);
             });

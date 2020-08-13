@@ -28,7 +28,7 @@ public class EmpezarJuego implements EventHandler<ActionEvent> {
         if(VerificarUsuarios(usuario1, usuario2)){
             miModelo.agregarJugador(usuario1.getText());
             miModelo.agregarJugador(usuario2.getText());
-            Scene escenaPregunta = new Scene(new VistaPregunta(miModelo, miModelo.obtenerJugadores().get(0)));
+            Scene escenaPregunta = new Scene(new VistaPregunta(miModelo, miModelo.obtenerJugadores().get(0), miStage));
             miStage.setScene(escenaPregunta);
         }
         else{

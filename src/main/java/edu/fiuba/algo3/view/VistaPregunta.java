@@ -18,16 +18,16 @@ public class VistaPregunta extends StackPane {
     FabricaDeVistasPregunta fabrica = new FabricaDeVistasPregunta();
     public VistaPregunta(){}
 
-    public VistaPregunta(Kahoot modelo , Jugador jugador) {
+    public VistaPregunta(Kahoot modelo , Jugador jugador, Stage stage) {
         modelo.comenzar();
-        VistaTipoDePregunta vistaTipoPregunta = fabrica.crearVistaTipoDePregunta(modelo,jugador);
+        VistaTipoDePregunta vistaTipoPregunta = fabrica.crearVistaTipoDePregunta(modelo,jugador,stage);
         this.getChildren().addAll(vistaTipoPregunta);
     }
 
-    public void CambiarPreguntaAOtroJugador(Kahoot modelo, Jugador jugador){
+    public void CambiarPreguntaAOtroJugador(Kahoot modelo, Jugador jugador, Stage stage){
         this.getChildren().clear();
         if(modelo.todosContestaron()){
-            VistaTerminar vistaRespuesta = new VistaTerminar(modelo);
+            VistaTerminar vistaRespuesta = new VistaTerminar(modelo, stage);
             this.getChildren().addAll(vistaRespuesta);
         }
         else{
@@ -36,7 +36,7 @@ public class VistaPregunta extends StackPane {
                 if(jugadoraux != jugador)
                     siguiente = jugadoraux;
             }
-            VistaCambiarJugador vistaCambiarJugador = new VistaCambiarJugador(modelo, siguiente);
+            VistaCambiarJugador vistaCambiarJugador = new VistaCambiarJugador(modelo, siguiente, stage);
             this.getChildren().addAll(vistaCambiarJugador);
         }
     }

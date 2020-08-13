@@ -22,7 +22,7 @@ public class LectorDeArchivosJson implements LectorDeArchivos {
     public List<Pregunta> crearListaDePreguntas(String nombreArchivo) throws IOException, ParseException {
         String TIPO_GROUPED = "GroupChoice";
 
-        List<Pregunta> nuevasPreguntas = new ArrayList<Pregunta>();
+        List<Pregunta> nuevasPreguntas = new ArrayList<>();
         JSONParser jsonParser = new JSONParser();
         JSONObject preguntasJSON = (JSONObject) jsonParser.parse(new FileReader(nombreArchivo));
 
@@ -71,16 +71,16 @@ public class LectorDeArchivosJson implements LectorDeArchivos {
         Integer GRUPO_2 = 2;
 
         JSONObject opcionesJson = (JSONObject) opciones;
-        List<Opcion> listaOpciones = new ArrayList<Opcion>();
+        List<Opcion> listaOpciones = new ArrayList<>();
 
-        List<Integer> grupos = new ArrayList<Integer>();
+        List<Integer> grupos = new ArrayList<>();
         grupos.add(GRUPO_1);
         grupos.add(GRUPO_2);
 
         for (Integer grupo: grupos){
             List<String> grupoActual = jsonArrToList((JSONArray) opcionesJson.get(grupo.toString()));
             for (String opcion: grupoActual){
-                Opcion op = new Opcion(opcion, grupo);
+                Opcion op = new Opcion(opcion, grupo, grupo);
                 listaOpciones.add(op);
             }
         }
@@ -88,20 +88,20 @@ public class LectorDeArchivosJson implements LectorDeArchivos {
     }
 
     private List<Opcion> crearListaOpciones(List<String> opciones, List<String> opcionesCorrectas) {
-        List<Opcion> listaDeOp = new ArrayList<Opcion>();
+        List<Opcion> listaDeOp = new ArrayList<>();
         for(String opcion: opciones){
-            Boolean esCorrecta = opcionesCorrectas.contains(opcion);
+            boolean esCorrecta = opcionesCorrectas.contains(opcion);
             listaDeOp.add(new Opcion(opcion, esCorrecta));
         }
         return listaDeOp;
     }
 
     private List<String> jsonArrToList(JSONArray jsonArray) {
-        List<String> listaOp = new ArrayList<String>();
+        List<String> listaOp = new ArrayList<>();
         if (jsonArray != null) {
             int len = jsonArray.size();
-            for (int i = 0; i < len; i++){
-                listaOp.add(jsonArray.get(i).toString());
+            for (Object o : jsonArray) {
+                listaOp.add(o.toString());
             }
         }
         return listaOp;

@@ -8,16 +8,16 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.StackPane;
+import javafx.stage.Stage;
 
 import java.util.*;
 
 public class VistaRespuestas extends StackPane {
+    GridPane grid;
 
-    public VistaRespuestas(Kahoot modelo){
+    public VistaRespuestas(Kahoot modelo, Stage stage){
         this.getChildren().clear();
-        GridPane grid = new GridPane();
-        grid.setHgap(10);
-        grid.setVgap(10);
+        this.crearGrid();
 
         List<Jugador> jugadores = new ArrayList<>(modelo.obtenerJugadores());
         modelo.actualizarPuntaje();
@@ -35,7 +35,7 @@ public class VistaRespuestas extends StackPane {
         siguientePregunta.setOnAction(actionEvent -> {
             if(modelo.cambiarRonda()){
                 this.getChildren().clear();
-                VistaPregunta vistaPregunta = new VistaPregunta(modelo, modelo.obtenerJugadores().get(0));
+                VistaPregunta vistaPregunta = new VistaPregunta(modelo, modelo.obtenerJugadores().get(0),stage);
                 this.getChildren().addAll(vistaPregunta);
             }
             else{
@@ -49,5 +49,15 @@ public class VistaRespuestas extends StackPane {
         });
         grid.add(siguientePregunta,1,4);
         this.getChildren().addAll(grid);
+    }
+
+    private void crearGrid(){
+        grid = new GridPane();
+        grid.setHgap(10);
+        grid.setVgap(10);
+    }
+
+    private void actualizarResultadosYMostrar(){
+
     }
 }

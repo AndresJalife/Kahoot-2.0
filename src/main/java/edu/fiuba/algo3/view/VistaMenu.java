@@ -2,12 +2,14 @@ package edu.fiuba.algo3.view;
 
 import edu.fiuba.algo3.modelo.general.Kahoot;
 import edu.fiuba.algo3.view.eventos.PruebaAgregarPreguntas;
+import javafx.geometry.Insets;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.layout.*;
+import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.stage.Stage;
 
@@ -58,8 +60,6 @@ public class VistaMenu extends StackPane {
     }
 
     private void obtenerImagenDeFondo(GridPane grid) {
-        var imagen = new Image(getClass().getResource("/imagenes/FondoDePruebaVistaMenu.jpg").toString());
-        BackgroundImage imagenDeFondo = new BackgroundImage(imagen, BackgroundRepeat.REPEAT, BackgroundRepeat.REPEAT, BackgroundPosition.DEFAULT, BackgroundSize.DEFAULT);
-        grid.setBackground(new Background(imagenDeFondo));
+        grid.setBackground(new Background((new BackgroundFill(Color.DARKTURQUOISE, CornerRadii.EMPTY, Insets.EMPTY))));
     }
 }
