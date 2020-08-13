@@ -57,6 +57,7 @@ El presente informe reune la documentación de la solución del segundo trabajo 
 
 \section{Supuestos}\label{sec:supuestos}
 % Deberá contener explicaciones de cada uno de los supuestos que el alumno haya tenido que adoptar a partir de situaciones que no estén contempladas en la especificación.
+\item[ExtensionInvalidaExcepcion]
 
 \section{Modelo de dominio}\label{sec:modelo}
 % Explicación concisa del diseño general del trabajo.
@@ -95,35 +96,66 @@ Kahoot es la clase encargada de empezar el juego y guardar el panel que muestra 
 % Explicaciones sobre la implementación interna de algunas clases que consideren que puedan llegar a resultar interesantes.
 
 \subsection{Inicializacion de preguntas}
-El archivo con el que inicializamos las preguntas contenia las lineas con el siguiente formato Modo/Tipo/Pregunta/Opciones/OpcionCorrecta .
+Actualmente le proveemos dos formas distintas de cargar las preguntas al programa.
 
-\vspace{5mm} %5mm vertical space
+\begin{description}
+{\bf Formato Propio}\newline
+El archivo con el que inicializamos las preguntas contenia las lineas con el siguiente formato Modo/Tipo/Pregunta/Opciones/OpcionCorrecta .\newline
+\newline
 
-Siendo el contenido de cada campo el siguiente:
+Siendo el contenido de cada campo el siguiente:\newline
+\newline
 
-\vspace{5mm} %5mm vertical space
+Modo: String\newline
+\indent- ConPuntajePenalidad\newline
+\indent- Clasico\newline
+\indent- Parcial\newline
+\newline
 
-Modo: String
-	- ConPuntajePenalidad
-	- Clasico
-	- Parcial
+Tipo: String\newline
+\indent- MultipleChoice\newline
+\indent- VerdaderoFalso\newline
+\indent- OrderedChoice\newline
+\indent- GroupChoice\newline
+\newline
 
-Tipo: String
-	- MultipleChoice
-	- VerdaderoFalso
-	- OrderedChoice
-	- GroupChoice
+Pregunta: String\newline
+\newline
+Opciones: String,String,String\newline
+\newline
+OpcionCorrecta: String\newline
+\newline
 
-Pregunta: String
-
-Opciones: String,String,String
-
-OpcionCorrecta: String
-
-Ejemplo:
-
+Ejemplo:\newline
+\begin{verbatim}
 Clasico/MultipleChoice/¿Como se llama tu mascota?/Nestor,Chewbacca,Godzilla/Godzilla
+\end{verbatim}
+\newline
 
+\end{description}
+
+\begin{description}
+{\bf Formato JSON}
+
+\newline
+\newline
+El formato JSON mantiene la misma idea de formato propio, representando a los modos, las opciones y las preguntas como strings pero la diferencia principal es que estan separadas por categorias y que se utilizan los arrays que provee el formato JSON
+
+\newline
+\newline
+Ejemplo
+\begin{verbatim}
+{
+  "MultipleChoice" :
+      [{
+        "modo": "ConPuntajeParcial",
+        "texto" : "¿Quién gano gran hermano 2015?",
+        "opciones" : ["Matías Schrank", "Francisco Delgado", "Vos"],
+        "opcionesCorrectas": ["Francisco Delgado"],
+      }]
+}
+\end{verbatim}
+\end{description}
 
 \subsection{Proin sodales leo dapibus sapien fermentum}
 Quisque tempus, tortor et convallis interdum, ipsum leo tempus ipsum, in molestie tortor arcu sit amet tellus. Praesent fermentum hendrerit nulla. In maximus ornare maximus. Nullam consectetur placerat enim sit amet lacinia. Etiam pellentesque tellus consectetur hendrerit iaculis. Sed non laoreet felis.
@@ -132,11 +164,8 @@ Quisque tempus, tortor et convallis interdum, ipsum leo tempus ipsum, in molesti
 % Explicación de cada una de las excepciones creadas y con qué fin fueron creadas.
 
 \begin{description}
-\item[Exception] Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin nec facilisis odio. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. In aliquam dapibus lacus at condimentum. Curabitur ornare scelerisque euismod. Duis a mi in nulla sodales sollicitudin vehicula sit amet sapien. Quisque vel eros ut libero consequat scelerisque. Nullam efficitur ante eu massa gravida sollicitudin.
-\item[Excepcion] Curabitur elementum laoreet molestie. Ut hendrerit, quam lobortis porttitor cursus, ex sem facilisis massa, in interdum odio risus hendrerit dui.
-\item[Excepcion] Integer porta efficitur felis. Etiam facilisis consectetur sem, ac efficitur orci. Nam a ante commodo, fringilla nisl a, sollicitudin est.
-\item[Excepcion] Aliquam erat volutpat. Fusce quis efficitur augue. Fusce egestas mauris a nisi finibus volutpat. Maecenas venenatis ligula ut nisi maximus, vel ultricies enim scelerisque.
-\item[Excepcion] Mauris gatis feugiat erat non euismod. Donec sagittis orci enim, et convallis lacus sodales at. Nunc laoreet leo vel metus eleifend, vel aliquam sem tincidunt. Nunc imperdiet eget erat eget tincidunt. Morbi tempus risus quis nulla faucibus facilisis. Sed varius nunc vel neque rutrum vestibulum.
+\item[ExtensionInvalidaExcepcion] Esta excepcion fue creada con el fin de notificar al usuario que el archivo de preguntas que se dio tiene una extension erronea.
+\item[NoQuedanUsosExcepcion] Esta excepcion fue creada con el fin de notificar al usuario que el Multiplicador que se utilizo no tenia usos disponibles y por ende la ejecucion no puede continuar.
 \end{description}
 
 \section{Diagramas de secuencia}\label{sec:diagramasdesecuencia}
