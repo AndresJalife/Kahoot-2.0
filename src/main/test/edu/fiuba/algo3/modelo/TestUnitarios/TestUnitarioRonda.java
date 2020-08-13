@@ -4,14 +4,12 @@ import edu.fiuba.algo3.modelo.general.Jugador;
 import edu.fiuba.algo3.modelo.excepciones.NoQuedanUsosExcepcion;
 import edu.fiuba.algo3.modelo.general.RondaExclusividad;
 import edu.fiuba.algo3.modelo.general.RondaNormal;
-import edu.fiuba.algo3.modelo.preguntas.ModoClasico;
-import edu.fiuba.algo3.modelo.preguntas.Opcion;
-import edu.fiuba.algo3.modelo.preguntas.Pregunta;
-import edu.fiuba.algo3.modelo.preguntas.TipoMultipleChoice;
+import edu.fiuba.algo3.modelo.preguntas.*;
 import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
@@ -50,7 +48,7 @@ public class TestUnitarioRonda {
         jugadores.add(jugador);
 
         var ronda = new RondaNormal(pregunta, jugadores);
-        ronda.guardarRespuestas(jugador, pregunta.obtenerRespuestasCorrectas());
+        ronda.guardarRespuestas(jugador, pregunta.obtenerRespuestasCorrectas().stream().map(RespuestaDeJugador::new).collect(Collectors.toList()));
         ronda.actualizarPuntaje();
 
         assertEquals(1, jugador.obtenerPuntaje());
@@ -80,7 +78,7 @@ public class TestUnitarioRonda {
         jugadores.add(jugador);
 
         var ronda = new RondaExclusividad(pregunta, jugadores);
-        ronda.guardarRespuestas(jugador, pregunta.obtenerRespuestasCorrectas());
+        ronda.guardarRespuestas(jugador, pregunta.obtenerRespuestasCorrectas().stream().map(RespuestaDeJugador::new).collect(Collectors.toList()));
         ronda.actualizarPuntaje();
 
         assertEquals(1, jugador.obtenerPuntaje());
@@ -111,7 +109,7 @@ public class TestUnitarioRonda {
 
         var ronda = new RondaNormal(pregunta, jugadores);
         ronda.usarModificador(jugador, jugador.obtenerMultiplicadorX2());
-        ronda.guardarRespuestas(jugador, pregunta.obtenerRespuestasCorrectas());
+        ronda.guardarRespuestas(jugador, pregunta.obtenerRespuestasCorrectas().stream().map(RespuestaDeJugador::new).collect(Collectors.toList()));
         ronda.actualizarPuntaje();
 
         assertEquals(2, jugador.obtenerPuntaje());
@@ -127,7 +125,7 @@ public class TestUnitarioRonda {
 
         var ronda = new RondaNormal(pregunta, jugadores);
         ronda.usarModificador(jugador, jugador.obtenerMultiplicadorX3());
-        ronda.guardarRespuestas(jugador, pregunta.obtenerRespuestasCorrectas());
+        ronda.guardarRespuestas(jugador, pregunta.obtenerRespuestasCorrectas().stream().map(RespuestaDeJugador::new).collect(Collectors.toList()));
         ronda.actualizarPuntaje();
 
         assertEquals(3, jugador.obtenerPuntaje());
@@ -145,8 +143,8 @@ public class TestUnitarioRonda {
 
         var ronda = new RondaExclusividad(pregunta, jugadores);
         ronda.usarModificador(jugador1, jugador1.obtenerExclusividades());
-        ronda.guardarRespuestas(jugador1, pregunta.obtenerRespuestasCorrectas());
-        ronda.guardarRespuestas(jugador2, pregunta.obtenerRespuestasCorrectas());
+        ronda.guardarRespuestas(jugador1, pregunta.obtenerRespuestasCorrectas().stream().map(RespuestaDeJugador::new).collect(Collectors.toList()));
+        ronda.guardarRespuestas(jugador2, pregunta.obtenerRespuestasCorrectas().stream().map(RespuestaDeJugador::new).collect(Collectors.toList()));
         ronda.actualizarPuntaje();
 
         assertEquals(0, jugador1.obtenerPuntaje());
@@ -165,7 +163,7 @@ public class TestUnitarioRonda {
 
         var ronda = new RondaExclusividad(pregunta, jugadores);
         ronda.usarModificador(jugador1, jugador1.obtenerExclusividades());
-        ronda.guardarRespuestas(jugador1, pregunta.obtenerRespuestasCorrectas());
+        ronda.guardarRespuestas(jugador1, pregunta.obtenerRespuestasCorrectas().stream().map(RespuestaDeJugador::new).collect(Collectors.toList()));
         ronda.guardarRespuestas(jugador2, new ArrayList<>());
         ronda.actualizarPuntaje();
 

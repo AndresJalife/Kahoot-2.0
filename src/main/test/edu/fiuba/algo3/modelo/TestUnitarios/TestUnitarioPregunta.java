@@ -1,9 +1,6 @@
 package edu.fiuba.algo3.modelo.TestUnitarios;
 
-import edu.fiuba.algo3.modelo.preguntas.ModoClasico;
-import edu.fiuba.algo3.modelo.preguntas.Opcion;
-import edu.fiuba.algo3.modelo.preguntas.Pregunta;
-import edu.fiuba.algo3.modelo.preguntas.TipoVerdaderoYFalso;
+import edu.fiuba.algo3.modelo.preguntas.*;
 import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
@@ -45,10 +42,10 @@ public class TestUnitarioPregunta {
         Opcion opcion1 = new Opcion("Opcion1");
         Opcion opcion2 = new Opcion("Opcion2", true);
         List<Opcion> opciones = new ArrayList<>();
-        List<Opcion> opcionesContestadas = new ArrayList<>();
+        List<RespuestaDeJugador> opcionesContestadas = new ArrayList<>();
         opciones.add(opcion1);
         opciones.add(opcion2);
-        opcionesContestadas.add(opcion2);
+        opcionesContestadas.add(new RespuestaDeJugador(opcion2));
 
         var pregunta = new Pregunta("¿Cual es la correcta?", opciones, new TipoVerdaderoYFalso(), new ModoClasico());
         assertEquals(1, pregunta.calcularPuntaje(opcionesContestadas));
