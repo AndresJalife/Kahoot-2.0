@@ -10,12 +10,12 @@ public class CrearDeNuevoLaPregunta implements EventHandler<ActionEvent>{
 
     Kahoot miModelo;
     Jugador miJugador;
-    //Stage miStage;
+    Stage miStage;
 
-    public CrearDeNuevoLaPregunta(Kahoot modelo, Jugador jugador){
+    public CrearDeNuevoLaPregunta(Kahoot modelo, Jugador jugador, Stage stage){
         miModelo = modelo;
         miJugador = jugador;
-        //miStage = stage;
+        miStage = stage;
     }
 
     @Override
