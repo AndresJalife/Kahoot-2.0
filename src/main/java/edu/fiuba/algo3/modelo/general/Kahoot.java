@@ -8,6 +8,7 @@ import org.json.simple.parser.ParseException;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.net.URI;
 import java.util.*;
 
 public class Kahoot {
@@ -23,11 +24,11 @@ public class Kahoot {
         jugadores = new ArrayList<>();
     }
 
-    public void inicializarPreguntas(String nombreArchivo) throws IOException, ParseException, ExtensionInvalidaExcepcion {
+    public void inicializarPreguntas(URI nombreArchivo) throws IOException, ParseException, ExtensionInvalidaExcepcion {
         LectorDeArchivos lector = null;
-        if (getFileExtension(nombreArchivo).contains("json")){
+        if (getFileExtension(nombreArchivo.toString()).contains("json")){
             lector = new LectorDeArchivosJson();
-        } else if (getFileExtension(nombreArchivo).contains("txt")){
+        } else if (getFileExtension(nombreArchivo.toString()).contains("txt")){
             lector = new LectorDeArchivosTxt();
         }
         if (lector == null){
