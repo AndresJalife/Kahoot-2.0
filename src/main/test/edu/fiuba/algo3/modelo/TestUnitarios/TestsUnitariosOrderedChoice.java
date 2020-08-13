@@ -33,8 +33,8 @@ public class TestsUnitariosOrderedChoice {
 
     @Test
     public void cantCorrectasRecibe2OpcionesEnElOrdenCorrectoDevuelve2(){
-        opciones.add(opcion1);
         opciones.add(opcion2);
+        opciones.add(opcion1);
         opciones.add(opcion3);
         opciones.add(opcion4);
 
