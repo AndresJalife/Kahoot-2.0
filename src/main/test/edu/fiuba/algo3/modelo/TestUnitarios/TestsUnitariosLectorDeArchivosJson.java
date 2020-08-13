@@ -16,10 +16,11 @@ public class TestsUnitariosLectorDeArchivosJson {
 
     @Test
     public void cargoUnaPreguntaYEsSeCreaCorrectamente() throws IOException, ParseException {
-        List<Pregunta> preguntas = lectorDeArchivosJson.crearListaDePreguntas("unaPregunta.json");
+        List<Pregunta> preguntas = lectorDeArchivosJson.crearListaDePreguntas("./src/main/test/edu/fiuba/algo3/modelo/TestUnitarios/unaPregunta.json");
+
         Pregunta pregunta = preguntas.get(0);
         assertEquals(pregunta.obtenerTexto(), "¿Era Abraham Lincoln un asesino?");
         assertEquals(pregunta.getClass(),Pregunta.class);
-}
+    }
 
 }
