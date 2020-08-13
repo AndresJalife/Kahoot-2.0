@@ -48,4 +48,8 @@ public class Pregunta {
 
         return modo.calcularPuntaje(totalCorrectas, incorrectas, correctas);
     }
+
+    public ITipoDePregunta obtenerTipo() {
+        return tipo;
+    }
 }

@@ -12,7 +12,7 @@ import javafx.scene.layout.StackPane;
 
 import java.util.ArrayList;
 
-public class VistaMultipleChoice extends StackPane {
+public class VistaMultipleChoice extends VistaTipoDePregunta {
 
     public VistaMultipleChoice(Kahoot modelo, Jugador jugador){
         this.getChildren().clear();
