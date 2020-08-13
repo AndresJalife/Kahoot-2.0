@@ -48,7 +48,7 @@ public class VistaMenu extends StackPane {
 
     private void obtenerIngresarArchivo(Kahoot modelo, Stage stage, GridPane grid) {
         try {
-            modelo.inicializarPreguntas(getClass().getResource("/semiPreguntas.json").toURI());
+            modelo.inicializarPreguntas(getClass().getResource("/semiPreguntas2.json").toURI());
 
         }
         catch (Exception e){
