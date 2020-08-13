@@ -17,7 +17,7 @@ public class TestsUnitariosLectorDeArchivosJson {
     LectorDeArchivosJson lectorDeArchivosJson = new LectorDeArchivosJson();
 
     @Test
-    public void cargoUnaPreguntaYEsSeCreaCorrectamente() throws IOException, ParseException {
+    public void cargoUnaPreguntaYSeCreaCorrectamente() throws IOException, ParseException {
         List<Pregunta> preguntas = lectorDeArchivosJson.crearListaDePreguntas(Paths.get("src/main/resources/unaPregunta.json").toAbsolutePath().toUri());
 
         Pregunta pregunta = preguntas.get(0);

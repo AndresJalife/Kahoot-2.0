@@ -1,9 +1,9 @@
 {
   "VerdaderoFalso" :
-      {
+      [{
         "modo": "ConPenalidad",
         "texto" : "¿Era Abraham Lincoln un asesino?",
         "opciones" : ["Verdadero", "Falso"],
         "opcionesCorrectas": ["Verdadero"],
-      }
+      }]
 }

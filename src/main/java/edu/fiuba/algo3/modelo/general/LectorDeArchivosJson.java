@@ -43,19 +43,21 @@ public class LectorDeArchivosJson implements LectorDeArchivos {
 
     private void agregarPreguntasNoGroup(JSONObject preguntasJSON, List<Pregunta> nuevasPreguntas) {
         FabricaDePreguntas fabrica = new FabricaDePreguntas();
+        preguntasJSON.keySet().forEach(tipo -> {
+            JSONArray preguntasDelMismoTipo = (JSONArray) preguntasJSON.get(tipo);
+            for (Object preguntaObject : preguntasDelMismoTipo){
+                JSONObject pregunta = (JSONObject) preguntaObject;
+                String modo = pregunta.get("modo").toString();
+                String texto = (String) pregunta.get("texto");
 
-        preguntasJSON.keySet().forEach(tipo ->{
-            JSONObject pregunta = (JSONObject) preguntasJSON.get(tipo);
-            String modo =  pregunta.get("modo").toString();
-            String texto = (String) pregunta.get("texto");
+                List<String> opciones = jsonArrToList((JSONArray) pregunta.get("opciones"));
+                List<String> opcionesCorrectas = jsonArrToList((JSONArray) pregunta.get("opcionesCorrectas"));
 
-            List<String> opciones = jsonArrToList((JSONArray) pregunta.get("opciones"));
-            List<String> opcionesCorrectas = jsonArrToList((JSONArray) pregunta.get("opcionesCorrectas"));
+                List<Opcion> opcionesConcretas = crearListaOpciones(opciones, opcionesCorrectas);
 
-            List<Opcion> opcionesConcretas = crearListaOpciones(opciones, opcionesCorrectas);
-
-            Pregunta nuevaPreg = fabrica.crearPregunta(texto, opcionesConcretas, tipo.toString(), modo);
-            nuevasPreguntas.add(nuevaPreg);
+                Pregunta nuevaPreg = fabrica.crearPregunta(texto, opcionesConcretas, tipo.toString(), modo);
+                nuevasPreguntas.add(nuevaPreg);
+           }
         });
     }
 
