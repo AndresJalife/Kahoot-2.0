@@ -39,17 +39,18 @@ public class TestsUnitariosGroupChoice {
         List<Opcion> opciones = new ArrayList<>();
         List<RespuestaDeJugador> respuestas = new ArrayList<>();
         Jugador jugador = new Jugador("Jorge");
-        Opcion Opcion1 = new Opcion("Azul", true);
-        Opcion Opcion2 = new Opcion("Casa");
-        Opcion Opcion3 = new Opcion("Verde", true);
+        var grupoQueSeDebeSeleccionar = 2;
+        Opcion Opcion1 = new Opcion("Azul", 2, grupoQueSeDebeSeleccionar);
+        Opcion Opcion2 = new Opcion("Casa", 1, grupoQueSeDebeSeleccionar);
+        Opcion Opcion3 = new Opcion("Verde", 2, grupoQueSeDebeSeleccionar);
 
         opciones.add(Opcion1);
         opciones.add(Opcion2);
         opciones.add(Opcion3);
 
         Pregunta pregunta = new Pregunta("Seleccionar los colores y los inmuebles", opciones, new TipoGroupChoice(), new ModoClasico());
-        respuestas.add(new RespuestaDeJugador(Opcion1));
-        respuestas.add(new RespuestaDeJugador(Opcion3));
+        respuestas.add(new RespuestaDeJugador(Opcion1, grupoQueSeDebeSeleccionar));
+        respuestas.add(new RespuestaDeJugador(Opcion3, grupoQueSeDebeSeleccionar));
 
         jugador.agregarPuntaje(pregunta.calcularPuntaje(respuestas));
 
@@ -62,16 +63,16 @@ public class TestsUnitariosGroupChoice {
         List<Opcion> opciones = new ArrayList<>();
         List<RespuestaDeJugador> respuestas = new ArrayList<>();
         Jugador jugador = new Jugador("Jorge");
-        Opcion Opcion1 = new Opcion("Azul", true);
-        Opcion Opcion2 = new Opcion("Casa");
-        Opcion Opcion3 = new Opcion("Verde", true);
+        Opcion Opcion1 = new Opcion("Azul", 5, 5);
+        Opcion Opcion2 = new Opcion("Casa", 2, 5);
+        Opcion Opcion3 = new Opcion("Verde", 5, 5);
 
         opciones.add(Opcion1);
         opciones.add(Opcion2);
         opciones.add(Opcion3);
 
         Pregunta pregunta = new Pregunta("Seleccionar los colores y los inmuebles", opciones, new TipoGroupChoice(), new ModoClasico());
-        respuestas.add(new RespuestaDeJugador(Opcion2));
+        respuestas.add(new RespuestaDeJugador(Opcion2, 5));
 
         jugador.agregarPuntaje(pregunta.calcularPuntaje(respuestas));
 
