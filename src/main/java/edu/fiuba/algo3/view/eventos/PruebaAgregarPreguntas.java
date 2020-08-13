@@ -18,11 +18,11 @@ public class PruebaAgregarPreguntas implements EventHandler<ActionEvent> {
     @Override
     public void handle(ActionEvent actionEvent) {
         try{
-            miModelo.inicializarPreguntas(miDireccion);
+            miModelo.inicializarPreguntas(getClass().getResource("/preguntas.json").toString());
         }
         catch (Exception e){
             Alert fallo = new Alert(Alert.AlertType.ERROR);
-            fallo.setHeaderText("La direccion del archivo no es valida");
+            fallo.setHeaderText(String.format("La direccion del archivo no es valida %s", e.toString()));
             fallo.showAndWait();
         }
     }
