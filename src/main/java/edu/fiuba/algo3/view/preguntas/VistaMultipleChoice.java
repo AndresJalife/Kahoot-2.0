@@ -5,6 +5,7 @@ import edu.fiuba.algo3.modelo.general.Kahoot;
 import edu.fiuba.algo3.modelo.preguntas.Opcion;
 import edu.fiuba.algo3.modelo.preguntas.RespuestaDeJugador;
 import edu.fiuba.algo3.view.VistaPregunta;
+import javafx.event.ActionEvent;
 import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.Label;
@@ -12,6 +13,7 @@ import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class VistaMultipleChoice extends VistaTipoDePregunta {
 
@@ -25,21 +27,22 @@ public class VistaMultipleChoice extends VistaTipoDePregunta {
         grid.add(usuario,1,1);
         Label pregunta = new Label(modelo.obtenerPreguntaActual().obtenerTexto());
         grid.add(pregunta,2,2);
-        int i = 1;
 
-        var respuestas = new ArrayList<RespuestaDeJugador>();
+        int i = 1;
+        List<AuxiliarCheckBox> cajas = new ArrayList<>();
         for(Opcion opcion : modelo.obtenerPreguntaActual().obtenerOpciones()){
             CheckBox boton = new CheckBox(opcion.obtenerTexto());
-            boton.setOnAction(actionEvent -> {
-
-                respuestas.add(new RespuestaDeJugador(opcion));
-
-            });
+            cajas.add(new AuxiliarCheckBox(boton, opcion));
             grid.add(boton,i,3);
             i++;
         }
         Button boton2 = new Button("Aceptar");
+        var respuestas = new ArrayList<RespuestaDeJugador>();
         boton2.setOnAction(actionEvent -> {
+            for(AuxiliarCheckBox aux : cajas){
+                if(aux.obtenerCheckBox().isSelected())
+                    respuestas.add(new RespuestaDeJugador(aux.obtenerOpcion()));
+            }
             modelo.jugadorResponder(jugador, respuestas);
             VistaPregunta vistaAux = new VistaPregunta();
             vistaAux.CambiarPreguntaAOtroJugador(modelo, jugador, stage);

@@ -103,9 +103,6 @@ public class Kahoot {
     public boolean cambiarRonda(){
         if(ronda.hasNext()){
             rondaActual = (RondaBase) ronda.next();
-            Alert fallo = new Alert(Alert.AlertType.ERROR);
-            fallo.setHeaderText(rondaActual.obtenerPreguntaActual().obtenerTipo().getClass().getName());
-            fallo.showAndWait();
             return true;
         }
         return false;
