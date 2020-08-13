@@ -46,7 +46,7 @@ public class VistaIngresarUsuarios extends StackPane {
     }
 
     private void obtenerColorDeFondo(GridPane grid) {
-        Color color = Color.rgb(19,94,75);
+        Color color = Color.rgb(100,182,187);
         grid.setBackground(new Background((new BackgroundFill(color, CornerRadii.EMPTY, Insets.EMPTY))));
     }
 }

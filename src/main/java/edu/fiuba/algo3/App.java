@@ -20,6 +20,7 @@ public class App extends Application {
     public void start(Stage stage) {
         var modelo = new Kahoot();
         var escenaInicial = new Scene(new VistaMenu(modelo, stage));
+//        escenaInicial.getStylesheets().add(getClass().getResource("/css/escenaInicial2.css").toString());
         stage.setWidth(1024);
         stage.setHeight(768);
         stage.setTitle("Cajoot");
