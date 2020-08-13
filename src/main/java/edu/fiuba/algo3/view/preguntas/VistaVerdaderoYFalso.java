@@ -12,9 +12,10 @@ import javafx.scene.layout.StackPane;
 
 import java.util.ArrayList;
 
-public class VistaVerdaderoYFalso extends StackPane {
+public class VistaVerdaderoYFalso extends VistaTipoDePregunta {
 
     public VistaVerdaderoYFalso(Kahoot modelo, Jugador jugador){
+        super();
         this.getChildren().clear();
         GridPane grid = new GridPane();
         grid.setHgap(10);

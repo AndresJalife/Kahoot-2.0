@@ -8,11 +8,10 @@ import edu.fiuba.algo3.view.VistaPregunta;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.GridPane;
-import javafx.scene.layout.StackPane;
 
 import java.util.ArrayList;
 
-public class VistaMultipleChoice extends StackPane {
+public class VistaMultipleChoice extends VistaTipoDePregunta {
 
     public VistaMultipleChoice(Kahoot modelo, Jugador jugador){
         this.getChildren().clear();

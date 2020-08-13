@@ -46,8 +46,7 @@ public class LectorDeArchivosJson implements LectorDeArchivos {
             List<String> opciones = jsonArrToList((JSONArray) pregunta.get("opciones"));
             List<String> opcionesCorrectas = jsonArrToList((JSONArray) pregunta.get("opcionesCorrectas"));
 
-            List<Opcion> opcionesConcretas;
-            opcionesConcretas = crearListaOpciones(opciones, opcionesCorrectas);
+            List<Opcion> opcionesConcretas = crearListaOpciones(opciones, opcionesCorrectas);
 
             Pregunta nuevaPreg = fabrica.crearPregunta(texto, opcionesConcretas, tipo.toString(), modo);
             nuevasPreguntas.add(nuevaPreg);
@@ -56,13 +55,36 @@ public class LectorDeArchivosJson implements LectorDeArchivos {
 
     private void agregarPreguntasGroup(JSONArray preguntasGroupChoice, List<Pregunta> nuevasPreguntas) {
         FabricaDePreguntas fabrica = new FabricaDePreguntas();
-        for (Object objetpPregunta : preguntasGroupChoice){
-            JSONObject pregunta = (JSONObject) objetpPregunta;
-            IModoDePregunta modo = (IModoDePregunta) pregunta.get("modo");
+        for (Object objetoPregunta : preguntasGroupChoice){
+            JSONObject pregunta = (JSONObject) objetoPregunta;
+            String modo =  pregunta.get("modo").toString();
             String texto = (String) pregunta.get("texto");
-//            FALTA OPCION DE GROUP
+            List<Opcion>  opciones = crearListaOpcionesGroup(pregunta.get("opciones"));
+            Pregunta nuevaPreg = fabrica.crearPregunta(texto, opciones,"GroupChoice", modo);
+            nuevasPreguntas.add(nuevaPreg);
         }
 
+    }
+
+    private List<Opcion> crearListaOpcionesGroup(Object opciones) {
+        Integer GRUPO_1 = 1;
+        Integer GRUPO_2 = 2;
+
+        JSONObject opcionesJson = (JSONObject) opciones;
+        List<Opcion> listaOpciones = new ArrayList<Opcion>();
+
+        List<Integer> grupos = new ArrayList<Integer>();
+        grupos.add(GRUPO_1);
+        grupos.add(GRUPO_2);
+
+        for (Integer grupo: grupos){
+            List<String> grupoActual = jsonArrToList((JSONArray) opcionesJson.get(grupo.toString()));
+            for (String opcion: grupoActual){
+                Opcion op = new Opcion(opcion, grupo);
+                listaOpciones.add(op);
+            }
+        }
+        return listaOpciones;
     }
 
     private List<Opcion> crearListaOpciones(List<String> opciones, List<String> opcionesCorrectas) {
