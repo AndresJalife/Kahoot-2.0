@@ -1,5 +1,6 @@
 package edu.fiuba.algo3.modelo.general;
 
+import edu.fiuba.algo3.modelo.excepciones.ExtensionInvalidaExcepcion;
 import edu.fiuba.algo3.modelo.excepciones.NoQuedanUsosExcepcion;
 import edu.fiuba.algo3.modelo.preguntas.*;
 import org.json.simple.parser.ParseException;
@@ -22,9 +23,29 @@ public class Kahoot {
         jugadores = new ArrayList<>();
     }
 
-    public void inicializarPreguntas(String nombreArchivo) throws IOException, ParseException {
-        LectorDeArchivos lector = new LectorDeArchivosJson();
-        preguntas = lector.crearListaDePreguntas(nombreArchivo);
+    public void inicializarPreguntas(String nombreArchivo) throws IOException, ParseException, ExtensionInvalidaExcepcion {
+        LectorDeArchivos lector = null;
+        if (getFileExtension(nombreArchivo).contains("json")){
+            lector = new LectorDeArchivosJson();
+        } else if (getFileExtension(nombreArchivo).contains("txt")){
+            lector = new LectorDeArchivosTxt();
+        }
+        if (lector == null){
+            throw new ExtensionInvalidaExcepcion("Extensión invalida del archivo.");
+        } else {
+            preguntas = lector.crearListaDePreguntas(nombreArchivo);
+        }
+
+    }
+    
+    public String getFileExtension(String fileName){
+        String extension = "";
+
+        int i = fileName.lastIndexOf('.');
+        if (i > 0) {
+            extension = fileName.substring(i+1);
+        }
+        return extension;
     }
 
 
