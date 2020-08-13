@@ -46,7 +46,7 @@ public class VistaMenu extends StackPane {
         grid.add(jugarBoton,1,5);
     }
 
-    private void obtenerIngresarArchivo(Kahoot modelo, Stage stage, GridPane grid){
+    private void obtenerIngresarArchivo(Kahoot modelo, Stage stage, GridPane grid) {
         Label textoAgregarPreguntas = new Label("Ingrese la direccion donde se encuentran las preguntas");
         grid.add(textoAgregarPreguntas,1,7);
         TextField textoParaAgregarPreguntas = new TextField();
@@ -57,8 +57,8 @@ public class VistaMenu extends StackPane {
         grid.add(preguntasBoton,1,9);
     }
 
-    private void obtenerImagenDeFondo(GridPane grid){
-        Image imagen = new Image("file:/src/main/java/view/imagenes/FondoDePruebaVistaMenu.jpg");
+    private void obtenerImagenDeFondo(GridPane grid) {
+        var imagen = new Image(getClass().getResource("/imagenes/FondoDePruebaVistaMenu.jpg").toString());
         BackgroundImage imagenDeFondo = new BackgroundImage(imagen, BackgroundRepeat.REPEAT, BackgroundRepeat.REPEAT, BackgroundPosition.DEFAULT, BackgroundSize.DEFAULT);
         grid.setBackground(new Background(imagenDeFondo));
     }
