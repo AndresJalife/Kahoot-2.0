@@ -55,7 +55,7 @@ public class VistaMenu extends StackPane {
             Alert fallo = new Alert(Alert.AlertType.ERROR);
             fallo.setHeaderText(String.format("Archivo de preguntas faltante. \nError: %s", e.toString()));
             fallo.showAndWait();
-            Runtime.getRuntime().exit(1);
+            Runtime.getRuntime().exit(0);
         }
     }
 
