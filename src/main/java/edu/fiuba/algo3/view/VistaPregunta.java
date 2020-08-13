@@ -15,6 +15,7 @@ import javafx.stage.Stage;
 import java.util.concurrent.atomic.AtomicBoolean;
 
 public class VistaPregunta extends StackPane {
+
     FabricaDeVistasPregunta fabrica = new FabricaDeVistasPregunta();
     public VistaPregunta(){}
 

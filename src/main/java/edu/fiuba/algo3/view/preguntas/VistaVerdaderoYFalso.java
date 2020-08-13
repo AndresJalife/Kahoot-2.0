@@ -5,6 +5,7 @@ import edu.fiuba.algo3.modelo.general.Kahoot;
 import edu.fiuba.algo3.modelo.preguntas.Opcion;
 import edu.fiuba.algo3.modelo.preguntas.RespuestaDeJugador;
 import edu.fiuba.algo3.view.VistaPregunta;
+import edu.fiuba.algo3.view.eventos.TerminarPreguntaVerdaderoYFalso;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.GridPane;
@@ -15,32 +16,37 @@ import java.util.ArrayList;
 
 public class VistaVerdaderoYFalso extends VistaTipoDePregunta {
 
+    GridPane grid;
+
     public VistaVerdaderoYFalso(Kahoot modelo, Jugador jugador, Stage stage){
         super();
+        this.crearGrid();
+        this.obtenerLabels(grid, jugador, modelo);
+        this.obtenerBotonesParaResponder(grid, modelo, jugador, stage);
+        this.getChildren().addAll(grid);
+    }
+
+    private void crearGrid(){
         this.getChildren().clear();
-        GridPane grid = new GridPane();
+        grid = new GridPane();
         grid.setHgap(10);
         grid.setVgap(10);
+    }
 
+    private void obtenerLabels(GridPane grid, Jugador jugador, Kahoot modelo){
         Label usuario = new Label(jugador.obtenerNombre());
         grid.add(usuario,1,1);
         Label pregunta = new Label(modelo.obtenerPreguntaActual().obtenerTexto());
         grid.add(pregunta,2,2);
+    }
+
+    private void obtenerBotonesParaResponder(GridPane grid, Kahoot modelo, Jugador jugador, Stage stage){
         int i = 2;
         for(Opcion opcion : modelo.obtenerPreguntaActual().obtenerOpciones()){
             Button boton = new Button(opcion.obtenerTexto());
-            boton.setOnAction(actionEvent -> {
-                var respuestas = new ArrayList<RespuestaDeJugador>();
-                respuestas.add(new RespuestaDeJugador(opcion));
-                modelo.jugadorResponder(jugador, respuestas);
-                VistaPregunta vistaAux = new VistaPregunta();
-                vistaAux.CambiarPreguntaAOtroJugador(modelo, jugador, stage);
-                this.getChildren().clear();
-                this.getChildren().addAll(vistaAux);
-            });
+            boton.setOnAction(new TerminarPreguntaVerdaderoYFalso(opcion,modelo,jugador,stage));
             grid.add(boton,i,3);
             i++;
         }
-        this.getChildren().addAll(grid);
     }
 }

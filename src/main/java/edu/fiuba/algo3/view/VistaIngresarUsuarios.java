@@ -2,11 +2,12 @@ package edu.fiuba.algo3.view;
 
 import edu.fiuba.algo3.modelo.general.Kahoot;
 import edu.fiuba.algo3.view.eventos.EmpezarJuego;
+import javafx.geometry.Insets;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
-import javafx.scene.layout.GridPane;
-import javafx.scene.layout.StackPane;
+import javafx.scene.layout.*;
+import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 
 public class VistaIngresarUsuarios extends StackPane {
@@ -17,6 +18,7 @@ public class VistaIngresarUsuarios extends StackPane {
         this.getChildren().clear();
         this.crearGrid();
         this.obtenerIngresarUsuarios(grid, modelo, stage);
+        this.obtenerColorDeFondo(grid);
         this.getChildren().addAll(grid);
     }
 
@@ -38,5 +40,10 @@ public class VistaIngresarUsuarios extends StackPane {
         Button jugarBoton = new Button("Jugar");
         jugarBoton.setOnAction(new EmpezarJuego(textoParaUsuarioUno, textoParaUsuarioDos, modelo, stage));
         grid.add(jugarBoton,4,3);
+    }
+
+    private void obtenerColorDeFondo(GridPane grid) {
+        Color color = Color.rgb(19,94,75);
+        grid.setBackground(new Background((new BackgroundFill(color, CornerRadii.EMPTY, Insets.EMPTY))));
     }
 }

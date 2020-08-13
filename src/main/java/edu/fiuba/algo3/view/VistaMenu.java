@@ -22,7 +22,7 @@ public class VistaMenu extends StackPane {
         this.crearGrid();
         this.obtenerMenuInicio(modelo, stage, grid);
         this.obtenerIngresarArchivo(modelo, stage, grid);
-        this.obtenerImagenDeFondo(grid);
+        this.obtenerColorDeFondo(grid);
         this.getChildren().addAll(grid);
     }
 
@@ -59,7 +59,8 @@ public class VistaMenu extends StackPane {
         grid.add(preguntasBoton,1,9);
     }
 
-    private void obtenerImagenDeFondo(GridPane grid) {
-        grid.setBackground(new Background((new BackgroundFill(Color.DARKTURQUOISE, CornerRadii.EMPTY, Insets.EMPTY))));
+    private void obtenerColorDeFondo(GridPane grid) {
+        Color color = Color.rgb(202,235,226);
+        grid.setBackground(new Background((new BackgroundFill(color, CornerRadii.EMPTY, Insets.EMPTY))));
     }
 }

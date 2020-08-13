@@ -18,19 +18,8 @@ public class VistaRespuestas extends StackPane {
     public VistaRespuestas(Kahoot modelo, Stage stage){
         this.getChildren().clear();
         this.crearGrid();
-
-        List<Jugador> jugadores = new ArrayList<>(modelo.obtenerJugadores());
-        modelo.actualizarPuntaje();
-        jugadores.sort((o1, o2) -> Integer.compare(o2.obtenerPuntaje(), o1.obtenerPuntaje()));
-
-        int i = 1;
-        for(Jugador jugador : jugadores){
-            Label usuario = new Label(jugador.obtenerNombre() + " ->");
-            grid.add(usuario,1,i);
-            Label puntos = new Label(String.valueOf(jugador.obtenerPuntaje()));
-            grid.add(puntos,2,i);
-            i++;
-        }
+        List<Jugador> jugadores = actualizarResultadosYOrdenar(modelo);
+        this.obtenerNombresConPuntos(grid, jugadores);
         Button siguientePregunta = new Button("Siguiente pregunta");
         siguientePregunta.setOnAction(actionEvent -> {
             if(modelo.cambiarRonda()){
@@ -57,7 +46,21 @@ public class VistaRespuestas extends StackPane {
         grid.setVgap(10);
     }
 
-    private void actualizarResultadosYMostrar(){
+    private List<Jugador> actualizarResultadosYOrdenar(Kahoot modelo){
+        List<Jugador> jugadores = new ArrayList<>(modelo.obtenerJugadores());
+        modelo.actualizarPuntaje();
+        jugadores.sort((o1, o2) -> Integer.compare(o2.obtenerPuntaje(), o1.obtenerPuntaje()));
+        return jugadores;
+    }
 
+    private void obtenerNombresConPuntos(GridPane grid, List<Jugador> jugadores){
+        int i = 1;
+        for(Jugador jugador : jugadores){
+            Label usuario = new Label(jugador.obtenerNombre() + " ->");
+            grid.add(usuario,1,i);
+            Label puntos = new Label(String.valueOf(jugador.obtenerPuntaje()));
+            grid.add(puntos,2,i);
+            i++;
+        }
     }
 }
