@@ -1,7 +1,7 @@
 package edu.fiuba.algo3.modelo.general;
 
 import edu.fiuba.algo3.modelo.excepciones.NoQuedanUsosExcepcion;
-import edu.fiuba.algo3.modelo.preguntas.Opcion;
+import edu.fiuba.algo3.modelo.preguntas.RespuestaDeJugador;
 import edu.fiuba.algo3.modelo.preguntas.Pregunta;
 
 import java.util.HashMap;
@@ -10,7 +10,7 @@ import java.util.List;
 public abstract class RondaBase {
     protected Pregunta preguntaActual;
     protected List<Jugador> jugadores;
-    protected HashMap<Jugador, List<Opcion>> respuestasDeJugadores;
+    protected HashMap<Jugador, List<RespuestaDeJugador>> respuestasDeJugadores;
 
     public RondaBase(Pregunta pregunta, List<Jugador> nuevosJugadores){
         preguntaActual = pregunta;
@@ -22,7 +22,7 @@ public abstract class RondaBase {
         return preguntaActual;
     }
 
-    public void guardarRespuestas(Jugador jugador, List<Opcion> respuestas) {
+    public void guardarRespuestas(Jugador jugador, List<RespuestaDeJugador> respuestas) {
         respuestasDeJugadores.put(jugador, respuestas);
     }
 

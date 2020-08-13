@@ -40,11 +40,11 @@ public class Pregunta {
         return respuestas;
     }
 
-    public int calcularPuntaje(List<Opcion> respuestasJugador) {
+    public int calcularPuntaje(List<RespuestaDeJugador> respuestasJugador) {
         var respuestasCorrectas = obtenerRespuestasCorrectas();
         var totalCorrectas = respuestasCorrectas.size();
-        var correctas = tipo.cantCorrectas(respuestasPosibles,respuestasJugador);
-        var incorrectas = tipo.cantIncorrectas(respuestasPosibles,respuestasJugador);
+        var correctas = tipo.cantCorrectas(respuestasPosibles, respuestasJugador);
+        var incorrectas = tipo.cantIncorrectas(respuestasPosibles, respuestasJugador);
 
         return modo.calcularPuntaje(totalCorrectas, incorrectas, correctas);
     }

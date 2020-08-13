@@ -68,7 +68,7 @@ public class Kahoot {
         jugadores.add(nuevoJugador);
     }
 
-    public void jugadorResponder(Jugador jugador, List<Opcion> respuestas){
+    public void jugadorResponder(Jugador jugador, List<RespuestaDeJugador> respuestas){
         rondaActual.guardarRespuestas(jugador, respuestas);
     }
 

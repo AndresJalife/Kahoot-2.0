@@ -4,7 +4,7 @@ import java.util.List;
 
 public interface ITipoDePregunta {
     boolean opcionesValidas(List<Opcion> opciones);
-    int cantCorrectas(List<Opcion> opciones, List<Opcion> respuestasJugador);
-    int cantIncorrectas(List<Opcion> opciones,List<Opcion> respuestasJugador);
+    int cantCorrectas(List<Opcion> opciones, List<RespuestaDeJugador> respuestasJugador);
+    int cantIncorrectas(List<Opcion> opciones,List<RespuestaDeJugador> respuestasJugador);
 
 }

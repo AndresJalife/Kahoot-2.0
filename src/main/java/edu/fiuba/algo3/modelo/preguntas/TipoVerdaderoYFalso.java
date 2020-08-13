@@ -24,9 +24,9 @@ public class TipoVerdaderoYFalso implements ITipoDePregunta {
 
 
     @Override
-    public int cantCorrectas(List<Opcion> opciones, List<Opcion> respuestasJugador) {
+    public int cantCorrectas(List<Opcion> opciones, List<RespuestaDeJugador> respuestasJugador) {
         int correctas= 0;
-        for (Opcion opcion : respuestasJugador) {
+        for (var opcion : respuestasJugador) {
             if(opcion.esCorrecta())
                 correctas++;
         }
@@ -34,9 +34,9 @@ public class TipoVerdaderoYFalso implements ITipoDePregunta {
     }
 
     @Override
-    public int cantIncorrectas(List<Opcion> opciones, List<Opcion> respuestasJugador) {
+    public int cantIncorrectas(List<Opcion> opciones, List<RespuestaDeJugador> respuestasJugador) {
         int incorrectas= 0;
-        for (Opcion opcion : respuestasJugador) {
+        for (var opcion : respuestasJugador) {
             if(!opcion.esCorrecta())
                 incorrectas++;
         }

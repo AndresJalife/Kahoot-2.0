@@ -3,17 +3,14 @@ package edu.fiuba.algo3.view.preguntas;
 import edu.fiuba.algo3.modelo.general.Jugador;
 import edu.fiuba.algo3.modelo.general.Kahoot;
 import edu.fiuba.algo3.modelo.preguntas.Opcion;
-import edu.fiuba.algo3.modelo.preguntas.Pregunta;
-import edu.fiuba.algo3.view.VistaIngresarUsuarios;
+import edu.fiuba.algo3.modelo.preguntas.RespuestaDeJugador;
 import edu.fiuba.algo3.view.VistaPregunta;
-import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.StackPane;
 
 import java.util.ArrayList;
-import java.util.List;
 
 public class VistaMultipleChoice extends StackPane {
 
@@ -32,9 +29,9 @@ public class VistaMultipleChoice extends StackPane {
         for(Opcion opcion : modelo.obtenerPreguntaActual().obtenerOpciones()){
             Button boton = new Button(opcion.obtenerTexto());
             Button boton2 = new Button("Aceptar");
-            List<Opcion> respuestas = new ArrayList<>();
+            var respuestas = new ArrayList<RespuestaDeJugador>();
             boton2.setOnAction(actionEvent -> {
-                modelo.jugadorResponder(jugador,respuestas);
+                modelo.jugadorResponder(jugador, respuestas);
                 VistaPregunta vistaAux = new VistaPregunta();
                 vistaAux.CambiarPreguntaAOtroJugador(modelo, jugador);
                 this.getChildren().clear();
@@ -42,7 +39,7 @@ public class VistaMultipleChoice extends StackPane {
             });
             boton.setOnAction(actionEvent -> {
 
-                respuestas.add(opcion);
+                respuestas.add(new RespuestaDeJugador(opcion));
 
             });
             grid.add(boton,i,3);
