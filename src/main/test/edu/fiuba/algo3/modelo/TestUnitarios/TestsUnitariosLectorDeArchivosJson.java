@@ -1,13 +1,11 @@
 package edu.fiuba.algo3.modelo.TestUnitarios;
 
-import edu.fiuba.algo3.modelo.general.LectorDeArchivosTxt;
-import edu.fiuba.algo3.modelo.preguntas.LectorDeArchivosJson;
+import edu.fiuba.algo3.modelo.general.LectorDeArchivosJson;
 import edu.fiuba.algo3.modelo.preguntas.Pregunta;
 import org.json.simple.parser.ParseException;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.List;
 

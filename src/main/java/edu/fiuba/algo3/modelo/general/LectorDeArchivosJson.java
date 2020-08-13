@@ -1,4 +1,4 @@
-package edu.fiuba.algo3.modelo.preguntas;
+package edu.fiuba.algo3.modelo.general;
 
 import edu.fiuba.algo3.modelo.general.LectorDeArchivos;
 
@@ -8,6 +8,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 
+import edu.fiuba.algo3.modelo.preguntas.FabricaDePreguntas;
+import edu.fiuba.algo3.modelo.preguntas.IModoDePregunta;
+import edu.fiuba.algo3.modelo.preguntas.Opcion;
+import edu.fiuba.algo3.modelo.preguntas.Pregunta;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
