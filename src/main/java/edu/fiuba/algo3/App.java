@@ -16,8 +16,6 @@ import javafx.stage.Stage;
 
 public class App extends Application {
 
-    public final String nombreArchivo = "preguntas.txt";
-
     @Override
     public void start(Stage stage) {
         var modelo = new Kahoot();

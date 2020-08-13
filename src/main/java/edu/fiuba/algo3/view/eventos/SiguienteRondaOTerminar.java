@@ -38,9 +38,10 @@ public class SiguienteRondaOTerminar implements EventHandler<ActionEvent> {
             Alert ganador = new Alert(Alert.AlertType.INFORMATION);
             ganador.setHeaderText("El ganador es : " + jugadores.get(0).obtenerNombre());
             ganador.showAndWait();
-            VistaMenu vistaMenu = new VistaMenu(miModelo, miStage);
-            Scene escena = new Scene(vistaMenu);
-            miStage.setScene(escena);
+            System.exit(0);
+//            VistaMenu vistaMenu = new VistaMenu(nuevoKahoot, nuevaStage);
+//            Scene escena = new Scene(vistaMenu);
+//            miStage.setScene(escena);
         }
     }
 }
