@@ -53,6 +53,7 @@
                 <version>0.0.1</version>
                 <configuration>
                     <mainClass>edu.fiuba.algo3.App</mainClass>
+                    <appName>Cajoot</appName>
                 </configuration>
             </plugin>
             <plugin>
