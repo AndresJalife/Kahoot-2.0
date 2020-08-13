@@ -3,6 +3,7 @@ package edu.fiuba.algo3.modelo.general;
 import edu.fiuba.algo3.modelo.excepciones.ExtensionInvalidaExcepcion;
 import edu.fiuba.algo3.modelo.excepciones.NoQuedanUsosExcepcion;
 import edu.fiuba.algo3.modelo.preguntas.*;
+import javafx.scene.control.Alert;
 import org.json.simple.parser.ParseException;
 
 import java.io.File;
@@ -102,6 +103,9 @@ public class Kahoot {
     public boolean cambiarRonda(){
         if(ronda.hasNext()){
             rondaActual = (RondaBase) ronda.next();
+            Alert fallo = new Alert(Alert.AlertType.ERROR);
+            fallo.setHeaderText(rondaActual.obtenerPreguntaActual().obtenerTipo().getClass().getName());
+            fallo.showAndWait();
             return true;
         }
         return false;

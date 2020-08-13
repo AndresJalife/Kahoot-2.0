@@ -26,7 +26,8 @@ public class SiguienteRondaOTerminar implements EventHandler<ActionEvent> {
     @Override
     public void handle(ActionEvent actionEvent) {
         if(miModelo.cambiarRonda()){
-            VistaPregunta vistaPregunta = new VistaPregunta(miModelo, miModelo.obtenerJugadores().get(0),miStage);
+            VistaPregunta vistaPregunta = new VistaPregunta();
+            vistaPregunta.VistaPreguntaSiguiente(miModelo, miModelo.obtenerJugadores().get(0),miStage);
             Scene escena = new Scene(vistaPregunta);
             miStage.setScene(escena);
         }
