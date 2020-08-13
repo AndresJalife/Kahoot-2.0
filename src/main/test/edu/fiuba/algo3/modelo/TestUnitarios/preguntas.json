@@ -1,7 +1,7 @@
 {
   "VerdaderoFalso" :
       {
-        "modo": "ConPuntajePenalidad",
+        "modo": "ConPenalidad",
         "texto" : "¿Era Abraham Lincoln un asesino?",
         "opciones" : ["Verdadero", "Falso"],
         "opcionesCorrectas": ["Verdadero"],
@@ -16,9 +16,15 @@
       },
   "MultipleChoice" :
       {
-        "modo": "Parcial",
+        "modo": "ConPuntajeParcial",
         "texto" : "¿Quién gano gran hermano 2015?",
         "opciones" : ["Matías Schrank", "Francisco Delgado", "Vos"],
         "opcionesCorrectas": ["Francisco Delgado"],
+      },
+  "GroupChoice" :
+      {
+        "modo": "Clasico",
+        "texto" : "Separe entre caballos y flores.",
+        "opciones" : {"1": ["ANDALUZ", "APALUSA"], "2": ["NARCISOS"]}
       }
 }

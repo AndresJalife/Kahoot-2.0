@@ -18,6 +18,7 @@ public class TestsUnitariosLectorDeArchivosJson {
 
         Pregunta pregunta = preguntas.get(0);
         assertEquals(pregunta.obtenerTexto(), "¿Era Abraham Lincoln un asesino?");
+        pregunta.obtenerTipo();
         assertEquals(pregunta.getClass(),Pregunta.class);
     }
 
