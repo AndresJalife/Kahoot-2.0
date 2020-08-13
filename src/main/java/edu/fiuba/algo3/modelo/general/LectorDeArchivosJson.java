@@ -1,6 +1,4 @@
-package edu.fiuba.algo3.modelo.preguntas;
-
-import edu.fiuba.algo3.modelo.general.LectorDeArchivos;
+package edu.fiuba.algo3.modelo.general;
 
 import java.io.FileReader;
 import java.io.IOException;
@@ -8,6 +6,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 
+import edu.fiuba.algo3.modelo.preguntas.FabricaDePreguntas;
+import edu.fiuba.algo3.modelo.preguntas.IModoDePregunta;
+import edu.fiuba.algo3.modelo.preguntas.Opcion;
+import edu.fiuba.algo3.modelo.preguntas.Pregunta;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
@@ -28,12 +30,12 @@ public class LectorDeArchivosJson implements LectorDeArchivos {
             agregarPreguntasGroup((JSONArray) preguntasJSON.get(TIPO_GROUPED), nuevasPreguntas);
             preguntasJSON.remove(TIPO_GROUPED);
         }
-        preguntasNoGroup(preguntasJSON, nuevasPreguntas);
+        agregarPreguntasNoGroup(preguntasJSON, nuevasPreguntas);
 
         return nuevasPreguntas;
     }
 
-    private void preguntasNoGroup(JSONObject preguntasJSON, List<Pregunta> nuevasPreguntas) {
+    private void agregarPreguntasNoGroup(JSONObject preguntasJSON, List<Pregunta> nuevasPreguntas) {
         FabricaDePreguntas fabrica = new FabricaDePreguntas();
 
         preguntasJSON.keySet().forEach(tipo ->{
