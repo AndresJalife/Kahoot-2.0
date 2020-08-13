@@ -25,6 +25,11 @@ public class VistaPregunta extends StackPane {
         this.getChildren().addAll(vistaTipoPregunta);
     }
 
+    public void VistaPreguntaSiguiente(Kahoot modelo , Jugador jugador, Stage stage) {
+        VistaTipoDePregunta vistaTipoPregunta = fabrica.crearVistaTipoDePregunta(modelo,jugador,stage);
+        this.getChildren().addAll(vistaTipoPregunta);
+    }
+
     public void CambiarPreguntaAOtroJugador(Kahoot modelo, Jugador jugador, Stage stage){
         this.getChildren().clear();
         if(modelo.todosContestaron()){

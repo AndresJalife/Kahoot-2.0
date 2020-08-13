@@ -26,28 +26,26 @@ public class VistaMultipleChoice extends VistaTipoDePregunta {
         grid.add(pregunta,2,2);
         int i = 1;
 
+        var respuestas = new ArrayList<RespuestaDeJugador>();
         for(Opcion opcion : modelo.obtenerPreguntaActual().obtenerOpciones()){
             Button boton = new Button(opcion.obtenerTexto());
-            Button boton2 = new Button("Aceptar");
-            var respuestas = new ArrayList<RespuestaDeJugador>();
-            boton2.setOnAction(actionEvent -> {
-                modelo.jugadorResponder(jugador, respuestas);
-                VistaPregunta vistaAux = new VistaPregunta();
-                vistaAux.CambiarPreguntaAOtroJugador(modelo, jugador, stage);
-                this.getChildren().clear();
-                this.getChildren().addAll(vistaAux);
-            });
             boton.setOnAction(actionEvent -> {
 
                 respuestas.add(new RespuestaDeJugador(opcion));
 
             });
             grid.add(boton,i,3);
-            grid.add(boton2,10,15);
             i++;
         }
-
-
+        Button boton2 = new Button("Aceptar");
+        boton2.setOnAction(actionEvent -> {
+            modelo.jugadorResponder(jugador, respuestas);
+            VistaPregunta vistaAux = new VistaPregunta();
+            vistaAux.CambiarPreguntaAOtroJugador(modelo, jugador, stage);
+            this.getChildren().clear();
+            this.getChildren().addAll(vistaAux);
+        });
+        grid.add(boton2,10,15);
         this.getChildren().addAll(grid);
     }
 }
