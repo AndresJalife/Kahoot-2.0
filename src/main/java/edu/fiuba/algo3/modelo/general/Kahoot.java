@@ -14,15 +14,15 @@ public class Kahoot {
     private Iterator ronda;
     private RondaBase rondaActual;
 
-    public Kahoot(String archivoPreguntas){
+    public Kahoot(){
         rondas = new ArrayList<>();
         preguntas = new ArrayList<>();
         jugadores = new ArrayList<>();
-        try {
-            inicializarPreguntas(archivoPreguntas);
-        } catch(FileNotFoundException exp) {
-//        tratar la excepción
-        }
+//        try {
+//            inicializarPreguntas(archivoPreguntas);
+//        } catch(FileNotFoundException exp) {
+////        tratar la excepción
+//        }
     }
 
     public void inicializarPreguntas(String nombreArchivo) throws FileNotFoundException {
