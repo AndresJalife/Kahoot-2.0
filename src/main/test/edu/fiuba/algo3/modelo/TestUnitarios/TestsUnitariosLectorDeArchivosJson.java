@@ -2,6 +2,7 @@ package edu.fiuba.algo3.modelo.TestUnitarios;
 
 import edu.fiuba.algo3.modelo.general.LectorDeArchivosJson;
 import edu.fiuba.algo3.modelo.preguntas.Pregunta;
+import edu.fiuba.algo3.modelo.preguntas.TipoVerdaderoYFalso;
 import org.json.simple.parser.ParseException;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -14,11 +15,11 @@ public class TestsUnitariosLectorDeArchivosJson {
 
     @Test
     public void cargoUnaPreguntaYEsSeCreaCorrectamente() throws IOException, ParseException {
-        List<Pregunta> preguntas = lectorDeArchivosJson.crearListaDePreguntas("./src/main/test/edu/fiuba/algo3/modelo/TestUnitarios/unaPregunta.json");
+        List<Pregunta> preguntas = lectorDeArchivosJson.crearListaDePreguntas("./src/main/resources/unaPregunta.json");
 
         Pregunta pregunta = preguntas.get(0);
         assertEquals(pregunta.obtenerTexto(), "¿Era Abraham Lincoln un asesino?");
-        pregunta.obtenerTipo();
+        assertEquals(pregunta.obtenerTipo().getClass(), TipoVerdaderoYFalso.class);
         assertEquals(pregunta.getClass(),Pregunta.class);
     }
 
