@@ -1,13 +1,11 @@
 package edu.fiuba.algo3.view;
 
 import edu.fiuba.algo3.modelo.general.Kahoot;
-import edu.fiuba.algo3.view.eventos.PruebaAgregarPreguntas;
 import javafx.geometry.Insets;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.scene.control.TextField;
-import javafx.scene.image.Image;
 import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
@@ -49,14 +47,16 @@ public class VistaMenu extends StackPane {
     }
 
     private void obtenerIngresarArchivo(Kahoot modelo, Stage stage, GridPane grid) {
-        Label textoAgregarPreguntas = new Label("Ingrese la direccion donde se encuentran las preguntas");
-        grid.add(textoAgregarPreguntas,1,7);
-        TextField textoParaAgregarPreguntas = new TextField();
-        grid.add(textoParaAgregarPreguntas,1,8);
-        Button preguntasBoton = new Button("AgregarPreguntas");
-        PruebaAgregarPreguntas pruebaAgregarPreguntas = new PruebaAgregarPreguntas(modelo, textoParaAgregarPreguntas.getText());
-        preguntasBoton.setOnAction(pruebaAgregarPreguntas);
-        grid.add(preguntasBoton,1,9);
+        try {
+            modelo.inicializarPreguntas(getClass().getResource("/preguntas.json").toURI());
+
+        }
+        catch (Exception e){
+            Alert fallo = new Alert(Alert.AlertType.ERROR);
+            fallo.setHeaderText(String.format("Archivo de preguntas faltante. \nError: %s", e.toString()));
+            fallo.showAndWait();
+            Runtime.getRuntime().exit(1);
+        }
     }
 
     private void obtenerColorDeFondo(GridPane grid) {
