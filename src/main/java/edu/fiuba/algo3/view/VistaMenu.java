@@ -48,14 +48,14 @@ public class VistaMenu extends StackPane {
 
     private void obtenerIngresarArchivo(Kahoot modelo, Stage stage, GridPane grid) {
         try {
-            modelo.inicializarPreguntas(getClass().getResource("/semiPreguntas.json").toURI());
+            modelo.inicializarPreguntas(getClass().getResource("/semiPreguntas2.json").toURI());
 
         }
         catch (Exception e){
             Alert fallo = new Alert(Alert.AlertType.ERROR);
             fallo.setHeaderText(String.format("Archivo de preguntas faltante. \nError: %s", e.toString()));
             fallo.showAndWait();
-            Runtime.getRuntime().exit(1);
+            Runtime.getRuntime().exit(0);
         }
     }
 
