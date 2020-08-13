@@ -72,12 +72,6 @@ public class Kahoot {
     }
 
     public void comenzar() {
-        // Agrego una pregunta para que poder correr las pruebas de las vistas
-        List<Opcion> opciones = new ArrayList<>();
-        opciones.add(new Opcion("San Martin"));
-        opciones.add(new Opcion("15", true));
-        Pregunta aux = new Pregunta("7+5", opciones,new TipoVerdaderoYFalso(),new ModoClasico());
-        preguntas.add(aux);
 
         for(Pregunta pregunta: preguntas) {
             if (pregunta.tienePenalidad()) {

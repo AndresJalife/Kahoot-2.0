@@ -1,0 +1,16 @@
+{
+  "VerdaderoFalso" :
+      [{
+        "modo": "ConPenalidad",
+        "texto" : "¿Era Abraham Lincoln un asesino?",
+        "opciones" : ["Verdadero", "Falso"],
+        "opcionesCorrectas": ["Verdadero"],
+      }],
+  "MultipleChoice" :
+      [{
+        "modo": "ConPuntajeParcial",
+        "texto" : "¿Quién gano gran hermano 2015?",
+        "opciones" : ["Matías Schrank", "Francisco Delgado", "Vos"],
+        "opcionesCorrectas": ["Francisco Delgado"],
+      }]
+}
