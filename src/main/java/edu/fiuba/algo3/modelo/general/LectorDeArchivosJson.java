@@ -1,7 +1,5 @@
 package edu.fiuba.algo3.modelo.general;
 
-import edu.fiuba.algo3.modelo.general.LectorDeArchivos;
-
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -32,12 +30,12 @@ public class LectorDeArchivosJson implements LectorDeArchivos {
             agregarPreguntasGroup((JSONArray) preguntasJSON.get(TIPO_GROUPED), nuevasPreguntas);
             preguntasJSON.remove(TIPO_GROUPED);
         }
-        preguntasNoGroup(preguntasJSON, nuevasPreguntas);
+        agregarPreguntasNoGroup(preguntasJSON, nuevasPreguntas);
 
         return nuevasPreguntas;
     }
 
-    private void preguntasNoGroup(JSONObject preguntasJSON, List<Pregunta> nuevasPreguntas) {
+    private void agregarPreguntasNoGroup(JSONObject preguntasJSON, List<Pregunta> nuevasPreguntas) {
         FabricaDePreguntas fabrica = new FabricaDePreguntas();
 
         preguntasJSON.keySet().forEach(tipo ->{
