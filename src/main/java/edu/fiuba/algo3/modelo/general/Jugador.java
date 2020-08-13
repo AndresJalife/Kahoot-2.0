@@ -31,7 +31,7 @@ public class Jugador {
     }
 
     public void agregarPuntaje(int puntaje) {
-        this.puntaje = puntaje;
+        this.puntaje += puntaje;
     }
 
     public String obtenerNombre() {
