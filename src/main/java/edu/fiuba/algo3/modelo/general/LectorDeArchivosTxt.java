@@ -6,6 +6,7 @@ import edu.fiuba.algo3.modelo.preguntas.Pregunta;
 
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.net.URI;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -13,7 +14,7 @@ import java.util.Scanner;
 
 public class LectorDeArchivosTxt implements LectorDeArchivos{
     @Override
-    public List<Pregunta> crearListaDePreguntas(String nombreArchivo) throws FileNotFoundException {
+    public List<Pregunta> crearListaDePreguntas(URI nombreArchivo) throws FileNotFoundException {
         List<Pregunta> nuevasPreguntas = new ArrayList<Pregunta>();
 
         File archivoPreguntas = new File(nombreArchivo);

@@ -17,8 +17,9 @@ public class PruebaAgregarPreguntas implements EventHandler<ActionEvent> {
 
     @Override
     public void handle(ActionEvent actionEvent) {
-        try{
-            miModelo.inicializarPreguntas(getClass().getResource("/preguntas.json").toString());
+        try {
+            miModelo.inicializarPreguntas(getClass().getResource("/preguntas.json").toURI());
+
         }
         catch (Exception e){
             Alert fallo = new Alert(Alert.AlertType.ERROR);

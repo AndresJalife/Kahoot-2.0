@@ -4,9 +4,8 @@ import edu.fiuba.algo3.modelo.excepciones.NoQuedanUsosExcepcion;
 import edu.fiuba.algo3.modelo.preguntas.*;
 import org.json.simple.parser.ParseException;
 
-import java.io.File;
-import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.net.URI;
 import java.util.*;
 
 public class Kahoot {
@@ -22,9 +21,9 @@ public class Kahoot {
         jugadores = new ArrayList<>();
     }
 
-    public void inicializarPreguntas(String nombreArchivo) throws IOException, ParseException {
+    public void inicializarPreguntas(URI direccionArchivo) throws IOException, ParseException {
         LectorDeArchivos lector = new LectorDeArchivosJson();
-        preguntas = lector.crearListaDePreguntas(nombreArchivo);
+        preguntas = lector.crearListaDePreguntas(direccionArchivo);
     }
 
 

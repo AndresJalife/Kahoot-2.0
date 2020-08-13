@@ -1,7 +1,12 @@
 package edu.fiuba.algo3.modelo.general;
 
+import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
+import java.net.URI;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -19,12 +24,13 @@ import org.json.simple.parser.ParseException;
 
 public class LectorDeArchivosJson implements LectorDeArchivos {
     @Override
-    public List<Pregunta> crearListaDePreguntas(String nombreArchivo) throws IOException, ParseException {
+    public List<Pregunta> crearListaDePreguntas(URI nombreArchivo) throws IOException, ParseException {
         String TIPO_GROUPED = "GroupChoice";
 
         List<Pregunta> nuevasPreguntas = new ArrayList<>();
         JSONParser jsonParser = new JSONParser();
-        JSONObject preguntasJSON = (JSONObject) jsonParser.parse(new FileReader(nombreArchivo));
+        var file = new File(nombreArchivo);
+        JSONObject preguntasJSON = (JSONObject) jsonParser.parse(new FileReader(file));
 
         if (preguntasJSON.containsKey(TIPO_GROUPED)){
             agregarPreguntasGroup((JSONArray) preguntasJSON.get(TIPO_GROUPED), nuevasPreguntas);

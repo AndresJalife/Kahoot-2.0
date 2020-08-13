@@ -8,9 +8,10 @@ import org.json.simple.parser.ParseException;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.net.URI;
 import java.util.List;
 import java.util.Scanner;
 
 public interface LectorDeArchivos {
-    List<Pregunta> crearListaDePreguntas(String nombreArchivo) throws IOException, ParseException;
+    List<Pregunta> crearListaDePreguntas(URI nombreArchivo) throws IOException, ParseException;
 }

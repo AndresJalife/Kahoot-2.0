@@ -8,6 +8,9 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import java.io.IOException;
+import java.net.URI;
+import java.net.URISyntaxException;
+import java.nio.file.Paths;
 import java.util.List;
 
 public class TestsUnitariosLectorDeArchivosJson {
@@ -15,7 +18,7 @@ public class TestsUnitariosLectorDeArchivosJson {
 
     @Test
     public void cargoUnaPreguntaYEsSeCreaCorrectamente() throws IOException, ParseException {
-        List<Pregunta> preguntas = lectorDeArchivosJson.crearListaDePreguntas("./src/main/resources/unaPregunta.json");
+        List<Pregunta> preguntas = lectorDeArchivosJson.crearListaDePreguntas(Paths.get("src/main/resources/unaPregunta.json").toAbsolutePath().toUri());
 
         Pregunta pregunta = preguntas.get(0);
         assertEquals(pregunta.obtenerTexto(), "¿Era Abraham Lincoln un asesino?");
