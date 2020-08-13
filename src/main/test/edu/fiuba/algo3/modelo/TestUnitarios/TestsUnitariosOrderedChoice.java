@@ -40,10 +40,10 @@ public class TestsUnitariosOrderedChoice {
 
         respuestasJugador.add(new RespuestaDeJugador(opcion1));
         respuestasJugador.add(new RespuestaDeJugador(opcion2));
-        respuestasJugador.add(new RespuestaDeJugador(opcion3));
         respuestasJugador.add(new RespuestaDeJugador(opcion4));
+        respuestasJugador.add(new RespuestaDeJugador(opcion3));
 
-        assertEquals(2,orderedChoice.cantCorrectas(opciones,respuestasJugador));
+        assertEquals(2, orderedChoice.cantCorrectas(opciones,respuestasJugador));
     }
 
     @Test
