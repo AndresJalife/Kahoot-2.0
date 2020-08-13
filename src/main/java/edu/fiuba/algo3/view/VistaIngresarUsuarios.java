@@ -8,6 +8,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
+import javafx.scene.text.Font;
 import javafx.stage.Stage;
 
 public class VistaIngresarUsuarios extends StackPane {
@@ -30,10 +31,12 @@ public class VistaIngresarUsuarios extends StackPane {
 
     private void obtenerIngresarUsuarios(GridPane grid, Kahoot modelo, Stage stage){
         Label usuarioUno = new Label("Ingrese el nombre del jugador 1");
+        usuarioUno.setTextFill(Color.WHITE);
         grid.add(usuarioUno,3,1);
         TextField textoParaUsuarioUno = new TextField();
         grid.add(textoParaUsuarioUno,4,1);
         Label usuarioDos = new Label("Ingrese el nombre del jugador 2");
+        usuarioDos.setTextFill(Color.WHITE);
         grid.add(usuarioDos,3,2);
         TextField textoParaUsuarioDos = new TextField();
         grid.add(textoParaUsuarioDos,4,2);
