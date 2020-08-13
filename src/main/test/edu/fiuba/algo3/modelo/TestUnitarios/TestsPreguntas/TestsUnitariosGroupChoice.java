@@ -2,10 +2,7 @@ package edu.fiuba.algo3.modelo.TestUnitarios.TestsPreguntas;
 
 
 import edu.fiuba.algo3.modelo.general.Jugador;
-import edu.fiuba.algo3.modelo.preguntas.ModoClasico;
-import edu.fiuba.algo3.modelo.preguntas.Opcion;
-import edu.fiuba.algo3.modelo.preguntas.Pregunta;
-import edu.fiuba.algo3.modelo.preguntas.TipoGroupChoice;
+import edu.fiuba.algo3.modelo.preguntas.*;
 import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
@@ -40,7 +37,7 @@ public class TestsUnitariosGroupChoice {
     @Test
     public void ingresarRespuestaGroupChoiceYContestaBien() {
         List<Opcion> opciones = new ArrayList<>();
-        List<Opcion> respuestas = new ArrayList<>();
+        List<RespuestaDeJugador> respuestas = new ArrayList<>();
         Jugador jugador = new Jugador("Jorge");
         Opcion Opcion1 = new Opcion("Azul", true);
         Opcion Opcion2 = new Opcion("Casa");
@@ -51,8 +48,8 @@ public class TestsUnitariosGroupChoice {
         opciones.add(Opcion3);
 
         Pregunta pregunta = new Pregunta("Seleccionar los colores y los inmuebles", opciones, new TipoGroupChoice(), new ModoClasico());
-        respuestas.add(Opcion1);
-        respuestas.add(Opcion3);
+        respuestas.add(new RespuestaDeJugador(Opcion1));
+        respuestas.add(new RespuestaDeJugador(Opcion3));
 
         jugador.agregarPuntaje(pregunta.calcularPuntaje(respuestas));
 
@@ -63,7 +60,7 @@ public class TestsUnitariosGroupChoice {
     @Test
     public void ingresarRespuestaGroupChoiceYContestaMal() {
         List<Opcion> opciones = new ArrayList<>();
-        List<Opcion> respuestas = new ArrayList<>();
+        List<RespuestaDeJugador> respuestas = new ArrayList<>();
         Jugador jugador = new Jugador("Jorge");
         Opcion Opcion1 = new Opcion("Azul", true);
         Opcion Opcion2 = new Opcion("Casa");
@@ -74,7 +71,7 @@ public class TestsUnitariosGroupChoice {
         opciones.add(Opcion3);
 
         Pregunta pregunta = new Pregunta("Seleccionar los colores y los inmuebles", opciones, new TipoGroupChoice(), new ModoClasico());
-        respuestas.add(Opcion2);
+        respuestas.add(new RespuestaDeJugador(Opcion2));
 
         jugador.agregarPuntaje(pregunta.calcularPuntaje(respuestas));
 

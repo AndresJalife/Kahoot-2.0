@@ -30,7 +30,7 @@ public class TestsUnitariosVerdaderoFalsoConPenalidad {
     @Test
     public void ingresarRespuestaVerdaderoFalsoConPenalidadYContestaBien() {
         List<Opcion> opciones = new ArrayList<>();
-        List<Opcion> respuestas = new ArrayList<>();
+        List<RespuestaDeJugador> respuestas = new ArrayList<>();
         Jugador jugador = new Jugador("Jorge");
         Opcion Opcion1 = new Opcion("Si", true);
         Opcion Opcion2 = new Opcion("No");
@@ -39,7 +39,7 @@ public class TestsUnitariosVerdaderoFalsoConPenalidad {
         opciones.add(Opcion2);
 
         Pregunta pregunta = new Pregunta("Francia es un pais", opciones, new TipoMultipleChoice(), new ModoConPenalidad());
-        respuestas.add(Opcion1);
+        respuestas.add(new RespuestaDeJugador(Opcion1));
 
         jugador.agregarPuntaje(pregunta.calcularPuntaje(respuestas));
 
@@ -49,7 +49,7 @@ public class TestsUnitariosVerdaderoFalsoConPenalidad {
     @Test
     public void ingresarRespuestaVerdaderoFalsoConPenalidadYContestaMal() {
         List<Opcion> opciones = new ArrayList<>();
-        List<Opcion> respuestas = new ArrayList<>();
+        List<RespuestaDeJugador> respuestas = new ArrayList<>();
         Jugador jugador = new Jugador("Jorge");
         Opcion Opcion1 = new Opcion("Si", true);
         Opcion Opcion2 = new Opcion("No");
@@ -58,7 +58,7 @@ public class TestsUnitariosVerdaderoFalsoConPenalidad {
         opciones.add(Opcion2);
 
         Pregunta pregunta = new Pregunta("Francia es un pais", opciones, new TipoMultipleChoice(), new ModoConPenalidad());
-        respuestas.add(Opcion2);
+        respuestas.add(new RespuestaDeJugador(Opcion2));
 
         jugador.agregarPuntaje(pregunta.calcularPuntaje(respuestas));
 

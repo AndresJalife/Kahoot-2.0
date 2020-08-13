@@ -33,7 +33,7 @@ public class TestsUnitariosMultipleChoiceClasico {
     @Test
     public void ingresarRespuestaMultipleChoiceClasicoYContestaBien() {
         List<Opcion> opciones = new ArrayList<>();
-        List<Opcion> respuestas = new ArrayList<>();
+        List<RespuestaDeJugador> respuestas = new ArrayList<>();
         Jugador jugador = new Jugador("Jorge");
         Opcion Opcion1 = new Opcion("Si", true);
         Opcion Opcion2 = new Opcion("No");
@@ -44,8 +44,8 @@ public class TestsUnitariosMultipleChoiceClasico {
         opciones.add(Opcion3);
 
         Pregunta pregunta = new Pregunta("Francia es un pais", opciones, new TipoMultipleChoice(), new ModoClasico());
-        respuestas.add(Opcion1);
-        respuestas.add(Opcion3);
+        respuestas.add(new RespuestaDeJugador(Opcion1));
+        respuestas.add(new RespuestaDeJugador(Opcion3));
 
         jugador.agregarPuntaje(pregunta.calcularPuntaje(respuestas));
 
@@ -55,7 +55,7 @@ public class TestsUnitariosMultipleChoiceClasico {
     @Test
     public void ingresarRespuestaMultipleChoiceYContestaParcialmenteBien() {
         List<Opcion> opciones = new ArrayList<>();
-        List<Opcion> respuestas = new ArrayList<>();
+        List<RespuestaDeJugador> respuestas = new ArrayList<>();
         Jugador jugador = new Jugador("Jorge");
         Opcion Opcion1 = new Opcion("Si", true);
         Opcion Opcion2 = new Opcion("No");
@@ -66,7 +66,7 @@ public class TestsUnitariosMultipleChoiceClasico {
         opciones.add(Opcion3);
 
         Pregunta pregunta = new Pregunta("Francia es un pais", opciones, new TipoMultipleChoice(), new ModoClasico());
-        respuestas.add(Opcion1);
+        respuestas.add(new RespuestaDeJugador(Opcion1));
 
         jugador.agregarPuntaje(pregunta.calcularPuntaje(respuestas));
 
@@ -76,7 +76,7 @@ public class TestsUnitariosMultipleChoiceClasico {
     @Test
     public void ingresarRespuestaMultipleChoiceClasicoYContestaMal() {
         List<Opcion> opciones = new ArrayList<>();
-        List<Opcion> respuestas = new ArrayList<>();
+        List<RespuestaDeJugador> respuestas = new ArrayList<>();
         Jugador jugador = new Jugador("Jorge");
         Opcion Opcion1 = new Opcion("Si", true);
         Opcion Opcion2 = new Opcion("No");
@@ -87,7 +87,7 @@ public class TestsUnitariosMultipleChoiceClasico {
         opciones.add(Opcion3);
 
         Pregunta pregunta = new Pregunta("Francia es un pais", opciones, new TipoMultipleChoice(), new ModoClasico());
-        respuestas.add(Opcion2);
+        respuestas.add(new RespuestaDeJugador(Opcion2));
 
         jugador.agregarPuntaje(pregunta.calcularPuntaje(respuestas));
 

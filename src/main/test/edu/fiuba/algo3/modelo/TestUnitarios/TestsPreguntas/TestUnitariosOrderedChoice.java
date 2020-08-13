@@ -10,7 +10,7 @@ import java.util.List;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class TestUnitariosOrderedChoice {
-    List<Opcion> respuestas = new ArrayList<>();
+    List<RespuestaDeJugador> respuestas = new ArrayList<>();
     List<Opcion> opciones = new ArrayList<>();
     Pregunta pregunta ;
     Jugador jugador = new Jugador("Jorge");
@@ -35,9 +35,9 @@ public class TestUnitariosOrderedChoice {
         opciones.add(Opcion3);
         pregunta = new Pregunta("Ordenar de forma ascendente", opciones, new TipoOrderedChoice(), new ModoClasico());
 
-        respuestas.add(Opcion1);
-        respuestas.add(Opcion2);
-        respuestas.add(Opcion3);
+        respuestas.add(new RespuestaDeJugador(Opcion1));
+        respuestas.add(new RespuestaDeJugador(Opcion2));
+        respuestas.add(new RespuestaDeJugador(Opcion3));
 
         jugador.agregarPuntaje(pregunta.calcularPuntaje(respuestas));
 
@@ -50,9 +50,9 @@ public class TestUnitariosOrderedChoice {
         opciones.add(Opcion3);
         pregunta = new Pregunta("Ordenar de forma ascendente", opciones, new TipoOrderedChoice(), new ModoClasico());
 
-        respuestas.add(Opcion1);
-        respuestas.add(Opcion3);
-        respuestas.add(Opcion2);
+        respuestas.add(new RespuestaDeJugador(Opcion1));
+        respuestas.add(new RespuestaDeJugador(Opcion3));
+        respuestas.add(new RespuestaDeJugador(Opcion3));
 
         jugador.agregarPuntaje(pregunta.calcularPuntaje(respuestas));
 

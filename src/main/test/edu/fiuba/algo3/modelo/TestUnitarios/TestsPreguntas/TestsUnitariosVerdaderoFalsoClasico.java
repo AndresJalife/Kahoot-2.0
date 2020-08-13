@@ -1,10 +1,7 @@
 package edu.fiuba.algo3.modelo.TestUnitarios.TestsPreguntas;
 
 import edu.fiuba.algo3.modelo.general.Jugador;
-import edu.fiuba.algo3.modelo.preguntas.ModoClasico;
-import edu.fiuba.algo3.modelo.preguntas.Opcion;
-import edu.fiuba.algo3.modelo.preguntas.Pregunta;
-import edu.fiuba.algo3.modelo.preguntas.TipoMultipleChoice;
+import edu.fiuba.algo3.modelo.preguntas.*;
 import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
@@ -33,7 +30,7 @@ public class TestsUnitariosVerdaderoFalsoClasico {
     @Test
     public void ingresarRespuestaVerdaderoFalsoClasicoYContestaBien() {
         List<Opcion> opciones = new ArrayList<>();
-        List<Opcion> respuestas = new ArrayList<>();
+        List<RespuestaDeJugador> respuestas = new ArrayList<>();
         Jugador jugador = new Jugador("Jorge");
         Opcion Opcion1 = new Opcion("Si", true);
         Opcion Opcion2 = new Opcion("No");
@@ -42,7 +39,7 @@ public class TestsUnitariosVerdaderoFalsoClasico {
         opciones.add(Opcion2);
 
         Pregunta pregunta = new Pregunta("Francia es un pais", opciones, new TipoMultipleChoice(), new ModoClasico());
-        respuestas.add(Opcion1);
+        respuestas.add(new RespuestaDeJugador(Opcion1));
 
         jugador.agregarPuntaje(pregunta.calcularPuntaje(respuestas));
 
@@ -52,7 +49,7 @@ public class TestsUnitariosVerdaderoFalsoClasico {
     @Test
     public void ingresarRespuestaVerdaderoFalsoClasicoYContestaMal() {
         List<Opcion> opciones = new ArrayList<>();
-        List<Opcion> respuestas = new ArrayList<>();
+        List<RespuestaDeJugador> respuestas = new ArrayList<>();
         Jugador jugador = new Jugador("Jorge");
         Opcion Opcion1 = new Opcion("Si", true);
         Opcion Opcion2 = new Opcion("No");
@@ -61,7 +58,7 @@ public class TestsUnitariosVerdaderoFalsoClasico {
         opciones.add(Opcion2);
 
         Pregunta pregunta = new Pregunta("Francia es un pais", opciones, new TipoMultipleChoice(), new ModoClasico());
-        respuestas.add(Opcion2);
+        respuestas.add(new RespuestaDeJugador(Opcion2));
 
         jugador.agregarPuntaje(pregunta.calcularPuntaje(respuestas));
 
