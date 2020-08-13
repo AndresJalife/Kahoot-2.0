@@ -19,18 +19,16 @@ public class LectorDeArchivosJson implements LectorDeArchivos {
     @Override
     public List<Pregunta> crearListaDePreguntas(String nombreArchivo) throws IOException, ParseException {
         String TIPO_GROUPED = "GroupChoice";
-        String TIPO_ORDERED = "OrderedChoice";
 
         List<Pregunta> nuevasPreguntas = new ArrayList<Pregunta>();
         JSONParser jsonParser = new JSONParser();
         JSONObject preguntasJSON = (JSONObject) jsonParser.parse(new FileReader(nombreArchivo));
 
-        agregarPreguntasGroup((JSONArray) preguntasJSON.get(TIPO_GROUPED), nuevasPreguntas);
-        preguntasJSON.remove(TIPO_GROUPED);
-
+        if (preguntasJSON.containsKey(TIPO_GROUPED)){
+            agregarPreguntasGroup((JSONArray) preguntasJSON.get(TIPO_GROUPED), nuevasPreguntas);
+            preguntasJSON.remove(TIPO_GROUPED);
+        }
         preguntasNoGroup(preguntasJSON, nuevasPreguntas);
-
-
 
         return nuevasPreguntas;
     }
@@ -40,7 +38,6 @@ public class LectorDeArchivosJson implements LectorDeArchivos {
 
         preguntasJSON.keySet().forEach(tipo ->{
             JSONObject pregunta = (JSONObject) preguntasJSON.get(tipo);
-
             String modo =  pregunta.get("modo").toString();
             String texto = (String) pregunta.get("texto");
 
@@ -70,7 +67,7 @@ public class LectorDeArchivosJson implements LectorDeArchivos {
         List<Opcion> listaDeOp = new ArrayList<Opcion>();
         for(String opcion: opciones){
             Boolean esCorrecta = opcionesCorrectas.contains(opcion);
-            Opcion nuevaOp = new Opcion(opcion, esCorrecta);
+            listaDeOp.add(new Opcion(opcion, esCorrecta));
         }
         return listaDeOp;
     }
