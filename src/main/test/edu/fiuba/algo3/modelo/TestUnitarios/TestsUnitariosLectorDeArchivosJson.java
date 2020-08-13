@@ -1,7 +1,9 @@
 package edu.fiuba.algo3.modelo.TestUnitarios;
 
 import edu.fiuba.algo3.modelo.general.LectorDeArchivosJson;
+import edu.fiuba.algo3.modelo.preguntas.Opcion;
 import edu.fiuba.algo3.modelo.preguntas.Pregunta;
+import edu.fiuba.algo3.modelo.preguntas.TipoMultipleChoice;
 import edu.fiuba.algo3.modelo.preguntas.TipoVerdaderoYFalso;
 import org.json.simple.parser.ParseException;
 import org.junit.jupiter.api.Test;
@@ -21,9 +23,10 @@ public class TestsUnitariosLectorDeArchivosJson {
         List<Pregunta> preguntas = lectorDeArchivosJson.crearListaDePreguntas(Paths.get("src/main/resources/unaPregunta.json").toAbsolutePath().toUri());
 
         Pregunta pregunta = preguntas.get(0);
-        assertEquals(pregunta.obtenerTexto(), "¿Era Abraham Lincoln un asesino?");
-        assertEquals(pregunta.obtenerTipo().getClass(), TipoVerdaderoYFalso.class);
+        assertEquals(pregunta.obtenerTexto(), "¿Quién gano gran hermano 2015?");
+        assertEquals(pregunta.obtenerTipo().getClass(), TipoMultipleChoice.class);
         assertEquals(pregunta.getClass(),Pregunta.class);
+
     }
 
 }
