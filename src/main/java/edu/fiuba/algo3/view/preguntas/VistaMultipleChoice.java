@@ -6,6 +6,7 @@ import edu.fiuba.algo3.modelo.preguntas.Opcion;
 import edu.fiuba.algo3.modelo.preguntas.RespuestaDeJugador;
 import edu.fiuba.algo3.view.VistaPregunta;
 import javafx.scene.control.Button;
+import javafx.scene.control.CheckBox;
 import javafx.scene.control.Label;
 import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
@@ -28,7 +29,7 @@ public class VistaMultipleChoice extends VistaTipoDePregunta {
 
         var respuestas = new ArrayList<RespuestaDeJugador>();
         for(Opcion opcion : modelo.obtenerPreguntaActual().obtenerOpciones()){
-            Button boton = new Button(opcion.obtenerTexto());
+            CheckBox boton = new CheckBox(opcion.obtenerTexto());
             boton.setOnAction(actionEvent -> {
 
                 respuestas.add(new RespuestaDeJugador(opcion));
