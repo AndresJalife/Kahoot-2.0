@@ -2,6 +2,7 @@ package edu.fiuba.algo3.view;
 
 import edu.fiuba.algo3.modelo.general.Jugador;
 import edu.fiuba.algo3.modelo.general.Kahoot;
+import edu.fiuba.algo3.view.eventos.SiguienteRondaOTerminar;
 import edu.fiuba.algo3.view.preguntas.VistaVerdaderoYFalso;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
@@ -21,21 +22,7 @@ public class VistaRespuestas extends StackPane {
         List<Jugador> jugadores = actualizarResultadosYOrdenar(modelo);
         this.obtenerNombresConPuntos(grid, jugadores);
         Button siguientePregunta = new Button("Siguiente pregunta");
-        siguientePregunta.setOnAction(actionEvent -> {
-            if(modelo.cambiarRonda()){
-                this.getChildren().clear();
-                VistaPregunta vistaPregunta = new VistaPregunta(modelo, modelo.obtenerJugadores().get(0),stage);
-                this.getChildren().addAll(vistaPregunta);
-            }
-            else{
-                Alert ganador = new Alert(Alert.AlertType.INFORMATION);
-                ganador.setHeaderText("El ganador es : ");
-                ganador.showAndWait();
-                /*this.getChildren().clear();
-                VistaMenu vistaMenu = new VistaMenu(modelo, );
-                this.getChildren().addAll(vistaMenu);11*/
-            }
-        });
+        siguientePregunta.setOnAction(new SiguienteRondaOTerminar(modelo, stage));
         grid.add(siguientePregunta,1,4);
         this.getChildren().addAll(grid);
     }
