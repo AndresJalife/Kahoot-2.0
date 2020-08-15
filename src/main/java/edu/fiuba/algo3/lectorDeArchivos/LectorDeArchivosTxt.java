@@ -1,5 +1,6 @@
-package edu.fiuba.algo3.modelo.general;
+package edu.fiuba.algo3.lectorDeArchivos;
 
+import edu.fiuba.algo3.modelo.general.LectorDeArchivos;
 import edu.fiuba.algo3.modelo.preguntas.FabricaDePreguntas;
 import edu.fiuba.algo3.modelo.preguntas.Opcion;
 import edu.fiuba.algo3.modelo.preguntas.Pregunta;
@@ -12,7 +13,7 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.Scanner;
 
-public class LectorDeArchivosTxt implements LectorDeArchivos{
+public class LectorDeArchivosTxt implements LectorDeArchivos {
     @Override
     public List<Pregunta> crearListaDePreguntas(URI nombreArchivo) throws FileNotFoundException {
         List<Pregunta> nuevasPreguntas = new ArrayList<Pregunta>();

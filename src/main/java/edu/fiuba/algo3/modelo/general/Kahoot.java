@@ -1,13 +1,12 @@
 package edu.fiuba.algo3.modelo.general;
 
+import edu.fiuba.algo3.lectorDeArchivos.LectorDeArchivosJson;
+import edu.fiuba.algo3.lectorDeArchivos.LectorDeArchivosTxt;
 import edu.fiuba.algo3.modelo.excepciones.ExtensionInvalidaExcepcion;
 import edu.fiuba.algo3.modelo.excepciones.NoQuedanUsosExcepcion;
 import edu.fiuba.algo3.modelo.preguntas.*;
-import javafx.scene.control.Alert;
 import org.json.simple.parser.ParseException;
 
-import java.io.File;
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.net.URI;
 import java.util.*;

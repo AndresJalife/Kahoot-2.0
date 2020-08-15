@@ -1,11 +1,9 @@
 package edu.fiuba.algo3.modelo.TestUnitarios;
 
-import edu.fiuba.algo3.modelo.general.LectorDeArchivosTxt;
-import edu.fiuba.algo3.modelo.preguntas.Pregunta;
+import edu.fiuba.algo3.lectorDeArchivos.LectorDeArchivosTxt;
 import org.junit.jupiter.api.Test;
 
 import java.io.FileNotFoundException;
-import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 

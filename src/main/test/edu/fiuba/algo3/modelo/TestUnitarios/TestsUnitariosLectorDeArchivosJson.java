@@ -1,17 +1,13 @@
 package edu.fiuba.algo3.modelo.TestUnitarios;
 
-import edu.fiuba.algo3.modelo.general.LectorDeArchivosJson;
-import edu.fiuba.algo3.modelo.preguntas.Opcion;
+import edu.fiuba.algo3.lectorDeArchivos.LectorDeArchivosJson;
 import edu.fiuba.algo3.modelo.preguntas.Pregunta;
 import edu.fiuba.algo3.modelo.preguntas.TipoMultipleChoice;
-import edu.fiuba.algo3.modelo.preguntas.TipoVerdaderoYFalso;
 import org.json.simple.parser.ParseException;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import java.io.IOException;
-import java.net.URI;
-import java.net.URISyntaxException;
 import java.nio.file.Paths;
 import java.util.List;
 
