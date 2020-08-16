@@ -4,11 +4,14 @@ import edu.fiuba.algo3.modelo.general.Jugador;
 import edu.fiuba.algo3.modelo.general.Kahoot;
 import edu.fiuba.algo3.view.eventos.SiguienteRondaOTerminar;
 import edu.fiuba.algo3.view.preguntas.VistaVerdaderoYFalso;
+import javafx.geometry.Insets;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.scene.layout.GridPane;
-import javafx.scene.layout.StackPane;
+import javafx.scene.layout.*;
+import javafx.scene.paint.Color;
+import javafx.scene.text.Font;
+import javafx.scene.text.FontWeight;
 import javafx.stage.Stage;
 
 import java.util.*;
@@ -19,12 +22,13 @@ public class VistaRespuestas extends StackPane {
     public VistaRespuestas(Kahoot modelo, Stage stage){
         this.crearGrid();
         List<Jugador> jugadores = actualizarResultadosYOrdenar(modelo);
-        this.obtenerNombresConPuntos(grid, jugadores);
+        this.obtenerNombresConPuntos(jugadores);
         if(modelo.cambiarRonda()){
             Button siguientePregunta = new Button("Siguiente pregunta");
             siguientePregunta.setOnAction(new SiguienteRondaOTerminar(modelo, stage));
-            grid.add(siguientePregunta,1,4);
+            grid.add(siguientePregunta,42,40);
         }
+        this.obtenerColorDeFondo();
         this.getChildren().addAll(grid);
     }
 
@@ -41,14 +45,20 @@ public class VistaRespuestas extends StackPane {
         return jugadores;
     }
 
-    private void obtenerNombresConPuntos(GridPane grid, List<Jugador> jugadores){
-        int i = 1;
+    private void obtenerNombresConPuntos(List<Jugador> jugadores){
+        int i = 20;
         for(Jugador jugador : jugadores){
-            Label usuario = new Label(jugador.obtenerNombre() + " ->");
-            grid.add(usuario,1,i);
+            Label usuario = new Label(jugador.obtenerNombre() + "     ->");
+            usuario.setFont(Font.font("Arial", FontWeight.BOLD, 35));
+            grid.add(usuario,42,i);
             Label puntos = new Label(String.valueOf(jugador.obtenerPuntaje()));
-            grid.add(puntos,2,i);
+            puntos.setFont(Font.font("Arial", FontWeight.BOLD, 35));
+            grid.add(puntos,43,i);
             i++;
         }
+    }
+    private void obtenerColorDeFondo() {
+        Color color = Color.rgb(122,62,72);
+        grid.setBackground(new Background((new BackgroundFill(color, CornerRadii.EMPTY, Insets.EMPTY))));
     }
 }
