@@ -34,8 +34,7 @@ public class VistaPregunta extends StackPane {
         this.getChildren().clear();
         if(modelo.todosContestaron()){
             VistaRespuestas vistaRespuesta = new VistaRespuestas(modelo, stage);
-            Scene escena = new Scene(vistaRespuesta);
-            stage.setScene(escena);
+            this.getChildren().addAll(vistaRespuesta);
         }
         else{
             Jugador siguiente = jugador;
