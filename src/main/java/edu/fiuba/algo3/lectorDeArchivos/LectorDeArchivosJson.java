@@ -75,19 +75,12 @@ public class LectorDeArchivosJson implements LectorDeArchivos {
     }
 
     private List<Opcion> crearListaOpcionesGroup(Object opciones) {
-        Integer GRUPO_1 = 1;
-        Integer GRUPO_2 = 2;
-        Integer GRUPO_3 = 3;
-        Integer GRUPO_4 = 4;
+        List<Integer> grupos = new ArrayList<>();
+        int[] range = {1, 2, 3, 4};
+        for (int GROUP: range){ grupos.add(GROUP);}
 
         JSONObject opcionesJson = (JSONObject) opciones;
         List<Opcion> listaOpciones = new ArrayList<>();
-
-        List<Integer> grupos = new ArrayList<>();
-        grupos.add(GRUPO_1);
-        grupos.add(GRUPO_2);
-        grupos.add(GRUPO_3);
-        grupos.add(GRUPO_4);
 
         for (Integer grupo: grupos){
             List<String> grupoActual = jsonArrToList((JSONArray) opcionesJson.get(grupo.toString()));
