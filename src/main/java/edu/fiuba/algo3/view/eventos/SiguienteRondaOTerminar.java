@@ -25,23 +25,9 @@ public class SiguienteRondaOTerminar implements EventHandler<ActionEvent> {
 
     @Override
     public void handle(ActionEvent actionEvent) {
-        if(miModelo.cambiarRonda()){
-            VistaPregunta vistaPregunta = new VistaPregunta();
-            vistaPregunta.VistaPreguntaSiguiente(miModelo, miModelo.obtenerJugadores().get(0),miStage);
-            Scene escena = new Scene(vistaPregunta);
-            miStage.setScene(escena);
-        }
-        else{
-            List<Jugador> jugadores = new ArrayList<>(miModelo.obtenerJugadores());
-            miModelo.actualizarPuntaje();
-            jugadores.sort((o1, o2) -> Integer.compare(o2.obtenerPuntaje(), o1.obtenerPuntaje()));
-            Alert ganador = new Alert(Alert.AlertType.INFORMATION);
-            ganador.setHeaderText("El ganador es : " + jugadores.get(0).obtenerNombre());
-            ganador.showAndWait();
-            System.exit(0);
-//            VistaMenu vistaMenu = new VistaMenu(nuevoKahoot, nuevaStage);
-//            Scene escena = new Scene(vistaMenu);
-//            miStage.setScene(escena);
-        }
+        VistaPregunta vistaPregunta = new VistaPregunta();
+        vistaPregunta.VistaPreguntaSiguiente(miModelo, miModelo.obtenerJugadores().get(0),miStage);
+        Scene escena = new Scene(vistaPregunta);
+        miStage.setScene(escena);
     }
 }
