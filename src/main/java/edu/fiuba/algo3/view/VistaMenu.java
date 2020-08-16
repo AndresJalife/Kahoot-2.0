@@ -15,17 +15,14 @@ import javafx.stage.Stage;
 public class VistaMenu extends StackPane {
 
     private Button jugarBoton;
-    GridPane grid;
     StackPane stack;
 
     public VistaMenu(Kahoot modelo, Stage stage) {
         this.obtenerMenuInicio(modelo, stage);
-        this.obtenerIngresarArchivo(modelo, stage, grid);
-        this.obtenerColorDeFondo(grid);
+        this.obtenerIngresarArchivo(modelo, stage);
+        this.obtenerColorDeFondo();
         this.getChildren().addAll(stack);
     }
-
-
 
     private void obtenerMenuInicio(Kahoot modelo, Stage stage){
         this.getChildren().clear();
@@ -45,7 +42,7 @@ public class VistaMenu extends StackPane {
 
     }
 
-    private void obtenerIngresarArchivo(Kahoot modelo, Stage stage, GridPane grid) {
+    private void obtenerIngresarArchivo(Kahoot modelo, Stage stage) {
         try {
             modelo.inicializarPreguntas(getClass().getResource("/semiPreguntas.json").toURI());
 
@@ -58,7 +55,7 @@ public class VistaMenu extends StackPane {
         }
     }
 
-    private void obtenerColorDeFondo(GridPane grid) {
+    private void obtenerColorDeFondo() {
         Color color = Color.rgb(122,62,72);
         stack.setBackground(new Background((new BackgroundFill(color, CornerRadii.EMPTY, Insets.EMPTY))));
     }

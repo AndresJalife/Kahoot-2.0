@@ -33,5 +33,6 @@
 
 .label {
 	/*-fx-alignment: center;*/
+    -fx-border-insets: 100px;
 	-fx-text-fill: #eecd86;
 }
