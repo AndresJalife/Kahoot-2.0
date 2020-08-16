@@ -33,8 +33,9 @@ public class VistaPregunta extends StackPane {
     public void CambiarPreguntaAOtroJugador(Kahoot modelo, Jugador jugador, Stage stage){
         this.getChildren().clear();
         if(modelo.todosContestaron()){
-            VistaTerminar vistaRespuesta = new VistaTerminar(modelo, stage);
-            this.getChildren().addAll(vistaRespuesta);
+            VistaRespuestas vistaRespuesta = new VistaRespuestas(modelo, stage);
+            Scene escena = new Scene(vistaRespuesta);
+            stage.setScene(escena);
         }
         else{
             Jugador siguiente = jugador;
