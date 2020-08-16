@@ -30,11 +30,12 @@ public class VistaMenu extends StackPane {
     private void obtenerMenuInicio(Kahoot modelo, Stage stage){
         this.getChildren().clear();
 
-        jugarBoton = new Button("Jugar");
-        Label titulo = new Label("Bienvenido a Cajut");
+        jugarBoton = new Button("Iniciar");
+        Label titulo = new Label("Bienvenido a Cajoot");
         titulo.setFont(new Font(50));
         jugarBoton.setOnAction(actionEvent -> {
             Scene escenaPregunta = new Scene(new VistaIngresarUsuarios(modelo, stage));
+            escenaPregunta.getStylesheets().add(getClass().getResource("/css/escenaPregunta.css").toExternalForm());
             stage.setScene(escenaPregunta);
         });
         stack = new StackPane();
