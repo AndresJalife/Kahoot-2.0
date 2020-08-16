@@ -17,13 +17,14 @@ public class VistaRespuestas extends StackPane {
     GridPane grid;
 
     public VistaRespuestas(Kahoot modelo, Stage stage){
-        this.getChildren().clear();
         this.crearGrid();
         List<Jugador> jugadores = actualizarResultadosYOrdenar(modelo);
         this.obtenerNombresConPuntos(grid, jugadores);
-        Button siguientePregunta = new Button("Siguiente pregunta");
-        siguientePregunta.setOnAction(new SiguienteRondaOTerminar(modelo, stage));
-        grid.add(siguientePregunta,1,4);
+        if(modelo.cambiarRonda()){
+            Button siguientePregunta = new Button("Siguiente pregunta");
+            siguientePregunta.setOnAction(new SiguienteRondaOTerminar(modelo, stage));
+            grid.add(siguientePregunta,1,4);
+        }
         this.getChildren().addAll(grid);
     }
 
