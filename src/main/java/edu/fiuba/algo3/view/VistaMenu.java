@@ -2,6 +2,7 @@ package edu.fiuba.algo3.view;
 
 import edu.fiuba.algo3.modelo.general.Kahoot;
 import javafx.geometry.Insets;
+import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
@@ -15,25 +16,19 @@ public class VistaMenu extends StackPane {
 
     private Button jugarBoton;
     GridPane grid;
+    StackPane stack;
 
     public VistaMenu(Kahoot modelo, Stage stage) {
-        this.crearGrid();
-        this.obtenerMenuInicio(modelo, stage, grid);
+        this.obtenerMenuInicio(modelo, stage);
         this.obtenerIngresarArchivo(modelo, stage, grid);
         this.obtenerColorDeFondo(grid);
-        this.getChildren().addAll(grid);
+        this.getChildren().addAll(stack);
     }
 
-    private void crearGrid(){
-        grid = new GridPane();
-        grid.setHgap(10);
-        grid.setVgap(10);
-    }
 
-    private void obtenerMenuInicio(Kahoot modelo, Stage stage, GridPane grid){
+
+    private void obtenerMenuInicio(Kahoot modelo, Stage stage){
         this.getChildren().clear();
-        grid.setHgap(10);
-        grid.setVgap(10);
 
         jugarBoton = new Button("Jugar");
         Label titulo = new Label("Bienvenido a Cajut");
@@ -42,8 +37,11 @@ public class VistaMenu extends StackPane {
             Scene escenaPregunta = new Scene(new VistaIngresarUsuarios(modelo, stage));
             stage.setScene(escenaPregunta);
         });
-        grid.add(titulo,1,1);
-        grid.add(jugarBoton,1,5);
+        stack = new StackPane();
+        stack.getChildren().addAll(titulo, jugarBoton);
+        stack.setMargin(titulo, new Insets(-200, -10, 0, 30));
+
+
     }
 
     private void obtenerIngresarArchivo(Kahoot modelo, Stage stage, GridPane grid) {
@@ -60,7 +58,7 @@ public class VistaMenu extends StackPane {
     }
 
     private void obtenerColorDeFondo(GridPane grid) {
-        Color color = Color.rgb(202,235,226);
-        grid.setBackground(new Background((new BackgroundFill(color, CornerRadii.EMPTY, Insets.EMPTY))));
+        Color color = Color.rgb(122,62,72);
+        stack.setBackground(new Background((new BackgroundFill(color, CornerRadii.EMPTY, Insets.EMPTY))));
     }
 }
