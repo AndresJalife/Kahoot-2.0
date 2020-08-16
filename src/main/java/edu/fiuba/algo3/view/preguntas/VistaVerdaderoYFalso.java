@@ -6,10 +6,11 @@ import edu.fiuba.algo3.modelo.preguntas.Opcion;
 import edu.fiuba.algo3.modelo.preguntas.RespuestaDeJugador;
 import edu.fiuba.algo3.view.VistaPregunta;
 import edu.fiuba.algo3.view.eventos.TerminarPreguntaVerdaderoYFalso;
+import javafx.geometry.Insets;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.scene.layout.GridPane;
-import javafx.scene.layout.StackPane;
+import javafx.scene.layout.*;
+import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 
 import java.util.ArrayList;
@@ -23,6 +24,8 @@ public class VistaVerdaderoYFalso extends VistaTipoDePregunta {
         this.crearGrid();
         this.obtenerLabels(grid, jugador, modelo);
         this.obtenerBotonesParaResponder(grid, modelo, jugador, stage);
+        this.obtenerColorDeFondo();
+        this.getStylesheets().add(getClass().getResource("/css/botonesVF.css").toExternalForm());
         this.getChildren().addAll(grid);
     }
 
@@ -48,5 +51,10 @@ public class VistaVerdaderoYFalso extends VistaTipoDePregunta {
             grid.add(boton,i,3);
             i++;
         }
+    }
+
+    private void obtenerColorDeFondo() {
+        Color color = Color.rgb(122,62,72);
+        grid.setBackground(new Background((new BackgroundFill(color, CornerRadii.EMPTY, Insets.EMPTY))));
     }
 }

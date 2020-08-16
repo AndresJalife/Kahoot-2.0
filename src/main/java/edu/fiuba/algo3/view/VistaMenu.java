@@ -15,26 +15,24 @@ import javafx.stage.Stage;
 public class VistaMenu extends StackPane {
 
     private Button jugarBoton;
-    GridPane grid;
     StackPane stack;
 
     public VistaMenu(Kahoot modelo, Stage stage) {
         this.obtenerMenuInicio(modelo, stage);
-        this.obtenerIngresarArchivo(modelo, stage, grid);
-        this.obtenerColorDeFondo(grid);
+        this.obtenerIngresarArchivo(modelo, stage);
+        this.obtenerColorDeFondo();
         this.getChildren().addAll(stack);
     }
-
-
 
     private void obtenerMenuInicio(Kahoot modelo, Stage stage){
         this.getChildren().clear();
 
-        jugarBoton = new Button("Jugar");
-        Label titulo = new Label("Bienvenido a Cajut");
+        jugarBoton = new Button("Iniciar");
+        Label titulo = new Label("Bienvenido a Cajoot");
         titulo.setFont(new Font(50));
         jugarBoton.setOnAction(actionEvent -> {
             Scene escenaPregunta = new Scene(new VistaIngresarUsuarios(modelo, stage));
+            escenaPregunta.getStylesheets().add(getClass().getResource("/css/escenaPregunta.css").toExternalForm());
             stage.setScene(escenaPregunta);
         });
         stack = new StackPane();
@@ -44,7 +42,7 @@ public class VistaMenu extends StackPane {
 
     }
 
-    private void obtenerIngresarArchivo(Kahoot modelo, Stage stage, GridPane grid) {
+    private void obtenerIngresarArchivo(Kahoot modelo, Stage stage) {
         try {
             modelo.inicializarPreguntas(getClass().getResource("/semiPreguntas.json").toURI());
 
@@ -57,7 +55,7 @@ public class VistaMenu extends StackPane {
         }
     }
 
-    private void obtenerColorDeFondo(GridPane grid) {
+    private void obtenerColorDeFondo() {
         Color color = Color.rgb(122,62,72);
         stack.setBackground(new Background((new BackgroundFill(color, CornerRadii.EMPTY, Insets.EMPTY))));
     }

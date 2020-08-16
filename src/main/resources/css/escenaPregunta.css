@@ -1,4 +1,3 @@
-
 .button  {
 	-fx-margin-top:10px;
     -fx-padding: 8 15 15 15;
@@ -29,10 +28,4 @@
 .button  Text {
     -fx-fill: white;
     -fx-effect: dropshadow( gaussian , #a30000 , 0,0,0,2 );
-}
-
-.label {
-	/*-fx-alignment: center;*/
-    -fx-border-insets: 100px;
-	-fx-text-fill: #eecd86;
 }
