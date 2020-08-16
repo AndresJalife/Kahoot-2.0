@@ -36,7 +36,6 @@ public class Kahoot {
         } else {
             preguntas = lector.crearListaDePreguntas(nombreArchivo);
         }
-
     }
     
     public String getFileExtension(String fileName){
@@ -69,6 +68,10 @@ public class Kahoot {
 
     public List<IModificador> obtenerModificadores(Jugador jugador){
         return rondaActual.obtenerModificadores(jugador);
+    }
+
+    public void utilizarModificador(Jugador jugador, IModificador modificador){
+        rondaActual.usarModificador(jugador, modificador);
     }
 
     public void comenzar() {
