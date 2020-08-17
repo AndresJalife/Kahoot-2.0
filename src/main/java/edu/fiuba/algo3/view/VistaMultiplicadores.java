@@ -46,11 +46,6 @@ public class VistaMultiplicadores extends StackPane {
             stack.setMargin(boton, new Insets(i, 0, 0, 0));
             i += 200;
         }
-        Button boton2= new Button("No deseo utilizar modificadores");
-        stack.getChildren().addAll(boton2);
-        boton2.setOnAction(actionEvent -> {
-            this.getChildren().add(new VistaPregunta(modelo, modelo.obtenerJugadores().get(0), stage));
-        });
         this.getChildren().addAll(stack);
     }
 
