@@ -102,6 +102,10 @@ public class Kahoot {
         return rondaActual.todosContestaron();
     }
 
+    public boolean esRondaFinal(){
+        return ronda.hasNext();
+    }
+
     public boolean cambiarRonda(){
         if(ronda.hasNext()){
             rondaActual = (RondaBase) ronda.next();
