@@ -52,18 +52,14 @@ public class VistaResultados extends StackPane{
         int i = 20;
         int j=0;
         for(Jugador jugador : jugadores){
-            if(j==0){
-                Label usuario = new Label("El ganador es: "+ jugador.obtenerNombre() );
-                usuario.setFont(Font.font("Arial", FontWeight.BOLD, 35));
-                grid.add(usuario,42,i);
-            }
-            else{
-                Label usuario = new Label("El perdedor es: "+ jugador.obtenerNombre() );
-                usuario.setFont(Font.font("Arial", FontWeight.BOLD, 35));
-                grid.add(usuario,42,i);
-            }
+            Label usuario;
 
+            if(j==0) usuario = new Label("El ganador es: "+ jugador.obtenerNombre() );
 
+            else usuario = new Label("El perdedor es: "+ jugador.obtenerNombre() );
+
+            usuario.setFont(Font.font("Arial", FontWeight.BOLD, 35));
+            grid.add(usuario,42,i);
             Label puntos = new Label(String.valueOf(jugador.obtenerPuntaje()));
             puntos.setFont(Font.font("Arial", FontWeight.BOLD, 35));
             grid.add(puntos,43,i);
