@@ -15,6 +15,7 @@ import java.util.*;
 public class VistaResultados extends StackPane{
 
     GridPane grid;
+    StackPane stack;
 
     public VistaResultados(Kahoot modelo, Stage stage){
 
@@ -43,18 +44,23 @@ public class VistaResultados extends StackPane{
 
     private void mostrarEmpate(List<Jugador> jugadores){
         Label titulo = new Label("Empate!");
-        Label texto= new Label("Ambos jugadores obtuvieron"+ jugadores.get(0).obtenerPuntaje()+"puntos");
-        grid.add(titulo,42,20);
-        grid.add(texto,42,30);
+        titulo.setFont(new Font(50));
+        Label texto= new Label("Ambos jugadores obtuvieron "+ jugadores.get(0).obtenerPuntaje()+" puntos");
+        texto.setFont(new Font(25));
+        stack = new StackPane();
+        grid.add(titulo,20,20);
+        stack.setMargin(titulo, new Insets(-200, -10, 0, 30));
+
+        grid.add(texto,20,30);
     }
 
     private void obtenerGanador(List<Jugador> jugadores){
         int i = 20;
-        int j=0;
+
         for(Jugador jugador : jugadores){
             Label usuario;
 
-            if(j==0) usuario = new Label("El ganador es: "+ jugador.obtenerNombre() );
+            if(i==20) usuario = new Label("El ganador es: "+ jugador.obtenerNombre() );
 
             else usuario = new Label("El perdedor es: "+ jugador.obtenerNombre() );
 
@@ -64,7 +70,6 @@ public class VistaResultados extends StackPane{
             puntos.setFont(Font.font("Arial", FontWeight.BOLD, 35));
             grid.add(puntos,43,i);
             i++;
-            j++;
         }
     }
     private void obtenerColorDeFondo() {
