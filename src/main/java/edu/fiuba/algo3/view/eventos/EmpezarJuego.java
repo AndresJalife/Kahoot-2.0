@@ -1,6 +1,8 @@
 package edu.fiuba.algo3.view.eventos;
 
+import edu.fiuba.algo3.modelo.general.Jugador;
 import edu.fiuba.algo3.modelo.general.Kahoot;
+import edu.fiuba.algo3.view.VistaMultiplicadores;
 import edu.fiuba.algo3.view.VistaPregunta;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
@@ -28,8 +30,15 @@ public class EmpezarJuego implements EventHandler<ActionEvent> {
         if(VerificarUsuarios(usuario1, usuario2)){
             miModelo.agregarJugador(usuario1.getText());
             miModelo.agregarJugador(usuario2.getText());
-            Scene escenaPregunta = new Scene(new VistaPregunta(miModelo, miModelo.obtenerJugadores().get(0), miStage));
-            miStage.setScene(escenaPregunta);
+//            Scene escenaPregunta = new Scene(new VistaPregunta(miModelo, miModelo.obtenerJugadores().get(0), miStage));
+//            miStage.setScene(escenaPregunta);
+//            for (Jugador jugador: miModelo.obtenerJugadores()){
+//
+//            }
+            miModelo.comenzar();
+            Scene escenaMultiplicador = new Scene(new VistaMultiplicadores(miModelo, miStage));
+            miStage.setScene(escenaMultiplicador);
+//           HACER UN FOR DE JUGADORES EN VEZ DE LO DE ARRIBA
         }
         else{
             Alert fallo = new Alert(Alert.AlertType.ERROR);
