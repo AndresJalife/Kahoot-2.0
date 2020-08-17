@@ -17,11 +17,13 @@ public class Kahoot {
     private List<RondaBase> rondas;
     private Iterator ronda;
     private RondaBase rondaActual;
+    private int cantJugadoresConModificadores;
 
     public Kahoot(){
         rondas = new ArrayList<>();
         preguntas = new ArrayList<>();
         jugadores = new ArrayList<>();
+        cantJugadoresConModificadores = 0;
     }
 
     public void inicializarPreguntas(URI nombreArchivo) throws IOException, ParseException, ExtensionInvalidaExcepcion {
@@ -70,8 +72,15 @@ public class Kahoot {
         return rondaActual.obtenerModificadores(jugador);
     }
 
-    public void utilizarModificador(Jugador jugador, IModificador modificador){
-        rondaActual.usarModificador(jugador, modificador);
+    public boolean todosLosJugadoresEligieronModificadores(){
+        return (cantJugadoresConModificadores == jugadores.size());
+    }
+
+    public void utilizarModificador(Jugador jugador, IModificador modificador, boolean seUtiliza){
+        if (seUtiliza){
+            rondaActual.usarModificador(jugador, modificador);
+        }
+        cantJugadoresConModificadores++;
     }
 
     public void comenzar() {
@@ -105,6 +114,7 @@ public class Kahoot {
     public boolean cambiarRonda(){
         if(ronda.hasNext()){
             rondaActual = (RondaBase) ronda.next();
+            cantJugadoresConModificadores = 0;
             return true;
         }
         return false;
