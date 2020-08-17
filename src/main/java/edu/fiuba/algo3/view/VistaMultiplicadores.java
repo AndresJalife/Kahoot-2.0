@@ -32,20 +32,7 @@ public class VistaMultiplicadores extends StackPane {
         this.obtenerColorDeFondo(stack);
         this.agregarModificadores(modelo, stack, stage);
 
-//        CORREGIR ESTO< QUE SEA DE A 1 JUGADOR Y NO ASÍ
-//        this.getChildren().clear();
-//        Button botonFinal = new Button("Comenzar a jugar");
-//        botonFinal.setOnAction(actionEvent -> {
-//            this.getChildren().add(new VistaPregunta(modelo, modelo.obtenerJugadores().get(0), stage));
-//        });
 
-    }
-
-//    private void crearGrid(GridPane grid){
-//        grid = new GridPane();
-//        grid.setHgap(10);
-//        grid.setVgap(10);
-//    }
     private void agregarModificadores(Kahoot modelo, StackPane stack, Stage stage){
 //        for (Jugador jugador: modelo.obtenerJugadores()) {
         this.getChildren().clear();
@@ -55,19 +42,20 @@ public class VistaMultiplicadores extends StackPane {
         stack.getChildren().addAll(titulo);
         stack.setMargin(titulo, new Insets(-600, 0, 0, 0));
 
-//        List<IModificador> modificadores = modelo.obtenerModificadores(jugador);
+        List<IModificador> modificadores = modelo.obtenerModificadores(jugador);
         int i = -400;
 
-//        for (IModificador modificador : modificadores) {
-//            Button boton = new Button(modificador.obtenerNombre());
-//            boton.setOnAction(actionEvent -> {
-////                return;
-//                this.getChildren().add(new VistaPregunta(modelo, modelo.obtenerJugadores().get(0), stage));
-//            });
-//            stack.getChildren().addAll(boton);
-//            stack.setMargin(boton, new Insets(i, 0, 0, 0));
-//            i += 200;
-//        }
+        for (IModificador modificador : modificadores) {
+            Button boton = new Button(modificador.obtenerNombre());
+            boton.setOnAction(actionEvent -> {
+//                return;
+                modelo.utilizarModificador(jugador, modificador);
+                this.getChildren().add(new VistaPregunta(modelo, modelo.obtenerJugadores().get(0), stage));
+            });
+            stack.getChildren().addAll(boton);
+            stack.setMargin(boton, new Insets(i, 0, 0, 0));
+            i += 200;
+        }
         this.getChildren().addAll(stack);
     }
     private void obtenerColorDeFondo(StackPane stack) {

@@ -35,6 +35,7 @@ public class EmpezarJuego implements EventHandler<ActionEvent> {
 //            for (Jugador jugador: miModelo.obtenerJugadores()){
 //
 //            }
+            miModelo.comenzar();
             Scene escenaMultiplicador = new Scene(new VistaMultiplicadores(miModelo, miStage));
             miStage.setScene(escenaMultiplicador);
 //           HACER UN FOR DE JUGADORES EN VEZ DE LO DE ARRIBA
