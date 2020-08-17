@@ -5,7 +5,7 @@ import edu.fiuba.algo3.modelo.excepciones.NoQuedanUsosExcepcion;
 public class Multiplicador implements IModificador {
 
     private int usosDisponibles = 1;
-    private int factor;
+    private Integer factor;
 
     public Boolean quedanUsos(){
         return (usosDisponibles !=0);
@@ -19,7 +19,6 @@ public class Multiplicador implements IModificador {
     public void utilizar() throws NoQuedanUsosExcepcion {
         if (usosDisponibles <= 0) {
             throw new NoQuedanUsosExcepcion("No le quedan usos al multiplicador.");
-
         }
         else {
             usosDisponibles--;
@@ -34,6 +33,11 @@ public class Multiplicador implements IModificador {
     @Override
     public int obtenerCantidad(){
         return usosDisponibles;
+    }
+
+    @Override
+    public String obtenerNombre() {
+        return 'X' + factor.toString();
     }
 
 }
