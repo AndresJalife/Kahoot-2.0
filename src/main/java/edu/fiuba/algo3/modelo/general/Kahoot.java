@@ -113,4 +113,6 @@ public class Kahoot {
         }
         return false;
     }
+
+    public Jugador obtenerPrimerJugador(){ return this.obtenerJugadores().get(0); }
 }

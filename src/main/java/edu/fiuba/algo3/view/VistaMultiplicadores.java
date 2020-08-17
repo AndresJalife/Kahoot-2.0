@@ -16,22 +16,23 @@ import java.util.Stack;
 
 public class VistaMultiplicadores extends StackPane {
 
-//    GridPane grid;
 
-    public VistaMultiplicadores(Kahoot modelo, Stage stage) {
+    public VistaMultiplicadores(Kahoot modelo, Stage stage, Jugador jugador) {
         StackPane stack = new StackPane();
         this.obtenerColorDeFondo(stack);
-        this.agregarModificadores(modelo, stack, stage);
+        this.agregarModificadores(modelo, stack, stage, jugador);
     }
 
 
-    private void agregarModificadores(Kahoot modelo, StackPane stack, Stage stage){
+    private void agregarModificadores(Kahoot modelo, StackPane stack, Stage stage, Jugador jugador){
         this.getChildren().clear();
-        Jugador jugador = modelo.obtenerJugadores().get(0);
 
+        Label nombreJugador = new Label(jugador.obtenerNombre());
+        stack.getChildren().addAll(nombreJugador);
+        setMargin(nombreJugador, new Insets(-600, 0, 0, 0));
         Label titulo = new Label("Elija el modificador para la siguiente ronda:");
         stack.getChildren().addAll(titulo);
-        stack.setMargin(titulo, new Insets(-600, 0, 0, 0));
+        stack.setMargin(titulo, new Insets(-500, 0, 0, 0));
 
         List<IModificador> modificadores = modelo.obtenerModificadores(jugador);
         int i = -400;
@@ -40,12 +41,25 @@ public class VistaMultiplicadores extends StackPane {
             Button boton = new Button(modificador.obtenerNombre());
             boton.setOnAction(actionEvent -> {
                 modelo.utilizarModificador(jugador, modificador);
-                this.getChildren().add(new VistaPregunta(modelo, modelo.obtenerJugadores().get(0), stage));
+                if(jugador == modelo.obtenerJugadores().get(0))
+                    this.getChildren().add(new VistaMultiplicadores(modelo, stage, modelo.obtenerJugadores().get(1)));
+                else
+                    this.getChildren().add(new VistaPregunta(modelo, modelo.obtenerJugadores().get(0), stage));
             });
             stack.getChildren().addAll(boton);
             stack.setMargin(boton, new Insets(i, 0, 0, 0));
             i += 200;
         }
+
+        Button boton = new Button("Pasar");
+        boton.setOnAction(actionEvent -> {
+            if(jugador == modelo.obtenerJugadores().get(0))
+                this.getChildren().add(new VistaMultiplicadores(modelo, stage, modelo.obtenerJugadores().get(1)));
+            else
+                this.getChildren().add(new VistaPregunta(modelo, modelo.obtenerJugadores().get(0), stage));
+        });
+        stack.getChildren().addAll(boton);
+        stack.setMargin(boton, new Insets(i, 0, 0, 0));
         this.getChildren().addAll(stack);
     }
 

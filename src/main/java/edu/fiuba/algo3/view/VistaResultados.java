@@ -19,7 +19,6 @@ public class VistaResultados extends StackPane{
 
     public VistaResultados(Kahoot modelo, Stage stage){
 
-
         this.crearGrid();
         actualizarResultadosYOrdenar(modelo);
         this.obtenerColorDeFondo();
@@ -36,7 +35,6 @@ public class VistaResultados extends StackPane{
         List<Jugador> jugadores = new ArrayList<>(modelo.obtenerJugadores());
         modelo.actualizarPuntaje();
         if (jugadores.get(0).obtenerPuntaje()==jugadores.get(1).obtenerPuntaje()) mostrarEmpate(jugadores);
-
         else{
         jugadores.sort((o1, o2) -> Integer.compare(o2.obtenerPuntaje(), o1.obtenerPuntaje()));
         this.mostrarGanador(jugadores);}
