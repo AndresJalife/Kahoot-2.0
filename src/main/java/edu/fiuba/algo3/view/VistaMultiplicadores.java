@@ -18,23 +18,14 @@ public class VistaMultiplicadores extends StackPane {
 
 //    GridPane grid;
 
-    public VistaMultiplicadores(Kahoot modelo, Stage stage){
-//        boolean nolequedanada;
-//        this.crearGrid(grid);
-//        if(modelo.obtenerPreguntaActual().tienePenalidad())
-//            nolequedanada = agregarMultiplicadores(grid, jugador);
-//        else
-//            nolequedanada = agregarExclusividad(grid, jugador);
-//        if(nolequedanada){
-//            // Skipear esta pantalla
-//        }
+    public VistaMultiplicadores(Kahoot modelo, Stage stage) {
         StackPane stack = new StackPane();
         this.obtenerColorDeFondo(stack);
         this.agregarModificadores(modelo, stack, stage);
+    }
 
 
     private void agregarModificadores(Kahoot modelo, StackPane stack, Stage stage){
-//        for (Jugador jugador: modelo.obtenerJugadores()) {
         this.getChildren().clear();
         Jugador jugador = modelo.obtenerJugadores().get(0);
 
@@ -48,7 +39,6 @@ public class VistaMultiplicadores extends StackPane {
         for (IModificador modificador : modificadores) {
             Button boton = new Button(modificador.obtenerNombre());
             boton.setOnAction(actionEvent -> {
-//                return;
                 modelo.utilizarModificador(jugador, modificador);
                 this.getChildren().add(new VistaPregunta(modelo, modelo.obtenerJugadores().get(0), stage));
             });
@@ -58,31 +48,10 @@ public class VistaMultiplicadores extends StackPane {
         }
         this.getChildren().addAll(stack);
     }
+
     private void obtenerColorDeFondo(StackPane stack) {
         Color color = Color.rgb(122,62,72);
         stack.setBackground(new Background((new BackgroundFill(color, CornerRadii.EMPTY, Insets.EMPTY))));
     }
-//
-//    private boolean agregarModificadores(GridPane grid, Jugador jugador){
-//        if(jugador.obtenerMultiplicadorX2().quedanUsos()){
-//            Button X2 = new Button("Usar multiplicador X2");
-//            grid.add(X2,1,1);
-//            return false;
-//        }
-//        if(jugador.obtenerMultiplicadorX3().quedanUsos()){
-//            Button X3 = new Button("Usar multiplicador X3");
-//            grid.add(X3,1,1);
-//            return false;
-//        }
-//        return true;
-//    }
-//
-//    private boolean agregarExclusividad(GridPane grid, Jugador jugador){
-//        if(jugador.obtenerExclusividades().quedanUsos()){
-//            Button exclusividad = new Button("Usar exclusividad");
-//            grid.add(exclusividad,1,1);
-//            return false;
-//        }
-//        return true;
-//    }
+
 }
