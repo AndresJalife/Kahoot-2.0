@@ -6,5 +6,6 @@ public interface IModificador {
 
     void utilizar() throws NoQuedanUsosExcepcion;
     int obtenerCantidad();
+    String obtenerNombre();
     Boolean quedanUsos();
 }
