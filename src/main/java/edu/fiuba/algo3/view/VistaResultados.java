@@ -21,7 +21,6 @@ public class VistaResultados extends StackPane{
 
         this.crearGrid();
         actualizarResultadosYOrdenar(modelo);
-       // this.obtenerGanador(jugadores);
         this.obtenerColorDeFondo();
         this.getChildren().addAll(grid);
     }
@@ -35,12 +34,18 @@ public class VistaResultados extends StackPane{
     void actualizarResultadosYOrdenar(Kahoot modelo){
         List<Jugador> jugadores = new ArrayList<>(modelo.obtenerJugadores());
         modelo.actualizarPuntaje();
-        if (jugadores.get(0).obtenerPuntaje()==jugadores.get(1).obtenerPuntaje()){
+        if (jugadores.get(0).obtenerPuntaje()==jugadores.get(1).obtenerPuntaje()) mostrarEmpate(jugadores);
 
-        }
+        else{
         jugadores.sort((o1, o2) -> Integer.compare(o2.obtenerPuntaje(), o1.obtenerPuntaje()));
-        this.obtenerGanador(jugadores);
+        this.obtenerGanador(jugadores);}
+    }
 
+    private void mostrarEmpate(List<Jugador> jugadores){
+        Label titulo = new Label("Empate!");
+        Label texto= new Label("Ambos jugadores obtuvieron"+ jugadores.get(0).obtenerPuntaje()+"puntos");
+        grid.add(titulo,42,20);
+        grid.add(texto,42,30);
     }
 
     private void obtenerGanador(List<Jugador> jugadores){
