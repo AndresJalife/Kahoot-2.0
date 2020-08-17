@@ -39,7 +39,7 @@ public class VistaResultados extends StackPane{
 
         else{
         jugadores.sort((o1, o2) -> Integer.compare(o2.obtenerPuntaje(), o1.obtenerPuntaje()));
-        this.obtenerGanador(jugadores);}
+        this.mostrarGanador(jugadores);}
     }
 
     private void mostrarEmpate(List<Jugador> jugadores){
@@ -54,7 +54,7 @@ public class VistaResultados extends StackPane{
         grid.add(texto,20,30);
     }
 
-    private void obtenerGanador(List<Jugador> jugadores){
+    private void mostrarGanador(List<Jugador> jugadores){
         int i = 20;
 
         for(Jugador jugador : jugadores){
