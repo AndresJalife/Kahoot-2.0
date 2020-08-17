@@ -4,10 +4,13 @@ import edu.fiuba.algo3.modelo.general.IModificador;
 import edu.fiuba.algo3.modelo.general.Jugador;
 import edu.fiuba.algo3.modelo.general.Kahoot;
 import edu.fiuba.algo3.view.eventos.TerminarVistaModificadores;
+import javafx.event.ActionEvent;
 import javafx.geometry.Insets;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.input.MouseButton;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
@@ -58,9 +61,7 @@ public class VistaMultiplicadores extends StackPane {
         for (IModificador modificador : modificadores) {
             Button boton = new Button(modificador.obtenerNombre());
             boton.setOnAction(actionEvent -> {
-                hacer algo;
-                
-                new TerminarVistaModificadores(modelo, stage, jugador, modificador));
+                new TerminarVistaModificadores(modelo, stage, jugador, modificador);
             });
             stack.getChildren().addAll(boton);
             stack.setMargin(boton, new Insets(i, 0, 0, 0));
