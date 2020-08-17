@@ -2,22 +2,13 @@ package edu.fiuba.algo3.view;
 
 import edu.fiuba.algo3.modelo.general.Jugador;
 import edu.fiuba.algo3.modelo.general.Kahoot;
-import edu.fiuba.algo3.view.eventos.SiguienteRondaOTerminar;
-import edu.fiuba.algo3.view.preguntas.VistaVerdaderoYFalso;
 import javafx.geometry.Insets;
-import javafx.scene.Scene;
-import javafx.scene.control.Alert;
-import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 import javafx.stage.Stage;
-import javafx.scene.chart.BarChart;
-import javafx.scene.chart.CategoryAxis;
-import javafx.scene.chart.NumberAxis;
-import javafx.scene.chart.XYChart;
 
 import java.util.*;
 
@@ -29,8 +20,8 @@ public class VistaResultados extends StackPane{
 
 
         this.crearGrid();
-        List<Jugador> jugadores = actualizarResultadosYOrdenar(modelo);
-        this.obtenerNombresConPuntos(jugadores);
+        actualizarResultadosYOrdenar(modelo);
+       // this.obtenerGanador(jugadores);
         this.obtenerColorDeFondo();
         this.getChildren().addAll(grid);
     }
@@ -41,14 +32,18 @@ public class VistaResultados extends StackPane{
         grid.setVgap(10);
     }
 
-    private List<Jugador> actualizarResultadosYOrdenar(Kahoot modelo){
+    void actualizarResultadosYOrdenar(Kahoot modelo){
         List<Jugador> jugadores = new ArrayList<>(modelo.obtenerJugadores());
         modelo.actualizarPuntaje();
+        if (jugadores.get(0).obtenerPuntaje()==jugadores.get(1).obtenerPuntaje()){
+
+        }
         jugadores.sort((o1, o2) -> Integer.compare(o2.obtenerPuntaje(), o1.obtenerPuntaje()));
-        return jugadores;
+        this.obtenerGanador(jugadores);
+
     }
 
-    private void obtenerNombresConPuntos(List<Jugador> jugadores){
+    private void obtenerGanador(List<Jugador> jugadores){
         int i = 20;
         int j=0;
         for(Jugador jugador : jugadores){
