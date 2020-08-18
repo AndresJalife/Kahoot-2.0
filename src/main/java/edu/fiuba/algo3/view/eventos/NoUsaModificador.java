@@ -1,10 +1,9 @@
 package edu.fiuba.algo3.view.eventos;
 
-import edu.fiuba.algo3.modelo.general.IModificador;
 import edu.fiuba.algo3.modelo.general.Jugador;
 import edu.fiuba.algo3.modelo.general.Kahoot;
-import edu.fiuba.algo3.view.VistaMultiplicadores;
-import edu.fiuba.algo3.view.VistaPregunta;
+import edu.fiuba.algo3.view.vistasGenerales.VistaMultiplicadores;
+import edu.fiuba.algo3.view.vistasGenerales.VistaPregunta;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.Scene;

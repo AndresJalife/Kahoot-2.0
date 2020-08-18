@@ -32,11 +32,11 @@ public class LectorDeArchivosJson implements LectorDeArchivos {
         JSONObject preguntasJSON = (JSONObject) jsonParser.parse(new FileReader(file));
 
         if (preguntasJSON.containsKey(TIPO_GROUPED)){
-            agregarPreguntasGroupYOrdered((JSONArray) preguntasJSON.get(TIPO_GROUPED), nuevasPreguntas, fabrica);
+            agregarPreguntasGroupYOrdered((JSONArray) preguntasJSON.get(TIPO_GROUPED), nuevasPreguntas, fabrica, TIPO_GROUPED);
             preguntasJSON.remove(TIPO_GROUPED);
         }
         if (preguntasJSON.containsKey(TIPO_ORDERED)){
-            agregarPreguntasGroupYOrdered((JSONArray) preguntasJSON.get(TIPO_ORDERED), nuevasPreguntas, fabrica);
+            agregarPreguntasGroupYOrdered((JSONArray) preguntasJSON.get(TIPO_ORDERED), nuevasPreguntas, fabrica, TIPO_ORDERED);
             preguntasJSON.remove(TIPO_ORDERED);
         }
         agregarPreguntasRestantes(preguntasJSON, nuevasPreguntas, fabrica);
@@ -63,13 +63,13 @@ public class LectorDeArchivosJson implements LectorDeArchivos {
         });
     }
 
-    private void agregarPreguntasGroupYOrdered(JSONArray preguntasGroupChoice, List<Pregunta> nuevasPreguntas, FabricaDePreguntas fabrica) {
+    private void agregarPreguntasGroupYOrdered(JSONArray preguntasGroupChoice, List<Pregunta> nuevasPreguntas, FabricaDePreguntas fabrica, String tipo) {
         for (Object objetoPregunta : preguntasGroupChoice){
             JSONObject pregunta = (JSONObject) objetoPregunta;
             String modo =  pregunta.get("modo").toString();
             String texto = (String) pregunta.get("texto");
             List<Opcion>  opciones = crearListaOpcionesGroup(pregunta.get("opciones"));
-            Pregunta nuevaPreg = fabrica.crearPregunta(texto, opciones,"GroupChoice", modo);
+            Pregunta nuevaPreg = fabrica.crearPregunta(texto, opciones,tipo, modo);
             nuevasPreguntas.add(nuevaPreg);
         }
 

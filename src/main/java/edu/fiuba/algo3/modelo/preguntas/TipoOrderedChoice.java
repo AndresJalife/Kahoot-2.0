@@ -18,24 +18,22 @@ public class TipoOrderedChoice implements ITipoDePregunta{
         }
         return (contadorRespuestasCorrectas > 0);
     }
-        @Override
+    @Override
     public int cantCorrectas(List<Opcion> opciones, List<RespuestaDeJugador> respuestasJugador) {
-        int correctas = 0;
-        for (int i = 0; i < opciones.size() && i< respuestasJugador.size(); i++) {
-            if (opciones.get(i).obtenerTexto().equals(respuestasJugador.get(i).obtenerTexto())) {
+        int correctas= 0;
+        for (var opcion : respuestasJugador) {
+            if(opcion.esCorrecta())
                 correctas++;
-            }
         }
         return correctas;
     }
 
     @Override
     public int cantIncorrectas(List<Opcion> opciones, List<RespuestaDeJugador> respuestasJugador) {
-        int incorrectas = 0;
-        for (int i = 0; (i < opciones.size() &&i< respuestasJugador.size()); i++) {
-            if (!opciones.get(i).obtenerTexto().equals(respuestasJugador.get(i).obtenerTexto())) {
+        int incorrectas= 0;
+        for (var opcion : respuestasJugador) {
+            if(!opcion.esCorrecta())
                 incorrectas++;
-            }
         }
         return incorrectas;
     }

@@ -1,10 +1,8 @@
-package edu.fiuba.algo3.view.preguntas;
+package edu.fiuba.algo3.view.vistasPreguntas;
 
 import edu.fiuba.algo3.modelo.general.Jugador;
 import edu.fiuba.algo3.modelo.general.Kahoot;
 import edu.fiuba.algo3.modelo.preguntas.Opcion;
-import edu.fiuba.algo3.modelo.preguntas.RespuestaDeJugador;
-import edu.fiuba.algo3.view.VistaPregunta;
 import edu.fiuba.algo3.view.eventos.TerminarPreguntaVerdaderoYFalso;
 import javafx.geometry.Insets;
 import javafx.scene.control.Button;

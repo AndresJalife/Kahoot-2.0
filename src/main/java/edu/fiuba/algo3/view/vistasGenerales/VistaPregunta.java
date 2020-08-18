@@ -1,10 +1,9 @@
-package edu.fiuba.algo3.view;
+package edu.fiuba.algo3.view.vistasGenerales;
 
 import edu.fiuba.algo3.modelo.general.Jugador;
 import edu.fiuba.algo3.modelo.general.Kahoot;
-import edu.fiuba.algo3.view.preguntas.FabricaDeVistasPregunta;
+import edu.fiuba.algo3.view.vistasPreguntas.FabricaDeVistasPregunta;
 import javafx.application.Platform;
-import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.layout.StackPane;
 import javafx.scene.paint.Color;
@@ -17,7 +16,6 @@ import java.util.function.Consumer;
 public class VistaPregunta extends StackPane {
 
     private final FabricaDeVistasPregunta fabrica;
-    private Label contador;
 
     public VistaPregunta() {
         fabrica = new FabricaDeVistasPregunta();
