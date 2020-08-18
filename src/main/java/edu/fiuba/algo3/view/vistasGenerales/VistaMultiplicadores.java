@@ -30,7 +30,7 @@ public class VistaMultiplicadores extends StackPane {
         else{
             stack = new StackPane();
             this.obtenerColorDeFondo(stack);
-            this.getStylesheets().add(getClass().getResource("/css/escenaInicial.css").toExternalForm());
+            this.getStylesheets().add(getClass().getResource("/css/escenaGeneral.css").toExternalForm());
             this.agregarModificadores(modelo, stack, stage, jugador);
         }
     }
