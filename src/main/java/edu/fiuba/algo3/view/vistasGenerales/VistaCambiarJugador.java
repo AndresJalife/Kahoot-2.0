@@ -20,7 +20,7 @@ public class VistaCambiarJugador extends StackPane {
         this.crearGrid();
         this.agregarBotonSiguienteJugador(stage, modelo, jugador);
         this.obtenerColorDeFondo();
-        this.getStylesheets().add(getClass().getResource("/css/escenaPregunta.css").toExternalForm());
+        this.getStylesheets().add(getClass().getResource("/css/escenaGeneral.css").toExternalForm());
         this.getChildren().addAll(grid);
     }
 

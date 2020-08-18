@@ -27,7 +27,7 @@ public class VistaVerdaderoYFalso extends VistaTipoDePregunta {
         this.jugador = jugador;
         this.stage = stage;
 
-        this.getStylesheets().add(getClass().getResource("/css/escenaInicial.css").toExternalForm());
+        this.getStylesheets().add(getClass().getResource("/css/escenaGeneral.css").toExternalForm());
         this.obtenerLabels(jugador, modelo);
         this.obtenerBotonesParaResponder(modelo, jugador, stage);
         this.obtenerColorDeFondo();

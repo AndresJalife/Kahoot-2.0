@@ -4,6 +4,7 @@ import edu.fiuba.algo3.modelo.general.Jugador;
 import edu.fiuba.algo3.modelo.general.Kahoot;
 import edu.fiuba.algo3.modelo.preguntas.Opcion;
 import edu.fiuba.algo3.modelo.preguntas.RespuestaDeJugador;
+import edu.fiuba.algo3.view.AuxiliarCheckBox;
 import edu.fiuba.algo3.view.vistasGenerales.VistaPregunta;
 import javafx.event.ActionEvent;
 import javafx.geometry.Insets;
@@ -33,7 +34,7 @@ public class VistaMultipleChoice extends VistaTipoDePregunta {
         this.stage = stage;
 
         this.getChildren().clear();
-        this.getStylesheets().add(getClass().getResource("/css/escenaInicial.css").toExternalForm());
+        this.getStylesheets().add(getClass().getResource("/css/escenaGeneral.css").toExternalForm());
         StackPane stack = new StackPane();
 
 
@@ -68,7 +69,7 @@ public class VistaMultipleChoice extends VistaTipoDePregunta {
         stack.getChildren().add(boton2);
         stack.setMargin(boton2, new Insets(0, 0, 0, 0));
 
-        this.getStylesheets().add(getClass().getResource("/css/escenaPregunta.css").toExternalForm());
+        this.getStylesheets().add(getClass().getResource("/css/escenaGeneral.css").toExternalForm());
         this.obtenerColorDeFondo(stack);
         this.getChildren().addAll(stack);
     }

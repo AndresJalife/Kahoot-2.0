@@ -19,7 +19,7 @@ public class VistaRespuestas extends StackPane {
 
     public VistaRespuestas(Kahoot modelo, Stage stage){
         this.crearGrid();
-        this.getStylesheets().add(getClass().getResource("/css/escenaInicial.css").toExternalForm());
+        this.getStylesheets().add(getClass().getResource("/css/escenaGeneral.css").toExternalForm());
         List<Jugador> jugadores = actualizarResultadosYOrdenar(modelo);
         this.obtenerNombresConPuntos(jugadores);
         if(modelo.cambiarRonda()){

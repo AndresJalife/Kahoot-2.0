@@ -28,7 +28,7 @@ public class ReCrearLaPregunta implements EventHandler<ActionEvent> {
     public void handle(ActionEvent actionEvent) {
         var vistaPregunta = new VistaPregunta(miModelo, miJugador, miStage);
         Scene escena = new Scene(vistaPregunta);
-        escena.getStylesheets().add(getClass().getResource("/css/escenaPregunta.css").toExternalForm());
+        escena.getStylesheets().add(getClass().getResource("/css/escenaGeneral.css").toExternalForm());
         miStage.setScene(escena);
     }
 }

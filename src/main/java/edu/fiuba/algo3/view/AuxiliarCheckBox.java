@@ -1,4 +1,4 @@
-package edu.fiuba.algo3.view.vistasPreguntas;
+package edu.fiuba.algo3.view;
 
 import edu.fiuba.algo3.modelo.preguntas.Opcion;
 import javafx.scene.control.CheckBox;

@@ -42,7 +42,7 @@ public class VistaOrderedChoice extends VistaTipoDePregunta {
         setStackPane();
         this.setColorFondo();
         botonAceptar.setOnAction(this::mandarRespuestas);
-        this.getStylesheets().add(getClass().getResource("/css/escenaPregunta.css").toExternalForm());
+        this.getStylesheets().add(getClass().getResource("/css/escenaGeneral.css").toExternalForm());
     }
     private void setStackPane () {
         this.setAlignment(Pos.CENTER);

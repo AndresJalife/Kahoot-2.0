@@ -20,7 +20,7 @@ public class PonerVistaIngresarUsuarios implements EventHandler<ActionEvent> {
     @Override
     public void handle(ActionEvent actionEvent) {
         Scene escenaPregunta = new Scene(new VistaIngresarUsuarios(miModelo, miStage));
-        escenaPregunta.getStylesheets().add(getClass().getResource("/css/escenaPregunta.css").toExternalForm());
+        escenaPregunta.getStylesheets().add(getClass().getResource("/css/escenaGeneral.css").toExternalForm());
         miStage.setScene(escenaPregunta);
     }
 }

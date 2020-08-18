@@ -28,6 +28,7 @@ public class NoUsaModificador implements EventHandler<ActionEvent> {
             escena = new Scene(new VistaMultiplicadores(miModelo, miStage, miModelo.obtenerSegundoJugador()));
         else
             escena = new Scene(new VistaPregunta(miModelo, miModelo.obtenerPrimerJugador(), miStage));
+            escena.getStylesheets().add(getClass().getResource("/css/escenaGeneral.css").toExternalForm());
         miStage.setScene(escena);
     }
 }

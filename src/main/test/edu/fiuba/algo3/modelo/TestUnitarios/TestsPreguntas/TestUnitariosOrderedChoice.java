@@ -14,13 +14,17 @@ public class TestUnitariosOrderedChoice {
     List<Opcion> opciones = new ArrayList<>();
     Pregunta pregunta ;
     Jugador jugador = new Jugador("Jorge");
-    Opcion Opcion1 = new Opcion("Primera", 1,1);
-    Opcion Opcion2 = new Opcion("Segunda", 2,2);
-    Opcion Opcion3 = new Opcion("Tercera", 3,3);
+  //  Opcion Opcion1 = new Opcion("Primera", true);
+    //Opcion Opcion2 = new Opcion("Segunda", true);
+    //Opcion Opcion3 = new Opcion("Tercera", true);
+
 
 
     @Test
     public void ingresarRespuestasOrdenadasCorrectamente() {
+        Opcion Opcion1 = new Opcion("Primera",1,1);
+        Opcion Opcion2 = new Opcion("Segunda", 2,2);
+        Opcion Opcion3 = new Opcion("Tercera", 3,3);
         opciones.add(Opcion1);
         opciones.add(Opcion2);
         opciones.add(Opcion3);
@@ -29,7 +33,10 @@ public class TestUnitariosOrderedChoice {
         assertEquals(opciones, pregunta.obtenerOpciones());
     }
     @Test
-    public void ingresarTodasLasOpcionesConPosicionCorrectaDevuelve1PuntoYSeLoAsignaAJugador() {
+    public void ingresarTodasLasOpcionesEnOrdenCorrectoDevuelve1PuntoYSeLoAsignaAJugador() {
+        Opcion Opcion1 = new Opcion("Primera",1,1);
+        Opcion Opcion2 = new Opcion("Segunda", 2,2);
+        Opcion Opcion3 = new Opcion("Tercera", 3,3);
         opciones.add(Opcion1);
         opciones.add(Opcion2);
         opciones.add(Opcion3);
@@ -45,14 +52,17 @@ public class TestUnitariosOrderedChoice {
     }
     @Test
     public void ingresar1OpcionEnOrdenCorrectoDevuelve0puntosYalAgregarleAJugadorNoCambiaSuPuntaje() {
+        Opcion Opcion1 = new Opcion("Primera",1,1);
+        Opcion Opcion2 = new Opcion("Segunda", 2,3);
+        Opcion Opcion3 = new Opcion("Tercera", 3,2);
         opciones.add(Opcion1);
         opciones.add(Opcion2);
         opciones.add(Opcion3);
         pregunta = new Pregunta("Ordenar de forma ascendente", opciones, new TipoOrderedChoice(), new ModoClasico());
 
-        respuestas.add(new RespuestaDeJugador(Opcion1,1));
-        respuestas.add(new RespuestaDeJugador(Opcion2,4));
-        respuestas.add(new RespuestaDeJugador(Opcion3,2));
+        respuestas.add(new RespuestaDeJugador(Opcion1));
+        respuestas.add(new RespuestaDeJugador(Opcion3));
+        respuestas.add(new RespuestaDeJugador(Opcion2));
 
         jugador.agregarPuntaje(pregunta.calcularPuntaje(respuestas));
 
