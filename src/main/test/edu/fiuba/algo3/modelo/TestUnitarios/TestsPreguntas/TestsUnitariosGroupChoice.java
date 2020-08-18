@@ -59,7 +59,7 @@ public class TestsUnitariosGroupChoice {
 
 
     @Test
-    public void ingresarRespuestaGroupChoiceYContestaMal() {
+    public void ingresarRespuestaGroupChoiceYContestaUnoMal() {
         List<Opcion> opciones = new ArrayList<>();
         List<RespuestaDeJugador> respuestas = new ArrayList<>();
         Jugador jugador = new Jugador("Jorge");
@@ -78,63 +78,46 @@ public class TestsUnitariosGroupChoice {
 
         assertEquals(0, jugador.obtenerPuntaje());
     }
-}
-
-/*
-public class TestsUnitariosGroupChoice {
 
     @Test
-    public void ingresarRespuestaGroupChoice() {
+    public void ingresarRespuestaGroupChoiceYContestaUnParMal() {
         List<Opcion> opciones = new ArrayList<>();
-        List<Opcion> primergrupo = new ArrayList<>();
-        List<Opcion> segundogrupo = new ArrayList<>();
-        Opcion Opcion1 = new Opcion("Rojo", grupo:1);
-        Opcion Opcion2 = new Opcion("Azul",grupo:1);
-        Opcion Opcion3 = new Opcion("Cuadrado", grupo:2);
-        Opcion Opcion4 = new Opcion("Triangulo", grupo:2);
-
-        opciones.add(Opcion1);
-        opciones.add(Opcion2);
-        opciones.add(Opcion3);
-        opciones.add(Opcion4);
-
-        Pregunta pregunta = new Pregunta("Seleccionar los colores", opciones, 1, 1, new TipoGroupChoice(), new ModoClasico());
-
-        primergrupo.add(Opcion1);
-        primergrupo.add(Opcion2);
-        segundogrupo.add(Opcion3);
-        segundogrupo.add(Opcion4);
-
-        assertEquals(primergrupo, pregunta.obtenerPrimerGrupo());
-        assertEquals(segundogrupo, pregunta.obtenerSegundoGrupo());
-    }
-
-    @Test
-    public void ingresarRespuestaGroupChoiceYContestaBien() {
-        List<Opcion> opciones = new ArrayList<>();
-        List<Opcion> primergrupo = new ArrayList<>();
-        List<Opcion> segundogrupo = new ArrayList<>();
+        List<RespuestaDeJugador> respuestas = new ArrayList<>();
         Jugador jugador = new Jugador("Jorge");
-        Opcion Opcion1 = new Opcion("Rojo", grupo:1);
-        Opcion Opcion2 = new Opcion("Azul",grupo:1);
-        Opcion Opcion3 = new Opcion("Cuadrado", grupo:2);
-        Opcion Opcion4 = new Opcion("Triangulo", grupo:2);
+        Opcion Opcion1 = new Opcion("Azul", 5, 5);
+        Opcion Opcion2 = new Opcion("Casa", 2, 5);
+        Opcion Opcion3 = new Opcion("Verde", 3, 5);
 
         opciones.add(Opcion1);
         opciones.add(Opcion2);
         opciones.add(Opcion3);
-        opciones.add(Opcion4);
 
-        Pregunta pregunta = new Pregunta("Seleccionar los colores", opciones, 1, 1, new TipoGroupChoice(), new ModoClasico());
+        Pregunta pregunta = new Pregunta("Seleccionar los colores y los inmuebles", opciones, new TipoGroupChoice(), new ModoClasico());
+        respuestas.add(new RespuestaDeJugador(Opcion2, 5));
 
-        primergrupo.add(Opcion1);
-        primergrupo.add(Opcion2);
-        segundogrupo.add(Opcion3);
-        segundogrupo.add(Opcion4);
+        jugador.agregarPuntaje(pregunta.calcularPuntaje(respuestas));
 
-        jugador.agregarPuntaje(pregunta.calcularPuntaje(primergrupo,segundogrupo));
+        assertEquals(0, jugador.obtenerPuntaje());
+    }
 
-        assertEquals(1, jugador.obtenerPuntaje());
+    @Test
+    public void ingresarRespuestaGroupChoiceYContestaTodosMal() {
+        List<Opcion> opciones = new ArrayList<>();
+        List<RespuestaDeJugador> respuestas = new ArrayList<>();
+        Jugador jugador = new Jugador("Jorge");
+        Opcion Opcion1 = new Opcion("Azul", 4, 5);
+        Opcion Opcion2 = new Opcion("Casa", 2, 5);
+        Opcion Opcion3 = new Opcion("Verde", 3, 5);
+
+        opciones.add(Opcion1);
+        opciones.add(Opcion2);
+        opciones.add(Opcion3);
+
+        Pregunta pregunta = new Pregunta("Seleccionar los colores y los inmuebles", opciones, new TipoGroupChoice(), new ModoClasico());
+        respuestas.add(new RespuestaDeJugador(Opcion2, 5));
+
+        jugador.agregarPuntaje(pregunta.calcularPuntaje(respuestas));
+
+        assertEquals(0, jugador.obtenerPuntaje());
     }
 }
-*/
