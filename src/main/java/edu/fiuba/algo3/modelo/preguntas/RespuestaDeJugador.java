@@ -27,7 +27,11 @@ public class RespuestaDeJugador {
         return opcion.obtenerTexto();
     }
 
-    public void setGrupoElegido(Integer nuevoValor) {
+    public void setGrupoElegido(int nuevoValor) {
         grupoElegido = nuevoValor;
+    }
+
+    public int getGrupoElegido() {
+        return grupoElegido;
     }
 }

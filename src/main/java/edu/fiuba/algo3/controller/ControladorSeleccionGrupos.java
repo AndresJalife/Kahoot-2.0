@@ -8,13 +8,20 @@ import javafx.scene.control.ChoiceBox;
 public class ControladorSeleccionGrupos implements EventHandler<ActionEvent> {
     private final ChoiceBox<Integer> seleccionadorGrupo;
     private final RespuestaDeJugador respuestaDeJugador;
-    public ControladorSeleccionGrupos(RespuestaDeJugador respuestaDeJugador,ChoiceBox choiceBox) {
+
+    public ControladorSeleccionGrupos(RespuestaDeJugador respuestaDeJugador, ChoiceBox<Integer> choiceBox) {
         this.respuestaDeJugador = respuestaDeJugador;
         this.seleccionadorGrupo = choiceBox;
     }
 
     @Override
     public void handle(ActionEvent actionEvent) {
-        respuestaDeJugador.setGrupoElegido(seleccionadorGrupo.getValue());
+        Integer valor = seleccionadorGrupo.getValue();
+        if (valor == null) {
+            respuestaDeJugador.setGrupoElegido(0);
+        } else {
+            respuestaDeJugador.setGrupoElegido(valor.intValue());
+            System.out.println("El jugador respondio " + valor);
+        }
     }
 }
