@@ -19,7 +19,6 @@ public class VistaMenu extends StackPane {
 
     public VistaMenu(Kahoot modelo, Stage stage) {
         this.obtenerMenuInicio(modelo, stage);
-        this.obtenerIngresarArchivo(modelo, stage);
         this.obtenerColorDeFondo();
         this.getChildren().addAll(stack);
     }
@@ -38,7 +37,6 @@ public class VistaMenu extends StackPane {
         stack = new StackPane();
         stack.getChildren().addAll(titulo, jugarBoton);
         stack.setMargin(titulo, new Insets(-200, -10, 0, 30));
-
 
     }
 

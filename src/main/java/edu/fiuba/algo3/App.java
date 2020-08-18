@@ -4,6 +4,7 @@ import edu.fiuba.algo3.modelo.general.Kahoot;
 import edu.fiuba.algo3.view.VistaMenu;
 import javafx.application.Application;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.layout.StackPane;
@@ -15,10 +16,11 @@ import javafx.stage.Stage;
 
 
 public class App extends Application {
-
+    private Kahoot modelo;
     @Override
     public void start(Stage stage) {
-        var modelo = new Kahoot();
+        modelo = new Kahoot();
+        cargarPreguntasKahoot();
         var escenaInicial = new Scene(new VistaMenu(modelo, stage));
         escenaInicial.getStylesheets().add(getClass().getResource("/css/escenaInicial.css").toExternalForm());
         stage.setWidth(1024);
@@ -32,6 +34,19 @@ public class App extends Application {
 
     public static void main(String[] args) {
         launch();
+    }
+
+    public void cargarPreguntasKahoot(){
+        try {
+            modelo.inicializarPreguntas(getClass().getResource("/semiPreguntas.json").toURI());
+
+        }
+        catch (Exception e){
+            Alert fallo = new Alert(Alert.AlertType.ERROR);
+            fallo.setHeaderText(String.format("Archivo de preguntas faltante. \nError: %s", e.toString()));
+            fallo.showAndWait();
+            Runtime.getRuntime().exit(0);
+        }
     }
 
 }
