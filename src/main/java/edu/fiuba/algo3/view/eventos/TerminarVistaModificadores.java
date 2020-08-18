@@ -25,6 +25,8 @@ public class TerminarVistaModificadores implements EventHandler<ActionEvent> {
     private void agregarModificadores(Kahoot modelo, Jugador jugadorAct, IModificador modificador) {
         if (modificador != null){
             modelo.utilizarModificador(jugadorAct, modificador,true);
+        } else {
+            modelo.utilizarModificador(jugadorAct, modificador,false);
         }
     }
 

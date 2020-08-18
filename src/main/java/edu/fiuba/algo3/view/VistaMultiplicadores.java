@@ -60,9 +60,10 @@ public class VistaMultiplicadores extends StackPane {
 
         for (IModificador modificador : modificadores) {
             Button boton = new Button(modificador.obtenerNombre());
-            boton.setOnAction(actionEvent -> {
-                new TerminarVistaModificadores(modelo, stage, jugador, modificador);
-            });
+//            boton.setOnAction(actionEvent -> {
+//                new TerminarVistaModificadores(modelo, stage, jugador, modificador);
+//            });
+            boton.setOnAction(new TerminarVistaModificadores(modelo, stage, jugador, modificador));
             stack.getChildren().addAll(boton);
             stack.setMargin(boton, new Insets(i, 0, 0, 0));
             i += 200;
