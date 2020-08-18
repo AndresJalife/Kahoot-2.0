@@ -11,11 +11,13 @@ public abstract class RondaBase {
     protected Pregunta preguntaActual;
     protected List<Jugador> jugadores;
     protected HashMap<Jugador, List<RespuestaDeJugador>> respuestasDeJugadores;
+    private final Cronometro cronometro;
 
     public RondaBase(Pregunta pregunta, List<Jugador> nuevosJugadores){
         preguntaActual = pregunta;
         jugadores = nuevosJugadores;
         respuestasDeJugadores = new HashMap<>();
+        cronometro = new Cronometro(Pregunta.TIEMPO);
     }
 
     public Pregunta obtenerPreguntaActual() {
@@ -38,4 +40,8 @@ public abstract class RondaBase {
         return jugadores.size() % (respuestasDeJugadores.size()) == 0;
     }
 
+    public void comenzar() {
+        cronometro.reset();
+        cronometro.comenzar();
+    }
 }
