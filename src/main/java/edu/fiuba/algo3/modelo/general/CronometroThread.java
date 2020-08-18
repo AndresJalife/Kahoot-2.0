@@ -10,6 +10,7 @@ public class CronometroThread extends Thread {
 
     public CronometroThread(int segundos) {
         this.segundos = segundos;
+        this.setDaemon(true);
     }
 
     @Override
