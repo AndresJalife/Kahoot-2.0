@@ -9,7 +9,7 @@ public class TipoVerdaderoYFalso implements ITipoDePregunta {
 
     @Override
     public boolean opcionesValidas(List<Opcion> opciones) {
-        if(opciones.size() != 2){
+        if(opciones.size() != 2) {
             return false;
         }
 

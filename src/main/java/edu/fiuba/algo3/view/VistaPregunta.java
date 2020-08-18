@@ -3,13 +3,7 @@ package edu.fiuba.algo3.view;
 import edu.fiuba.algo3.modelo.general.Jugador;
 import edu.fiuba.algo3.modelo.general.Kahoot;
 import edu.fiuba.algo3.view.preguntas.FabricaDeVistasPregunta;
-import edu.fiuba.algo3.view.preguntas.VistaTipoDePregunta;
-import edu.fiuba.algo3.view.preguntas.VistaVerdaderoYFalso;
-import edu.fiuba.algo3.view.VistaRespuestas;
 import javafx.application.Platform;
-import javafx.geometry.Insets;
-import javafx.scene.Scene;
-import javafx.scene.control.Alert;
 import javafx.scene.control.Label;
 import javafx.scene.layout.StackPane;
 import javafx.scene.paint.Color;
@@ -17,7 +11,6 @@ import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 import javafx.stage.Stage;
 
-import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.function.Consumer;
 
 public class VistaPregunta extends StackPane {
@@ -34,10 +27,10 @@ public class VistaPregunta extends StackPane {
 
         var vistaTipoPregunta = fabrica.crearVistaTipoDePregunta(modelo, jugador, stage);
         var contador = new Label();
-        contador.setFont(Font.font("Arial", FontWeight.BOLD, 28));
-        //setMargin(contador, new Insets(-200, -100, 0, 0));
-        contador.setTranslateX(-400);
-        contador.setTranslateY(-350);
+        contador.setFont(Font.font("Arial", FontWeight.BOLD, 128));
+        contador.setTextFill(Color.rgb(255, 255, 255));
+        contador.setTranslateX(0);
+        contador.setTranslateY(250);
 
         var alCambiar = (Consumer<Integer>) (segundos) -> {
             Platform.runLater( () -> {
@@ -45,11 +38,12 @@ public class VistaPregunta extends StackPane {
             });
         };
         var alTerminar = (Runnable) () -> {
-            // Hacer que pase la pregunta
+            Platform.runLater(vistaTipoPregunta::forzarContestar);
         };
+
         modelo.comenzarRonda(alCambiar, alTerminar);
 
-        this.getChildren().addAll(vistaTipoPregunta, contador);
+        this.getChildren().addAll(vistaTipoPregunta);
     }
 
     public void CambiarPreguntaAOtroJugador(Kahoot modelo, Jugador jugador, Stage stage) {
