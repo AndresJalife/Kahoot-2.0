@@ -41,18 +41,6 @@ public class VistaMenu extends StackPane {
 
     }
 
-    private void obtenerIngresarArchivo(Kahoot modelo, Stage stage) {
-        try {
-            modelo.inicializarPreguntas(getClass().getResource("/semiPreguntas.json").toURI());
-        }
-        catch (Exception e){
-            Alert fallo = new Alert(Alert.AlertType.ERROR);
-            fallo.setHeaderText(String.format("Archivo de preguntas faltante. \nError: %s", e.toString()));
-            fallo.showAndWait();
-            Runtime.getRuntime().exit(0);
-        }
-    }
-
     private void obtenerColorDeFondo() {
         Color color = Color.rgb(122,62,72);
         stack.setBackground(new Background((new BackgroundFill(color, CornerRadii.EMPTY, Insets.EMPTY))));
