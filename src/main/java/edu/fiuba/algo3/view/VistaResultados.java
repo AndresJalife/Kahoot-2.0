@@ -42,8 +42,10 @@ public class VistaResultados extends StackPane{
 
     private void mostrarEmpate(List<Jugador> jugadores){
         Label titulo = new Label("Empate!");
+        titulo.setTextFill(Color.rgb(238, 205, 134));
         titulo.setFont(new Font(50));
         Label texto= new Label("Ambos jugadores obtuvieron "+ jugadores.get(0).obtenerPuntaje()+" puntos");
+        texto.setTextFill(Color.rgb(238, 205, 134));
         texto.setFont(new Font(25));
         stack = new StackPane();
         grid.add(titulo,20,20);
@@ -60,8 +62,9 @@ public class VistaResultados extends StackPane{
 
             if(i==20) usuario = new Label("El ganador es: "+ jugador.obtenerNombre() );
 
-            else usuario = new Label("El perdedor es: "+ jugador.obtenerNombre() );
 
+            else usuario = new Label("El perdedor es: "+ jugador.obtenerNombre() );
+            usuario.setTextFill(Color.rgb(238, 205, 134));
             usuario.setFont(Font.font("Arial", FontWeight.BOLD, 35));
             grid.add(usuario,42,i);
             Label puntos = new Label(String.valueOf(jugador.obtenerPuntaje()));
