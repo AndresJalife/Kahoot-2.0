@@ -1,8 +1,10 @@
-package edu.fiuba.algo3.view;
+package edu.fiuba.algo3.view.vistasGenerales;
 
 import edu.fiuba.algo3.modelo.general.Jugador;
 import edu.fiuba.algo3.modelo.general.Kahoot;
+import edu.fiuba.algo3.view.eventos.SiguienteRondaOTerminar;
 import javafx.geometry.Insets;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
@@ -12,15 +14,18 @@ import javafx.stage.Stage;
 
 import java.util.*;
 
-public class VistaResultados extends StackPane{
-
+public class VistaRespuestas extends StackPane {
     GridPane grid;
-    StackPane stack;
 
-    public VistaResultados(Kahoot modelo, Stage stage){
-
+    public VistaRespuestas(Kahoot modelo, Stage stage){
         this.crearGrid();
-        actualizarResultadosYOrdenar(modelo);
+        List<Jugador> jugadores = actualizarResultadosYOrdenar(modelo);
+        this.obtenerNombresConPuntos(jugadores);
+        if(modelo.cambiarRonda()){
+            Button siguientePregunta = new Button("Siguiente pregunta");
+            siguientePregunta.setOnAction(new SiguienteRondaOTerminar(modelo, stage));
+            grid.add(siguientePregunta,42,40);
+        }
         this.obtenerColorDeFondo();
         this.getChildren().addAll(grid);
     }
@@ -31,40 +36,17 @@ public class VistaResultados extends StackPane{
         grid.setVgap(10);
     }
 
-    void actualizarResultadosYOrdenar(Kahoot modelo){
+    private List<Jugador> actualizarResultadosYOrdenar(Kahoot modelo){
         List<Jugador> jugadores = new ArrayList<>(modelo.obtenerJugadores());
         modelo.actualizarPuntaje();
-        if (jugadores.get(0).obtenerPuntaje()==jugadores.get(1).obtenerPuntaje()) mostrarEmpate(jugadores);
-        else{
         jugadores.sort((o1, o2) -> Integer.compare(o2.obtenerPuntaje(), o1.obtenerPuntaje()));
-        this.mostrarGanador(jugadores);}
+        return jugadores;
     }
 
-    private void mostrarEmpate(List<Jugador> jugadores){
-        Label titulo = new Label("Empate!");
-        titulo.setTextFill(Color.rgb(238, 205, 134));
-        titulo.setFont(new Font(50));
-        Label texto= new Label("Ambos jugadores obtuvieron "+ jugadores.get(0).obtenerPuntaje()+" puntos");
-        texto.setTextFill(Color.rgb(238, 205, 134));
-        texto.setFont(new Font(25));
-        stack = new StackPane();
-        grid.add(titulo,20,20);
-        stack.setMargin(titulo, new Insets(-200, -10, 0, 30));
-
-        grid.add(texto,20,30);
-    }
-
-    private void mostrarGanador(List<Jugador> jugadores){
+    private void obtenerNombresConPuntos(List<Jugador> jugadores){
         int i = 20;
-
         for(Jugador jugador : jugadores){
-            Label usuario;
-
-            if(i==20) usuario = new Label("El ganador es: "+ jugador.obtenerNombre() );
-
-
-            else usuario = new Label("El perdedor es: "+ jugador.obtenerNombre() );
-            usuario.setTextFill(Color.rgb(238, 205, 134));
+            Label usuario = new Label(jugador.obtenerNombre() + "     ->");
             usuario.setFont(Font.font("Arial", FontWeight.BOLD, 35));
             grid.add(usuario,42,i);
             Label puntos = new Label(String.valueOf(jugador.obtenerPuntaje()));

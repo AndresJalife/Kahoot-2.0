@@ -1,4 +1,4 @@
-package edu.fiuba.algo3.view.preguntas;
+package edu.fiuba.algo3.view.vistasPreguntas;
 
 import edu.fiuba.algo3.modelo.general.Jugador;
 import edu.fiuba.algo3.modelo.general.Kahoot;

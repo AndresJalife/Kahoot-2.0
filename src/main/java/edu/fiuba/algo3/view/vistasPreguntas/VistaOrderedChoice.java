@@ -1,12 +1,10 @@
-package edu.fiuba.algo3.view.preguntas;
+package edu.fiuba.algo3.view.vistasPreguntas;
 
 import edu.fiuba.algo3.modelo.general.Jugador;
 import edu.fiuba.algo3.modelo.general.Kahoot;
 import edu.fiuba.algo3.modelo.preguntas.*;
 import edu.fiuba.algo3.view.VistaPregunta;
-import edu.fiuba.algo3.view.eventos.TerminarPreguntaVerdaderoYFalso;
 import javafx.animation.Timeline;
-import javafx.beans.property.IntegerProperty;
 import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;

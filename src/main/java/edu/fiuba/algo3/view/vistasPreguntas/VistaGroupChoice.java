@@ -1,4 +1,4 @@
-package edu.fiuba.algo3.view.preguntas;
+package edu.fiuba.algo3.view.vistasPreguntas;
 
 import edu.fiuba.algo3.controller.ControladorSeleccionGrupos;
 import edu.fiuba.algo3.modelo.general.Jugador;
@@ -6,7 +6,7 @@ import edu.fiuba.algo3.modelo.general.Kahoot;
 import edu.fiuba.algo3.modelo.preguntas.Opcion;
 import edu.fiuba.algo3.modelo.preguntas.Pregunta;
 import edu.fiuba.algo3.modelo.preguntas.RespuestaDeJugador;
-import edu.fiuba.algo3.view.VistaPregunta;
+import edu.fiuba.algo3.view.vistasGenerales.VistaPregunta;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.geometry.Insets;
