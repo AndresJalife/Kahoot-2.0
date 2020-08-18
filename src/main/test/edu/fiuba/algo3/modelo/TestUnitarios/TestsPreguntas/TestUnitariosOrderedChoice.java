@@ -52,7 +52,7 @@ public class TestUnitariosOrderedChoice {
 
         respuestas.add(new RespuestaDeJugador(Opcion1));
         respuestas.add(new RespuestaDeJugador(Opcion3));
-        respuestas.add(new RespuestaDeJugador(Opcion3));
+        respuestas.add(new RespuestaDeJugador(Opcion2));
 
         jugador.agregarPuntaje(pregunta.calcularPuntaje(respuestas));
 
