@@ -39,7 +39,6 @@ public class LectorDeArchivosJson implements LectorDeArchivos {
             agregarPreguntasGroupYOrdered((JSONArray) preguntasJSON.get(TIPO_ORDERED), nuevasPreguntas, fabrica);
             preguntasJSON.remove(TIPO_ORDERED);
         }
-        System.out.println(preguntasJSON);
         agregarPreguntasRestantes(preguntasJSON, nuevasPreguntas, fabrica);
 
         return nuevasPreguntas;
