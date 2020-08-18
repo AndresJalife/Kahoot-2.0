@@ -25,6 +25,7 @@ public class VistaVerdaderoYFalso extends VistaTipoDePregunta {
     public VistaVerdaderoYFalso(Kahoot modelo, Jugador jugador, Stage stage){
         super();
         stack = new StackPane();
+        this.getStylesheets().add(getClass().getResource("/css/escenaInicial.css").toExternalForm());
         this.obtenerLabels(jugador, modelo);
         this.obtenerBotonesParaResponder(modelo, jugador, stage);
         this.obtenerColorDeFondo();
