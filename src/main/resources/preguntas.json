@@ -7,10 +7,10 @@
         "opcionesCorrectas": ["Verdadero"]
       },
       {
-        "modo": "ConPenalidad",
-        "texto" : "¿Era Abraham Lincoln un asesino?",
+        "modo": "Clasico",
+        "texto" : "¿Sos inimputable?",
         "opciones" : ["Verdadero", "Falso"],
-        "opcionesCorrectas": ["Verdadero"]
+        "opcionesCorrectas": ["Falso"]
       }],
   "OrderedChoice" :
       [{
