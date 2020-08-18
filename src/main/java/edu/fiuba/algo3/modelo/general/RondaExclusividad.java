@@ -26,8 +26,9 @@ public class RondaExclusividad extends RondaBase {
     }
 
     @Override
-    public void usarModificador(Jugador jugador, IModificador modificador) {
+    public void usarModificador(Jugador jugador, IModificador modificador) throws NoQuedanUsosExcepcion {
         exclusividades.add((Exclusividad) modificador);
+        modificador.utilizar();
     }
 
     @Override

@@ -26,7 +26,6 @@ public class Multiplicador implements IModificador {
     }
 
     public int modificarPuntaje(int puntaje) throws NoQuedanUsosExcepcion {
-        this.utilizar();
         return (puntaje * factor);
     }
 

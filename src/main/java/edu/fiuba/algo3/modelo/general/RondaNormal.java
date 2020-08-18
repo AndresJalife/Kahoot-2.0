@@ -32,8 +32,9 @@ public class RondaNormal extends RondaBase {
     }
 
     @Override
-    public void usarModificador(Jugador jugador, IModificador modificador) {
+    public void usarModificador(Jugador jugador, IModificador modificador) throws NoQuedanUsosExcepcion {
         multiplicadores.put(jugador, (Multiplicador) modificador);
+        modificador.utilizar();
     }
 
     @Override

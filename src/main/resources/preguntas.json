@@ -5,6 +5,12 @@
         "texto" : "¿Era Abraham Lincoln un asesino?",
         "opciones" : ["Verdadero", "Falso"],
         "opcionesCorrectas": ["Verdadero"]
+      },
+      {
+        "modo": "ConPenalidad",
+        "texto" : "¿Era Abraham Lincoln un asesino?",
+        "opciones" : ["Verdadero", "Falso"],
+        "opcionesCorrectas": ["Verdadero"]
       }],
   "OrderedChoice" :
       [{
@@ -24,12 +30,12 @@
   "GroupChoice" :
       [{
         "modo": "Clasico",
-        "texto" : "Separe entre caballos y flores.",
+        "texto" : "Separe entre caballos (Grupo 1) y flores (Grupo 2).",
         "opciones" : {"1": ["ANDALUZ", "APALUSA"], "2": ["NARCISOS"]}
       },
       {
         "modo": "Clasico",
-        "texto" : "Separe entre anillos y dulces.",
-        "opciones" : {"1": ["ANDALUZ", "APALUSA"], "2": ["NARCISOS"]}
+        "texto" : "Separe entre anillos (Grupo 1) y dulces (Grupo 2).",
+        "opciones" : {"1": ["Compromiso", "Animo"], "2": ["Gomitas"]}
       }]
 }

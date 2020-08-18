@@ -72,7 +72,7 @@ public class Kahoot {
         return rondaActual.obtenerModificadores(jugador);
     }
 
-    public void utilizarModificador(Jugador jugador, IModificador modificador){
+    public void utilizarModificador(Jugador jugador, IModificador modificador) throws NoQuedanUsosExcepcion {
         rondaActual.usarModificador(jugador, modificador);
     }
 

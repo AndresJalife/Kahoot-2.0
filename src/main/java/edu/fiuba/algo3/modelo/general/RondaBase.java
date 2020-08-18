@@ -29,7 +29,7 @@ public abstract class RondaBase {
         respuestasDeJugadores.put(jugador, respuestas);
     }
 
-    public abstract void usarModificador(Jugador jugador, IModificador modificador);
+    public abstract void usarModificador(Jugador jugador, IModificador modificador) throws NoQuedanUsosExcepcion;
 
     public abstract List<IModificador> obtenerModificadores(Jugador jugador);
 

@@ -1,5 +1,6 @@
 package edu.fiuba.algo3.view.eventos;
 
+import edu.fiuba.algo3.modelo.excepciones.NoQuedanUsosExcepcion;
 import edu.fiuba.algo3.modelo.general.IModificador;
 import edu.fiuba.algo3.modelo.general.Jugador;
 import edu.fiuba.algo3.modelo.general.Kahoot;
@@ -26,7 +27,11 @@ public class UsaModificador implements EventHandler<ActionEvent> {
 
     @Override
     public void handle(ActionEvent actionEvent) {
-        miModelo.utilizarModificador(miJugador, miModificador);
+        try {
+            miModelo.utilizarModificador(miJugador, miModificador);
+        } catch (NoQuedanUsosExcepcion noQuedanUsosExcepcion) {
+            noQuedanUsosExcepcion.printStackTrace();
+        }
         Scene escena;
         if(miJugador == miModelo.obtenerPrimerJugador())
             escena = new Scene(new VistaMultiplicadores(miModelo, miStage, miModelo.obtenerSegundoJugador()));
