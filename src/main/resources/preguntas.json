@@ -4,23 +4,23 @@
         "modo": "ConPenalidad",
         "texto" : "¿Era Abraham Lincoln un asesino?",
         "opciones" : ["Verdadero", "Falso"],
-        "opcionesCorrectas": ["Verdadero"],
+        "opcionesCorrectas": ["Verdadero"]
       }],
   "OrderedChoice" :
       [{
         "modo": "Clasico",
         "texto" : "¿Cuál es el orden de nacimientos?",
-        "opciones" : ["Jesus", "Bad Luck Brian", "El Dieguito (maradona)", "Britney Spears"],
-        "opcionesCorrectas": ["Jesus", "El Dieguito (maradona)", "Britney Spears", "Bad Luck Brian"],
-
+        "opciones" : {"1":["Jesus"], "2":["El Dieguito (maradona)"], "2":["Britney Spears"], "3":["Bad Luck Brian"]}
       }],
+
   "MultipleChoice" :
       [{
         "modo": "ConPuntajeParcial",
         "texto" : "¿Quién gano gran hermano 2015?",
         "opciones" : ["Matías Schrank", "Francisco Delgado", "Vos"],
-        "opcionesCorrectas": ["Francisco Delgado"],
+        "opcionesCorrectas": ["Francisco Delgado"]
       }],
+      
   "GroupChoice" :
       [{
         "modo": "Clasico",

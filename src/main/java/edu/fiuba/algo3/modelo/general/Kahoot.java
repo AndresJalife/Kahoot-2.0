@@ -121,4 +121,6 @@ public class Kahoot {
     }
 
     public Jugador obtenerPrimerJugador(){ return this.obtenerJugadores().get(0); }
+
+    public Jugador obtenerSegundoJugador(){ return this.obtenerJugadores().get(1); }
 }

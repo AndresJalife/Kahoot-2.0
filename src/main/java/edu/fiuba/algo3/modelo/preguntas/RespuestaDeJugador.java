@@ -26,4 +26,8 @@ public class RespuestaDeJugador {
     public String obtenerTexto() {
         return opcion.obtenerTexto();
     }
+
+    public void setGrupoElegido(Integer nuevoValor) {
+        grupoElegido = nuevoValor;
+    }
 }

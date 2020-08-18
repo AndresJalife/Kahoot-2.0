@@ -34,9 +34,10 @@ public class LectorDeArchivosJson implements LectorDeArchivos {
         if (preguntasJSON.containsKey(TIPO_GROUPED)){
             agregarPreguntasGroupYOrdered((JSONArray) preguntasJSON.get(TIPO_GROUPED), nuevasPreguntas, fabrica);
             preguntasJSON.remove(TIPO_GROUPED);
-        } else if (preguntasJSON.containsKey(TIPO_ORDERED)){
+        }
+        if (preguntasJSON.containsKey(TIPO_ORDERED)){
             agregarPreguntasGroupYOrdered((JSONArray) preguntasJSON.get(TIPO_ORDERED), nuevasPreguntas, fabrica);
-            preguntasJSON.remove(TIPO_GROUPED);
+            preguntasJSON.remove(TIPO_ORDERED);
         }
         agregarPreguntasRestantes(preguntasJSON, nuevasPreguntas, fabrica);
 
