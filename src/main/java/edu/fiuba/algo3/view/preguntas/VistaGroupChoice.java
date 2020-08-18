@@ -11,6 +11,7 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
@@ -108,8 +109,7 @@ public class VistaGroupChoice extends VistaTipoDePregunta {
         modelo.jugadorResponder(jugador, respuestas);
         VistaPregunta vistaAux = new VistaPregunta();
         vistaAux.CambiarPreguntaAOtroJugador(modelo, jugador, stage);
-        this.getChildren().clear();
-        this.getChildren().addAll(vistaAux);
+        stage.setScene(new Scene(vistaAux));
     }
 
     @Override

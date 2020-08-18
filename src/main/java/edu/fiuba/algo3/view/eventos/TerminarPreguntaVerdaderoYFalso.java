@@ -34,7 +34,6 @@ public class TerminarPreguntaVerdaderoYFalso implements EventHandler<ActionEvent
         miModelo.jugadorResponder(miJugador, respuestas);
         VistaPregunta vistaPregunta = new VistaPregunta();
         vistaPregunta.CambiarPreguntaAOtroJugador(miModelo, miJugador, miStage);
-        Scene escena = new Scene(vistaPregunta);
-        miStage.setScene(escena);
+        miStage.setScene(new Scene(vistaPregunta));
     }
 }

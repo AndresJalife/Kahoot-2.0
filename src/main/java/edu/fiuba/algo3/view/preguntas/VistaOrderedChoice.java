@@ -173,8 +173,7 @@ public class VistaOrderedChoice extends VistaTipoDePregunta {
             modelo.jugadorResponder(jugador, respuestas);
             VistaPregunta vistaPregunta = new VistaPregunta();
             vistaPregunta.CambiarPreguntaAOtroJugador(modelo,jugador,stage);
-            Scene escena = new Scene(vistaPregunta);
-            stage.setScene(escena);
+            stage.setScene(new Scene(vistaPregunta));
         }else {
             Alert fallo = new Alert(Alert.AlertType.ERROR);
             fallo.setHeaderText("Falta agregar posiciones= ");
