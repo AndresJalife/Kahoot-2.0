@@ -2,6 +2,7 @@ package edu.fiuba.algo3.view.eventos;
 
 import edu.fiuba.algo3.modelo.general.Jugador;
 import edu.fiuba.algo3.modelo.general.Kahoot;
+import edu.fiuba.algo3.view.vistasGenerales.VistaPregunta;
 import edu.fiuba.algo3.view.vistasPreguntas.FabricaDeVistasPregunta;
 import edu.fiuba.algo3.view.vistasPreguntas.VistaTipoDePregunta;
 import javafx.event.ActionEvent;
@@ -25,9 +26,9 @@ public class ReCrearLaPregunta implements EventHandler<ActionEvent> {
 
     @Override
     public void handle(ActionEvent actionEvent) {
-        VistaTipoDePregunta vistaTipoPregunta = miFabrica.crearVistaTipoDePregunta(miModelo,miJugador,miStage);
-        Scene escena = new Scene(vistaTipoPregunta);
-        escena.getStylesheets().add(getClass().getResource("/css/escenaInicial.css").toExternalForm());
+        var vistaPregunta = new VistaPregunta(miModelo, miJugador, miStage);
+        Scene escena = new Scene(vistaPregunta);
+        escena.getStylesheets().add(getClass().getResource("/css/escenaPregunta.css").toExternalForm());
         miStage.setScene(escena);
     }
 }

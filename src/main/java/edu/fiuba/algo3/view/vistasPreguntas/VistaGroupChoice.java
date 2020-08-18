@@ -115,8 +115,6 @@ public class VistaGroupChoice extends VistaTipoDePregunta {
         VistaPregunta vistaAux = new VistaPregunta();
         vistaAux.CambiarPreguntaAOtroJugador(modelo, jugador, stage);
         stage.setScene(new Scene(vistaAux));
-        //this.getChildren().clear();
-        //this.getChildren().addAll(vistaAux);
     }
 
     @Override

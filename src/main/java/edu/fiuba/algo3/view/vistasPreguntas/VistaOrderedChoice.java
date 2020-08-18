@@ -29,22 +29,22 @@ public class VistaOrderedChoice extends VistaTipoDePregunta {
     private Label nombreJugador;
     private Label preguntaTexto;
     private Button botonAceptar;
+    private Kahoot modelo;
+    private Jugador jugador;
+    private Stage stage;
     private ArrayList<RespuestaDeJugador> respuestas;
 
     public VistaOrderedChoice(Kahoot modelo, Jugador jugador, Stage stage) {
         super();
         this.getChildren().clear();
+        this.modelo = modelo;
+        this.jugador = jugador;
+        this.stage = stage;
         inicializarTextos(modelo, jugador);
 
         setStackPane();
         this.setColorFondo();
-        botonAceptar.setOnAction(actionEvent -> {
-            modelo.jugadorResponder(jugador, respuestas);
-            VistaPregunta vistaAux = new VistaPregunta();
-            vistaAux.CambiarPreguntaAOtroJugador(modelo, jugador, stage);
-            this.getChildren().clear();
-            this.getChildren().addAll(vistaAux);
-        });
+        botonAceptar.setOnAction(this::mandarRespuestas);
         this.getStylesheets().add(getClass().getResource("/css/escenaPregunta.css").toExternalForm());
     }
     private void setStackPane () {
@@ -109,5 +109,17 @@ public class VistaOrderedChoice extends VistaTipoDePregunta {
     private void setColorFondo () {
         Color color = Color.rgb(122, 62, 72);
         this.setBackground(new Background((new BackgroundFill(color, CornerRadii.EMPTY, Insets.EMPTY))));
+    }
+
+    private void mandarRespuestas(ActionEvent actionEvent) {
+        modelo.jugadorResponder(jugador, respuestas);
+        VistaPregunta vistaAux = new VistaPregunta();
+        vistaAux.CambiarPreguntaAOtroJugador(modelo, jugador, stage);
+        stage.setScene(new Scene(vistaAux));
+    }
+
+    @Override
+    public void forzarContestar() {
+        mandarRespuestas(null);
     }
 }
