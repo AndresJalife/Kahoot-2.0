@@ -50,9 +50,7 @@ public class RondaExclusividad extends RondaBase {
             if (puntajesPorJugador.size() == 1) {
                 int puntajeFinal = 0;
                 for (Exclusividad exclusividad : exclusividades) {
-                    if (exclusividad.quedanUsos()) {
-                        puntajeFinal += exclusividad.modificarPuntaje(puntajesPorJugador.get(ganador));
-                    }
+                    puntajeFinal += exclusividad.modificarPuntaje(puntajesPorJugador.get(ganador));
                 }
                 ganador.agregarPuntaje(puntajeFinal);
             }

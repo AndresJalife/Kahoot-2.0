@@ -44,7 +44,7 @@ public class RondaNormal extends RondaBase {
             int puntaje = this.preguntaActual.calcularPuntaje(respuestas);
 
             Multiplicador multActual = (multiplicadores.get(jugador));
-            if (multActual != null && multActual.quedanUsos()) {
+            if (multActual != null) {
                 puntaje = multActual.modificarPuntaje(puntaje);
             }
             jugador.agregarPuntaje(puntaje);

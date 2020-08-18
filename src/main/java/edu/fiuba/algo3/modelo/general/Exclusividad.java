@@ -33,7 +33,7 @@ public class Exclusividad implements IModificador {
             usosDisponibles--;
         }
     }
-    public int modificarPuntaje(int puntaje) throws NoQuedanUsosExcepcion {
+    public int modificarPuntaje(int puntaje) {
         return puntaje * 2;
     }
 }
