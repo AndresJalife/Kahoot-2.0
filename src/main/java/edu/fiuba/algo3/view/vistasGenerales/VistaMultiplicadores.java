@@ -26,7 +26,11 @@ public class VistaMultiplicadores extends StackPane {
         for(IModificador modificador : modificadores){
             if(modificador.quedanUsos()) noTieneMasModificadores = false;
         }
-        if(noTieneMasModificadores)this.getChildren().add(new VistaPregunta(modelo, modelo.obtenerJugadores().get(0), stage));
+        if(noTieneMasModificadores)
+            if(jugador == modelo.obtenerSegundoJugador())
+                this.getChildren().add(new VistaPregunta(modelo, modelo.obtenerPrimerJugador(), stage));
+            else
+                this.getChildren().add(new VistaMultiplicadores(modelo, stage, modelo.obtenerSegundoJugador()));
         else{
             stack = new StackPane();
             this.obtenerColorDeFondo(stack);
