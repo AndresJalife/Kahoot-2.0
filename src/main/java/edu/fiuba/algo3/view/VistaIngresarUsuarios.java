@@ -33,12 +33,12 @@ public class VistaIngresarUsuarios extends StackPane {
 
     private void obtenerIngresarUsuarios(GridPane grid, Kahoot modelo, Stage stage){
         Label usuarioUno = new Label("Ingrese el nombre del jugador 1");
-        usuarioUno.setTextFill(Color.WHITE);
+        usuarioUno.setTextFill(Color.rgb(238, 205, 134));
         grid.add(usuarioUno,25,25);
         TextField textoParaUsuarioUno = new TextField();
         grid.add(textoParaUsuarioUno,26,25);
         Label usuarioDos = new Label("Ingrese el nombre del jugador 2");
-        usuarioDos.setTextFill(Color.WHITE);
+        usuarioDos.setTextFill(Color.rgb(238, 205, 134));
         grid.add(usuarioDos,25,26);
         TextField textoParaUsuarioDos = new TextField();
         grid.add(textoParaUsuarioDos,26,26);

@@ -11,50 +11,52 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
+import javafx.scene.text.Font;
+import javafx.scene.text.FontWeight;
 import javafx.stage.Stage;
 
 import java.util.ArrayList;
 
 public class VistaVerdaderoYFalso extends VistaTipoDePregunta {
 
-    GridPane grid;
+//    GridPane grid;
+    StackPane stack;
 
     public VistaVerdaderoYFalso(Kahoot modelo, Jugador jugador, Stage stage){
         super();
-        this.crearGrid();
-        this.obtenerLabels(grid, jugador, modelo);
-        this.obtenerBotonesParaResponder(grid, modelo, jugador, stage);
+        stack = new StackPane();
+        this.obtenerLabels(jugador, modelo);
+        this.obtenerBotonesParaResponder(modelo, jugador, stage);
         this.obtenerColorDeFondo();
-        this.getStylesheets().add(getClass().getResource("/css/botonesVF.css").toExternalForm());
-        this.getChildren().addAll(grid);
+        this.getChildren().addAll(stack);
     }
 
-    private void crearGrid(){
-        this.getChildren().clear();
-        grid = new GridPane();
-        grid.setHgap(10);
-        grid.setVgap(10);
-    }
 
-    private void obtenerLabels(GridPane grid, Jugador jugador, Kahoot modelo){
+    private void obtenerLabels(Jugador jugador, Kahoot modelo){
         Label usuario = new Label(jugador.obtenerNombre());
-        grid.add(usuario,1,1);
+        usuario.setFont(Font.font("Arial", FontWeight.BOLD, 35));
+        stack.getChildren().add(usuario);
+        stack.setMargin(usuario, new Insets(-600, 0, 0, 0));
+
         Label pregunta = new Label(modelo.obtenerPreguntaActual().obtenerTexto());
-        grid.add(pregunta,2,2);
+        pregunta.setFont(new Font(20));
+        stack.getChildren().add(pregunta);
+        stack.setMargin(pregunta, new Insets(-500, 0, 0, 0));
     }
 
-    private void obtenerBotonesParaResponder(GridPane grid, Kahoot modelo, Jugador jugador, Stage stage){
-        int i = 2;
+    private void obtenerBotonesParaResponder(Kahoot modelo, Jugador jugador, Stage stage){
+        int i = -400;
         for(Opcion opcion : modelo.obtenerPreguntaActual().obtenerOpciones()){
             Button boton = new Button(opcion.obtenerTexto());
             boton.setOnAction(new TerminarPreguntaVerdaderoYFalso(opcion,modelo,jugador,stage));
-            grid.add(boton,i,3);
-            i++;
+            stack.getChildren().add(boton);
+            stack.setMargin(boton, new Insets(-200, 0, 0, i));
+            i += 800;
         }
     }
 
     private void obtenerColorDeFondo() {
         Color color = Color.rgb(122,62,72);
-        grid.setBackground(new Background((new BackgroundFill(color, CornerRadii.EMPTY, Insets.EMPTY))));
+        stack.setBackground(new Background((new BackgroundFill(color, CornerRadii.EMPTY, Insets.EMPTY))));
     }
 }

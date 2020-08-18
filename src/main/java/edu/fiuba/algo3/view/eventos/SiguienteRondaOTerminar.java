@@ -3,6 +3,7 @@ package edu.fiuba.algo3.view.eventos;
 import edu.fiuba.algo3.modelo.general.Jugador;
 import edu.fiuba.algo3.modelo.general.Kahoot;
 import edu.fiuba.algo3.view.VistaMenu;
+import edu.fiuba.algo3.view.VistaMultiplicadores;
 import edu.fiuba.algo3.view.VistaPregunta;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
@@ -25,8 +26,7 @@ public class SiguienteRondaOTerminar implements EventHandler<ActionEvent> {
 
     @Override
     public void handle(ActionEvent actionEvent) {
-        VistaPregunta vistaPregunta = new VistaPregunta();
-        vistaPregunta.VistaPreguntaSiguiente(miModelo, miModelo.obtenerJugadores().get(0),miStage);
+        VistaMultiplicadores vistaPregunta = new VistaMultiplicadores(miModelo, miStage, miModelo.obtenerPrimerJugador());
         Scene escena = new Scene(vistaPregunta);
         miStage.setScene(escena);
     }

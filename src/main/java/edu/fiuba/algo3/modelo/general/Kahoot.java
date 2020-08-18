@@ -5,6 +5,7 @@ import edu.fiuba.algo3.lectorDeArchivos.LectorDeArchivosTxt;
 import edu.fiuba.algo3.modelo.excepciones.ExtensionInvalidaExcepcion;
 import edu.fiuba.algo3.modelo.excepciones.NoQuedanUsosExcepcion;
 import edu.fiuba.algo3.modelo.preguntas.*;
+import javafx.scene.control.Alert;
 import org.json.simple.parser.ParseException;
 
 import java.io.IOException;
@@ -36,7 +37,6 @@ public class Kahoot {
         } else {
             preguntas = lector.crearListaDePreguntas(nombreArchivo);
         }
-
     }
     
     public String getFileExtension(String fileName){
@@ -71,6 +71,10 @@ public class Kahoot {
         return rondaActual.obtenerModificadores(jugador);
     }
 
+    public void utilizarModificador(Jugador jugador, IModificador modificador){
+        rondaActual.usarModificador(jugador, modificador);
+    }
+
     public void comenzar() {
 
         for(Pregunta pregunta: preguntas) {
@@ -99,11 +103,17 @@ public class Kahoot {
         return rondaActual.todosContestaron();
     }
 
+    public boolean esRondaFinal(){
+        return !ronda.hasNext();
+    }
+
     public boolean cambiarRonda(){
-        if(ronda.hasNext()){
+        if(!this.esRondaFinal()){
             rondaActual = (RondaBase) ronda.next();
             return true;
         }
         return false;
     }
+
+    public Jugador obtenerPrimerJugador(){ return this.obtenerJugadores().get(0); }
 }

@@ -3,7 +3,7 @@ package edu.fiuba.algo3.modelo.general;
 import edu.fiuba.algo3.modelo.excepciones.NoQuedanUsosExcepcion;
 
 public class Exclusividad implements IModificador {
-    private int usosDisponibles;
+    private Integer usosDisponibles;
 
     public Exclusividad(int cantUsos){
         usosDisponibles = cantUsos;
@@ -12,6 +12,11 @@ public class Exclusividad implements IModificador {
     @Override
     public int obtenerCantidad(){
         return usosDisponibles;
+    }
+
+    @Override
+    public String obtenerNombre() {
+        return ("Exclusividad (Quedan " + usosDisponibles.toString() + ')');
     }
 
     @Override

@@ -23,6 +23,8 @@ public class LectorDeArchivosJson implements LectorDeArchivos {
     @Override
     public List<Pregunta> crearListaDePreguntas(URI nombreArchivo) throws IOException, ParseException {
         String TIPO_GROUPED = "GroupChoice";
+        String TIPO_ORDERED = "OrderedChoice";
+        FabricaDePreguntas fabrica = new FabricaDePreguntas();
 
         List<Pregunta> nuevasPreguntas = new ArrayList<>();
         JSONParser jsonParser = new JSONParser();
@@ -30,16 +32,18 @@ public class LectorDeArchivosJson implements LectorDeArchivos {
         JSONObject preguntasJSON = (JSONObject) jsonParser.parse(new FileReader(file));
 
         if (preguntasJSON.containsKey(TIPO_GROUPED)){
-            agregarPreguntasGroup((JSONArray) preguntasJSON.get(TIPO_GROUPED), nuevasPreguntas);
+            agregarPreguntasGroupYOrdered((JSONArray) preguntasJSON.get(TIPO_GROUPED), nuevasPreguntas, fabrica);
+            preguntasJSON.remove(TIPO_GROUPED);
+        } else if (preguntasJSON.containsKey(TIPO_ORDERED)){
+            agregarPreguntasGroupYOrdered((JSONArray) preguntasJSON.get(TIPO_ORDERED), nuevasPreguntas, fabrica);
             preguntasJSON.remove(TIPO_GROUPED);
         }
-        agregarPreguntasNoGroup(preguntasJSON, nuevasPreguntas);
+        agregarPreguntasRestantes(preguntasJSON, nuevasPreguntas, fabrica);
 
         return nuevasPreguntas;
     }
 
-    private void agregarPreguntasNoGroup(JSONObject preguntasJSON, List<Pregunta> nuevasPreguntas) {
-        FabricaDePreguntas fabrica = new FabricaDePreguntas();
+    private void agregarPreguntasRestantes(JSONObject preguntasJSON, List<Pregunta> nuevasPreguntas, FabricaDePreguntas fabrica) {
         preguntasJSON.keySet().forEach(tipo -> {
             JSONArray preguntasDelMismoTipo = (JSONArray) preguntasJSON.get(tipo);
             for (Object preguntaObject : preguntasDelMismoTipo){
@@ -58,8 +62,7 @@ public class LectorDeArchivosJson implements LectorDeArchivos {
         });
     }
 
-    private void agregarPreguntasGroup(JSONArray preguntasGroupChoice, List<Pregunta> nuevasPreguntas) {
-        FabricaDePreguntas fabrica = new FabricaDePreguntas();
+    private void agregarPreguntasGroupYOrdered(JSONArray preguntasGroupChoice, List<Pregunta> nuevasPreguntas, FabricaDePreguntas fabrica) {
         for (Object objetoPregunta : preguntasGroupChoice){
             JSONObject pregunta = (JSONObject) objetoPregunta;
             String modo =  pregunta.get("modo").toString();
@@ -72,15 +75,12 @@ public class LectorDeArchivosJson implements LectorDeArchivos {
     }
 
     private List<Opcion> crearListaOpcionesGroup(Object opciones) {
-        Integer GRUPO_1 = 1;
-        Integer GRUPO_2 = 2;
+        List<Integer> grupos = new ArrayList<>();
+        int[] range = {1, 2, 3, 4};
+        for (int GROUP: range){ grupos.add(GROUP);}
 
         JSONObject opcionesJson = (JSONObject) opciones;
         List<Opcion> listaOpciones = new ArrayList<>();
-
-        List<Integer> grupos = new ArrayList<>();
-        grupos.add(GRUPO_1);
-        grupos.add(GRUPO_2);
 
         for (Integer grupo: grupos){
             List<String> grupoActual = jsonArrToList((JSONArray) opcionesJson.get(grupo.toString()));
