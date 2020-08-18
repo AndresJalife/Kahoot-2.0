@@ -4,7 +4,7 @@ import edu.fiuba.algo3.controller.ControladorSeleccionGrupos;
 import edu.fiuba.algo3.modelo.general.Jugador;
 import edu.fiuba.algo3.modelo.general.Kahoot;
 import edu.fiuba.algo3.modelo.preguntas.*;
-import edu.fiuba.algo3.view.VistaPregunta;
+import edu.fiuba.algo3.view.vistasGenerales.VistaPregunta;
 import javafx.animation.Timeline;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
