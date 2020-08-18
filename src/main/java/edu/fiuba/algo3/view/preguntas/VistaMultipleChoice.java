@@ -23,33 +23,31 @@ public class VistaMultipleChoice extends VistaTipoDePregunta {
 
     public VistaMultipleChoice(Kahoot modelo, Jugador jugador, Stage stage){
         this.getChildren().clear();
-//        GridPane grid = new GridPane();
         StackPane stack = new StackPane();
-//        grid.setHgap(10);
-//        grid.setVgap(10);
+
 
         Label usuario = new Label(jugador.obtenerNombre());
         usuario.setFont(Font.font("Arial", FontWeight.BOLD, 35));
-//        grid.add(usuario,35,3);
+
         stack.getChildren().add(usuario);
         stack.setMargin(usuario, new Insets(-600, 0, 0, 0));
 
         Label pregunta = new Label(modelo.obtenerPreguntaActual().obtenerTexto());
         pregunta.setFont(new Font(20));
-//        grid.add(pregunta,35,5);
+
         stack.getChildren().add(pregunta);
         stack.setMargin(pregunta, new Insets(-500, 0, 0, 0));
 
-//        int i = 34;
+
         int i = -600;
         List<AuxiliarCheckBox> cajas = new ArrayList<>();
         for(Opcion opcion : modelo.obtenerPreguntaActual().obtenerOpciones()){
             CheckBox boton = new CheckBox(opcion.obtenerTexto());
             cajas.add(new AuxiliarCheckBox(boton, opcion));
-//            grid.add(boton,i,11);
+
             stack.getChildren().add(boton);
             stack.setMargin(boton, new Insets(-200, 0, 0, i));
-//            i++;
+
             i += 600;
         }
         Button boton2 = new Button("Aceptar");
@@ -65,7 +63,7 @@ public class VistaMultipleChoice extends VistaTipoDePregunta {
             this.getChildren().clear();
             this.getChildren().addAll(vistaAux);
         });
-//        grid.add(boton2,35,15);
+
         stack.getChildren().add(boton2);
         stack.setMargin(boton2, new Insets(0, 0, 0, 0));
 
@@ -73,8 +71,8 @@ public class VistaMultipleChoice extends VistaTipoDePregunta {
         this.obtenerColorDeFondo(stack);
         this.getChildren().addAll(stack);
     }
-    private void obtenerColorDeFondo(StackPane grid) {
+    private void obtenerColorDeFondo(StackPane stack) {
         Color color = Color.rgb(122,62,72);
-        grid.setBackground(new Background((new BackgroundFill(color, CornerRadii.EMPTY, Insets.EMPTY))));
+        stack.setBackground(new Background((new BackgroundFill(color, CornerRadii.EMPTY, Insets.EMPTY))));
     }
 }
