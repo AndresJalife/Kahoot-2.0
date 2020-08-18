@@ -10,7 +10,7 @@
       [{
         "modo": "Clasico",
         "texto" : "¿Cuál es el orden de nacimientos?",
-        "opciones" : {"1":["Jesus"], "2":["El Dieguito (maradona)"], "2":["Britney Spears"], "3":["Bad Luck Brian"]}
+        "opciones" : {"1":["Jesus"], "2":["El Dieguito (maradona)"], "3":["Britney Spears"], "4":["Bad Luck Brian"]}
       }],
 
   "MultipleChoice" :
