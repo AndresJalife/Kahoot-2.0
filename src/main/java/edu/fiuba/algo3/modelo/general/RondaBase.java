@@ -6,16 +6,19 @@ import edu.fiuba.algo3.modelo.preguntas.Pregunta;
 
 import java.util.HashMap;
 import java.util.List;
+import java.util.function.Consumer;
 
 public abstract class RondaBase {
     protected Pregunta preguntaActual;
     protected List<Jugador> jugadores;
     protected HashMap<Jugador, List<RespuestaDeJugador>> respuestasDeJugadores;
+    private final Cronometro cronometro;
 
     public RondaBase(Pregunta pregunta, List<Jugador> nuevosJugadores){
         preguntaActual = pregunta;
         jugadores = nuevosJugadores;
         respuestasDeJugadores = new HashMap<>();
+        cronometro = new Cronometro(Pregunta.TIEMPO);
     }
 
     public Pregunta obtenerPreguntaActual() {
@@ -38,4 +41,10 @@ public abstract class RondaBase {
         return jugadores.size() % (respuestasDeJugadores.size()) == 0;
     }
 
+    public void comenzar(Consumer<Integer> alCambiar, Runnable alTerminar) {
+        cronometro.setAlCambiar(alCambiar);
+        cronometro.setAlTerminar(alTerminar);
+        cronometro.reset();
+        cronometro.comenzar();
+    }
 }

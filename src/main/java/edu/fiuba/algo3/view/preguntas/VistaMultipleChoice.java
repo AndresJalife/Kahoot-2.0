@@ -23,6 +23,7 @@ public class VistaMultipleChoice extends VistaTipoDePregunta {
 
     public VistaMultipleChoice(Kahoot modelo, Jugador jugador, Stage stage){
         this.getChildren().clear();
+        this.getStylesheets().add(getClass().getResource("/css/escenaInicial.css").toExternalForm());
         StackPane stack = new StackPane();
 
 
