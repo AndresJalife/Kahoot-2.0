@@ -1,6 +1,7 @@
 package edu.fiuba.algo3.view;
 
 import edu.fiuba.algo3.modelo.general.Kahoot;
+import edu.fiuba.algo3.view.eventos.PonerVistaIngresarUsuarios;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
@@ -29,16 +30,10 @@ public class VistaMenu extends StackPane {
         jugarBoton = new Button("Iniciar");
         Label titulo = new Label("Bienvenido a Cajoot");
         titulo.setFont(new Font(50));
-        jugarBoton.setOnAction(actionEvent -> {
-            Scene escenaPregunta = new Scene(new VistaIngresarUsuarios(modelo, stage));
-            escenaPregunta.getStylesheets().add(getClass().getResource("/css/escenaPregunta.css").toExternalForm());
-            stage.setScene(escenaPregunta);
-        });
+        jugarBoton.setOnAction(new PonerVistaIngresarUsuarios(modelo, stage));
         stack = new StackPane();
         stack.getChildren().addAll(titulo, jugarBoton);
         stack.setMargin(titulo, new Insets(-200, -10, 0, 30));
-
-
     }
 
     private void obtenerIngresarArchivo(Kahoot modelo, Stage stage) {
