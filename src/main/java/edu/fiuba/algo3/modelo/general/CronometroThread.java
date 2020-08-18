@@ -5,6 +5,7 @@ import java.util.function.Consumer;
 public class CronometroThread extends Thread {
 
     private int segundos;
+    private volatile boolean cortar;
     private Consumer<Integer> alCambiar;
     private Runnable alTerminar;
 
@@ -16,6 +17,8 @@ public class CronometroThread extends Thread {
     @Override
     public void run() {
         while (segundos > 0) {
+            if (cortar)
+                return;
             segundos--;
             if (alCambiar != null)
                 alCambiar.accept(segundos);
@@ -31,6 +34,10 @@ public class CronometroThread extends Thread {
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
+    }
+
+    public void finalizar() {
+        cortar = true;
     }
 
     public void setAlCambiar(Consumer<Integer> handler) {

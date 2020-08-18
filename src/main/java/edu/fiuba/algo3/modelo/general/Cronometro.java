@@ -23,6 +23,10 @@ public class Cronometro {
         thread.start();
     }
 
+    public void finalizar() {
+        thread.finalizar();
+    }
+
     public void setAlCambiar(Consumer<Integer> handler) {
         this.alCambiar = handler;
     }
