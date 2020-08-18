@@ -3,8 +3,11 @@ package edu.fiuba.algo3.view;
 import edu.fiuba.algo3.modelo.general.IModificador;
 import edu.fiuba.algo3.modelo.general.Jugador;
 import edu.fiuba.algo3.modelo.general.Kahoot;
+import edu.fiuba.algo3.view.eventos.NoUsaModificador;
+import edu.fiuba.algo3.view.eventos.UsaModificador;
 import javafx.geometry.Insets;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.*;
@@ -18,18 +21,33 @@ import java.util.Stack;
 
 public class VistaMultiplicadores extends StackPane {
 
+    StackPane stack;
 
     public VistaMultiplicadores(Kahoot modelo, Stage stage, Jugador jugador) {
-        StackPane stack = new StackPane();
-        this.obtenerColorDeFondo(stack);
-        this.getStylesheets().add(getClass().getResource("/css/escenaInicial.css").toExternalForm());
-        this.agregarModificadores(modelo, stack, stage, jugador);
+        List<IModificador> modificadores = modelo.obtenerModificadores(jugador);
+        boolean noTieneMasModificadores = true;
+        for(IModificador modificador : modificadores){
+            if(modificador.quedanUsos()) noTieneMasModificadores = false;
+        }
+        if(noTieneMasModificadores)this.getChildren().add(new VistaPregunta(modelo, modelo.obtenerJugadores().get(0), stage));
+        else{
+            stack = new StackPane();
+            this.obtenerColorDeFondo(stack);
+            this.getStylesheets().add(getClass().getResource("/css/escenaInicial.css").toExternalForm());
+            this.agregarModificadores(modelo, stack, stage, jugador);
+        }
     }
-
 
     private void agregarModificadores(Kahoot modelo, StackPane stack, Stage stage, Jugador jugador){
         this.getChildren().clear();
+        this.obtenerNombreYTitulo(jugador);
+        int i = -400;
+        this.obtenerBotonesDeModificadores(modelo,jugador,stage, i);
+        this.obtenerBotonDePasar(modelo, jugador, stage, i);
+        this.getChildren().addAll(stack);
+    }
 
+    private void obtenerNombreYTitulo(Jugador jugador){
         Label nombreJugador = new Label(jugador.obtenerNombre());
         nombreJugador.setFont(Font.font("Arial", FontWeight.BOLD, 35));
         stack.getChildren().addAll(nombreJugador);
@@ -38,39 +56,29 @@ public class VistaMultiplicadores extends StackPane {
         titulo.setFont(new Font(20));
         stack.getChildren().addAll(titulo);
         stack.setMargin(titulo, new Insets(-500, 0, 0, 0));
+    }
 
+    private void obtenerBotonesDeModificadores(Kahoot modelo, Jugador jugador, Stage stage, int i){
         List<IModificador> modificadores = modelo.obtenerModificadores(jugador);
-        int i = -400;
 
         for (IModificador modificador : modificadores) {
             Button boton = new Button(modificador.obtenerNombre());
-            boton.setOnAction(actionEvent -> {
-                modelo.utilizarModificador(jugador, modificador);
-                if(jugador == modelo.obtenerPrimerJugador())
-                    this.getChildren().add(new VistaMultiplicadores(modelo, stage, modelo.obtenerJugadores().get(1)));
-                else
-                    this.getChildren().add(new VistaPregunta(modelo, modelo.obtenerJugadores().get(0), stage));
-            });
+            boton.setOnAction(new UsaModificador(modelo, jugador, modificador, stage));
             stack.getChildren().addAll(boton);
             stack.setMargin(boton, new Insets(i, 0, 0, 0));
             i += 200;
         }
+    }
 
+    private void obtenerBotonDePasar(Kahoot modelo, Jugador jugador, Stage stage, int i){
         Button boton = new Button("Pasar");
-        boton.setOnAction(actionEvent -> {
-            if(jugador == modelo.obtenerPrimerJugador())
-                this.getChildren().add(new VistaMultiplicadores(modelo, stage, modelo.obtenerJugadores().get(1)));
-            else
-                this.getChildren().add(new VistaPregunta(modelo, modelo.obtenerJugadores().get(0), stage));
-        });
+        boton.setOnAction(new NoUsaModificador(modelo, jugador, stage));
         stack.getChildren().addAll(boton);
-        stack.setMargin(boton, new Insets(i, 0, 0, 0));
-        this.getChildren().addAll(stack);
+        stack.setMargin(boton, new Insets(0, 0, 0, 0));
     }
 
     private void obtenerColorDeFondo(StackPane stack) {
         Color color = Color.rgb(122,62,72);
         stack.setBackground(new Background((new BackgroundFill(color, CornerRadii.EMPTY, Insets.EMPTY))));
     }
-
 }
