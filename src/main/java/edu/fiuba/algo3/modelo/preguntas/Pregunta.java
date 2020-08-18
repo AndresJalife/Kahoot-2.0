@@ -5,7 +5,7 @@ import java.util.Collections;
 import java.util.List;
 
 public class Pregunta {
-    public final static int TIEMPO = 30;
+    public final static int TIEMPO = 15;
     private String textoPregunta;
     private List<Opcion> respuestasPosibles;
     private ITipoDePregunta tipo;
