@@ -28,6 +28,7 @@ public class ReCrearLaPregunta implements EventHandler<ActionEvent> {
     public void handle(ActionEvent actionEvent) {
         VistaTipoDePregunta vistaTipoPregunta = miFabrica.crearVistaTipoDePregunta(miModelo,miJugador,miStage);
         Scene escena = new Scene(vistaTipoPregunta);
+        escena.getStylesheets().add(getClass().getResource("/css/escenaInicial.css").toExternalForm());
         miStage.setScene(escena);
     }
 }

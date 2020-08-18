@@ -9,6 +9,8 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
+import javafx.scene.text.Font;
+import javafx.scene.text.FontWeight;
 import javafx.stage.Stage;
 
 import java.util.List;
@@ -20,6 +22,7 @@ public class VistaMultiplicadores extends StackPane {
     public VistaMultiplicadores(Kahoot modelo, Stage stage, Jugador jugador) {
         StackPane stack = new StackPane();
         this.obtenerColorDeFondo(stack);
+        this.getStylesheets().add(getClass().getResource("/css/escenaInicial.css").toExternalForm());
         this.agregarModificadores(modelo, stack, stage, jugador);
     }
 
@@ -28,9 +31,11 @@ public class VistaMultiplicadores extends StackPane {
         this.getChildren().clear();
 
         Label nombreJugador = new Label(jugador.obtenerNombre());
+        nombreJugador.setFont(Font.font("Arial", FontWeight.BOLD, 35));
         stack.getChildren().addAll(nombreJugador);
         setMargin(nombreJugador, new Insets(-600, 0, 0, 0));
         Label titulo = new Label("Elija el modificador para la siguiente ronda:");
+        titulo.setFont(new Font(20));
         stack.getChildren().addAll(titulo);
         stack.setMargin(titulo, new Insets(-500, 0, 0, 0));
 
@@ -41,7 +46,7 @@ public class VistaMultiplicadores extends StackPane {
             Button boton = new Button(modificador.obtenerNombre());
             boton.setOnAction(actionEvent -> {
                 modelo.utilizarModificador(jugador, modificador);
-                if(jugador == modelo.obtenerJugadores().get(0))
+                if(jugador == modelo.obtenerPrimerJugador())
                     this.getChildren().add(new VistaMultiplicadores(modelo, stage, modelo.obtenerJugadores().get(1)));
                 else
                     this.getChildren().add(new VistaPregunta(modelo, modelo.obtenerJugadores().get(0), stage));
@@ -53,7 +58,7 @@ public class VistaMultiplicadores extends StackPane {
 
         Button boton = new Button("Pasar");
         boton.setOnAction(actionEvent -> {
-            if(jugador == modelo.obtenerJugadores().get(0))
+            if(jugador == modelo.obtenerPrimerJugador())
                 this.getChildren().add(new VistaMultiplicadores(modelo, stage, modelo.obtenerJugadores().get(1)));
             else
                 this.getChildren().add(new VistaPregunta(modelo, modelo.obtenerJugadores().get(0), stage));
