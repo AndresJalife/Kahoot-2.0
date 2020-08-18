@@ -45,6 +45,7 @@ public class VistaMultipleChoice extends VistaTipoDePregunta {
         for(Opcion opcion : modelo.obtenerPreguntaActual().obtenerOpciones()){
             CheckBox boton = new CheckBox(opcion.obtenerTexto());
             cajas.add(new AuxiliarCheckBox(boton, opcion));
+            boton.setTextFill(Color.rgb(238, 205, 134));
 
             stack.getChildren().add(boton);
             stack.setMargin(boton, new Insets(-200, 0, 0, i));
