@@ -1,0 +1,13 @@
+{
+"GroupChoice" :
+      [{
+        "modo": "Clasico",
+        "texto" : "Separe entre caballos y flores.",
+        "opciones" : {"1": ["ANDALUZ", "APALUSA"], "2": ["NARCISOS"]}
+      },
+      {
+        "modo": "Clasico",
+        "texto" : "Separe entre anillos y dulces.",
+        "opciones" : {"1": ["ANDALUZ", "APALUSA"], "2": ["NARCISOS"]}
+      }]
+}
