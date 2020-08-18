@@ -19,7 +19,6 @@ public class VistaMenu extends StackPane {
 
     public VistaMenu(Kahoot modelo, Stage stage) {
         this.obtenerMenuInicio(modelo, stage);
-        this.obtenerIngresarArchivo(modelo, stage);
         this.obtenerColorDeFondo();
         this.getChildren().addAll(stack);
     }
@@ -44,8 +43,7 @@ public class VistaMenu extends StackPane {
 
     private void obtenerIngresarArchivo(Kahoot modelo, Stage stage) {
         try {
-            modelo.inicializarPreguntas(getClass().getResource("/preguntasVyF.json").toURI());
-
+            modelo.inicializarPreguntas(getClass().getResource("/semiPreguntas.json").toURI());
         }
         catch (Exception e){
             Alert fallo = new Alert(Alert.AlertType.ERROR);

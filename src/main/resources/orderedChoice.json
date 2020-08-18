@@ -1,0 +1,21 @@
+{
+  "OrderedChoice":
+  [
+    {
+      "modo": "Clasico",
+      "texto": "¿Cuál es el orden de nacimientos?",
+      "opciones": [
+        "Jesus",
+        "El Dieguito (maradona)",
+        "Britney Spears",
+        "Bad Luck Brian"
+      ],
+      "opcionesCorrectas": [
+        "Jesus",
+        "El Dieguito (maradona)",
+        "Britney Spears",
+        "Bad Luck Brian"
+      ]
+    }
+  ]
+}

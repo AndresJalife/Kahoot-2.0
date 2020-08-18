@@ -1,6 +1,7 @@
 package edu.fiuba.algo3.modelo.preguntas;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public class Pregunta {
@@ -51,5 +52,11 @@ public class Pregunta {
 
     public ITipoDePregunta obtenerTipo() {
         return tipo;
+    }
+
+    public List<Opcion> obtenerOpcionesMezcladas() {
+        List<Opcion> opcionesMezcladas = new ArrayList<>(List.copyOf(respuestasPosibles));
+        Collections.shuffle(opcionesMezcladas);
+        return opcionesMezcladas;
     }
 }
