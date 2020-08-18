@@ -57,7 +57,7 @@ public class VistaOrderedChoice extends VistaTipoDePregunta {
         this.setMargin(preguntaTexto, new Insets(-500, 0, 0, 0));
 
         this.getChildren().add(vBoxOpciones);
-        this.setMargin(vBoxOpciones, new Insets(-400, 0, 0, 0));
+        this.setMargin(vBoxOpciones, new Insets(-300, 0, 0, 0));
         this.getChildren().add(botonAceptar);
         this.setMargin(botonAceptar, new Insets(0, 0, 0, 0));
 
