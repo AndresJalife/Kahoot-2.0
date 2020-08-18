@@ -69,7 +69,7 @@ public class VistaMultipleChoice extends VistaTipoDePregunta {
         stack.getChildren().add(boton2);
         stack.setMargin(boton2, new Insets(0, 0, 0, 0));
 
-        this.getStylesheets().add(getClass().getResource("/css/escenaPregunta.css").toExternalForm());
+        this.getStylesheets().add(getClass().getResource("/css/escenaGeneral.css").toExternalForm());
         this.obtenerColorDeFondo(stack);
         this.getChildren().addAll(stack);
     }

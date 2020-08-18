@@ -20,7 +20,7 @@ public class App extends Application {
         modelo = new Kahoot();
         cargarPreguntasKahoot();
         var escenaInicial = new Scene(new VistaMenu(modelo, stage));
-        escenaInicial.getStylesheets().add(getClass().getResource("/css/escenaInicial.css").toExternalForm());
+        escenaInicial.getStylesheets().add(getClass().getResource("/css/escenaGeneral.css").toExternalForm());
         stage.setWidth(1024);
         stage.setHeight(768);
         stage.setTitle("Cajoot");
