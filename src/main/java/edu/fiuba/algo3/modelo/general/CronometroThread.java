@@ -6,6 +6,7 @@ public class CronometroThread extends Thread {
 
     private int segundos;
     private Consumer<Integer> alCambiar;
+    private Runnable alTerminar;
 
     public CronometroThread(int segundos) {
         this.segundos = segundos;
@@ -13,10 +14,14 @@ public class CronometroThread extends Thread {
 
     @Override
     public void run() {
-        segundos--;
-        if(this.alCambiar != null)
-            this.alCambiar.accept(this.segundos);
-        esperar1Segundo();
+        while (segundos > 0) {
+            segundos--;
+            if (alCambiar != null)
+                alCambiar.accept(segundos);
+            esperar1Segundo();
+        }
+        if(alTerminar != null)
+            alTerminar.run();
     }
 
     private void esperar1Segundo() {
@@ -29,5 +34,9 @@ public class CronometroThread extends Thread {
 
     public void setAlCambiar(Consumer<Integer> handler) {
         this.alCambiar = handler;
+    }
+
+    public void setAlTerminar(Runnable handler) {
+        this.alTerminar = handler;
     }
 }
