@@ -59,13 +59,55 @@ public class TestsUnitariosGroupChoice {
 
 
     @Test
-    public void ingresarRespuestaGroupChoiceYContestaMal() {
+    public void ingresarRespuestaGroupChoiceYContestaUnoMal() {
         List<Opcion> opciones = new ArrayList<>();
         List<RespuestaDeJugador> respuestas = new ArrayList<>();
         Jugador jugador = new Jugador("Jorge");
         Opcion Opcion1 = new Opcion("Azul", 5, 5);
         Opcion Opcion2 = new Opcion("Casa", 2, 5);
         Opcion Opcion3 = new Opcion("Verde", 5, 5);
+
+        opciones.add(Opcion1);
+        opciones.add(Opcion2);
+        opciones.add(Opcion3);
+
+        Pregunta pregunta = new Pregunta("Seleccionar los colores y los inmuebles", opciones, new TipoGroupChoice(), new ModoClasico());
+        respuestas.add(new RespuestaDeJugador(Opcion2, 5));
+
+        jugador.agregarPuntaje(pregunta.calcularPuntaje(respuestas));
+
+        assertEquals(0, jugador.obtenerPuntaje());
+    }
+
+    @Test
+    public void ingresarRespuestaGroupChoiceYContestaUnParMal() {
+        List<Opcion> opciones = new ArrayList<>();
+        List<RespuestaDeJugador> respuestas = new ArrayList<>();
+        Jugador jugador = new Jugador("Jorge");
+        Opcion Opcion1 = new Opcion("Azul", 5, 5);
+        Opcion Opcion2 = new Opcion("Casa", 2, 5);
+        Opcion Opcion3 = new Opcion("Verde", 3, 5);
+
+        opciones.add(Opcion1);
+        opciones.add(Opcion2);
+        opciones.add(Opcion3);
+
+        Pregunta pregunta = new Pregunta("Seleccionar los colores y los inmuebles", opciones, new TipoGroupChoice(), new ModoClasico());
+        respuestas.add(new RespuestaDeJugador(Opcion2, 5));
+
+        jugador.agregarPuntaje(pregunta.calcularPuntaje(respuestas));
+
+        assertEquals(0, jugador.obtenerPuntaje());
+    }
+
+    @Test
+    public void ingresarRespuestaGroupChoiceYContestaTodosMal() {
+        List<Opcion> opciones = new ArrayList<>();
+        List<RespuestaDeJugador> respuestas = new ArrayList<>();
+        Jugador jugador = new Jugador("Jorge");
+        Opcion Opcion1 = new Opcion("Azul", 4, 5);
+        Opcion Opcion2 = new Opcion("Casa", 2, 5);
+        Opcion Opcion3 = new Opcion("Verde", 3, 5);
 
         opciones.add(Opcion1);
         opciones.add(Opcion2);
