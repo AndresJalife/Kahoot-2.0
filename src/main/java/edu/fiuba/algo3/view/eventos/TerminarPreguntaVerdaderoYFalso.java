@@ -29,7 +29,8 @@ public class TerminarPreguntaVerdaderoYFalso implements EventHandler<ActionEvent
     @Override
     public void handle(ActionEvent actionEvent) {
         var respuestas = new ArrayList<RespuestaDeJugador>();
-        respuestas.add(new RespuestaDeJugador(miOpcion));
+        if (miOpcion != null)
+            respuestas.add(new RespuestaDeJugador(miOpcion));
         miModelo.jugadorResponder(miJugador, respuestas);
         VistaPregunta vistaPregunta = new VistaPregunta();
         vistaPregunta.CambiarPreguntaAOtroJugador(miModelo, miJugador, miStage);

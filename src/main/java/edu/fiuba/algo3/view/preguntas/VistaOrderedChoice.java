@@ -35,10 +35,19 @@ public class VistaOrderedChoice extends VistaTipoDePregunta {
     private VBox vBoxParteInferior;
     private VBox vBoxOpciones;
     private Button aceptar;
+    private Kahoot modelo;
+    private Jugador jugador;
+    private Stage stage;
+    private ArrayList<RespuestaDeJugador> respuestas;
+
     public VistaOrderedChoice(Kahoot modelo, Jugador jugador, Stage stage) {
         super();
         opciones = new ArrayList<>();
         opciones = modelo.obtenerPreguntaActual().obtenerOpciones();
+        respuestas = new ArrayList<RespuestaDeJugador>();
+        this.modelo = modelo;
+        this.jugador = jugador;
+        this.stage = stage;
 
         parteSuperior = new AnchorPane();
         parteInferior = new AnchorPane();
@@ -63,7 +72,6 @@ public class VistaOrderedChoice extends VistaTipoDePregunta {
         for(Opcion opcion: opciones){
             choiceBoxes.add(new ChoiceBox(FXCollections.observableArrayList(posiciones)));
         }
-        List<RespuestaDeJugador> respuestas = new ArrayList<>();
 
         int i=0;
         for(Opcion opcion: opciones){
@@ -95,22 +103,7 @@ public class VistaOrderedChoice extends VistaTipoDePregunta {
             vBoxOpciones.getChildren().add(finalChoiceBoxAux1);
             i++;
         }
-        aceptar.setOnAction(new EventHandler<ActionEvent>() {
-            @Override
-            public void handle(ActionEvent actionEvent){
-                if(respuestas.size()==opciones.size()) {
-                    modelo.jugadorResponder(jugador, respuestas);
-                    VistaPregunta vistaPregunta = new VistaPregunta();
-                    vistaPregunta.CambiarPreguntaAOtroJugador(modelo,jugador,stage);
-                    Scene escena = new Scene(vistaPregunta);
-                    stage.setScene(escena);
-                }else {
-                    Alert fallo = new Alert(Alert.AlertType.ERROR);
-                    fallo.setHeaderText("Falta agregar posiciones= ");
-                    fallo.showAndWait();
-                }
-            }
-        });
+        aceptar.setOnAction(this::mandarRespuestas);
         vBoxOpciones.getChildren().add(aceptar);
     }
 
@@ -173,5 +166,24 @@ public class VistaOrderedChoice extends VistaTipoDePregunta {
         splitPane.setFocusTraversable(false);
         splitPane.prefHeight(stage.getHeight());
         splitPane.prefWidth(stage.getWidth());
+    }
+
+    private void mandarRespuestas(ActionEvent actionEvent) {
+        if (respuestas.size() == opciones.size()) {
+            modelo.jugadorResponder(jugador, respuestas);
+            VistaPregunta vistaPregunta = new VistaPregunta();
+            vistaPregunta.CambiarPreguntaAOtroJugador(modelo,jugador,stage);
+            Scene escena = new Scene(vistaPregunta);
+            stage.setScene(escena);
+        }else {
+            Alert fallo = new Alert(Alert.AlertType.ERROR);
+            fallo.setHeaderText("Falta agregar posiciones= ");
+            fallo.showAndWait();
+        }
+    }
+
+    @Override
+    public void forzarContestar() {
+        mandarRespuestas(null);
     }
 }

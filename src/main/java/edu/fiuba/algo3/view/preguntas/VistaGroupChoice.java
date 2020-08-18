@@ -8,6 +8,7 @@ import edu.fiuba.algo3.modelo.preguntas.Pregunta;
 import edu.fiuba.algo3.modelo.preguntas.RespuestaDeJugador;
 import edu.fiuba.algo3.view.VistaPregunta;
 import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.control.Button;
@@ -28,23 +29,22 @@ public class VistaGroupChoice extends VistaTipoDePregunta {
     private Label preguntaTexto;
     private Button botonAceptar;
     private ArrayList<RespuestaDeJugador> respuestas;
+    private Kahoot modelo;
+    private Jugador jugador;
+    private Stage stage;
 
     public VistaGroupChoice(Kahoot modelo, Jugador jugador, Stage stage) {
         super();
+        this.modelo = modelo;
+        this.jugador = jugador;
+        this.stage = stage;
         this.getChildren().clear();
         inicializarTextos(modelo,jugador);
         setStackPane();
         this.setColorFondo();
-            botonAceptar.setOnAction(actionEvent -> {
-                modelo.jugadorResponder(jugador, respuestas);
-                VistaPregunta vistaAux = new VistaPregunta();
-                vistaAux.CambiarPreguntaAOtroJugador(modelo, jugador, stage);
-                this.getChildren().clear();
-                this.getChildren().addAll(vistaAux);
-            });
-            this.getStylesheets().add(getClass().getResource("/css/escenaPregunta.css").toExternalForm());
-
-        }
+        botonAceptar.setOnAction(this::mandarRespuestas);
+        this.getStylesheets().add(getClass().getResource("/css/escenaPregunta.css").toExternalForm());
+    }
 
     private void setStackPane() {
         this.setAlignment(Pos.CENTER);
@@ -102,5 +102,18 @@ public class VistaGroupChoice extends VistaTipoDePregunta {
     private void setColorFondo() {
         Color color = Color.web("#eecd86",1.0);
         this.setBackground(new Background((new BackgroundFill(color, CornerRadii.EMPTY, Insets.EMPTY))));
+    }
+
+    public void mandarRespuestas(ActionEvent event) {
+        modelo.jugadorResponder(jugador, respuestas);
+        VistaPregunta vistaAux = new VistaPregunta();
+        vistaAux.CambiarPreguntaAOtroJugador(modelo, jugador, stage);
+        this.getChildren().clear();
+        this.getChildren().addAll(vistaAux);
+    }
+
+    @Override
+    public void forzarContestar() {
+        mandarRespuestas(null);
     }
 }

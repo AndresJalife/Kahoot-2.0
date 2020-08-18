@@ -15,16 +15,20 @@ import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 import javafx.stage.Stage;
 
-import java.util.ArrayList;
-
 public class VistaVerdaderoYFalso extends VistaTipoDePregunta {
 
-//    GridPane grid;
-    StackPane stack;
+    private StackPane stack;
+    private Kahoot modelo;
+    private Jugador jugador;
+    private Stage stage;
 
     public VistaVerdaderoYFalso(Kahoot modelo, Jugador jugador, Stage stage){
         super();
-        stack = new StackPane();
+        this.stack = new StackPane();
+        this.modelo = modelo;
+        this.jugador = jugador;
+        this.stage = stage;
+
         this.getStylesheets().add(getClass().getResource("/css/escenaInicial.css").toExternalForm());
         this.obtenerLabels(jugador, modelo);
         this.obtenerBotonesParaResponder(modelo, jugador, stage);
@@ -59,5 +63,10 @@ public class VistaVerdaderoYFalso extends VistaTipoDePregunta {
     private void obtenerColorDeFondo() {
         Color color = Color.rgb(122,62,72);
         stack.setBackground(new Background((new BackgroundFill(color, CornerRadii.EMPTY, Insets.EMPTY))));
+    }
+
+    @Override
+    public void forzarContestar() {
+        new TerminarPreguntaVerdaderoYFalso(null, modelo, jugador, stage).handle(null);
     }
 }

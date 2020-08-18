@@ -21,7 +21,16 @@ import java.util.List;
 
 public class VistaMultipleChoice extends VistaTipoDePregunta {
 
-    public VistaMultipleChoice(Kahoot modelo, Jugador jugador, Stage stage){
+    private Kahoot modelo;
+    private Jugador jugador;
+    private Stage stage;
+    private List<AuxiliarCheckBox> cajas;
+
+    public VistaMultipleChoice(Kahoot modelo, Jugador jugador, Stage stage) {
+        this.modelo = modelo;
+        this.jugador = jugador;
+        this.stage = stage;
+
         this.getChildren().clear();
         this.getStylesheets().add(getClass().getResource("/css/escenaInicial.css").toExternalForm());
         StackPane stack = new StackPane();
@@ -41,7 +50,7 @@ public class VistaMultipleChoice extends VistaTipoDePregunta {
 
 
         int i = -600;
-        List<AuxiliarCheckBox> cajas = new ArrayList<>();
+        this.cajas = new ArrayList<>();
         for(Opcion opcion : modelo.obtenerPreguntaActual().obtenerOpciones()){
             CheckBox boton = new CheckBox(opcion.obtenerTexto());
             cajas.add(new AuxiliarCheckBox(boton, opcion));
@@ -52,18 +61,7 @@ public class VistaMultipleChoice extends VistaTipoDePregunta {
             i += 600;
         }
         Button boton2 = new Button("Aceptar");
-        var respuestas = new ArrayList<RespuestaDeJugador>();
-        boton2.setOnAction(actionEvent -> {
-            for(AuxiliarCheckBox aux : cajas){
-                if(aux.obtenerCheckBox().isSelected())
-                    respuestas.add(new RespuestaDeJugador(aux.obtenerOpcion()));
-            }
-            modelo.jugadorResponder(jugador, respuestas);
-            VistaPregunta vistaAux = new VistaPregunta();
-            vistaAux.CambiarPreguntaAOtroJugador(modelo, jugador, stage);
-            this.getChildren().clear();
-            this.getChildren().addAll(vistaAux);
-        });
+        boton2.setOnAction(this::mandarRespuestas);
 
         stack.getChildren().add(boton2);
         stack.setMargin(boton2, new Insets(0, 0, 0, 0));
@@ -72,8 +70,27 @@ public class VistaMultipleChoice extends VistaTipoDePregunta {
         this.obtenerColorDeFondo(stack);
         this.getChildren().addAll(stack);
     }
+
     private void obtenerColorDeFondo(StackPane stack) {
         Color color = Color.rgb(122,62,72);
         stack.setBackground(new Background((new BackgroundFill(color, CornerRadii.EMPTY, Insets.EMPTY))));
+    }
+
+    private void mandarRespuestas(ActionEvent event) {
+        var respuestas = new ArrayList<RespuestaDeJugador>();
+        for(AuxiliarCheckBox aux : cajas){
+            if(aux.obtenerCheckBox().isSelected())
+                respuestas.add(new RespuestaDeJugador(aux.obtenerOpcion()));
+        }
+        modelo.jugadorResponder(jugador, respuestas);
+        VistaPregunta vistaAux = new VistaPregunta();
+        vistaAux.CambiarPreguntaAOtroJugador(modelo, jugador, stage);
+        this.getChildren().clear();
+        this.getChildren().addAll(vistaAux);
+    }
+
+    @Override
+    public void forzarContestar() {
+        mandarRespuestas(null);
     }
 }
