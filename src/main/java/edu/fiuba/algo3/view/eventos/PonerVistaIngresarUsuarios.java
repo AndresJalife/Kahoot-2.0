@@ -1,7 +1,7 @@
 package edu.fiuba.algo3.view.eventos;
 
 import edu.fiuba.algo3.modelo.general.Kahoot;
-import edu.fiuba.algo3.view.VistaIngresarUsuarios;
+import edu.fiuba.algo3.view.vistasGenerales.VistaIngresarUsuarios;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.Scene;

@@ -1,4 +1,4 @@
-package edu.fiuba.algo3.view;
+package edu.fiuba.algo3.view.vistasGenerales;
 
 import edu.fiuba.algo3.modelo.general.Jugador;
 import edu.fiuba.algo3.modelo.general.Kahoot;
@@ -60,17 +60,15 @@ public class VistaResultados extends StackPane{
         for(Jugador jugador : jugadores){
             Label usuario;
 
-            if(i==20) usuario = new Label("El ganador es: "+ jugador.obtenerNombre() );
+            if(i==20) usuario = new Label("El ganador es "+ jugador.obtenerNombre()+" con "+jugador.obtenerPuntaje()+"puntos !" );
 
+            else usuario = new Label("El perdedor es "+ jugador.obtenerNombre()+" con "+jugador.obtenerPuntaje()+"puntos" );
 
-            else usuario = new Label("El perdedor es: "+ jugador.obtenerNombre() );
-            usuario.setTextFill(Color.rgb(238, 205, 134));
             usuario.setFont(Font.font("Arial", FontWeight.BOLD, 35));
-            grid.add(usuario,42,i);
-            Label puntos = new Label(String.valueOf(jugador.obtenerPuntaje()));
-            puntos.setFont(Font.font("Arial", FontWeight.BOLD, 35));
-            grid.add(puntos,43,i);
-            i++;
+            usuario.setTextFill(Color.rgb(238, 205, 134));
+
+            grid.add(usuario,20,i);
+            i=i+10;
         }
     }
     private void obtenerColorDeFondo() {

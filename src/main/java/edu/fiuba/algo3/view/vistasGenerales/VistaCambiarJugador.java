@@ -1,11 +1,9 @@
-package edu.fiuba.algo3.view;
+package edu.fiuba.algo3.view.vistasGenerales;
 
 import edu.fiuba.algo3.modelo.general.Jugador;
 import edu.fiuba.algo3.modelo.general.Kahoot;
 import edu.fiuba.algo3.view.eventos.ReCrearLaPregunta;
-import edu.fiuba.algo3.view.preguntas.FabricaDeVistasPregunta;
-import edu.fiuba.algo3.view.preguntas.VistaTipoDePregunta;
-import edu.fiuba.algo3.view.preguntas.VistaVerdaderoYFalso;
+import edu.fiuba.algo3.view.vistasPreguntas.FabricaDeVistasPregunta;
 import javafx.geometry.Insets;
 import javafx.scene.control.Button;
 import javafx.scene.layout.*;

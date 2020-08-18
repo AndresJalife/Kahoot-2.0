@@ -1,13 +1,11 @@
 package edu.fiuba.algo3;
 
 import edu.fiuba.algo3.modelo.general.Kahoot;
-import edu.fiuba.algo3.view.VistaMenu;
+import edu.fiuba.algo3.view.vistasGenerales.VistaMenu;
 import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
-import javafx.scene.control.Label;
 import javafx.scene.image.Image;
-import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
 
 /**
@@ -38,7 +36,7 @@ public class App extends Application {
 
     public void cargarPreguntasKahoot(){
         try {
-            modelo.inicializarPreguntas(getClass().getResource("/semiPreguntas.json").toURI());
+            modelo.inicializarPreguntas(getClass().getResource("/preguntas.json").toURI());
 
         }
         catch (Exception e){

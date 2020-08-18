@@ -1,10 +1,8 @@
-package edu.fiuba.algo3.view.preguntas;
+package edu.fiuba.algo3.view.vistasPreguntas;
 
 import edu.fiuba.algo3.modelo.general.Jugador;
 import edu.fiuba.algo3.modelo.general.Kahoot;
 import edu.fiuba.algo3.modelo.preguntas.Opcion;
-import edu.fiuba.algo3.modelo.preguntas.RespuestaDeJugador;
-import edu.fiuba.algo3.view.VistaPregunta;
 import edu.fiuba.algo3.view.eventos.TerminarPreguntaVerdaderoYFalso;
 import javafx.geometry.Insets;
 import javafx.scene.control.Button;
@@ -14,8 +12,6 @@ import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 import javafx.stage.Stage;
-
-import java.util.ArrayList;
 
 public class VistaVerdaderoYFalso extends VistaTipoDePregunta {
 

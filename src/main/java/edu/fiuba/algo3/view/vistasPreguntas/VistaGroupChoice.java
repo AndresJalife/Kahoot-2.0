@@ -1,22 +1,19 @@
-package edu.fiuba.algo3.view.preguntas;
+package edu.fiuba.algo3.view.vistasPreguntas;
 
 import edu.fiuba.algo3.controller.ControladorSeleccionGrupos;
 import edu.fiuba.algo3.modelo.general.Jugador;
 import edu.fiuba.algo3.modelo.general.Kahoot;
-import edu.fiuba.algo3.modelo.preguntas.*;
-import edu.fiuba.algo3.view.VistaPregunta;
-import edu.fiuba.algo3.view.eventos.TerminarPreguntaVerdaderoYFalso;
-import javafx.animation.Timeline;
-import javafx.beans.property.IntegerProperty;
+import edu.fiuba.algo3.modelo.preguntas.Opcion;
+import edu.fiuba.algo3.modelo.preguntas.Pregunta;
+import edu.fiuba.algo3.modelo.preguntas.RespuestaDeJugador;
+import edu.fiuba.algo3.view.vistasGenerales.VistaPregunta;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 import javafx.geometry.Insets;
-import javafx.geometry.Orientation;
 import javafx.geometry.Pos;
-import javafx.scene.Scene;
-import javafx.scene.control.*;
+import javafx.scene.control.Button;
+import javafx.scene.control.ChoiceBox;
+import javafx.scene.control.Label;
 import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
@@ -25,31 +22,31 @@ import javafx.stage.Stage;
 
 import java.util.ArrayList;
 
-public class VistaOrderedChoice extends VistaTipoDePregunta {
-    private ObservableList<Integer> listaPosiciones;
+public class VistaGroupChoice extends VistaTipoDePregunta {
+    private ObservableList<Integer> listaGrupos;
     private VBox vBoxOpciones;
     private Label nombreJugador;
     private Label preguntaTexto;
     private Button botonAceptar;
     private ArrayList<RespuestaDeJugador> respuestas;
 
-    public VistaOrderedChoice(Kahoot modelo, Jugador jugador, Stage stage) {
+    public VistaGroupChoice(Kahoot modelo, Jugador jugador, Stage stage) {
         super();
         this.getChildren().clear();
-        inicializarTextos(modelo, jugador);
+        inicializarTextos(modelo,jugador);
 
         setStackPane();
         this.setColorFondo();
         botonAceptar.setOnAction(actionEvent -> {
-            modelo.jugadorResponder(jugador, respuestas);
-            VistaPregunta vistaAux = new VistaPregunta();
-            vistaAux.CambiarPreguntaAOtroJugador(modelo, jugador, stage);
-            this.getChildren().clear();
-            this.getChildren().addAll(vistaAux);
-        });
-        this.getStylesheets().add(getClass().getResource("/css/escenaPregunta.css").toExternalForm());
+                modelo.jugadorResponder(jugador, respuestas);
+                VistaPregunta vistaAux = new VistaPregunta();
+                vistaAux.CambiarPreguntaAOtroJugador(modelo, jugador, stage);
+                this.getChildren().clear();
+                this.getChildren().addAll(vistaAux);
+            });
+            this.getStylesheets().add(getClass().getResource("/css/escenaPregunta.css").toExternalForm());
     }
-    private void setStackPane () {
+    private void setStackPane() {
         this.setAlignment(Pos.CENTER);
 
         this.getChildren().add(nombreJugador);
@@ -65,9 +62,8 @@ public class VistaOrderedChoice extends VistaTipoDePregunta {
 
     }
 
-    private void inicializarTextos (Kahoot modelo, Jugador jugador){
+    private void inicializarTextos(Kahoot modelo,Jugador jugador) {
         Pregunta pregunta = modelo.obtenerPreguntaActual();
-
         nombreJugador = new Label(jugador.obtenerNombre());
         nombreJugador.setFont(Font.font("Arial", FontWeight.BOLD, 35));
         preguntaTexto = new Label(pregunta.obtenerTexto());
@@ -76,19 +72,17 @@ public class VistaOrderedChoice extends VistaTipoDePregunta {
         botonAceptar = new Button("Aceptar");
         botonAceptar.setAlignment(Pos.CENTER);
 
-        listaPosiciones = FXCollections.observableArrayList();
+        listaGrupos = FXCollections.observableArrayList();
 
-        for (int i = 0; i < pregunta.obtenerOpcionesMezcladas().size() ; i++) {
-            listaPosiciones.add(i+1);
-        }
+        listaGrupos.add(1);
+        listaGrupos.add(2);
 
         respuestas = new ArrayList<>();
-
         vBoxOpciones = new VBox();
         for (Opcion opcion : pregunta.obtenerOpcionesMezcladas()) {
             RespuestaDeJugador nuevaRespuestaDeJugador = new RespuestaDeJugador(opcion);
 
-            ChoiceBox<Integer> nuevaChoiceBox = new ChoiceBox<>(listaPosiciones);
+            ChoiceBox<Integer> nuevaChoiceBox = new ChoiceBox<>(listaGrupos);
             Label nuevaOpcionTexto = new Label(opcion.obtenerTexto());
 
             nuevaOpcionTexto.setFont(Font.font(18));
@@ -97,9 +91,9 @@ public class VistaOrderedChoice extends VistaTipoDePregunta {
             HBox nuevaCajaOpcion = new HBox(nuevaOpcionTexto, nuevaChoiceBox);
             nuevaCajaOpcion.setAlignment(Pos.CENTER);
 
-            nuevaChoiceBox.setOnAction(new ControladorSeleccionGrupos(nuevaRespuestaDeJugador, nuevaChoiceBox));
+            nuevaChoiceBox.setOnAction(new ControladorSeleccionGrupos(nuevaRespuestaDeJugador,nuevaChoiceBox));
 
-            HBox cajaOpcionYChoiceBox = new HBox(nuevaOpcionTexto, nuevaChoiceBox);
+            HBox cajaOpcionYChoiceBox = new HBox(nuevaOpcionTexto,nuevaChoiceBox);
             cajaOpcionYChoiceBox.setAlignment(Pos.CENTER);
             vBoxOpciones.getChildren().add(cajaOpcionYChoiceBox);
             vBoxOpciones.setAlignment(Pos.CENTER);
@@ -108,8 +102,8 @@ public class VistaOrderedChoice extends VistaTipoDePregunta {
         }
     }
 
-    private void setColorFondo () {
-        Color color = Color.rgb(122, 62, 72);
+    private void setColorFondo() {
+        Color color = Color.rgb(122,62,72);
         this.setBackground(new Background((new BackgroundFill(color, CornerRadii.EMPTY, Insets.EMPTY))));
     }
 }

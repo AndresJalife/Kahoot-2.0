@@ -1,23 +1,15 @@
-package edu.fiuba.algo3.view;
+package edu.fiuba.algo3.view.vistasGenerales;
 
 import edu.fiuba.algo3.modelo.general.Jugador;
 import edu.fiuba.algo3.modelo.general.Kahoot;
-import edu.fiuba.algo3.view.preguntas.FabricaDeVistasPregunta;
-import edu.fiuba.algo3.view.preguntas.VistaTipoDePregunta;
-import edu.fiuba.algo3.view.preguntas.VistaVerdaderoYFalso;
-import edu.fiuba.algo3.view.VistaRespuestas;
+import edu.fiuba.algo3.view.vistasPreguntas.FabricaDeVistasPregunta;
 import javafx.application.Platform;
-import javafx.geometry.Insets;
-import javafx.scene.Scene;
-import javafx.scene.control.Alert;
 import javafx.scene.control.Label;
 import javafx.scene.layout.StackPane;
-import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 import javafx.stage.Stage;
 
-import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.function.Consumer;
 
 public class VistaPregunta extends StackPane {

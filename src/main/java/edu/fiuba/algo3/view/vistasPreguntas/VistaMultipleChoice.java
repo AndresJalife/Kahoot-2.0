@@ -1,11 +1,10 @@
-package edu.fiuba.algo3.view.preguntas;
+package edu.fiuba.algo3.view.vistasPreguntas;
 
 import edu.fiuba.algo3.modelo.general.Jugador;
 import edu.fiuba.algo3.modelo.general.Kahoot;
 import edu.fiuba.algo3.modelo.preguntas.Opcion;
 import edu.fiuba.algo3.modelo.preguntas.RespuestaDeJugador;
-import edu.fiuba.algo3.view.VistaPregunta;
-import javafx.event.ActionEvent;
+import edu.fiuba.algo3.view.vistasGenerales.VistaPregunta;
 import javafx.geometry.Insets;
 import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
@@ -45,6 +44,7 @@ public class VistaMultipleChoice extends VistaTipoDePregunta {
         for(Opcion opcion : modelo.obtenerPreguntaActual().obtenerOpciones()){
             CheckBox boton = new CheckBox(opcion.obtenerTexto());
             cajas.add(new AuxiliarCheckBox(boton, opcion));
+            boton.setTextFill(Color.rgb(238, 205, 134));
 
             stack.getChildren().add(boton);
             stack.setMargin(boton, new Insets(-200, 0, 0, i));

@@ -1,4 +1,4 @@
-package edu.fiuba.algo3.view;
+package edu.fiuba.algo3.view.vistasGenerales;
 
 import edu.fiuba.algo3.modelo.general.IModificador;
 import edu.fiuba.algo3.modelo.general.Jugador;
@@ -6,8 +6,6 @@ import edu.fiuba.algo3.modelo.general.Kahoot;
 import edu.fiuba.algo3.view.eventos.NoUsaModificador;
 import edu.fiuba.algo3.view.eventos.UsaModificador;
 import javafx.geometry.Insets;
-import javafx.scene.Scene;
-import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.*;
@@ -17,7 +15,6 @@ import javafx.scene.text.FontWeight;
 import javafx.stage.Stage;
 
 import java.util.List;
-import java.util.Stack;
 
 public class VistaMultiplicadores extends StackPane {
 
