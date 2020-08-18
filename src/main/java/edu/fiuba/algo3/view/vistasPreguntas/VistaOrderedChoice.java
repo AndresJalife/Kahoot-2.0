@@ -1,17 +1,14 @@
 package edu.fiuba.algo3.view.vistasPreguntas;
 
-import edu.fiuba.algo3.controller.ControladorSeleccionGrupos;
+import edu.fiuba.algo3.controller.ControladorChoiceBox;
 import edu.fiuba.algo3.modelo.general.Jugador;
 import edu.fiuba.algo3.modelo.general.Kahoot;
 import edu.fiuba.algo3.modelo.preguntas.*;
 import edu.fiuba.algo3.view.vistasGenerales.VistaPregunta;
-import javafx.animation.Timeline;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 import javafx.geometry.Insets;
-import javafx.geometry.Orientation;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
@@ -51,15 +48,15 @@ public class VistaOrderedChoice extends VistaTipoDePregunta {
         this.setAlignment(Pos.CENTER);
 
         this.getChildren().add(nombreJugador);
-        this.setMargin(nombreJugador, new Insets(-600, 0, 0, 0));
+        setMargin(nombreJugador, new Insets(-600, 0, 0, 0));
 
         this.getChildren().add(preguntaTexto);
-        this.setMargin(preguntaTexto, new Insets(-500, 0, 0, 0));
+        setMargin(preguntaTexto, new Insets(-500, 0, 0, 0));
 
         this.getChildren().add(vBoxOpciones);
-        this.setMargin(vBoxOpciones, new Insets(-300, 0, 0, 0));
+        setMargin(vBoxOpciones, new Insets(-300, 0, 0, 0));
         this.getChildren().add(botonAceptar);
-        this.setMargin(botonAceptar, new Insets(0, 0, 0, 0));
+        setMargin(botonAceptar, new Insets(0, 0, 0, 0));
 
     }
 
@@ -95,7 +92,7 @@ public class VistaOrderedChoice extends VistaTipoDePregunta {
             HBox nuevaCajaOpcion = new HBox(nuevaOpcionTexto, nuevaChoiceBox);
             nuevaCajaOpcion.setAlignment(Pos.CENTER);
 
-            nuevaChoiceBox.setOnAction(new ControladorSeleccionGrupos(nuevaRespuestaDeJugador, nuevaChoiceBox));
+            nuevaChoiceBox.setOnAction(new ControladorChoiceBox(nuevaRespuestaDeJugador, nuevaChoiceBox));
 
             HBox cajaOpcionYChoiceBox = new HBox(nuevaOpcionTexto, nuevaChoiceBox);
             cajaOpcionYChoiceBox.setAlignment(Pos.CENTER);
