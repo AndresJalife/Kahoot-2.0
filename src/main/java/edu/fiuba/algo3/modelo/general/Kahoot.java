@@ -96,6 +96,10 @@ public class Kahoot {
         rondaActual.comenzar(alCambiar, alTerminar);
     }
 
+    public void finalizarRonda() {
+        rondaActual.finalizar();
+    }
+
     public Pregunta obtenerPreguntaActual(){
         return rondaActual.obtenerPreguntaActual();
     }

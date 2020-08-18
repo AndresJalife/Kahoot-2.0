@@ -47,4 +47,8 @@ public abstract class RondaBase {
         cronometro.reset();
         cronometro.comenzar();
     }
+
+    public void finalizar() {
+        cronometro.finalizar();
+    }
 }

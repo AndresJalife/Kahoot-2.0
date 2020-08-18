@@ -4,6 +4,7 @@ import edu.fiuba.algo3.modelo.general.Jugador;
 import edu.fiuba.algo3.modelo.general.Kahoot;
 import edu.fiuba.algo3.view.preguntas.FabricaDeVistasPregunta;
 import javafx.application.Platform;
+import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.layout.StackPane;
 import javafx.scene.paint.Color;
@@ -43,11 +44,12 @@ public class VistaPregunta extends StackPane {
 
         modelo.comenzarRonda(alCambiar, alTerminar);
 
-        this.getChildren().addAll(vistaTipoPregunta);
+        this.getChildren().addAll(vistaTipoPregunta, contador);
     }
 
     public void CambiarPreguntaAOtroJugador(Kahoot modelo, Jugador jugador, Stage stage) {
         this.getChildren().clear();
+        modelo.finalizarRonda();
         if(modelo.todosContestaron()) {
             if(modelo.esRondaFinal()) {
                 VistaResultados vistaResultados = new VistaResultados(modelo,stage);
@@ -64,7 +66,7 @@ public class VistaPregunta extends StackPane {
                 if(jugadoraux != jugador)
                     siguiente = jugadoraux;
             }
-            VistaCambiarJugador vistaCambiarJugador = new VistaCambiarJugador(modelo, siguiente, stage);
+            var vistaCambiarJugador = new VistaCambiarJugador(modelo, siguiente, stage);
             this.getChildren().addAll(vistaCambiarJugador);
         }
     }
