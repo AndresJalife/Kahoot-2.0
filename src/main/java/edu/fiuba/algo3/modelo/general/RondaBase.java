@@ -6,6 +6,7 @@ import edu.fiuba.algo3.modelo.preguntas.Pregunta;
 
 import java.util.HashMap;
 import java.util.List;
+import java.util.function.Consumer;
 
 public abstract class RondaBase {
     protected Pregunta preguntaActual;
@@ -40,7 +41,9 @@ public abstract class RondaBase {
         return jugadores.size() % (respuestasDeJugadores.size()) == 0;
     }
 
-    public void comenzar() {
+    public void comenzar(Consumer<Integer> alCambiar, Runnable alTerminar) {
+        cronometro.setAlCambiar(alCambiar);
+        cronometro.setAlTerminar(alTerminar);
         cronometro.reset();
         cronometro.comenzar();
     }

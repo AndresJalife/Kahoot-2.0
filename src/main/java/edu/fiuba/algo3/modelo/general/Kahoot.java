@@ -11,6 +11,7 @@ import org.json.simple.parser.ParseException;
 import java.io.IOException;
 import java.net.URI;
 import java.util.*;
+import java.util.function.Consumer;
 
 public class Kahoot {
     private List<Jugador> jugadores;
@@ -91,8 +92,8 @@ public class Kahoot {
         rondaActual = (RondaBase) ronda.next();
     }
 
-    public void comenzarRonda() {
-        rondaActual.comenzar();
+    public void comenzarRonda(Consumer<Integer> alCambiar, Runnable alTerminar) {
+        rondaActual.comenzar(alCambiar, alTerminar);
     }
 
     public Pregunta obtenerPreguntaActual(){
