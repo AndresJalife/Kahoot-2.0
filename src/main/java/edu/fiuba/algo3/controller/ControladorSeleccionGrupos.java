@@ -15,6 +15,6 @@ public class ControladorSeleccionGrupos implements EventHandler<ActionEvent> {
 
     @Override
     public void handle(ActionEvent actionEvent) {
-        respuestaDeJugador.cambiarGrupo(seleccionadorGrupo.getValue());
+        respuestaDeJugador.setGrupoElegido(seleccionadorGrupo.getValue());
     }
 }
