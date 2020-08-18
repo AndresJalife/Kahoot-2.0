@@ -91,6 +91,10 @@ public class Kahoot {
         rondaActual = (RondaBase) ronda.next();
     }
 
+    public void comenzarRonda() {
+        rondaActual.comenzar();
+    }
+
     public Pregunta obtenerPreguntaActual(){
         return rondaActual.obtenerPreguntaActual();
     }
@@ -108,7 +112,7 @@ public class Kahoot {
     }
 
     public boolean cambiarRonda(){
-        if(!this.esRondaFinal()){
+        if(!this.esRondaFinal()) {
             rondaActual = (RondaBase) ronda.next();
             return true;
         }

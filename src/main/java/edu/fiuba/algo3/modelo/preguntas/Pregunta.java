@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Pregunta {
+    public final static int TIEMPO = 30;
     private String textoPregunta;
     private List<Opcion> respuestasPosibles;
     private ITipoDePregunta tipo;
