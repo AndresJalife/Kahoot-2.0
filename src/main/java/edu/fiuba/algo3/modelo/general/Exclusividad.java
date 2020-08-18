@@ -16,7 +16,7 @@ public class Exclusividad implements IModificador {
 
     @Override
     public String obtenerNombre() {
-        return ("Exclusividad (Quedan =" + usosDisponibles.toString() + ')');
+        return ("Exclusividad (Quedan " + usosDisponibles.toString() + ')');
     }
 
     @Override
