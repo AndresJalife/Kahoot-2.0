@@ -1,6 +1,6 @@
 package edu.fiuba.algo3.view.vistasPreguntas;
 
-import edu.fiuba.algo3.controller.ControladorSeleccionGrupos;
+import edu.fiuba.algo3.controller.ControladorChoiceBox;
 import edu.fiuba.algo3.modelo.general.Jugador;
 import edu.fiuba.algo3.modelo.general.Kahoot;
 import edu.fiuba.algo3.modelo.preguntas.Opcion;
@@ -46,22 +46,23 @@ public class VistaGroupChoice extends VistaTipoDePregunta {
         setStackPane();
         this.setColorFondo();
         botonAceptar.setOnAction(this::mandarRespuestas);
-        this.getStylesheets().add(getClass().getResource("/css/escenaGeneral.css").toExternalForm());
+        this.getStylesheets().add(getClass().getResource("/css/orderedYGroup.css").toExternalForm());
     }
 
     private void setStackPane() {
-        this.setAlignment(Pos.CENTER);
+        setAlignment(Pos.CENTER);
 
         this.getChildren().add(nombreJugador);
-        this.setMargin(nombreJugador, new Insets(-600, 0, 0, 0));
+        setMargin(nombreJugador, new Insets(-600, 0, 0, 0));
 
         this.getChildren().add(preguntaTexto);
-        this.setMargin(preguntaTexto, new Insets(-500, 0, 0, 0));
+        setMargin(preguntaTexto, new Insets(-500, 0, 0, 0));
 
         this.getChildren().add(vBoxOpciones);
-        this.setMargin(vBoxOpciones, new Insets(-400, 0, 0, 0));
+        vBoxOpciones.setSpacing(15);
+        setMargin(vBoxOpciones, new Insets(-300, 0, 0, 0));
         this.getChildren().add(botonAceptar);
-        this.setMargin(botonAceptar, new Insets(0, 0, 0, 0));
+        setMargin(botonAceptar, new Insets(0, 0, 0, 0));
 
     }
 
@@ -93,12 +94,12 @@ public class VistaGroupChoice extends VistaTipoDePregunta {
 
             HBox nuevaCajaOpcion = new HBox(nuevaOpcionTexto, nuevaChoiceBox);
             nuevaCajaOpcion.setAlignment(Pos.CENTER);
+            nuevaCajaOpcion.setSpacing(20);
 
-            nuevaChoiceBox.setOnAction(new ControladorSeleccionGrupos(nuevaRespuestaDeJugador,nuevaChoiceBox));
+            nuevaChoiceBox.setOnAction(new ControladorChoiceBox(nuevaRespuestaDeJugador,nuevaChoiceBox));
 
-            HBox cajaOpcionYChoiceBox = new HBox(nuevaOpcionTexto,nuevaChoiceBox);
-            cajaOpcionYChoiceBox.setAlignment(Pos.CENTER);
-            vBoxOpciones.getChildren().add(cajaOpcionYChoiceBox);
+            nuevaCajaOpcion.setAlignment(Pos.CENTER);
+            vBoxOpciones.getChildren().add(nuevaCajaOpcion);
             vBoxOpciones.setAlignment(Pos.CENTER);
 
             respuestas.add(nuevaRespuestaDeJugador);
