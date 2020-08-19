@@ -21,7 +21,6 @@ public class ControladorSeleccionGrupos implements EventHandler<ActionEvent> {
             respuestaDeJugador.setGrupoElegido(0);
         } else {
             respuestaDeJugador.setGrupoElegido(valor.intValue());
-            System.out.println("El jugador respondio " + valor);
         }
     }
 }
