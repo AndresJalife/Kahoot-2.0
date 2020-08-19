@@ -1,6 +1,6 @@
 package edu.fiuba.algo3.view.vistasPreguntas;
 
-import edu.fiuba.algo3.controller.ControladorChoiceBox;
+import edu.fiuba.algo3.view.eventos.ControladorChoiceBox;
 import edu.fiuba.algo3.modelo.general.Jugador;
 import edu.fiuba.algo3.modelo.general.Kahoot;
 import edu.fiuba.algo3.modelo.preguntas.*;

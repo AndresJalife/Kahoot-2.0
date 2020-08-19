@@ -1,4 +1,4 @@
-package edu.fiuba.algo3.controller;
+package edu.fiuba.algo3.view.eventos;
 
 import edu.fiuba.algo3.modelo.preguntas.RespuestaDeJugador;
 import javafx.event.ActionEvent;
