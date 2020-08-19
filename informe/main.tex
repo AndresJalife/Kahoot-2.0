@@ -57,6 +57,8 @@ El presente informe reune la documentación de la solución del segundo trabajo 
 
 \section{Supuestos}\label{sec:supuestos}
 % Deberá contener explicaciones de cada uno de los supuestos que el alumno haya tenido que adoptar a partir de situaciones que no estén contempladas en la especificación.
+A continuacion vamos a enumerar algunos supuestos que tuvimos que tener en cuenta, ya que no estaban especificados por el enunciado.\\
+Un supuesto importante que tuvimos a la hora de desarrollar el modelo fue el de mostrar y guardar la decision de los jugadores acerca del uso o no de los distintos modificadores previo a que alguno de los jugadores vea la pregunta. Hicimos esto debido a que nos parecio logico que los modificadores se usen con el fin de tener algun 'boost' para alcanzar al otro jugador, pero sin aprovecharse de conocer la pregunta, por lo que creemos que es un tanto mas divertido e impredecible el desarrollo del juego. 
 \item[ExtensionInvalidaExcepcion]
 
 \section{Modelo de dominio}\label{sec:modelo}
@@ -183,7 +185,30 @@ Incluir un diagrama de paquetes UML para mostrar el acoplamiento de su trabajo.
 
 \section{Diagramas de estado}\label{sec:diagramasdeestados}
 
-Incluir diagramas de estados, mostrando tanto los estados como las distintas transiciones para
-varias entidades del modelo.
+En el primer diagrama se pueden ver los distintos estados que existen en la clase Exclusividad. Estos van a depender de la cantidad de usos disponibles que haya para el dado modificador de tipo exclusividad, siendo la cantidad inicial 2. En los primeros 2 estados, el comportamiento de la clase es el esperado y normal(aplica la exclusividad), pero una vez que pase por estos levantara la  excepcion "no tiene usos".
+Tambien se puede notar que una vez que se utiliza la exclusividad, no se puede volver a un estado anterior por lo que solo hay un camino de transicion de estados.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\textwidth]{DiagramaDeEstadoExclusividad.png}
+    \caption{\label{fig:class03}Diagrama de exclusividad.}
+\end{figure}
+
+El segundo diagrama trata de una clase similar a la mencionada anteriormente, con la excepcion de que solo se tiene un uso al inicializarse. Ademas, al ingresar al estado "Disponible" que vendria a ser cuando se inicialice el objeto para un dado jugador, se creara un factor dependiendo del parametro.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\textwidth]{DiagramaDeEstadoMultiplicador.png}
+    \caption{\label{fig:class03}Diagrama de multiplicador.}
+\end{figure}
+
+En el ultimo diagrama se pueden  ver las distintas transiciones de estado internas que tiene el cronometro. Se puede observar que si se usa el metodo de esperar 1 segundo, se vuelve a un estado anterior. Los distintos estados van a estar creados por los pulsos de reloj.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\textwidth]{DiagramaDeEstadoCronometro.png}
+    \caption{\label{fig:class03}Diagrama de cronometro.}
+\end{figure}
+
 
 \end{document}

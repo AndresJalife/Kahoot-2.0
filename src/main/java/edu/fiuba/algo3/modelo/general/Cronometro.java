@@ -15,11 +15,11 @@ public class Cronometro {
 
     public void reset() {
         thread = new CronometroThread(segundos);
-        thread.setAlCambiar(this.alCambiar);
-        thread.setAlTerminar(this.alTerminar);
     }
 
     public void comenzar() {
+        thread.setAlCambiar(this.alCambiar);
+        thread.setAlTerminar(this.alTerminar);
         thread.start();
     }
 

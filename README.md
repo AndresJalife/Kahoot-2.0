@@ -6,11 +6,11 @@ Trabajo Práctico número 2 de la materia Algoritmos y Programación III de FIUB
 
 ## Grupo {07}
 
-* **AndresJalife** - [104342][https://github.com/AndresJalife]
-* **Maximiliano Levi** - [104288][https://github.com/maxilevi]
-* **Damian Ganopolsky** - [101168][https://github.com/DamianGanopolsky]
-* **Agustin Brasburg** - [104733][https://github.com/AgustinBrasburg]
-* **Mathias Welz** - [101552][https://github.com/MathiWelz]
+* **AndresJalife** - [104342] [GitHub](https://github.com/AndresJalife)
+* **Maximiliano Levi** - [104288] [GitHub](https://github.com/maxilevi)
+* **Damian Ganopolsky** - [101168] [GitHub](https://github.com/DamianGanopolsky)
+* **Agustin Brasburg** - [104733] [GitHub](https://github.com/AgustinBrasburg)
+* **Mathias Welz** - [101552] [GitHub](https://github.com/MathiWelz)
 
 Corrector: **{Sebastián Blázquez}**
 
@@ -26,11 +26,11 @@ maven 3.6.0
 
 ## Ejecutando las pruebas
 
-Explicación de como ejecutar las pruebas
+mvn clean test
 
 ## Ejecutando la aplicación
 
-Explicación de como ejecutar la aplicación
+mvn clean javafx:run
 
 ## Licencia
 
