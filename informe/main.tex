@@ -145,7 +145,7 @@ El formato JSON mantiene la misma idea de formato propio, representando a los mo
 
 \newline
 \newline
-Ejemplo
+Ejemplo de archivo MultiplChoice / VerdaderoYFalso 
 \begin{verbatim}
 {
   "MultipleChoice" :
@@ -155,6 +155,35 @@ Ejemplo
         "opciones" : ["Matías Schrank", "Francisco Delgado", "Vos"],
         "opcionesCorrectas": ["Francisco Delgado"],
       }]
+}
+\end{verbatim}
+\newline
+Ejemplo de archivo OrderedChoice / GroupChoice
+\begin{verbatim}
+{
+"GroupChoice" :
+      [{
+        "modo": "Clasico",
+        "texto" : "Separe entre caballos (Grupo 1) y flores (Grupo 2).",
+        "opciones" : {"1": ["ANDALUZ", "APALUSA"], "2": ["NARCISOS"]}
+      }]
+}
+
+{
+  "OrderedChoice":
+  [
+    {
+      "modo": "Clasico",
+      "texto": "¿Cuál es el orden de nacimientos?",
+      "opciones" : 
+      {
+        "1":["Jesus"],
+        "2":["El Dieguito (maradona)"],
+        "3":["Britney Spears"],
+        "4":["Bad Luck Brian"]
+      }
+    }
+  ]
 }
 \end{verbatim}
 \end{description}
