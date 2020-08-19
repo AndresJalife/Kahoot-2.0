@@ -1,7 +1,9 @@
 /*Background color of the control itself*/
 .choice-box {
-     -fx-background-color: black;
+     -fx-background-color: #7a3e48;
      -fx-mark-color: orange; // arrow color
+     -fx-border-color:#eecd86;
+     -fx-border-radius:15px;
 }
 
 /*Selected item text color on the control itself*/
