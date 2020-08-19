@@ -5,18 +5,5 @@
         "texto" : "¿Era Abraham Lincoln un asesino?",
         "opciones" : ["Verdadero", "Falso"],
         "opcionesCorrectas": ["Verdadero"]
-      },
-      {
-        "modo": "ConPenalidad",
-        "texto" : "2+1",
-        "opciones" : ["3", "J"],
-        "opcionesCorrectas": ["3"]
-      },
-      {
-      "modo": "ConPenalidad",
-      "texto" : "2x0",
-      "opciones" : ["0", "Homero"],
-      "opcionesCorrectas": ["0"]
-    }
-  ]
+      }]
 }

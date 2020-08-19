@@ -26,11 +26,11 @@ maven 3.6.0
 
 ## Ejecutando las pruebas
 
-Explicación de como ejecutar las pruebas
+mvn clean test
 
 ## Ejecutando la aplicación
 
-Explicación de como ejecutar la aplicación
+mvn clean javafx:run
 
 ## Licencia
 
