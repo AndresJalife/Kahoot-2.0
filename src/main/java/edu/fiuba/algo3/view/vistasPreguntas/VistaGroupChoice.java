@@ -46,7 +46,7 @@ public class VistaGroupChoice extends VistaTipoDePregunta {
         setStackPane();
         this.setColorFondo();
         botonAceptar.setOnAction(this::mandarRespuestas);
-        this.getStylesheets().add(getClass().getResource("/css/escenaGeneral.css").toExternalForm());
+        this.getStylesheets().add(getClass().getResource("/css/orderedYGroup.css").toExternalForm());
     }
 
     private void setStackPane() {
@@ -59,7 +59,8 @@ public class VistaGroupChoice extends VistaTipoDePregunta {
         setMargin(preguntaTexto, new Insets(-500, 0, 0, 0));
 
         this.getChildren().add(vBoxOpciones);
-        setMargin(vBoxOpciones, new Insets(-400, 0, 0, 0));
+        vBoxOpciones.setSpacing(15);
+        setMargin(vBoxOpciones, new Insets(-300, 0, 0, 0));
         this.getChildren().add(botonAceptar);
         setMargin(botonAceptar, new Insets(0, 0, 0, 0));
 
@@ -93,12 +94,12 @@ public class VistaGroupChoice extends VistaTipoDePregunta {
 
             HBox nuevaCajaOpcion = new HBox(nuevaOpcionTexto, nuevaChoiceBox);
             nuevaCajaOpcion.setAlignment(Pos.CENTER);
+            nuevaCajaOpcion.setSpacing(20);
 
             nuevaChoiceBox.setOnAction(new ControladorChoiceBox(nuevaRespuestaDeJugador,nuevaChoiceBox));
 
-            HBox cajaOpcionYChoiceBox = new HBox(nuevaOpcionTexto,nuevaChoiceBox);
-            cajaOpcionYChoiceBox.setAlignment(Pos.CENTER);
-            vBoxOpciones.getChildren().add(cajaOpcionYChoiceBox);
+            nuevaCajaOpcion.setAlignment(Pos.CENTER);
+            vBoxOpciones.getChildren().add(nuevaCajaOpcion);
             vBoxOpciones.setAlignment(Pos.CENTER);
 
             respuestas.add(nuevaRespuestaDeJugador);
