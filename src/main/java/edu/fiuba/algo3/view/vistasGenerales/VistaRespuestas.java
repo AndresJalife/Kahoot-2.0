@@ -56,8 +56,6 @@ public class VistaRespuestas extends StackPane {
         titulo.setFont(new Font(30));
         stack.setMargin(correctas, new Insets(-500, 0, 0, 0));
         stack.getChildren().addAll(titulo, correctas);
-
-
     }
 
     private List<Jugador> actualizarResultadosYOrdenar(Kahoot modelo){
