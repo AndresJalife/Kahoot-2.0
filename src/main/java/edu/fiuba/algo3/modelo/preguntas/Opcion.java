@@ -26,6 +26,10 @@ public class Opcion {
         return this.grupo == this.grupoCorrecto;
     }
 
+    public int obtenerGrupo(){
+        return this.grupo;
+    }
+
     public boolean esCorrecta(int grupo) {
         return this.grupo == grupo && grupo == this.grupoCorrecto;
     }

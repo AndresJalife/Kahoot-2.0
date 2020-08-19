@@ -25,6 +25,12 @@
         "texto" : "¿Quién gano gran hermano 2015?",
         "opciones" : ["Matías Schrank", "Francisco Delgado", "Vos"],
         "opcionesCorrectas": ["Francisco Delgado"]
+      },
+     {
+        "modo": "ConPenalidad",
+        "texto" : "¿En que partes de la casa se canta la mayoría de las veces?",
+        "opciones" : ["Ducha", "Cuarto", "Living"],
+        "opcionesCorrectas": ["Ducha", "Cuarto"]
       }],
       
   "GroupChoice" :
