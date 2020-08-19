@@ -9,7 +9,7 @@ public class Cronometro {
     private Runnable alTerminar;
 
     public Cronometro(int segundos) {
-        this.segundos = segundos;
+        this.segundos = segundos+1;
         this.reset();
     }
 
