@@ -6,10 +6,14 @@ import edu.fiuba.algo3.view.vistasPreguntas.FabricaDeVistasPregunta;
 import javafx.application.Platform;
 import javafx.scene.control.Label;
 import javafx.scene.layout.StackPane;
+import javafx.scene.media.AudioClip;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 import javafx.stage.Stage;
+import javafx.scene.media.Media;
+import javafx.scene.media.MediaPlayer;
+import java.io.File;
 
 import java.util.function.Consumer;
 
@@ -31,9 +35,13 @@ public class VistaPregunta extends StackPane {
         contador.setTranslateX(0);
         contador.setTranslateY(250);
 
+        AudioClip sonidoCronometro = new AudioClip(this.getClass().getResource("/sonidos/timerClick.mp3").toExternalForm());
+        sonidoCronometro.setVolume(100);
         var alCambiar = (Consumer<Integer>) (segundos) -> {
             Platform.runLater( () -> {
                 contador.setText(segundos.toString());
+                sonidoCronometro.play();
+
             });
         };
         var alTerminar = (Runnable) () -> {
