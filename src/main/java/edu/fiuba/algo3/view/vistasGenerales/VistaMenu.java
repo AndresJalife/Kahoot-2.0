@@ -26,14 +26,27 @@ public class VistaMenu extends StackPane {
 
     private void obtenerMenuInicio(Kahoot modelo, Stage stage){
         this.getChildren().clear();
-
+        stack = new StackPane();
         jugarBoton = new Button("Iniciar");
+        jugarBoton.setOnAction(new PonerVistaIngresarUsuarios(modelo, stage));
+
+        Button ayudaBoton = new Button("?");
+        ayudaBoton.setOnAction(actionEvent -> {
+            Label ayuda = new Label( "Bienvenidos! Este es un juego de pregunta - respuesta multijugador.\n" +
+                                        "Al comienzo de cada pregunta cada jugador va a poder elegir una  \n" +
+                                        "exclusividad (en caso de que la pregunta no tenga penalidad) o un \n" +
+                                        "multiplicador x2 o x3 en caso contrario. Buena suerte!" );
+            stack.getChildren().add(ayuda);
+            stack.setMargin(ayuda, new Insets(200, 0, 0, 0));
+        });
+
         Label titulo = new Label("Bienvenido a Cajoot");
         titulo.setFont(new Font(50));
-        jugarBoton.setOnAction(new PonerVistaIngresarUsuarios(modelo, stage));
-        stack = new StackPane();
-        stack.getChildren().addAll(titulo, jugarBoton);
-        stack.setMargin(titulo, new Insets(-200, -10, 0, 30));
+
+
+        stack.getChildren().addAll(titulo, jugarBoton, ayudaBoton);
+        stack.setMargin(titulo, new Insets(-200, 0, 0, 0));
+        stack.setMargin(ayudaBoton, new Insets(600, -800, 0, 0));
     }
 
     private void obtenerColorDeFondo() {

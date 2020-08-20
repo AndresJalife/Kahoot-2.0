@@ -2,11 +2,11 @@
 \contentsline {section}{\numberline {1}Introducci\IeC {\'o}n}{2}{section.1}
 \contentsline {section}{\numberline {2}Supuestos}{2}{section.2}
 \contentsline {section}{\numberline {3}Modelo de dominio}{2}{section.3}
-\contentsline {section}{\numberline {4}Diagramas de clase}{2}{section.4}
-\contentsline {section}{\numberline {5}Detalles de implementaci\IeC {\'o}n}{4}{section.5}
-\contentsline {subsection}{\numberline {5.1}Aliquam vel eros id magna vestibulum rhoncus}{4}{subsection.5.1}
-\contentsline {subsection}{\numberline {5.2}Proin sodales leo dapibus sapien fermentum}{5}{subsection.5.2}
-\contentsline {section}{\numberline {6}Excepciones}{5}{section.6}
-\contentsline {section}{\numberline {7}Diagramas de secuencia}{5}{section.7}
-\contentsline {section}{\numberline {8}Diagrama de paquetes}{5}{section.8}
-\contentsline {section}{\numberline {9}Diagramas de estado}{6}{section.9}
+\contentsline {section}{\numberline {4}Diagramas de clase}{3}{section.4}
+\contentsline {section}{\numberline {5}Detalles de implementaci\IeC {\'o}n}{5}{section.5}
+\contentsline {subsection}{\numberline {5.1}Inicializacion de preguntas}{5}{subsection.5.1}
+\contentsline {subsection}{\numberline {5.2}Proin sodales leo dapibus sapien fermentum}{6}{subsection.5.2}
+\contentsline {section}{\numberline {6}Excepciones}{7}{section.6}
+\contentsline {section}{\numberline {7}Diagramas de secuencia}{7}{section.7}
+\contentsline {section}{\numberline {8}Diagrama de paquetes}{7}{section.8}
+\contentsline {section}{\numberline {9}Diagramas de estado}{9}{section.9}

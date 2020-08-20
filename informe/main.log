@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=pdflatex 2020.7.25)  29 JUL 2020 20:13
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=pdflatex 2020.7.25)  19 AUG 2020 22:59
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -549,26 +549,38 @@ Package: float 2001/11/08 v1.3d Float enhancements (AL)
 ) (./main.aux
 LaTeX Info: Redefining \. on input line 24.
 LaTeX Info: Redefining \% on input line 24.
+
+
+LaTeX Warning: Label `fig:seq01' multiply defined.
+
+
+LaTeX Warning: Label `fig:class03' multiply defined.
+
+
+LaTeX Warning: Label `fig:class03' multiply defined.
+
+
+LaTeX Warning: Label `fig:class03' multiply defined.
+
 )
 \openout1 = `main.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 21.
-LaTeX Font Info:    ... okay on input line 21.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 21.
-LaTeX Font Info:    ... okay on input line 21.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 21.
-LaTeX Font Info:    ... okay on input line 21.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 21.
-LaTeX Font Info:    ... okay on input line 21.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 21.
-LaTeX Font Info:    ... okay on input line 21.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 21.
-LaTeX Font Info:    ... okay on input line 21.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 21.
-LaTeX Font Info:    ... okay on input line 21.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 22.
+LaTeX Font Info:    ... okay on input line 22.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 22.
+LaTeX Font Info:    ... okay on input line 22.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 22.
+LaTeX Font Info:    ... okay on input line 22.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 22.
+LaTeX Font Info:    ... okay on input line 22.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 22.
+LaTeX Font Info:    ... okay on input line 22.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 22.
+LaTeX Font Info:    ... okay on input line 22.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 22.
+LaTeX Font Info:    ... okay on input line 22.
 \AtBeginShipoutBox=\box28
-
-(/usr/share/texlive/texmf-dist/tex/latex/graphics/color.sty
+ (/usr/share/texlive/texmf-dist/tex/latex/graphics/color.sty
 Package: color 2016/07/10 v1.1e Standard LaTeX Color (DPC)
 
 (/usr/share/texlive/texmf-dist/tex/latex/graphics-cfg/color.cfg
@@ -576,7 +588,7 @@ File: color.cfg 2016/01/02 v1.6 sample color configuration
 )
 Package color Info: Driver file: pdftex.def on input line 147.
 )
-Package hyperref Info: Link coloring ON on input line 21.
+Package hyperref Info: Link coloring ON on input line 22.
 
 (/usr/share/texlive/texmf-dist/tex/latex/hyperref/nameref.sty
 Package: nameref 2016/05/21 v2.44 Cross-referencing by name of section
@@ -586,11 +598,11 @@ Package: gettitlestring 2016/05/16 v1.5 Cleanup title references (HO)
 )
 \c@section@level=\count102
 )
-LaTeX Info: Redefining \ref on input line 21.
-LaTeX Info: Redefining \pageref on input line 21.
-LaTeX Info: Redefining \nameref on input line 21.
-LaTeX Info: Redefining \. on input line 21.
-LaTeX Info: Redefining \% on input line 21.
+LaTeX Info: Redefining \ref on input line 22.
+LaTeX Info: Redefining \pageref on input line 22.
+LaTeX Info: Redefining \nameref on input line 22.
+LaTeX Info: Redefining \. on input line 22.
+LaTeX Info: Redefining \% on input line 22.
 
 (/usr/share/texlive/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
@@ -625,12 +637,12 @@ e
 <logofiuba.jpg, id=4, 387.00584pt x 129.3633pt>
 File: logofiuba.jpg Graphic file (type jpg)
 <use logofiuba.jpg>
-Package pdftex.def Info: logofiuba.jpg  used on input line 23.
+Package pdftex.def Info: logofiuba.jpg  used on input line 24.
 (pdftex.def)             Requested size: 170.71652pt x 57.0641pt.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <14.4> on input line 32.
+(Font)              <14.4> on input line 33.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <7> on input line 32.
+(Font)              <7> on input line 33.
 
 [1
 
@@ -648,95 +660,404 @@ pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has
 been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.52 \newpage
+l.53 \newpage
               [1]
-<diagramaGeneral.png, id=41, 793.96625pt x 489.83pt>
+Underfull \hbox (badness 10000) in paragraph at lines 60--63
+
+ []
+
+
+! LaTeX Error: Lonely \item--perhaps a missing list environment.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.63 \item[ExtensionInvalidaExcepcion]
+                                      
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+Underfull \hbox (badness 10000) detected at line 63
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 67--68
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 69--70
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 71--72
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 73--74
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 75--76
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 77--78
+
+ []
+
+[2]
+<diagramaGeneral.png, id=45, 609.27625pt x 507.8975pt>
 File: diagramaGeneral.png Graphic file (type png)
 <use diagramaGeneral.png>
-Package pdftex.def Info: diagramaGeneral.png  used on input line 70.
-(pdftex.def)             Requested size: 339.67029pt x 209.56145pt.
-<diagramaJugador.png, id=43, 402.50375pt x 632.3625pt>
+Package pdftex.def Info: diagramaGeneral.png  used on input line 87.
+(pdftex.def)             Requested size: 339.67029pt x 283.15744pt.
+<diagramaJugador.png, id=47, 577.15625pt x 688.5725pt>
 File: diagramaJugador.png Graphic file (type png)
 <use diagramaJugador.png>
-Package pdftex.def Info: diagramaJugador.png  used on input line 76.
-(pdftex.def)             Requested size: 339.67029pt x 533.64139pt.
- [2pdfTeX warning (ext4): destination with the same identifier (name{figure.1})
+Package pdftex.def Info: diagramaJugador.png  used on input line 93.
+(pdftex.def)             Requested size: 339.67029pt x 405.2561pt.
+ [3pdfTeX warning (ext4): destination with the same identifier (name{figure.1})
  has been already used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.79 
+l.96 
       <./diagramaGeneral.png>]
-<diagramaPregunta.png, id=50, 1446.40375pt x 693.59125pt>
+<diagramaPregunta.png, id=54, 1576.89125pt x 761.84625pt>
 File: diagramaPregunta.png Graphic file (type png)
 <use diagramaPregunta.png>
-Package pdftex.def Info: diagramaPregunta.png  used on input line 82.
-(pdftex.def)             Requested size: 339.67029pt x 162.87755pt.
- [3pdfTeX warning (ext4): destination with the same identifier (name{figure.2})
+Package pdftex.def Info: diagramaPregunta.png  used on input line 99.
+(pdftex.def)             Requested size: 339.67029pt x 164.096pt.
+<diagramaRonda.png, id=55, 614.295pt x 404.51125pt>
+File: diagramaRonda.png Graphic file (type png)
+<use diagramaRonda.png>
+Package pdftex.def Info: diagramaRonda.png  used on input line 105.
+(pdftex.def)             Requested size: 339.67029pt x 223.67313pt.
+ [4pdfTeX warning (ext4): destination with the same identifier (name{figure.2})
  has been already used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.85 
-      <./diagramaJugador.png>]
-<diagramaRonda.png, id=57, 614.295pt x 355.3275pt>
-File: diagramaRonda.png Graphic file (type png)
-<use diagramaRonda.png>
-Package pdftex.def Info: diagramaRonda.png  used on input line 88.
-(pdftex.def)             Requested size: 339.67029pt x 196.47713pt.
-LaTeX Font Info:    Try loading font information for T1+cmtt on input line 99.
+l.108 
+      pdfTeX warning (ext4): destination with the same identifier (name{figure.
+3}) has been already used, duplicate ignored
+
+\AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
+                                                  \fi \fi 
+l.108 
+       <./diagramaJugador.png> <./diagramaPregunta.png>]
+
+! LaTeX Error: Something's wrong--perhaps a missing \item.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.146 \begin
+            {verbatim}
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+! LaTeX Error: Something's wrong--perhaps a missing \item.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.146 \begin
+            {verbatim}
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+! LaTeX Error: Something's wrong--perhaps a missing \item.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.146 \begin
+            {verbatim}
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+! LaTeX Error: Something's wrong--perhaps a missing \item.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.146 \begin{verbatim}
+                      
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 117--146
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 117--146
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 117--146
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 117--146
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 117--146
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 117--146
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 117--146
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 117--146
+
+ []
+
+LaTeX Font Info:    Try loading font information for T1+cmtt on input line 146.
 
 (/usr/share/texlive/texmf-dist/tex/latex/base/t1cmtt.fd
 File: t1cmtt.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
-Overfull \hbox (16.30609pt too wide) in paragraph at lines 105--105
-[]\T1/cmtt/m/n/10 rango copy do: [ :unNumero | unNumero isPrime ifFalse: [ rang
-o remove: unNumero ] ].[] 
+Overfull \hbox (21.30609pt too wide) in paragraph at lines 148--148
+ []\T1/cmtt/m/n/10 Clasico/MultipleChoice/¾Como se llama tu mascota?/Nestor,Che
+wbacca,Godzilla/Godzilla[] 
  []
 
-[4pdfTeX warning (ext4): destination with the same identifier (name{figure.3}) 
+
+! LaTeX Error: There's no line here to end.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.149 \newline
+              
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+! LaTeX Error: Something's wrong--perhaps a missing \item.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.163 \begin{verbatim}
+                      
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+! LaTeX Error: Something's wrong--perhaps a missing \item.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.163 \begin{verbatim}
+                      
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+! LaTeX Error: Something's wrong--perhaps a missing \item.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.163 \begin{verbatim}
+                      
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+! LaTeX Error: Something's wrong--perhaps a missing \item.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.163 \begin{verbatim}
+                      
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+! LaTeX Error: Something's wrong--perhaps a missing \item.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.163 \begin{verbatim}
+                      
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 154--163
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 154--163
+
+ []
+
+[5pdfTeX warning (ext4): destination with the same identifier (name{figure.4}) 
 has been already used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.105 \end{verbatim}
-                    pdfTeX warning (ext4): destination with the same identifier
- (name{figure.4}) has been already used, duplicate ignored
+l.163 \begin{verbatim}
+                       <./diagramaRonda.png>]
+
+! LaTeX Error: There's no line here to end.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.174 \newline
+              
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+[6]
+<diagramaDeSecuencia.png, id=77, 1320.935pt x 566.115pt>
+File: diagramaDeSecuencia.png Graphic file (type png)
+<use diagramaDeSecuencia.png>
+Package pdftex.def Info: diagramaDeSecuencia.png  used on input line 221.
+(pdftex.def)             Requested size: 339.67029pt x 145.57108pt.
+
+
+! LaTeX Error: There's no line here to end.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.226 \newline
+              
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+<DiagramaDePaquetes.jpg, id=78, 343.2825pt x 754.82pt>
+File: DiagramaDePaquetes.jpg Graphic file (type jpg)
+<use DiagramaDePaquetes.jpg>
+Package pdftex.def Info: DiagramaDePaquetes.jpg  used on input line 231.
+(pdftex.def)             Requested size: 339.67029pt x 746.87102pt.
+[7pdfTeX warning (ext4): destination with the same identifier (name{figure.5}) 
+has been already used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.105 \end{verbatim}
-                     <./diagramaPregunta.png> <./diagramaRonda.png>]
-<diagramaDeSecuencia.png, id=68, 1325.95375pt x 513.92pt>
-File: diagramaDeSecuencia.png Graphic file (type png)
-<use diagramaDeSecuencia.png>
-Package pdftex.def Info: diagramaDeSecuencia.png  used on input line 126.
-(pdftex.def)             Requested size: 339.67029pt x 131.64775pt.
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 139.
- [5pdfTeX warning (ext4): destination with the same identifier (name{figure.5})
+l.234 
+       <./diagramaDeSecuencia.png>]
+Overfull \vbox (124.81499pt too high) has occurred while \output is active []
+
+
+[8pdfTeX warning (ext4): destination with the same identifier (name{figure.6}) 
+has been already used, duplicate ignored
+
+\AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
+                                                  \fi \fi 
+l.234 
+       <./DiagramaDePaquetes.jpg>]
+<DiagramaDeEstadoExclusividad.png, id=90, 557.08125pt x 283.81032pt>
+File: DiagramaDeEstadoExclusividad.png Graphic file (type png)
+<use DiagramaDeEstadoExclusividad.png>
+Package pdftex.def Info: DiagramaDeEstadoExclusividad.png  used on input line 2
+42.
+(pdftex.def)             Requested size: 339.67029pt x 173.05042pt.
+<DiagramaDeEstadoMultiplicador.png, id=91, 410.2828pt x 221.32687pt>
+File: DiagramaDeEstadoMultiplicador.png Graphic file (type png)
+<use DiagramaDeEstadoMultiplicador.png>
+Package pdftex.def Info: DiagramaDeEstadoMultiplicador.png  used on input line 
+250.
+(pdftex.def)             Requested size: 339.67029pt x 183.23518pt.
+<DiagramaDeEstadoCronometro.png, id=92, 555.57562pt x 296.60812pt>
+File: DiagramaDeEstadoCronometro.png Graphic file (type png)
+<use DiagramaDeEstadoCronometro.png>
+Package pdftex.def Info: DiagramaDeEstadoCronometro.png  used on input line 258
+.
+(pdftex.def)             Requested size: 339.67029pt x 181.34253pt.
+ [9pdfTeX warning (ext4): destination with the same identifier (name{figure.7})
  has been already used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.139 \end{document}
-                     <./diagramaDeSecuencia.png>] [6]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 139.
+l.261 
+      pdfTeX warning (ext4): destination with the same identifier (name{figure.
+8}) has been already used, duplicate ignored
+
+\AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
+                                                  \fi \fi 
+l.261 
+       <./DiagramaDeEstadoExclusividad.png> <./DiagramaDeEstadoMultiplicador.pn
+g>]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 263.
+ [10pdfTeX warning (ext4): destination with the same identifier (name{figure.9}
+) has been already used, duplicate ignored
+
+\AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
+                                                  \fi \fi 
+l.263 \end{document}
+                     <./DiagramaDeEstadoCronometro.png>]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 263.
  (./main.aux
 LaTeX Info: Redefining \. on input line 24.
 LaTeX Info: Redefining \% on input line 24.
 )
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 139.
-Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 139.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 139.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 263.
+Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 263.
+
+
+LaTeX Warning: There were multiply-defined labels.
+
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 263.
  ) 
 Here is how much of TeX's memory you used:
- 6960 strings out of 492982
- 98913 string characters out of 6134896
- 189772 words of memory out of 5000000
- 10422 multiletter control sequences out of 15000+600000
+ 6999 strings out of 492982
+ 99778 string characters out of 6134896
+ 192732 words of memory out of 5000000
+ 10449 multiletter control sequences out of 15000+600000
  11034 words of font info for 26 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 28i,11n,43p,718b,454s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 28i,11n,43p,518b,436s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texmf/fonts/enc/dvips/cm-super/cm-super-t1.enc}</usr/share/texmf/
 fonts/type1/public/cm-super/sfbx1000.pfb></usr/share/texmf/fonts/type1/public/c
 m-super/sfbx1200.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfbx1440.pfb
@@ -744,10 +1065,10 @@ m-super/sfbx1200.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfbx1440.pfb
 onts/type1/public/cm-super/sfrm1000.pfb></usr/share/texmf/fonts/type1/public/cm
 -super/sfrm1440.pfb></usr/share/texmf/fonts/type1/public/cm-super/sftt1000.pfb>
 
-Output written on main.pdf (7 pages, 377855 bytes).
+Output written on main.pdf (11 pages, 551687 bytes).
 PDF statistics:
- 146 PDF objects out of 1000 (max. 8388607)
- 117 compressed objects within 2 object streams
- 24 named destinations out of 1000 (max. 500000)
- 119 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 172 PDF objects out of 1000 (max. 8388607)
+ 135 compressed objects within 2 object streams
+ 32 named destinations out of 1000 (max. 500000)
+ 139 words of extra memory for PDF output out of 10000 (max. 10000000)
 

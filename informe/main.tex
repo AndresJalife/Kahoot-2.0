@@ -58,6 +58,7 @@ El presente informe reune la documentación de la solución del segundo trabajo 
 \section{Supuestos}\label{sec:supuestos}
 % Deberá contener explicaciones de cada uno de los supuestos que el alumno haya tenido que adoptar a partir de situaciones que no estén contempladas en la especificación.
 A continuacion vamos a enumerar algunos supuestos que tuvimos que tener en cuenta, ya que no estaban especificados por el enunciado.\\
+\newline
 Un supuesto importante que tuvimos a la hora de desarrollar el modelo fue el de mostrar y guardar la decision de los jugadores acerca del uso o no de los distintos modificadores previo a que alguno de los jugadores vea la pregunta. Hicimos esto debido a que nos parecio logico que los modificadores se usen con el fin de tener algun 'boost' para alcanzar al otro jugador, pero sin aprovecharse de conocer la pregunta, por lo que creemos que es un tanto mas divertido e impredecible el desarrollo del juego. 
 \item[ExtensionInvalidaExcepcion]
 
@@ -141,6 +142,7 @@ OpcionCorrecta: String\newline
 \newline
 
 Ejemplo:\newline
+\item
 \begin{verbatim}
 Clasico/MultipleChoice/¿Como se llama tu mascota?/Nestor,Chewbacca,Godzilla/Godzilla
 \end{verbatim}
@@ -221,8 +223,14 @@ Quisque tempus, tortor et convallis interdum, ipsum leo tempus ipsum, in molesti
 \end{figure}
 
 \section{Diagrama de paquetes}\label{sec:diagramasdepaquetes}
+\newline
+En esta sección vamos a mostrar los paquetes del proyecto, así como sus dependencias, quién conoce a quién y con quién se comunican los jugadores.
 
-Incluir un diagrama de paquetes UML para mostrar el acoplamiento de su trabajo.
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.8\textwidth]{DiagramaDePaquetes.jpg}
+\caption{\label{fig:seq02}Podemos observar los distintos paquetes que se crearon en el proyecto.}
+\end{figure}
 
 \section{Diagramas de estado}\label{sec:diagramasdeestados}
 
@@ -240,7 +248,7 @@ El segundo diagrama trata de una clase similar a la mencionada anteriormente, co
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.8\textwidth]{DiagramaDeEstadoMultiplicador.png}
-    \caption{\label{fig:class03}Diagrama de multiplicador.}
+    \caption{\label{fig:class04}Diagrama de multiplicador.}
 \end{figure}
 
 En el ultimo diagrama se pueden  ver las distintas transiciones de estado internas que tiene el cronometro. Se puede observar que si se usa el metodo de esperar 1 segundo, se vuelve a un estado anterior. Los distintos estados van a estar creados por los pulsos de reloj.
@@ -248,7 +256,7 @@ En el ultimo diagrama se pueden  ver las distintas transiciones de estado intern
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.8\textwidth]{DiagramaDeEstadoCronometro.png}
-    \caption{\label{fig:class03}Diagrama de cronometro.}
+    \caption{\label{fig:class05}Diagrama de cronometro.}
 \end{figure}
 
 
