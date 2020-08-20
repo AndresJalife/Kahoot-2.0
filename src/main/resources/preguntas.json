@@ -11,14 +11,20 @@
         "texto" : "¿Sos inimputable?",
         "opciones" : ["Verdadero", "Falso"],
         "opcionesCorrectas": ["Falso"]
-      }],
+      },
+        {
+          "modo": "Clasico",
+          "texto" : "¿2 + 2 = 4?",
+          "opciones" : ["Verdadero", "Falso"],
+          "opcionesCorrectas": ["Verdadero"]
+        }
+      ],
   "OrderedChoice" :
       [{
         "modo": "Clasico",
         "texto" : "¿Cuál es el orden de nacimientos?",
         "opciones" : {"1":["Jesus"], "2":["El Dieguito (maradona)"], "3":["Britney Spears"], "4":["Bad Luck Brian"]}
       }],
-
   "MultipleChoice" :
       [{
         "modo": "ConPuntajeParcial",

@@ -58,7 +58,10 @@ public class LectorDeArchivosJson implements LectorDeArchivos {
                 List<Opcion> opcionesConcretas = crearListaOpciones(opciones, opcionesCorrectas);
 
                 Pregunta nuevaPreg = fabrica.crearPregunta(texto, opcionesConcretas, tipo.toString(), modo);
-                nuevasPreguntas.add(nuevaPreg);
+                if(nuevaPreg!=null){
+                    nuevasPreguntas.add(nuevaPreg);
+                }
+
            }
         });
     }
@@ -70,7 +73,10 @@ public class LectorDeArchivosJson implements LectorDeArchivos {
             String texto = (String) pregunta.get("texto");
             List<Opcion>  opciones = crearListaOpcionesGroup(pregunta.get("opciones"));
             Pregunta nuevaPreg = fabrica.crearPregunta(texto, opciones,tipo, modo);
-            nuevasPreguntas.add(nuevaPreg);
+
+            if(nuevaPreg!=null){
+                nuevasPreguntas.add(nuevaPreg);
+            }
         }
 
     }

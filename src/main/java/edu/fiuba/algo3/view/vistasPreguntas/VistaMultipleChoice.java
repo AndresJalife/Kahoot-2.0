@@ -23,61 +23,47 @@ import java.util.List;
 
 public class VistaMultipleChoice extends VistaTipoDePregunta {
 
-    private Kahoot modelo;
-    private Jugador jugador;
-    private Stage stage;
+    private Button botonAceptar;
     private List<AuxiliarCheckBox> cajas;
 
     public VistaMultipleChoice(Kahoot modelo, Jugador jugador, Stage stage) {
-        this.modelo = modelo;
-        this.jugador = jugador;
-        this.stage = stage;
+        super(modelo,jugador,stage);
+        botonAceptar = new Button("Aceptar");
+        cajas = new ArrayList<>();
 
-        this.getChildren().clear();
+        inicializarOpciones();
+        setStackPane();
+
+        botonAceptar.setOnAction(this::mandarRespuestas);
+
         this.getStylesheets().add(getClass().getResource("/css/escenaGeneral.css").toExternalForm());
-        StackPane stack = new StackPane();
+        botonAceptar.setOnAction(this::mandarRespuestas);
 
+        this.getStylesheets().add(getClass().getResource("/css/escenaGeneral.css").toExternalForm());
+    }
 
-        Label usuario = new Label(jugador.obtenerNombre());
-        usuario.setFont(Font.font("Arial", FontWeight.BOLD, 35));
-
-        stack.getChildren().add(usuario);
-        stack.setMargin(usuario, new Insets(-600, 0, 0, 0));
-
-        Label pregunta = new Label(modelo.obtenerPreguntaActual().obtenerTexto());
-        pregunta.setFont(new Font(20));
-
-        stack.getChildren().add(pregunta);
-        stack.setMargin(pregunta, new Insets(-500, 0, 0, 0));
-
+    private void inicializarOpciones() {
 
         int i = -600;
-        this.cajas = new ArrayList<>();
         for(Opcion opcion : modelo.obtenerPreguntaActual().obtenerOpciones()){
             CheckBox boton = new CheckBox(opcion.obtenerTexto());
             cajas.add(new AuxiliarCheckBox(boton, opcion));
             boton.setTextFill(Color.rgb(238, 205, 134));
 
-            stack.getChildren().add(boton);
-            stack.setMargin(boton, new Insets(-200, 0, 0, i));
+            getChildren().add(boton);
+            setMargin(boton, new Insets(-200, 0, 0, i));
 
             i += 600;
         }
-        Button boton2 = new Button("Aceptar");
-        boton2.setOnAction(this::mandarRespuestas);
-
-        stack.getChildren().add(boton2);
-        stack.setMargin(boton2, new Insets(0, 0, 0, 0));
-
-        this.getStylesheets().add(getClass().getResource("/css/escenaGeneral.css").toExternalForm());
-        this.obtenerColorDeFondo(stack);
-        this.getChildren().addAll(stack);
     }
 
-    private void obtenerColorDeFondo(StackPane stack) {
-        Color color = Color.rgb(122,62,72);
-        stack.setBackground(new Background((new BackgroundFill(color, CornerRadii.EMPTY, Insets.EMPTY))));
+
+    private void setStackPane() {
+        getChildren().add(botonAceptar);
+        setMargin(botonAceptar, new Insets(50, 0, 0, 0));
+
     }
+
 
     private void mandarRespuestas(ActionEvent event) {
         var respuestas = new ArrayList<RespuestaDeJugador>();

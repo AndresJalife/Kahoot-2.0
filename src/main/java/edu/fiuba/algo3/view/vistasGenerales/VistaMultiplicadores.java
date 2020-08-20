@@ -6,6 +6,8 @@ import edu.fiuba.algo3.modelo.general.Kahoot;
 import edu.fiuba.algo3.view.eventos.NoUsaModificador;
 import edu.fiuba.algo3.view.eventos.UsaModificador;
 import javafx.geometry.Insets;
+import javafx.geometry.Pos;
+import javafx.scene.Group;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.*;
@@ -16,23 +18,30 @@ import javafx.stage.Stage;
 
 import java.util.List;
 
-public class VistaMultiplicadores extends StackPane {
+public class VistaMultiplicadores extends Group {
 
     StackPane stack;
 
     public VistaMultiplicadores(Kahoot modelo, Stage stage, Jugador jugador) {
+
         List<IModificador> modificadores = modelo.obtenerModificadores(jugador);
         boolean noTieneMasModificadores = true;
         for(IModificador modificador : modificadores){
             if(modificador.quedanUsos()) noTieneMasModificadores = false;
         }
-        if(noTieneMasModificadores)
-            if(jugador == modelo.obtenerSegundoJugador())
+        if(noTieneMasModificadores) {
+            if(jugador == modelo.obtenerSegundoJugador()) {
                 this.getChildren().add(new VistaPregunta(modelo, modelo.obtenerPrimerJugador(), stage));
-            else
+            }
+            else {
                 this.getChildren().add(new VistaMultiplicadores(modelo, stage, modelo.obtenerSegundoJugador()));
+            }
+        }
         else{
+
             stack = new StackPane();
+            StackPane.setAlignment(this, Pos.CENTER);
+            stack.setPrefSize(stage.getWidth(),stage.getHeight());
             this.obtenerColorDeFondo(stack);
             this.getStylesheets().add(getClass().getResource("/css/escenaGeneral.css").toExternalForm());
             this.agregarModificadores(modelo, stack, stage, jugador);
@@ -52,7 +61,7 @@ public class VistaMultiplicadores extends StackPane {
         Label nombreJugador = new Label(jugador.obtenerNombre());
         nombreJugador.setFont(Font.font("Arial", FontWeight.BOLD, 35));
         stack.getChildren().addAll(nombreJugador);
-        setMargin(nombreJugador, new Insets(-600, 0, 0, 0));
+        stack.setMargin(nombreJugador, new Insets(-600, 0, 0, 0));
         Label titulo = new Label("Elija el modificador para la siguiente ronda:");
         titulo.setFont(new Font(20));
         stack.getChildren().addAll(titulo);
