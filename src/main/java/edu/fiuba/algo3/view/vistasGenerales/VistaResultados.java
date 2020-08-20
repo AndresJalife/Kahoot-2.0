@@ -3,8 +3,10 @@ package edu.fiuba.algo3.view.vistasGenerales;
 import edu.fiuba.algo3.modelo.general.Jugador;
 import edu.fiuba.algo3.modelo.general.Kahoot;
 import javafx.geometry.Insets;
+import javafx.geometry.Pos;
 import javafx.scene.control.Label;
 import javafx.scene.layout.*;
+import javafx.scene.media.AudioClip;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
@@ -18,6 +20,9 @@ public class VistaResultados extends StackPane{
     StackPane stack;
 
     public VistaResultados(Kahoot modelo, Stage stage){
+        AudioClip finale = new AudioClip(this.getClass().getResource("/sonidos/finale.mp3").toExternalForm());
+        finale.setVolume(100);
+        finale.play();
 
         this.crearGrid();
         actualizarResultadosYOrdenar(modelo);
@@ -59,16 +64,16 @@ public class VistaResultados extends StackPane{
 
         for(Jugador jugador : jugadores){
             Label usuario;
-            String  puntos = "PUNTOS";
-            if (jugador.obtenerPuntaje() == 1) puntos = "PUNTO";
+            String  puntos = " PUNTOS";
+            if (jugador.obtenerPuntaje() == 1) puntos = " PUNTO";
 
             if(i==20) usuario = new Label("¡¡ EL GANADOR ES "+ jugador.obtenerNombre()+" CON "+jugador.obtenerPuntaje()+ puntos +" !!" );
             else usuario = new Label("EN SEGUNDO PUESTO  "+ jugador.obtenerNombre()+" CON "+jugador.obtenerPuntaje()+ puntos );
 
 
-            usuario.setFont(Font.font("Arial", FontWeight.BOLD, 35));
+            usuario.setFont(Font.font("Arial", FontWeight.BOLD, 25));
             usuario.setTextFill(Color.rgb(238, 205, 134));
-
+            usuario.setAlignment(Pos.CENTER_LEFT);
             grid.add(usuario,20,i);
             i=i+10;
         }

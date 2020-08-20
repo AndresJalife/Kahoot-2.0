@@ -7,6 +7,7 @@ import javafx.event.EventHandler;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.TextField;
+import javafx.scene.media.AudioClip;
 import javafx.stage.Stage;
 
 public class EmpezarJuego implements EventHandler<ActionEvent> {
@@ -25,6 +26,9 @@ public class EmpezarJuego implements EventHandler<ActionEvent> {
 
     @Override
     public void handle(ActionEvent actionEvent) {
+        AudioClip sonidoBoton = new AudioClip(this.getClass().getResource("/sonidos/botonClick.mp3").toExternalForm());
+        sonidoBoton.setVolume(100);
+        sonidoBoton.play();
         verificarUsuarios(usuario1, usuario2);
         miModelo.agregarJugador(usuario1.getText());
         miModelo.agregarJugador(usuario2.getText());

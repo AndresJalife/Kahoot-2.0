@@ -5,6 +5,7 @@ import edu.fiuba.algo3.view.vistasGenerales.VistaMultiplicadores;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.Scene;
+import javafx.scene.media.AudioClip;
 import javafx.stage.Stage;
 
 public class SiguienteRondaOTerminar implements EventHandler<ActionEvent> {
@@ -19,6 +20,9 @@ public class SiguienteRondaOTerminar implements EventHandler<ActionEvent> {
 
     @Override
     public void handle(ActionEvent actionEvent) {
+        AudioClip sonidoBoton = new AudioClip(this.getClass().getResource("/sonidos/botonClick.mp3").toExternalForm());
+        sonidoBoton.setVolume(100);
+        sonidoBoton.play();
         VistaMultiplicadores vistaPregunta = new VistaMultiplicadores(miModelo, miStage, miModelo.obtenerPrimerJugador());
         Scene escena = new Scene(vistaPregunta);
         miStage.setScene(escena);

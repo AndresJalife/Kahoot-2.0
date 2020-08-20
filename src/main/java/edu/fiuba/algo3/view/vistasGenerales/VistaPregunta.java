@@ -44,6 +44,7 @@ public class VistaPregunta extends Group {
         contador.setTranslateY(150);
 
         AudioClip sonidoCronometro = new AudioClip(this.getClass().getResource("/sonidos/timerClick.mp3").toExternalForm());
+
         sonidoCronometro.setVolume(100);
         var alCambiar = (Consumer<Integer>) (segundos) -> {
             Platform.runLater( () -> {

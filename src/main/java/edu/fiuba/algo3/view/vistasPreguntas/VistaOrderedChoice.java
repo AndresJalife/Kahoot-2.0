@@ -13,6 +13,7 @@ import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.layout.*;
+import javafx.scene.media.AudioClip;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
@@ -88,6 +89,10 @@ public class VistaOrderedChoice extends VistaTipoDePregunta {
     }
 
     private void mandarRespuestas(ActionEvent actionEvent) {
+        AudioClip sonidoBoton = new AudioClip(this.getClass().getResource("/sonidos/botonClick.mp3").toExternalForm());
+        sonidoBoton.setVolume(100);
+        sonidoBoton.play();
+
         modelo.jugadorResponder(jugador, respuestas);
         VistaPregunta vistaAux = new VistaPregunta();
         vistaAux.CambiarPreguntaAOtroJugador(modelo, jugador, stage);

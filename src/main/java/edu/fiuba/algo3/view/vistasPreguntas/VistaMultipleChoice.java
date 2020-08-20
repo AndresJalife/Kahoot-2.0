@@ -7,12 +7,15 @@ import edu.fiuba.algo3.modelo.preguntas.RespuestaDeJugador;
 import edu.fiuba.algo3.view.AuxiliarCheckBox;
 import edu.fiuba.algo3.view.vistasGenerales.VistaPregunta;
 import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.geometry.Insets;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.Label;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.*;
+import javafx.scene.media.AudioClip;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
@@ -49,7 +52,14 @@ public class VistaMultipleChoice extends VistaTipoDePregunta {
             CheckBox boton = new CheckBox(opcion.obtenerTexto());
             cajas.add(new AuxiliarCheckBox(boton, opcion));
             boton.setTextFill(Color.rgb(238, 205, 134));
-
+            boton.setOnMouseClicked(new EventHandler<MouseEvent>() {
+                @Override
+                public void handle(MouseEvent mouseEvent) {
+                    AudioClip sonidoBoton = new AudioClip(this.getClass().getResource("/sonidos/botonClick.mp3").toExternalForm());
+                    sonidoBoton.setVolume(100);
+                    sonidoBoton.play();
+                }
+            });
             getChildren().add(boton);
             setMargin(boton, new Insets(-200, 0, 0, i));
 
@@ -66,6 +76,10 @@ public class VistaMultipleChoice extends VistaTipoDePregunta {
 
 
     private void mandarRespuestas(ActionEvent event) {
+        AudioClip sonidoBoton = new AudioClip(this.getClass().getResource("/sonidos/botonClick.mp3").toExternalForm());
+        sonidoBoton.setVolume(100);
+        sonidoBoton.play();
+
         var respuestas = new ArrayList<RespuestaDeJugador>();
         for(AuxiliarCheckBox aux : cajas){
             if(aux.obtenerCheckBox().isSelected())

@@ -17,6 +17,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
 import javafx.scene.layout.*;
+import javafx.scene.media.AudioClip;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
@@ -86,6 +87,10 @@ public class VistaGroupChoice extends VistaTipoDePregunta {
     }
 
     public void mandarRespuestas(ActionEvent event) {
+        AudioClip sonidoBoton = new AudioClip(this.getClass().getResource("/sonidos/botonClick.mp3").toExternalForm());
+        sonidoBoton.setVolume(100);
+        sonidoBoton.play();
+
         modelo.jugadorResponder(jugador, respuestas);
         VistaPregunta vistaAux = new VistaPregunta();
         vistaAux.CambiarPreguntaAOtroJugador(modelo, jugador, stage);
