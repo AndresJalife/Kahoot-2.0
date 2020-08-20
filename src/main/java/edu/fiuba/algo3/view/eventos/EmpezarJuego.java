@@ -16,7 +16,7 @@ public class EmpezarJuego implements EventHandler<ActionEvent> {
     Kahoot miModelo;
     Stage miStage;
 
-    public EmpezarJuego(TextField jugador1, TextField jugador2, Kahoot modelo, Stage stage){
+    public EmpezarJuego(TextField jugador1, TextField jugador2, Kahoot modelo, Stage stage) {
         usuario1 = jugador1;
         usuario2 = jugador2;
         miModelo = modelo;
@@ -25,22 +25,21 @@ public class EmpezarJuego implements EventHandler<ActionEvent> {
 
     @Override
     public void handle(ActionEvent actionEvent) {
-        if(VerificarUsuarios(usuario1, usuario2)){
-            miModelo.agregarJugador(usuario1.getText());
-            miModelo.agregarJugador(usuario2.getText());
-            miModelo.comenzar();
+        verificarUsuarios(usuario1, usuario2);
+        miModelo.agregarJugador(usuario1.getText());
+        miModelo.agregarJugador(usuario2.getText());
+        miModelo.comenzar();
 
-            Scene escenaMultiplicador = new Scene(new VistaMultiplicadores(miModelo, miStage, miModelo.obtenerPrimerJugador()));
-            miStage.setScene(escenaMultiplicador);
-        }
-        else{
-            Alert fallo = new Alert(Alert.AlertType.ERROR);
-            fallo.setHeaderText("Los nombres de los usuarios deben ser distintos de vacio");
-            fallo.showAndWait();
-        }
+        Scene escenaMultiplicador = new Scene(new VistaMultiplicadores(miModelo, miStage, miModelo.obtenerPrimerJugador()));
+        miStage.setScene(escenaMultiplicador);
     }
 
-    private boolean VerificarUsuarios(TextField usuarioUno,TextField usuarioDos){
-        return  !usuarioDos.getText().trim().isEmpty() && !usuarioUno.getText().trim().isEmpty();
+    private void verificarUsuarios(TextField usuarioUno, TextField usuarioDos) {
+        if (usuarioUno.getText().trim().isEmpty()) {
+            usuarioUno.setText("Jugador 1");
+        }
+        if (usuarioDos.getText().trim().isEmpty()) {
+            usuarioDos.setText("Jugador 2");
+        }
     }
 }
