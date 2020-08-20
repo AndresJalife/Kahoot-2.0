@@ -1,11 +1,9 @@
 package edu.fiuba.algo3.view.vistasPreguntas;
 
+import edu.fiuba.algo3.modelo.preguntas.*;
 import edu.fiuba.algo3.view.eventos.ControladorChoiceBox;
 import edu.fiuba.algo3.modelo.general.Jugador;
 import edu.fiuba.algo3.modelo.general.Kahoot;
-import edu.fiuba.algo3.modelo.preguntas.Opcion;
-import edu.fiuba.algo3.modelo.preguntas.Pregunta;
-import edu.fiuba.algo3.modelo.preguntas.RespuestaDeJugador;
 import edu.fiuba.algo3.view.vistasGenerales.VistaPregunta;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -55,6 +53,18 @@ public class VistaGroupChoice extends VistaTipoDePregunta {
     }
 
     private void inicializarOpciones() {
+        String tipoYModoPregunta="Group Choice : ";
+        if(modelo.obtenerPreguntaActual().obtenerModo().getClass() == ModoClasico.class) {
+            tipoYModoPregunta += "Clasico";
+        }
+
+
+        Label tipoPregunta = new Label(tipoYModoPregunta);
+        tipoPregunta.setFont(new Font(17));
+
+        getChildren().add(tipoPregunta);
+        setMargin(tipoPregunta, new Insets(-700, 200, 0, 0));
+
         Pregunta pregunta = modelo.obtenerPreguntaActual();
         botonAceptar.setAlignment(Pos.CENTER);
 

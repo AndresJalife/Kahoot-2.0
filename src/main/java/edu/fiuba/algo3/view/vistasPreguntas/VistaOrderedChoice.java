@@ -41,6 +41,17 @@ public class VistaOrderedChoice extends VistaTipoDePregunta {
     }
 
     private void setStackPane () {
+
+        String tipoYModoPregunta="Ordered Choice : ";
+        if(modelo.obtenerPreguntaActual().obtenerModo().getClass() == ModoClasico.class)
+            tipoYModoPregunta += "Clasico";
+
+        Label tipoPregunta = new Label(tipoYModoPregunta);
+        tipoPregunta.setFont(new Font(17));
+
+        getChildren().add(tipoPregunta);
+        setMargin(tipoPregunta, new Insets(-700, 200, 0, 0));
+
         botonAceptar = new Button("Aceptar");
         botonAceptar.setAlignment(Pos.CENTER);
 

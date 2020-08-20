@@ -76,4 +76,8 @@ public class Pregunta {
         Collections.shuffle(opcionesMezcladas);
         return opcionesMezcladas;
     }
+
+    public IModoDePregunta obtenerModo() {
+        return modo;
+    }
 }

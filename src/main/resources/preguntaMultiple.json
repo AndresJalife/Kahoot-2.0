@@ -1,7 +1,7 @@
 {
   "MultipleChoice" :
       [{
-        "modo": "ConPuntajeParcial",
+        "modo": "Clasico",
         "texto" : "¿Quién gano gran hermano 2015?",
         "opciones" : ["Matías Schrank", "Francisco Delgado", "Vos"],
         "opcionesCorrectas": ["Francisco Delgado"]

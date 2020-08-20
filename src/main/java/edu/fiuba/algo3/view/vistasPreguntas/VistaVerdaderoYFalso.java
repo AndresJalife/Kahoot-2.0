@@ -2,6 +2,8 @@ package edu.fiuba.algo3.view.vistasPreguntas;
 
 import edu.fiuba.algo3.modelo.general.Jugador;
 import edu.fiuba.algo3.modelo.general.Kahoot;
+import edu.fiuba.algo3.modelo.preguntas.ModoClasico;
+import edu.fiuba.algo3.modelo.preguntas.ModoConPenalidad;
 import edu.fiuba.algo3.modelo.preguntas.Opcion;
 import edu.fiuba.algo3.view.eventos.TerminarPreguntaVerdaderoYFalso;
 import javafx.geometry.Insets;
@@ -17,11 +19,25 @@ public class VistaVerdaderoYFalso extends VistaTipoDePregunta {
 
     public VistaVerdaderoYFalso(Kahoot modelo, Jugador jugador, Stage stage){
         super(modelo,jugador, stage);
+        inicializarTextos();
         this.getStylesheets().add(getClass().getResource("/css/escenaGeneral.css").toExternalForm());
         this.obtenerBotonesParaResponder(modelo, jugador, stage);
     }
 
+    private void inicializarTextos() {
+        String tipoYModoPregunta="Verdadero Y Falso : ";
+        if(modelo.obtenerPreguntaActual().obtenerModo().getClass() == ModoClasico.class){
+            tipoYModoPregunta += "Clasico";
+        }else if(modelo.obtenerPreguntaActual().obtenerModo().getClass() == ModoConPenalidad.class) {
+            tipoYModoPregunta += "Con Penalidad";
+        }
 
+        Label tipoPregunta = new Label(tipoYModoPregunta);
+        tipoPregunta.setFont(new Font(17));
+
+        getChildren().add(tipoPregunta);
+        setMargin(tipoPregunta, new Insets(-700, 200, 0, 0));
+    }
 
 
     private void obtenerBotonesParaResponder(Kahoot modelo, Jugador jugador, Stage stage){

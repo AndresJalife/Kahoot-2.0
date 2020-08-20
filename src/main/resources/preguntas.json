@@ -11,13 +11,7 @@
         "texto" : "¿Sos inimputable?",
         "opciones" : ["Verdadero", "Falso"],
         "opcionesCorrectas": ["Falso"]
-      },
-        {
-          "modo": "Clasico",
-          "texto" : "¿2 + 2 = 4?",
-          "opciones" : ["Verdadero", "Falso"],
-          "opcionesCorrectas": ["Verdadero"]
-        }
+      }
       ],
   "OrderedChoice" :
       [{
@@ -26,7 +20,14 @@
         "opciones" : {"1":["Jesus"], "2":["El Dieguito (maradona)"], "3":["Britney Spears"], "4":["Bad Luck Brian"]}
       }],
   "MultipleChoice" :
-      [{
+      [
+        {
+        "modo": "Clasico",
+        "texto" : "Seleccione capitales europeas.",
+        "opciones" : ["Berlin", "Tokyo", "Estocolmo","Paris"],
+        "opcionesCorrectas": ["Berlin","Estocolmo","Paris"]
+      },
+        {
         "modo": "ConPuntajeParcial",
         "texto" : "¿Quién gano gran hermano 2015?",
         "opciones" : ["Matías Schrank", "Francisco Delgado", "Vos"],
