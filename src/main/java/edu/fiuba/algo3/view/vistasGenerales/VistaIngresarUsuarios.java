@@ -35,15 +35,23 @@ public class VistaIngresarUsuarios extends StackPane {
         Label usuarioUno = new Label("Ingrese el nombre del jugador 1");
         usuarioUno.setTextFill(Color.rgb(238, 205, 134));
         usuarioUno.setFont(new Font(15));
-        grid.add(usuarioUno,25,25);
-        TextField textoParaUsuarioUno = new TextField();
+
+        TextField textoParaUsuarioUno = new TextField("Jugador 1");
+        textoParaUsuarioUno.setOnMouseClicked(mouseEvent -> textoParaUsuarioUno.setText(""));
+
         grid.add(textoParaUsuarioUno,26,25);
+        grid.add(usuarioUno,25,25);
+
         Label usuarioDos = new Label("Ingrese el nombre del jugador 2");
         usuarioDos.setFont(new Font(15));
         usuarioDos.setTextFill(Color.rgb(238, 205, 134));
-        grid.add(usuarioDos,25,26);
-        TextField textoParaUsuarioDos = new TextField();
+
+        TextField textoParaUsuarioDos = new TextField("Jugador 2");
+        textoParaUsuarioDos.setOnMouseClicked(mouseEvent -> textoParaUsuarioDos.setText(""));
+
         grid.add(textoParaUsuarioDos,26,26);
+        grid.add(usuarioDos,25,26);
+
         Button jugarBoton = new Button("Jugar");
         jugarBoton.setOnAction(new EmpezarJuego(textoParaUsuarioUno, textoParaUsuarioDos, modelo, stage));
         grid.add(jugarBoton,26,27);

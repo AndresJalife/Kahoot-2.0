@@ -27,6 +27,7 @@ public class App extends Application {
         stage.setScene(escenaInicial);
         Image imagen = new Image(getClass().getResource("/imagenes/icon.jpg").toString());
         stage.getIcons().add(imagen);
+        stage.setResizable(false);
         stage.show();
     }
 
@@ -36,7 +37,7 @@ public class App extends Application {
 
     public void cargarPreguntasKahoot(){
         try {
-            modelo.inicializarPreguntas(getClass().getResource("/preguntas.json").toURI());
+            modelo.inicializarPreguntas(getClass().getResource("/orderedChoice.json").toURI());
 
         }
         catch (Exception e){

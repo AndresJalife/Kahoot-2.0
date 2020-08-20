@@ -7,6 +7,7 @@ import javafx.event.EventHandler;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.TextField;
+import javafx.scene.media.AudioClip;
 import javafx.stage.Stage;
 
 public class EmpezarJuego implements EventHandler<ActionEvent> {
@@ -16,7 +17,7 @@ public class EmpezarJuego implements EventHandler<ActionEvent> {
     Kahoot miModelo;
     Stage miStage;
 
-    public EmpezarJuego(TextField jugador1, TextField jugador2, Kahoot modelo, Stage stage){
+    public EmpezarJuego(TextField jugador1, TextField jugador2, Kahoot modelo, Stage stage) {
         usuario1 = jugador1;
         usuario2 = jugador2;
         miModelo = modelo;
@@ -25,26 +26,25 @@ public class EmpezarJuego implements EventHandler<ActionEvent> {
 
     @Override
     public void handle(ActionEvent actionEvent) {
-        if(VerificarUsuarios(usuario1, usuario2) && Diferentes(usuario2,usuario1)){
-            miModelo.agregarJugador(usuario1.getText());
-            miModelo.agregarJugador(usuario2.getText());
-            miModelo.comenzar();
+        AudioClip sonidoBoton = new AudioClip(this.getClass().getResource("/sonidos/botonClick.mp3").toExternalForm());
+        sonidoBoton.setVolume(100);
+        sonidoBoton.play();
+        verificarUsuarios(usuario1, usuario2);
+        miModelo.agregarJugador(usuario1.getText());
+        miModelo.agregarJugador(usuario2.getText());
+        miModelo.comenzar();
 
-            Scene escenaMultiplicador = new Scene(new VistaMultiplicadores(miModelo, miStage, miModelo.obtenerPrimerJugador()));
-            miStage.setScene(escenaMultiplicador);
-        }
-        else{
-            Alert fallo = new Alert(Alert.AlertType.ERROR);
-            fallo.setHeaderText("Los nombres de los usuarios deben ser distintos de vacio Y diferentes entre si");
-            fallo.showAndWait();
-        }
+        VistaMultiplicadores vistaMultiplicadores = new VistaMultiplicadores(miModelo, miStage, miModelo.obtenerPrimerJugador());
+        Scene escenaMultiplicador = new Scene(vistaMultiplicadores);
+        miStage.setScene(escenaMultiplicador);
     }
 
-    private boolean VerificarUsuarios(TextField usuarioUno,TextField usuarioDos){
-        return  !usuarioDos.getText().trim().isEmpty() && !usuarioUno.getText().trim().isEmpty();
-    }
-
-    private boolean Diferentes(TextField usuarioUno,TextField usuarioDos){
-        return  usuarioDos.getText() == usuarioUno.getText();
+    private void verificarUsuarios(TextField usuarioUno, TextField usuarioDos) {
+        if (usuarioUno.getText().trim().isEmpty()) {
+            usuarioUno.setText("Jugador 1");
+        }
+        if (usuarioDos.getText().trim().isEmpty()) {
+            usuarioDos.setText("Jugador 2");
+        }
     }
 }

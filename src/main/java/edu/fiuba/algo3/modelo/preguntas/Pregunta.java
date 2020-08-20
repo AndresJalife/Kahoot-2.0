@@ -10,15 +10,31 @@ public class Pregunta {
     private List<Opcion> respuestasPosibles;
     private ITipoDePregunta tipo;
     private IModoDePregunta modo;
-
-
+    private static int numeroTotalPreguntas;
+    private int numeroDePregunta;
     public Pregunta(String textoPregunta, List<Opcion> opcionesPosibles, ITipoDePregunta tipo, IModoDePregunta modo) {
         this.textoPregunta = textoPregunta;
         this.respuestasPosibles = List.copyOf(opcionesPosibles);
         this.tipo = tipo;
         this.modo = modo;
+        if(esPreguntaValida()){
+            numeroTotalPreguntas ++;
+            numeroDePregunta = numeroTotalPreguntas;
+        }
+
     }
 
+    public int getNumeroDePregunta() {
+        return numeroDePregunta;
+    }
+
+    public static int getNumeroTotalPreguntas() {
+        return numeroTotalPreguntas;
+    }
+
+    public boolean esPreguntaValida(){
+        return tipo.opcionesValidas(respuestasPosibles);
+    }
     public boolean tienePenalidad()
     {
         return modo.tienePenalidad();
