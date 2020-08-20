@@ -7,12 +7,12 @@ import javafx.event.EventHandler;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
-public class SiguienteRondaOTerminar implements EventHandler<ActionEvent> {
+public class CargarVistaMultiplicador implements EventHandler<ActionEvent> {
 
     Kahoot miModelo;
     Stage miStage;
 
-    public SiguienteRondaOTerminar(Kahoot modelo, Stage stage){
+    public CargarVistaMultiplicador(Kahoot modelo, Stage stage){
         miModelo = modelo;
         miStage = stage;
     }

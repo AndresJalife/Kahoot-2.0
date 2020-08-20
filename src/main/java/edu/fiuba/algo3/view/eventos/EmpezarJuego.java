@@ -25,7 +25,7 @@ public class EmpezarJuego implements EventHandler<ActionEvent> {
 
     @Override
     public void handle(ActionEvent actionEvent) {
-        if(VerificarUsuarios(usuario1, usuario2)){
+        if(VerificarUsuarios(usuario1, usuario2) && Diferentes(usuario2,usuario1)){
             miModelo.agregarJugador(usuario1.getText());
             miModelo.agregarJugador(usuario2.getText());
             miModelo.comenzar();
@@ -35,12 +35,16 @@ public class EmpezarJuego implements EventHandler<ActionEvent> {
         }
         else{
             Alert fallo = new Alert(Alert.AlertType.ERROR);
-            fallo.setHeaderText("Los nombres de los usuarios deben ser distintos de vacio");
+            fallo.setHeaderText("Los nombres de los usuarios deben ser distintos de vacio Y diferentes entre si");
             fallo.showAndWait();
         }
     }
 
     private boolean VerificarUsuarios(TextField usuarioUno,TextField usuarioDos){
         return  !usuarioDos.getText().trim().isEmpty() && !usuarioUno.getText().trim().isEmpty();
+    }
+
+    private boolean Diferentes(TextField usuarioUno,TextField usuarioDos){
+        return  usuarioDos.getText() == usuarioUno.getText();
     }
 }
