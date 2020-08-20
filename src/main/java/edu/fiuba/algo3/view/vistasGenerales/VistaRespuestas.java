@@ -4,6 +4,7 @@ import edu.fiuba.algo3.modelo.general.Jugador;
 import edu.fiuba.algo3.modelo.general.Kahoot;
 import edu.fiuba.algo3.modelo.preguntas.Opcion;
 import edu.fiuba.algo3.modelo.preguntas.TipoGroupChoice;
+import edu.fiuba.algo3.modelo.preguntas.TipoOrderedChoice;
 import edu.fiuba.algo3.view.eventos.SiguienteRondaOTerminar;
 import javafx.geometry.Insets;
 import javafx.scene.control.Button;
@@ -29,7 +30,7 @@ public class VistaRespuestas extends StackPane {
             Button siguientePregunta = new Button("Siguiente pregunta");
             siguientePregunta.setOnAction(new SiguienteRondaOTerminar(modelo, stage));
             stack.getChildren().add(siguientePregunta);
-            stack.setMargin(siguientePregunta, new Insets(100, 0, 0, 0));
+            stack.setMargin(siguientePregunta, new Insets(150, 0, 0, 0));
         }
         this.obtenerColorDeFondo();
         this.getChildren().add(stack);
@@ -38,13 +39,14 @@ public class VistaRespuestas extends StackPane {
     private void mostrarRespuestasCorrectas(Kahoot modelo) {
         List<Opcion> respuestasCorrectas = modelo.obtenerPreguntaActual().obtenerRespuestasCorrectas();
         String tituloString = "Las respuestas correctas eran:";
-        String correctasString = "- ";
+        String correctasString = "";
 
         for (Opcion opcion: respuestasCorrectas){
-            if (modelo.obtenerPreguntaActual().obtenerTipo().getClass() == TipoGroupChoice.class){
-                correctasString += opcion.obtenerTexto() + " = " + opcion.obtenerGrupo() + " - ";
+            if (modelo.obtenerPreguntaActual().obtenerTipo().getClass() == TipoGroupChoice.class
+            || modelo.obtenerPreguntaActual().obtenerTipo().getClass() == TipoOrderedChoice.class){
+                correctasString += "-"+opcion.obtenerTexto() + " = " + opcion.obtenerGrupo() + " \n";
             } else {
-                correctasString += opcion.obtenerTexto() + " - ";
+                correctasString += "-"+opcion.obtenerTexto() + "  \n";
             }
         }
 
@@ -53,8 +55,8 @@ public class VistaRespuestas extends StackPane {
         stack.setMargin(titulo, new Insets(-600, 0, 0, 0));
 
         Label correctas = new Label(correctasString);
-        titulo.setFont(new Font(30));
-        stack.setMargin(correctas, new Insets(-500, 0, 0, 0));
+        correctas.setFont(new Font(20));
+        stack.setMargin(correctas, new Insets(-400, 0, 0, 0));
         stack.getChildren().addAll(titulo, correctas);
     }
 
@@ -66,12 +68,12 @@ public class VistaRespuestas extends StackPane {
     }
 
     private void obtenerNombresConPuntos(List<Jugador> jugadores){
-        int ALTO = -300;
+        int ALTO = -200;
         for(Jugador jugador : jugadores){
             Label usuario = new Label(jugador.obtenerNombre() + "     ->");
             usuario.setFont(Font.font("Arial", FontWeight.BOLD, 35));
             stack.getChildren().add(usuario);
-            stack.setMargin(usuario, new Insets(ALTO, 200, 0, 0));
+            stack.setMargin(usuario, new Insets(ALTO, 100, 0, 0));
 
             Label puntos = new Label(String.valueOf(jugador.obtenerPuntaje()));
             puntos.setFont(Font.font("Arial", FontWeight.BOLD, 35));

@@ -5,8 +5,6 @@ import edu.fiuba.algo3.modelo.general.Kahoot;
 import edu.fiuba.algo3.modelo.preguntas.Pregunta;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
-import javafx.scene.Node;
-import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.Background;
 import javafx.scene.layout.BackgroundFill;
@@ -15,7 +13,6 @@ import javafx.scene.layout.StackPane;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
-import javafx.scene.text.TextAlignment;
 import javafx.stage.Stage;
 
 public abstract class VistaTipoDePregunta extends StackPane{
@@ -25,7 +22,6 @@ public abstract class VistaTipoDePregunta extends StackPane{
     private Label nombreJugador;
     protected Label pregunta;
     private Label numeroDePregunta;
-
 
 
     public VistaTipoDePregunta(Kahoot modelo, Jugador jugador, Stage stage) {
@@ -43,6 +39,7 @@ public abstract class VistaTipoDePregunta extends StackPane{
         setAlignment(Pos.CENTER);
 
         numeroDePregunta = new Label( "Pregunta " + modelo.obtenerPreguntaActual().getNumeroDePregunta() + " / " + Pregunta.getNumeroTotalPreguntas());
+        numeroDePregunta.setFont(new Font(15));
         numeroDePregunta.setAlignment(Pos.TOP_LEFT);
 
         nombreJugador = new Label(jugador.obtenerNombre());

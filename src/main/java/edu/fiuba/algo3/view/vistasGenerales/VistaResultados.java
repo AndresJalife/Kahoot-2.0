@@ -59,10 +59,12 @@ public class VistaResultados extends StackPane{
 
         for(Jugador jugador : jugadores){
             Label usuario;
+            String  puntos = "PUNTOS";
+            if (jugador.obtenerPuntaje() == 1) puntos = "PUNTO";
 
-            if(i==20) usuario = new Label("El ganador es "+ jugador.obtenerNombre()+" con "+jugador.obtenerPuntaje()+"puntos !" );
+            if(i==20) usuario = new Label("¡¡ EL GANADOR ES "+ jugador.obtenerNombre()+" CON "+jugador.obtenerPuntaje()+ puntos +" !!" );
+            else usuario = new Label("EN SEGUNDO PUESTO  "+ jugador.obtenerNombre()+" CON "+jugador.obtenerPuntaje()+ puntos );
 
-            else usuario = new Label("El perdedor es "+ jugador.obtenerNombre()+" con "+jugador.obtenerPuntaje()+"puntos" );
 
             usuario.setFont(Font.font("Arial", FontWeight.BOLD, 35));
             usuario.setTextFill(Color.rgb(238, 205, 134));
