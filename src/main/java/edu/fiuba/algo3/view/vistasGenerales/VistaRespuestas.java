@@ -5,7 +5,7 @@ import edu.fiuba.algo3.modelo.general.Kahoot;
 import edu.fiuba.algo3.modelo.preguntas.Opcion;
 import edu.fiuba.algo3.modelo.preguntas.TipoGroupChoice;
 import edu.fiuba.algo3.modelo.preguntas.TipoOrderedChoice;
-import edu.fiuba.algo3.view.eventos.SiguienteRondaOTerminar;
+import edu.fiuba.algo3.view.eventos.CargarVistaMultiplicador;
 import javafx.geometry.Insets;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -28,7 +28,7 @@ public class VistaRespuestas extends StackPane {
         this.mostrarRespuestasCorrectas(modelo);
         if(modelo.cambiarRonda()){
             Button siguientePregunta = new Button("Siguiente pregunta");
-            siguientePregunta.setOnAction(new SiguienteRondaOTerminar(modelo, stage));
+            siguientePregunta.setOnAction(new CargarVistaMultiplicador(modelo, stage));
             stack.getChildren().add(siguientePregunta);
             stack.setMargin(siguientePregunta, new Insets(150, 0, 0, 0));
         }

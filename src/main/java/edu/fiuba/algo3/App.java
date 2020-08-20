@@ -37,7 +37,7 @@ public class App extends Application {
 
     public void cargarPreguntasKahoot(){
         try {
-            modelo.inicializarPreguntas(getClass().getResource("/orderedChoice.json").toURI());
+            modelo.inicializarPreguntas(getClass().getResource("/preguntas.json").toURI());
 
         }
         catch (Exception e){
