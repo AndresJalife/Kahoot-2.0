@@ -13,7 +13,7 @@
 
 \pagestyle{fancy} % Encabezado y pie de página
 \fancyhf{}
-\fancyhead[L]{TP1S - Max Mustermann}
+\fancyhead[L]{TP1S - Grupo 7}
 \fancyhead[R]{Algoritmos y Programación III - FIUBA}
 \renewcommand{\headrulewidth}{0.4pt}
 \fancyfoot[C]{\thepage}
@@ -61,6 +61,18 @@ El presente informe reune la documentación de la solución del segundo trabajo 
 
 \section{Modelo de dominio}\label{sec:modelo}
 % Explicación concisa del diseño general del trabajo.
+El Kahoot fue diseñado para que sea fácilmente extensible ya sea en nuevos modificadores, nuevos tipos de preguntas o nuevos modos de pregunta. Para poder lograr esto se trato de que la mayoria de las funcionalidades sean delegadas a objetos que puedan ser reemplazados facilmente. \\
+
+La unidad base de nuestro programa es el objeto Kahoot, este maneja y conecta las distintas partes del modelo, comenzando por las rondas. El Kahoot contiene una lista de objetos del tipo RondaBase donde cada ronda representa una ronda del juego osea una pregunta con sus jugadores y sus modificadores. Luego de que ambos jugadores contesten una pregunta Kahoot creara una ronda nueva con la siguiente pregunta y los modificadores a utilizar.\\
+
+Las rondas son el objeto principal de nuestro modelo. Estas mantienen un estado de las respuestas dadas, los modificadores utilizados y el tiempo restante de la pregunta. Tambien se encargan de calcular los puntajes dependiendo de los modificadores que se utilizaron. Existen 2 implementaciones de RondaBase, RondaNormal y RondaExclusividad que representan rondas donde se pueden usar multiplicadores o exclusividades respectivamente.\\
+
+Por el lado de las preguntas estas mismas fueron modeladas con atributos base como texto y opciones posibles pero las funcionalidades mas especificas como la forma de calcular el puntaje o verificar las respuestas son delegadas a otros objetos del tipo ModoDePregunta y TipoDePregunta. Esto nos permite mantener el mismo objeto pregunta pero con distintas funcionalidades y sin utilizar herencia, manteniendo asi una jerarquia mas simple.\\
+
+Dentro de las rondas cada jugador es representado por un objeto del tipo Jugador que contiene su puntaje, su nombre y sus modificadores y exclusividades restantes. Los modificadores son objetos del tipo Multiplicador y Exclusividad los cuales mantienen un estado de sus usos y definen como modificar los puntajes.\\
+
+El objeto Kahoot internamente carga las preguntas desde un archivo JSON que es indicado internamente. Esto nos permitio editar las preguntas sin necesidad de recompilar el codigo. Para maximizar la versatilidad del modelo esto fue abstraido a traves de una interfaz lo que nos permite tener distintos lectores con la misma firma. Mas adelante mostraremos un ejemplo de otros lectores de preguntas implementados.\\
+
 
 \section{Diagramas de clase}\label{sec:diagramasdeclase}
 % Uno o varios diagramas de clases mostrando las relaciones estáticas entre las clases.  Puede agregarse todo el texto necesario para aclarar y explicar su diseño. Recuerden que la idea de todo el documento es que quede documentado y entendible cómo está implementada la solución.
